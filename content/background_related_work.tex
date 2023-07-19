@@ -1,31 +1,10 @@
-%\section{Background and Related Work}
-\section{Background}
-\subsection{Inter-organizational Process Mining}
-
-\subsection{Usage Control}
-Usage control is a security mechanism that focuses on governing the utilization of digital resources. Unlike traditional access control, which primarily concentrates on managing access to these resources, usage control considers the context in which they are being used. A usage policy is a set of rules that dictate the limitations under which digital resources can be employed. One of the most cited usage control models is UCON$_{ABC}$. This model introduces the fundamental notions of \emph{obligations} (i.e., functional statements that verify the mandatory conditions that a subject must fulfill before or during the use of a resource) and \emph{conditions} (i.e., decision factors assessing the current system or environmental status). Usage control frameworks require dedicated infrastructure to enforce policy rules and continuously monitor their compliance. This is necessary in order to identify any violations and carry out corrective actions such as penalties or revocation of rights.
-
-
-\subsection{Trusted Execution Environments}
-A Trusted Execution Environment (TEE) is a secure and tamper-resistant processing environment that operates on a separation kernel~\cite{mcgillion2015open}, which enables the execution of code to be isolated from the primary operating system. TEE uses hardware and software features in order to create a trusted environment for applications and data. The separation kernel technique ensures that multiple environments can operate independently, offering different levels of security without interfering with one another. TEEs were initially introduced by~\cite{rushby1981design} to allow multiple systems with varying security requirements to run simultaneously on a single platform, while kernel separation ensures strong isolation and mitigates the risk of tampering or unauthorized access~\cite{frohlich2023secure}. TEE is designed to provide three key security guarantees: authenticity, integrity, and confidentiality. It assures that the code it executes is legitimate, and the runtime states are free from tampering, while the code and data stored in persistent memory are kept confidential~\cite{sebastian2019tee}. The content produced by the TEE is updated dynamically and stored securely to ensure continued protection against attacks. Additionally, this security mechanism is engineered to detect and prevent the exploitation of even the most sophisticated backdoor security vulnerabilities~\cite{DBLP:conf/trustcom/SabtAB15}.
-
-%\subsection{Blockchain Technologies and Smart Contracts}
-%A blockchain is a distributed data structure that involves storing transactions in a sequential and unchangeable list known as \emph{ledger}. The ledger is updated through sequential blocks that are constructed, validated (i.e., mined), and then shared with all nodes in the network. As the ledger is replicated across all nodes, any updates to it require \emph{consensus} among the nodes via specific algorithms~\cite{wang2019survey}. Due to its decentralized, persistent, and immutable nature, blockchain technology is well-suited for automated systems that require the recording of interactions between multiple untrusted parties~\cite{frameworkBlockchainApplication}. The emergence of Ethereum~\cite{buterin2014next} ushers the second generation of blockchain platforms, transforming blockchain from being primarily an e-cash distributed management system to a distributed programming platform used as a foundation for \emph{Decentralized Applications}(DApps)~\cite{mohanty2018ethereum}. Ethereum made it possible to deploy and execute \emph{smart contracts}, which are stateful software components that expose variables and callable methods, on the blockchain through the Ethereum Virtual Machine (EVM). A Smart contract's code is stored on the blockchain, and each time a user interacts with its methods, a new transaction is created. Because the code is executed on the EVM, and not locally, users are required to pay fees known as \emph{gas} as compensation for the computational effort used. The amount of gas required to execute a smart contract is proportional to the code's complexity and the operations involved.
-
-
 \section{Related Work}
-
-The application of process mining in an inter-organizational scenario is infrequent due to concerns related to privacy and confidentiality, integrity and data heterogeneity. To overcome these problems, a large number of techniques have been proposed. Federated process mining [WVDAlst??] aims to effectively manage the problem of privacy preserving. Using federated data sources, event data can be transparently mapped between multi-source autonomous provider to monitor, analyze, and improve processes across organizations.
-
-
-
-
-
-
-
-
-
-
-
+The application of process mining in an inter-organizational scenario is infrequent due to concerns related to privacy and confidentiality, integrity and data heterogeneity. To overcome these problems, a large number of techniques have been proposed. Federated process mining [WVDAlst??] aims to effectively manage the problem of privacy-preserving. Using federated data sources, event data can be transparently mapped between multi-source autonomous provider to monitor, analyze, and improve processes across organizations.
+% inter-organizational process in company
+% inter-organizational and process mining
+% inter-organizational and merge log
+% data exchange
+% Use of data from other organizations(person) integrity ecc ecc (LOCAL)
+Once the data exchange has taken place, it is critical that the data be stored in a trusted part of the consumer's device. Davide et al.~\cite{Basile_Blockchain_based_resource_governance_for_decentralized_web_environments} in their study created a framework called Regov that allows for the exchange of sensitive information in a decentralized web context, ensuring usage control-based data access and usage. To ensure control over the consumer's device, Davide et al. use trusted execution environment that allows storage and utilization management of retrieved resources. 
 
 \label{sec:background}
