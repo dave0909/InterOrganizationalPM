@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.7.19)  20 JUL 2023 15:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.7.19)  23 JUL 2023 15:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -537,7 +537,14 @@ tex.def
 File: l3backend-pdftex.def 2023-03-30 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count315
 \l__pdf_internal_box=\box109
-) (main.aux)
+) (main.aux
+
+LaTeX Warning: Label `fig:implementation' multiply defined.
+
+
+LaTeX Warning: Label `fig:implementation@cref' multiply defined.
+
+)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
@@ -587,16 +594,27 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 Title too long for running head. Please supply
 a shorter form with \titlerunning prior to \maketitle
-(content/introduction.tex) (content/background_related_work.tex [1
+(content/introduction.tex) (content/background_related_work.tex
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9> on input line 6.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 6.
 
-{C:/Users/david/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]) (content/mo
-tivating.tex) (content/design.tex
-<content/figures/architecture_diagram.pdf, id=15, 766.78468pt x 503.96278pt>
+Overfull \hbox (25.62715pt too wide) in paragraph at lines 5--8
+\OT1/cmr/m/n/10 on inter-organizational en-vi-ron-ments. Van Der Aalst [1] show
+s that inter-organizational
+ []
+
+[1
+
+{C:/Users/david/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}])
+(content/motivating.tex) (content/design.tex
+<content/figures/architecture_diagram.pdf, id=14, 766.78468pt x 503.96278pt>
 File: content/figures/architecture_diagram.pdf Graphic file (type pdf)
 <use content/figures/architecture_diagram.pdf>
 Package pdftex.def Info: content/figures/architecture_diagram.pdf  used on inpu
-t line 7.
-(pdftex.def)             Requested size: 284.52756pt x 187.00159pt.
+t line 5.
+(pdftex.def)             Requested size: 312.9803pt x 205.7033pt.
 
 Overfull \hbox (0.65414pt too wide) in paragraph at lines 11--12
 \OT1/cmr/m/n/10 Our ar-chi-tec-ture in-volve net-works of nodes con-trolled by 
@@ -604,38 +622,62 @@ dif-fer-ent \OT1/cmtt/m/n/10 Organization\OT1/cmr/m/n/10 s
  []
 
 [2]
-Overfull \hbox (7.42416pt too wide) in paragraph at lines 19--20
+Overfull \hbox (7.42416pt too wide) in paragraph at lines 18--19
  \OT1/cmr/bx/n/10 Log Provider[] \OT1/cmr/m/n/10 The \OT1/cmtt/m/n/10 Log Provi
 der \OT1/cmr/m/n/10 com-po-nent de-liver on-demand data to \OT1/cmtt/m/n/10 Tru
 sted
  []
 
-) (content/implementation.tex) (content/evaluation.tex [3 <./content/figures/ar
-chitecture_diagram.pdf>]) (content/conclusion.tex) (main.bbl) [4] (main.aux) ) 
+[3 <./content/figures/architecture_diagram.pdf>]
+<content/figures/Trusted_miner.pdf, id=37, 349.305pt x 211.7511pt>
+File: content/figures/Trusted_miner.pdf Graphic file (type pdf)
+<use content/figures/Trusted_miner.pdf>
+Package pdftex.def Info: content/figures/Trusted_miner.pdf  used on input line 
+28.
+(pdftex.def)             Requested size: 199.16928pt x 120.73814pt.
+ [4 <./content/figures/Trusted_miner.pdf>]
+Overfull \hbox (3.34769pt too wide) in paragraph at lines 38--39
+\OT1/cmr/m/n/10 ac-cepts event logs sent by \OT1/cmtt/m/n/10 Log Providers \OT1
+/cmr/m/n/10 and store them in the \OT1/cmtt/m/n/10 Trusted Memory\OT1/cmr/m/n/1
+0 .
+ []
+
+
+Overfull \hbox (17.01439pt too wide) in paragraph at lines 40--41
+\OT1/cmr/m/n/10 logic to ex-e-cute pro-cess min-ing al-go-rithms in the \OT1/cm
+tt/m/n/10 Trusted Execution Environment\OT1/cmr/m/n/10 . 
+ []
+
+) (content/implementation.tex) (content/evaluation.tex) (content/conclusion.tex
+[5]) (main.bbl [6]) [7] (main.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 14701 strings out of 476331
- 311274 string characters out of 5787765
- 1858660 words of memory out of 5000000
- 34900 multiletter control sequences out of 15000+600000
- 514925 words of font info for 41 fonts, out of 8000000 for 9000
+ 14733 strings out of 476331
+ 311921 string characters out of 5787765
+ 1859660 words of memory out of 5000000
+ 34925 multiletter control sequences out of 15000+600000
+ 516795 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,6n,94p,1307b,296s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<
-C:/Users/david/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmb
-x10.pfb><C:/Users/david/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
-ts/cm/cmbx12.pfb><C:/Users/david/AppData/Local/Programs/MiKTeX/fonts/type1/publ
-ic/amsfonts/cm/cmbx9.pfb><C:/Users/david/AppData/Local/Programs/MiKTeX/fonts/ty
-pe1/public/amsfonts/cm/cmmi7.pfb><C:/Users/david/AppData/Local/Programs/MiKTeX/
-fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/david/AppData/Local/Programs
-/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/david/AppData/Local/P
-rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/david/AppData/
-Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/david/
-AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/User
-s/david/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb
->
-Output written on main.pdf (4 pages, 180640 bytes).
+ 99i,9n,94p,1307b,332s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/david/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmbx10.pfb><C:/Users/david/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmbx12.pfb><C:/Users/david/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmbx9.pfb><C:/Users/david/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/david/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/david/AppData/Local/Progra
+ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/david/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/david/AppDat
+a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/davi
+d/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/U
+sers/david/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.p
+fb><C:/Users/david/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
+/cmtt10.pfb>
+Output written on main.pdf (7 pages, 235256 bytes).
 PDF statistics:
- 81 PDF objects out of 1000 (max. 8388607)
+ 107 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 18 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 23 words of extra memory for PDF output out of 10000 (max. 10000000)
 

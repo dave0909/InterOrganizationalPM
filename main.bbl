@@ -1,8 +1,52 @@
 \begin{thebibliography}{1}
 
+\bibitem{van2011intra}
+W.~M. van~der Aalst, ``Intra-and inter-organizational process mining:
+  Discovering processes within and between organizations,'' in {\em The
+  Practice of Enterprise Modeling: 4th IFIP WG 8.1 Working Conference, PoEM
+  2011 Oslo, Norway, November 2-3, 2011 Proceedings 4}, pp.~1--11, Springer,
+  2011.
+
+\bibitem{elkoumy2020shareprom}
+G.~Elkoumy, S.~A. Fahrenkrog-Petersen, M.~Dumas, P.~Laud, A.~Pankova, and
+  M.~Weidlich, ``Shareprom: A tool for privacy-preserving inter-organizational
+  process mining.,'' {\em BPM (PhD/Demos)}, vol.~2673, pp.~72--76, 2020.
+
+\bibitem{engel2016analyzing}
+R.~Engel, W.~Krathu, M.~Zapletal, C.~Pichler, R.~J.~C. Bose, W.~van~der Aalst,
+  H.~Werthner, and C.~Huemer, ``Analyzing inter-organizational business
+  processes: process mining and business performance analysis using electronic
+  data interchange messages,'' {\em Information Systems and e-Business
+  Management}, vol.~14, pp.~577--612, 2016.
+
+\bibitem{elkoumy2020secure}
+G.~Elkoumy, S.~A. Fahrenkrog-Petersen, M.~Dumas, P.~Laud, A.~Pankova, and
+  M.~Weidlich, ``Secure multi-party computation for inter-organizational
+  process mining,'' in {\em Enterprise, Business-Process and Information
+  Systems Modeling: 21st International Conference, BPMDS 2020, 25th
+  International Conference, EMMSAD 2020, Held at CAiSE 2020, Grenoble, France,
+  June 8--9, 2020, Proceedings 21}, pp.~166--181, Springer, 2020.
+
+\bibitem{hernandez2021merging}
+J.~D. Hernandez-Resendiz, E.~Tello-Leal, H.~M. Marin-Castro, U.~M.
+  Ramirez-Alcocer, and J.~A. Mata-Torres, ``Merging event logs for
+  inter-organizational process mining,'' in {\em New Perspectives on Enterprise
+  Decision-Making Applying Artificial Intelligence Techniques}, pp.~3--26,
+  Springer, 2021.
+
+\bibitem{claes2014merging}
+J.~Claes and G.~Poels, ``Merging event logs for process mining: A rule based
+  merging method and rule suggestion algorithm,'' {\em Expert Systems with
+  Applications}, vol.~41, no.~16, pp.~7291--7306, 2014.
+
 \bibitem{Basile_Blockchain_based_resource_governance_for_decentralized_web_environments}
 D.~Basile, C.~D. Ciccio, V.~Goretti, and S.~Kirrane, ``Blockchain based
   resource governance for decentralized web environments,'' {\em Frontiers in
   Blockchain}, vol.~6, may 2023.
+
+\bibitem{van2021federated}
+W.~M. van~der Aalst, ``Federated process mining: exploiting event data across
+  organizational boundaries,'' in {\em 2021 IEEE International Conference on
+  Smart Data Services (SMDS)}, pp.~1--7, IEEE, 2021.
 
 \end{thebibliography}
