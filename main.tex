@@ -4,15 +4,13 @@
 %
 \documentclass[runningheads]{llncs}
 %
-\usepackage{cleveref}
-\usepackage{graphicx}
 % Used for displaying a sample figure. If possible, figure files should
 % be included in EPS format.
-%
+\input{addon/pkgloading.tex}
 % If you use the hyperref package, please uncomment the following line
 % to display URLs in blue roman font according to Springer's eBook style:
-% \renewcommand\UrlFont{\color{blue}\rmfamily}
-\usepackage{todonotes}
+\renewcommand\UrlFont{\color{blue}\rmfamily}
+%
 \begin{document}
 %
 \title{
@@ -43,7 +41,9 @@ Valerio~Goretti\inst{1}\orcidID{0000-0001-9714-4278} \and Claudio~Di~Ciccio\inst
 
 \input{content/introduction.tex}
 \input{content/background_related_work.tex}
+\section{Motivating Scenario}\label{sec:motivating}
 \input{content/motivating}
+\section{Design}\label{sec:design}
 \input{content/design.tex}
 \input{content/implementation.tex}
 \input{content/evaluation.tex}
@@ -52,7 +52,7 @@ Valerio~Goretti\inst{1}\orcidID{0000-0001-9714-4278} \and Claudio~Di~Ciccio\inst
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Biblography
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\bibliographystyle{ieeetr}
+\bibliographystyle{splncs04}
 \bibliography{main}
 
 
