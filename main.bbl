@@ -1,0 +1,84 @@
+\begin{thebibliography}{10}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\providecommand{\doi}[1]{https://doi.org/#1}
+
+\bibitem{van2011intra}
+van~der Aalst, W.M.: Intra-and inter-organizational process mining: Discovering
+  processes within and between organizations. In: The Practice of Enterprise
+  Modeling: 4th IFIP WG 8.1 Working Conference, PoEM 2011 Oslo, Norway,
+  November 2-3, 2011 Proceedings 4. pp. 1--11. Springer (2011)
+
+\bibitem{van2021federated}
+van~der Aalst, W.M.: Federated process mining: exploiting event data across
+  organizational boundaries. In: 2021 IEEE International Conference on Smart
+  Data Services (SMDS). pp.~1--7. IEEE (2021)
+
+\bibitem{arfaoui2014trusted}
+Arfaoui, G., Gharout, S., Traor{\'e}, J.: Trusted execution environments: A
+  look under the hood. In: 2014 2nd IEEE international conference on mobile
+  cloud computing, services, and Engineering. pp. 259--266. IEEE (2014)
+
+\bibitem{Basile_Blockchain_based_resource_governance_for_decentralized_web_environments}
+Basile, D., Ciccio, C.D., Goretti, V., Kirrane, S.: Blockchain based resource
+  governance for decentralized web environments. Frontiers in Blockchain
+  \textbf{6} (may 2023). \doi{10.3389/fbloc.2023.1141909},
+  \url{https://doi.org/10.3389%2Ffbloc.2023.1141909}
+
+\bibitem{claes2014merging}
+Claes, J., Poels, G.: Merging event logs for process mining: A rule based
+  merging method and rule suggestion algorithm. Expert Systems with
+  Applications  \textbf{41}(16),  7291--7306 (2014)
+
+\bibitem{Dumas.etal/2018:FundamentalsofBPM}
+Dumas, M., La~Rosa, M., Mendling, J., Reijers, H.A.: Fundamentals of Business
+  Process Management, Second Edition. Springer (2018).
+  \doi{10.1007/978-3-662-56509-4}
+
+\bibitem{elkoumy2020secure}
+Elkoumy, G., Fahrenkrog-Petersen, S.A., Dumas, M., Laud, P., Pankova, A.,
+  Weidlich, M.: Secure multi-party computation for inter-organizational process
+  mining. In: Enterprise, Business-Process and Information Systems Modeling:
+  21st International Conference, BPMDS 2020, 25th International Conference,
+  EMMSAD 2020, Held at CAiSE 2020, Grenoble, France, June 8--9, 2020,
+  Proceedings 21. pp. 166--181. Springer (2020)
+
+\bibitem{elkoumy2020shareprom}
+Elkoumy, G., Fahrenkrog-Petersen, S.A., Dumas, M., Laud, P., Pankova, A.,
+  Weidlich, M.: Shareprom: A tool for privacy-preserving inter-organizational
+  process mining. BPM (PhD/Demos)  \textbf{2673},  72--76 (2020)
+
+\bibitem{engel2014case}
+Engel, R., Bose, R.J.C.: A case study on analyzing inter-organizational
+  business processes from edi messages using physical activity mining. In: 2014
+  47th Hawaii International Conference on System Sciences. pp. 3858--3867. IEEE
+  (2014)
+
+\bibitem{engel2011process}
+Engel, R., Krathu, W., Zapletal, M., Pichler, C., van~der Aalst, W.M.,
+  Werthner, H.: Process mining for electronic data interchange. In: E-Commerce
+  and Web Technologies: 12th International Conference, EC-Web 2011, Toulouse,
+  France, August 30-September 1, 2011. Proceedings 12. pp. 77--88. Springer
+  (2011)
+
+\bibitem{engel2016analyzing}
+Engel, R., Krathu, W., Zapletal, M., Pichler, C., Bose, R.J.C., van~der Aalst,
+  W., Werthner, H., Huemer, C.: Analyzing inter-organizational business
+  processes: process mining and business performance analysis using electronic
+  data interchange messages. Information Systems and e-Business Management
+  \textbf{14},  577--612 (2016)
+
+\bibitem{hernandez2021merging}
+Hernandez-Resendiz, J.D., Tello-Leal, E., Marin-Castro, H.M., Ramirez-Alcocer,
+  U.M., Mata-Torres, J.A.: Merging event logs for inter-organizational process
+  mining. In: New Perspectives on Enterprise Decision-Making Applying
+  Artificial Intelligence Techniques, pp. 3--26. Springer (2021)
+
+\bibitem{XIE2023321}
+Xie, H., Zheng, J., He, T., Wei, S., Hu, C.: Tebds: A trusted execution
+  environment-and-blockchain-supported iot data sharing system. Future
+  Generation Computer Systems  \textbf{140},  321--330 (2023).
+  \doi{https://doi.org/10.1016/j.future.2022.10.016},
+  \url{https://www.sciencedirect.com/science/article/pii/S0167739X22003326}
+
+\end{thebibliography}
