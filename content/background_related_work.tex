@@ -1,18 +1,22 @@
 \section{Related Work}
 \label{sec:background}
 
-% inter-organizational and process mining
-The literature proposes several studies that consider process mining techniques on inter-organizational environments.  Van Der Aalst~\cite{van2011intra} shows that inter-organizational processes can be divided according to different dimensions making identifiable challenges of inter-organizational process extractions. Elkoumy et al.~\cite{elkoumy2020shareprom} propose a tool which allows independent parts of an organization to perform process mining operations by revealing only the result. This tool is called Shareprom and exploits the features of secure multi-party computation (MPC). Engel et al.~\cite{engel2016analyzing}
-present EDImine Framework which allows to apply process mining operations for inter-organizational processes supported by the EDI standard\footnote{https://edicomgroup.com/learning-center/edi/standards} and evaluate their performance using business information.
-Elkoumy et al.~\cite{elkoumy2020secure} They propose an architecture based on MPC. This architecture aims to perform process mining operations without the need to share their data or trust third parties.
-
+% Inter-organizational and process mining
+The literature proposes several studies that consider process mining techniques in inter-organizational environments.  Van Der Aalst~\cite{van2011intra} shows that inter-organizational processes can be divided according to different dimensions making identifiable challenges of inter-organizational process extractions. Elkoumy et al.~\cite{elkoumy2020shareprom} propose a tool that allows independent parts of an organization to perform process mining operations by revealing only the result. This tool is called Shareprom and exploits the features of secure multi-party computation (MPC). Engel et al.~\cite{engel2016analyzing}
+present EDImine Framework, which allows to apply process mining operations for inter-organizational processes supported by the EDI standard\footnote{https://edicomgroup.com/learning-center/edi/standards} and evaluate their performance using business information.
+Elkoumy et al.~\cite{elkoumy2020secure} propose an architecture based on MPC. This architecture aims to perform process mining operations without sharing their data or trusting third parties.
 
 
 % inter-organizational and merge log
-\cite{hernandez2021merging}
+Applying process mining techniques in intra-organizational contexts requires merging the event logs of the organizations participating in the process. Hernandez-Resendiz et al.~\cite{hernandez2021merging} present a methodology for merging logs at the trace and activity level using rules and methods to discover the process.
 \cite{claes2014merging}
-% data exchange
-% Use of data from other organizations(person) integrity ecc ecc (LOCAL)
+%data exchange 
+\cite{engel2014case}
+\cite{engel2011process}
+% Use of data from other organizations(or person) integrity ecc ecc (LOCAL)
+\cite{arfaoui2014trusted}
+\cite{XIE2023321}
+
 Once the data exchange has taken place, it is critical that the data be stored in a trusted part of the consumer's device. Basile et al.~\cite{Basile_Blockchain_based_resource_governance_for_decentralized_web_environments} in their study created a framework called Regov that allows for the exchange of sensitive information in a decentralized web context, ensuring usage control-based data access and usage. To ensure control over the consumer's device, Davide et al. use trusted execution environment that allows storage and utilization management of retrieved resources. 
 
 The application of process mining in an inter-organizational scenario is infrequent due to concerns related to privacy and confidentiality, integrity and data heterogeneity. To overcome these problems, a large number of techniques have been proposed. Federated process mining \cite{van2021federated} aims to effectively manage the problem of privacy-preserving. Using federated data sources, event data can be transparently mapped between multi-source autonomous provider to monitor, analyze, and improve processes across organizations.
