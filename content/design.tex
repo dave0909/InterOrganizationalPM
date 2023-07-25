@@ -21,7 +21,7 @@ The \texttt{Log Provider} component delivers on-demand data to \texttt{Trusted M
 
 Remote Attestation and Log Segmentation are crucial procedures handled by the \texttt{Log Provider} during the provision process. Through Remote Attestation, \texttt{Log Provider}s verify that the \texttt{Trusted Miner} that has generated the log request  is: (i) a known software object running inside a trusted execution environment; (ii) controlled by a partner \texttt{Organization} that has rights to access the event log. We named Log Segementation the process through which \texttt{Log Provider}s split the event log to be delivered in sub-log of smaller size.
 
-Our architecture enables the adoption of multiple web protocols appropriated for the \texttt{Log Provider} implementation. HTTP\footnote{HTTP protocol \url{https://httpwg.org/specs/rfc9110.html}, accessed \today.}, FTP and Gopher are some of the suitable candidate for this task.
+Our architecture enables the adoption of multiple web protocols appropriated for the \texttt{Log Provider} implementation. HTTP\footnote{\url{https://httpwg.org/specs/rfc9110.html}. Accessed: \today.}, FTP\footnote{https://datatracker.ietf.org/doc/html/rfc959. Accessed: \today.} and Gopher\footnote{https://www.rfc-editor.org/rfc/rfc1436.html. Accessed: \today.} are some of the suitable candidate for this task.
 \label{fig:trusted_miner}
 \begin{figure}[t]
 \centering
