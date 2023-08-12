@@ -14,11 +14,6 @@ van~der Aalst, W.M.: Federated process mining: exploiting event data across
   organizational boundaries. In: 2021 IEEE International Conference on Smart
   Data Services (SMDS). pp.~1--7. IEEE (2021)
 
-\bibitem{arfaoui2014trusted}
-Arfaoui, G., Gharout, S., Traor{\'e}, J.: Trusted execution environments: A
-  look under the hood. In: 2014 2nd IEEE international conference on mobile
-  cloud computing, services, and Engineering. pp. 259--266. IEEE (2014)
-
 \bibitem{Basile_Blockchain_based_resource_governance_for_decentralized_web_environments}
 Basile, D., Ciccio, C.D., Goretti, V., Kirrane, S.: Blockchain based resource
   governance for decentralized web environments. Frontiers in Blockchain
@@ -48,12 +43,6 @@ Elkoumy, G., Fahrenkrog-Petersen, S.A., Dumas, M., Laud, P., Pankova, A.,
   Weidlich, M.: Shareprom: A tool for privacy-preserving inter-organizational
   process mining. BPM (PhD/Demos)  \textbf{2673},  72--76 (2020)
 
-\bibitem{engel2014case}
-Engel, R., Bose, R.J.C.: A case study on analyzing inter-organizational
-  business processes from edi messages using physical activity mining. In: 2014
-  47th Hawaii International Conference on System Sciences. pp. 3858--3867. IEEE
-  (2014)
-
 \bibitem{engel2011process}
 Engel, R., Krathu, W., Zapletal, M., Pichler, C., van~der Aalst, W.M.,
   Werthner, H.: Process mining for electronic data interchange. In: E-Commerce
@@ -74,10 +63,21 @@ Hernandez-Resendiz, J.D., Tello-Leal, E., Marin-Castro, H.M., Ramirez-Alcocer,
   mining. In: New Perspectives on Enterprise Decision-Making Applying
   Artificial Intelligence Techniques, pp. 3--26. Springer (2021)
 
+\bibitem{hussain2021sharing}
+Hussain, A., Lasrado, L.A., Mukkamala, R.R., Tanveer, U.: Sharing is
+  caring--design and demonstration of a data privacy tool for
+  interorganizational transfer of data. Procedia Computer Science
+  \textbf{181},  394--402 (2021)
+
 \bibitem{koch2002expressive}
 Koch, N., Kraus, A.: The expressive power of uml-based web engineering. In:
   Second International Workshop on Web-oriented Software Technology (IWWOST02).
   vol.~16, pp. 40--41. Citeseer (2002)
+
+\bibitem{lo2020flexible}
+Lo, N.W., Chen, S.C., Chang, S.C.: A flexible electronic data exchange
+  framework based on consortium blockchain. Journal of Internet Technology
+  \textbf{21}(5),  1313--1324 (2020)
 
 \bibitem{XIE2023321}
 Xie, H., Zheng, J., He, T., Wei, S., Hu, C.: Tebds: A trusted execution
