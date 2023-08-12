@@ -8,7 +8,9 @@ In this section we outline the technical aspects concerning the realization of o
 \label{fig:deployment_diagram}
 \end{figure}
 \subsection{Deployment}
-As follow, we bridge the gap between high-level system architecture and its practical realization. \cref{fig:deployment_diagram} depicts a UML deployment diagram \cite{koch2002expressive} aimed at aiding the understanding of the instantiated infrastrucuture. The \texttt{PAIS}, the \texttt{PAIS Interface}, the \texttt{Log Provider} and \texttt{Secure Miner} already introduced are included as abstract components of the \texttt{Organization Machine} device node.
+As follow, we bridge the gap between high-level system architecture and its practical realization. \cref{fig:deployment_diagram} depicts a \textit{UML deployment diagram} \cite{koch2002expressive} aimed at aiding the understanding of the instantiated infrastrucuture. 
+
+The \texttt{Organization Machine} represent the physical computation \textit{device} embracing the software and hardware entities of the company. The \texttt{PAIS}, the \texttt{PAIS Interface}, the \texttt{Log Provider} and \texttt{Secure Miner} are included in the \texttt{Organization Machine} as abstract \textit{components} . These elements serve as logical containers that incorporate the core functionalities already discussed in \cref{sec:design}. The \texttt{Organization Machine} is characterized by two \textit{execution environment}s: The \texttt{Operative System} and the \texttt{Trusted Execution Environment}.
 
 \subsection{Workflow}
 \subsection{Implementation}
