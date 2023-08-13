@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.7.19)  12 AUG 2023 22:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.7.19)  13 AUG 2023 10:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2313,11 +2313,11 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: B696BF5B05AA89E2E358256A8E7142C9;2283.
  ) 
 Here is how much of TeX's memory you used:
- 50761 strings out of 476331
- 1067596 string characters out of 5787765
+ 50763 strings out of 476331
+ 1067610 string characters out of 5787765
  1864660 words of memory out of 5000000
  70006 multiletter control sequences out of 15000+600000
- 531715 words of font info for 171 fonts, out of 8000000 for 9000
+ 531766 words of font info for 172 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  104i,8n,100p,2280b,1097s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\david\AppData\Local\MiKTeX\fonts/pk/ljfour/public/mathabx/dpi600\m
@@ -2332,7 +2332,7 @@ a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/david
 /AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Us
 ers/david/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.p
 fb>
-Output written on main.pdf (8 pages, 319992 bytes).
+Output written on main.pdf (8 pages, 320753 bytes).
 PDF statistics:
  316 PDF objects out of 1000 (max. 8388607)
  45 named destinations out of 1000 (max. 500000)
