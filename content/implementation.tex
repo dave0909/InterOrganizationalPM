@@ -22,12 +22,7 @@ Software entities that we expose to the users of the \texttt{Organization Machin
 
 
 %The \texttt{PAIS Interface} collects the logic to interact with the Process-aware Information Sytem (\texttt{PAIS}) of the \texttt{Organization}. \texttt{PAIS} systems help \texttt{Organization}s to handle business processes including accounting and resource management. The maintenance of event logs is the core tasks performed by these systems~\cite{Dumas.etal/2018:FundamentalsofBPM}. In our architecture, we generalize the interaction with \texttt{PAIS}s through the \texttt{PAIS Interface}. The \texttt{PAIS Interface} is queried by the local \texttt{Log Provider} for event logs to be fed into \texttt{Secure Miner}s.
-\begin{figure}[t]
-\centering
-\includegraphics[width=10cm]{content/figures/sequence_diagram.pdf}
-\caption{UML sequence diagram.}
-\label{fig:sequence_diagram}
-\end{figure}
+
 \subsection{Workflow}
 As follow, we analyze the data flows and interactions among the introduced technologies. We separate the workflow into subsequent processes namely \textit{initialization}, \textit{data exchange} and \textit{computation}.
 The parties involved in the workflow are a miner (i.e., an organization that execute process mining algorithms) and one or more providers (i.e., partner organizations that serve their event logs). %We distinguish three different phases of the process namely the \textit{initialization}, the \textit{data exchange}, and the \textit{computation}.
