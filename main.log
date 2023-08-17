@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.7.19)  17 AUG 2023 10:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.7.19)  17 AUG 2023 14:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2306,13 +2306,20 @@ Overfull \hbox (48.27834pt too wide) has occurred while \output is active
                                    [] []
  []
 
-[5 <./content/figures/deployment_diagram.pdf>] [6]) (content/evaluation.tex)
-(content/conclusion.tex
+[5 <./content/figures/deployment_diagram.pdf>]
+<content/figures/sequence_diagram.pdf, id=230, 560.76701pt x 375.16762pt>
+File: content/figures/sequence_diagram.pdf Graphic file (type pdf)
+<use content/figures/sequence_diagram.pdf>
+Package pdftex.def Info: content/figures/sequence_diagram.pdf  used on input li
+ne 27.
+(pdftex.def)             Requested size: 298.75394pt x 199.87402pt.
+ [6]
 Overfull \hbox (48.27834pt too wide) has occurred while \output is active
                                    [] []
  []
 
-[7]) (main.bbl [8])
+[7 <./content/figures/sequence_diagram.pdf>]) (content/evaluation.tex)
+(content/conclusion.tex) (main.bbl [8])
 
 Package caption Warning: Unused \captionsetup[subfigure] on input line 48.
 See the caption package documentation for explanation.
@@ -2328,16 +2335,16 @@ Overfull \hbox (48.27834pt too wide) has occurred while \output is active
 
 [9] (main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: AA2C790DA6FBE10462CF88BE749835F9;2258.
+(rerunfilecheck)             Checksum: 939F61904C977FE186ABED4EFDC30149;2258.
  ) 
 Here is how much of TeX's memory you used:
- 50770 strings out of 476331
- 1067666 string characters out of 5787765
+ 50778 strings out of 476331
+ 1068004 string characters out of 5787765
  1864660 words of memory out of 5000000
- 70006 multiletter control sequences out of 15000+600000
- 531928 words of font info for 175 fonts, out of 8000000 for 9000
+ 70014 multiletter control sequences out of 15000+600000
+ 531877 words of font info for 174 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 104i,8n,100p,2280b,1095s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 104i,8n,100p,2280b,1097s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\david\AppData\Local\MiKTeX\fonts/pk/ljfour/public/mathabx/dpi600\m
 atha7.pk><C:/Users/david/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
 nts/cm/cmbx10.pfb><C:/Users/david/AppData/Local/Programs/MiKTeX/fonts/type1/pub
@@ -2350,9 +2357,9 @@ a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/david
 /AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Us
 ers/david/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.p
 fb>
-Output written on main.pdf (9 pages, 325249 bytes).
+Output written on main.pdf (9 pages, 355134 bytes).
 PDF statistics:
- 320 PDF objects out of 1000 (max. 8388607)
- 46 named destinations out of 1000 (max. 500000)
- 25340 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 340 PDF objects out of 1000 (max. 8388607)
+ 47 named destinations out of 1000 (max. 500000)
+ 25345 words of extra memory for PDF output out of 29859 (max. 10000000)
 
