@@ -9,43 +9,43 @@ Warning--I didn't find a database entry for "citation"
 Warning--I didn't find a database entry for "ciation"
 You've used 14 entries,
             2850 wiz_defined-function locations,
-            689 strings with 8346 characters,
-and the built_in function-call counts, 9205 in all, are:
-= -- 775
+            692 strings with 8334 characters,
+and the built_in function-call counts, 9258 in all, are:
+= -- 778
 > -- 313
-< -- 20
+< -- 21
 + -- 130
 - -- 114
-* -- 604
-:= -- 1169
-add.period$ -- 28
+* -- 612
+:= -- 1170
+add.period$ -- 26
 call.type$ -- 14
-change.case$ -- 110
+change.case$ -- 108
 chr.to.int$ -- 0
 cite$ -- 14
-duplicate$ -- 789
-empty$ -- 794
+duplicate$ -- 794
+empty$ -- 793
 format.name$ -- 126
-if$ -- 2019
+if$ -- 2027
 int.to.chr$ -- 0
 int.to.str$ -- 14
-missing$ -- 162
+missing$ -- 163
 newline$ -- 48
 num.names$ -- 28
-pop$ -- 296
+pop$ -- 292
 preamble$ -- 1
 purify$ -- 85
 quote$ -- 0
-skip$ -- 247
+skip$ -- 253
 stack$ -- 0
-substring$ -- 522
-swap$ -- 457
-text.length$ -- 20
+substring$ -- 538
+swap$ -- 470
+text.length$ -- 21
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 54
 warning$ -- 0
 while$ -- 77
 width$ -- 16
-write$ -- 159
+write$ -- 158
 (There were 2 warnings)

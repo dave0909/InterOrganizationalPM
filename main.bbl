@@ -9,11 +9,6 @@ van~der Aalst, W.M.: Intra-and inter-organizational process mining: Discovering
   Modeling: 4th IFIP WG 8.1 Working Conference, PoEM 2011 Oslo, Norway,
   November 2-3, 2011 Proceedings 4. pp. 1--11. Springer (2011)
 
-\bibitem{van2021federated}
-van~der Aalst, W.M.: Federated process mining: exploiting event data across
-  organizational boundaries. In: 2021 IEEE International Conference on Smart
-  Data Services (SMDS). pp.~1--7. IEEE (2021)
-
 \bibitem{Basile_Blockchain_based_resource_governance_for_decentralized_web_environments}
 Basile, D., Ciccio, C.D., Goretti, V., Kirrane, S.: Blockchain based resource
   governance for decentralized web environments. Frontiers in Blockchain
@@ -78,6 +73,11 @@ Koch, N., Kraus, A.: The expressive power of uml-based web engineering. In:
 Lo, N.W., Chen, S.C., Chang, S.C.: A flexible electronic data exchange
   framework based on consortium blockchain. Journal of Internet Technology
   \textbf{21}(5),  1313--1324 (2020)
+
+\bibitem{van1999process}
+Van Der~Aalst, W.M.: Process-oriented architectures for electronic commerce and
+  interorganizational workflow. Information systems  \textbf{24}(8),  639--671
+  (1999)
 
 \bibitem{XIE2023321}
 Xie, H., Zheng, J., He, T., Wei, S., Hu, C.: Tebds: A trusted execution
