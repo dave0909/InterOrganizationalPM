@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.7.19)  18 AUG 2023 21:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.7.19)  20 AUG 2023 13:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2245,19 +2245,17 @@ LaTeX Font Info:    Trying to load font information for U+rsfs on input line 35
 (C:\Users\david\AppData\Local\Programs\MiKTeX\tex/latex/jknappen\ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-Title too long for running head. Please supply
-a shorter form with \titlerunning prior to \maketitle
-(content/introduction.tex) (content/background_related_work.tex
+(content/introduction.tex [1
+
+{C:/Users/david/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]) (content/ba
+ckground_related_work.tex
 Overfull \hbox (6.06091pt too wide) in paragraph at lines 5--7
 \OT1/cmr/m/n/10 (-20) inter-organizational en-vi-ron-ments. Van Der Aalst [[]] 
 shows that inter-organizational
  []
 
-[1
-
-{C:/Users/david/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}])
-(content/motivating.tex) [2] (content/design.tex
-<content/figures/architecture_diagram.pdf, id=150, 910.36105pt x 333.16469pt>
+[2]) (content/motivating.tex) (content/design.tex
+<content/figures/architecture_diagram.pdf, id=149, 910.36105pt x 333.16469pt>
 File: content/figures/architecture_diagram.pdf Graphic file (type pdf)
 <use content/figures/architecture_diagram.pdf>
 Package pdftex.def Info: content/figures/architecture_diagram.pdf  used on inpu
@@ -2267,14 +2265,22 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmtt' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [3 <./content/figures/architecture_diagram.pdf>]
-<content/figures/secure_miner.pdf, id=171, 335.33278pt x 152.4897pt>
+
+Underfull \vbox (badness 7722) has occurred while \output is active []
+
+
+Overfull \hbox (2.79256pt too wide) has occurred while \output is active
+                                   [] []
+ []
+
+[3]
+<content/figures/secure_miner.pdf, id=162, 335.33278pt x 152.4897pt>
 File: content/figures/secure_miner.pdf Graphic file (type pdf)
 <use content/figures/secure_miner.pdf>
 Package pdftex.def Info: content/figures/secure_miner.pdf  used on input line 2
 9.
 (pdftex.def)             Requested size: 199.16928pt x 90.57077pt.
- [4 <./content/figures/secure_miner.pdf>]
+ [4 <./content/figures/architecture_diagram.pdf>]
 
 LaTeX Warning: Citation `citation' on page 5 undefined on input line 46.
 
@@ -2285,29 +2291,46 @@ LaTeX Warning: Citation `citation' on page 5 undefined on input line 46.
 LaTeX Warning: Citation `ciation' on page 5 undefined on input line 46.
 
 Excluding 'comment' comment.) (content/implementation.tex
-<content/figures/deployment_diagram.pdf, id=202, 596.9552pt x 390.81306pt>
+<content/figures/deployment_diagram.pdf, id=184, 596.9552pt x 390.81306pt>
 File: content/figures/deployment_diagram.pdf Graphic file (type pdf)
 <use content/figures/deployment_diagram.pdf>
 Package pdftex.def Info: content/figures/deployment_diagram.pdf  used on input 
-line 6.
+line 7.
 (pdftex.def)             Requested size: 284.52756pt x 186.2762pt.
 
-Overfull \hbox (1.85738pt too wide) in paragraph at lines 13--14
+Overfull \hbox (2.79256pt too wide) has occurred while \output is active
+                                   [] []
+ []
+
+[5 <./content/figures/secure_miner.pdf>]
+Overfull \hbox (1.85738pt too wide) in paragraph at lines 14--15
 \OT1/cmr/m/n/10 (-20) the \OT1/cmtt/m/n/10 Log Provider \OT1/cmr/m/n/10 (-20) a
 nd \OT1/cmtt/m/n/10 Secure Miner \OT1/cmr/m/n/10 (-20) are in-cluded in the \OT
 1/cmtt/m/n/10 Organization Machine
  []
 
-[5 <./content/figures/deployment_diagram.pdf>]
-<content/figures/sequence_diagram.pdf, id=233, 602.2761pt x 376.23259pt>
+[6 <./content/figures/deployment_diagram.pdf>]
+<content/figures/sequence_diagram.pdf, id=244, 602.2761pt x 376.23259pt>
 File: content/figures/sequence_diagram.pdf Graphic file (type pdf)
 <use content/figures/sequence_diagram.pdf>
 Package pdftex.def Info: content/figures/sequence_diagram.pdf  used on input li
-ne 27.
+ne 28.
 (pdftex.def)             Requested size: 298.75394pt x 186.62895pt.
- [6] [7 <./content/figures/sequence_diagram.pdf>]) (content/evaluation.tex) (co
-ntent/conclusion.tex) (main.bbl
-[8])
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (2.79256pt too wide) has occurred while \output is active
+                                   [] []
+ []
+
+[7 <./content/figures/sequence_diagram.pdf>] (content/impl.tex [8]))
+(content/evaluation.tex) (content/conclusion.tex
+Overfull \hbox (2.79256pt too wide) has occurred while \output is active
+                                   [] []
+ []
+
+[9]) (main.bbl [10])
 
 Package caption Warning: Unused \captionsetup[subfigure] on input line 48.
 See the caption package documentation for explanation.
@@ -2316,18 +2339,23 @@ See the caption package documentation for explanation.
 Package caption Warning: Unused \captionsetup[subtable] on input line 50.
 See the caption package documentation for explanation.
 
-[9] (main.aux)
+
+Overfull \hbox (2.79256pt too wide) has occurred while \output is active
+                                   [] []
+ []
+
+[11] (main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 2F68F998306343D3C5129A5C3AFC44CB;2352.
+(rerunfilecheck)             Checksum: 52CC517F1652E5E29641EB3C347BE6C6;2210.
  ) 
 Here is how much of TeX's memory you used:
- 50780 strings out of 476331
- 1068014 string characters out of 5787765
+ 50816 strings out of 476331
+ 1068492 string characters out of 5787765
  1864660 words of memory out of 5000000
- 70014 multiletter control sequences out of 15000+600000
- 531985 words of font info for 175 fonts, out of 8000000 for 9000
+ 70023 multiletter control sequences out of 15000+600000
+ 532660 words of font info for 186 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 104i,8n,100p,2280b,1095s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 104i,8n,100p,2280b,1097s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\david\AppData\Local\MiKTeX\fonts/pk/ljfour/public/mathabx/dpi600\m
 atha7.pk><C:/Users/david/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
 nts/cm/cmbx10.pfb><C:/Users/david/AppData/Local/Programs/MiKTeX/fonts/type1/pub
@@ -2340,9 +2368,9 @@ a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/david
 /AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Us
 ers/david/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.p
 fb>
-Output written on main.pdf (9 pages, 355947 bytes).
+Output written on main.pdf (11 pages, 364775 bytes).
 PDF statistics:
- 342 PDF objects out of 1000 (max. 8388607)
- 47 named destinations out of 1000 (max. 500000)
+ 357 PDF objects out of 1000 (max. 8388607)
+ 49 named destinations out of 1000 (max. 500000)
  25345 words of extra memory for PDF output out of 29859 (max. 10000000)
 
