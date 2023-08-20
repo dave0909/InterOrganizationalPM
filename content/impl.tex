@@ -1,0 +1,17 @@
+In this section, we describe the implementation of our paper. The implementation proposed integrates a trusted application running in a
+trusted execution environment and some event logs generated to address the solution proposed in the motivating scenario. The code is available at the following address: <githubLink>.
+
+%\subsubsection{Event Log Generation}
+%Technologies Used
+%Summary of the log generation process
+In order to generate the logs for the execution of the trusted application, a process model was created based on BPMN notation[CIT]. Subsequently, the model was imported into the BIMP[CIT] software, which made it possible to generate the synthetic event logs. The number of log traces generated through BIMP aligns with other works in the state of the art; the generation software was set to 1000 traces. Following the generation, the synthetic event log relating to the process model was filtered using the XYZ[CIT] tool via PROM[CIT]. Thanks to XYZ, we were able to filter the logs based on attribute values, which allowed us to filter the synthetic log according to the resource involved in the activities. Referring to the motivating scenario, the resources involved are the hospital, the specialised clinic, and the pharmaceutical company. In this way, we created three separate event logs from the initial event log, which were used to exchange data between the organisations.
+
+%{Trusted Miner and Log Provider}
+%TEE technology used
+%Language used to program in TEE
+%Algorithm implemented
+%Intermediate representations (PNML, Petrinet, etc.)
+Referring to the trusted execution environment, we used a framework called EGo[CIT], which makes it possible to develop trusted applications programmed in GO[CIT]. We developed the Trusted Application (TA) within the TEE with the same language. Within the TA there is the "Secure Miner" module, which allows logs from other organisations to be requested, managed, and processed. Log processing is made possible by the implementation of the "Heuristc Miner"[CIT] process mining algorithm, which takes the log traces as input and performs a discovery operation. The output of the algorithm is a file with the extension 'pnml'. Pnml (Petri Net Markup Language) is a markup language that allows the representation of Petri nets that graphically illustrate the model calculated by the algorithm. In order to generate the graphic image of the Petri net, the WoPed[CIT] software was used, which takes as input a PNML file and provides the graphic representation of the Petri net. 
+
+%Log provider language
+Another fundamental module within the TA is that of the Log Provider. This part of the TA is also written in Go and is listening on one of the ports set up by the organisation owning the application. It accepts requests made by other organisations and forwards its log. 
