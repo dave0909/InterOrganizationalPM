@@ -1,6 +1,6 @@
 \section{Conclusion and Future Work}
 \label{sec:conclusion}
-
+Confidentiality is paramount in inter-organizational process mining, as sensitive data traverses organizational boundaries. Preserving privacy and confidentiality of operational data becomes a critical concern in this regard. Our research work explore a TEE-based solution in which trusted applications allows organizations to apply process mining tecniques using event logs from various organizations, garantendo il rispetto della riservatezza delle informazioni scambiate.
 
 Our solution still has room for improvement in several areas. We assume that providers act fairly, and we do not expect to have injected or maliciously manipulated. In addition, we do not handle TEE crashes and assume that miners and providers exchange messages in perfect communication channels where no loss, no snap, and no bit corruption take place. We also make assumptions on event log data. Our solution presupposes a universal clock for event timestamps in different systems; hence no synchronization procedure is actually considered. Moreover, traces of different organizations referring to the same process instance are characterized by the same case identifier. This scenario is implausible in real-world data since organizations may adopt different case notations. To overcome this issue, alternative event log representations should be considered.
 
