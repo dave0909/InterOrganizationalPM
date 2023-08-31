@@ -20,28 +20,29 @@
 % If the paper title is too long for the running head, you can set
 % an abbreviated paper title here
 %
-\author{Davide~Basile\inst{1}\orcidID{0000-1111-2222-3333} \and
-Luca~Barbaro\inst{1}\orcidID{0000-0002-2975-5330} \and
-Valerio~Goretti\inst{1}\orcidID{0000-0001-9714-4278} \and Claudio~Di~Ciccio\inst{1}\orcidID{2222--3333-4444-5555}}
+\author{%
+Valerio~Goretti\orcidID{0000-0001-9714-4278} \and %\inst{1}\orcidID{0000-0001-9714-4278} \and 
+Davide~Basile\orcidID{0000-1111-2222-3333} \and %\inst{1}\orcidID{0000-1111-2222-3333} \and
+Luca~Barbaro\orcidID{0000-0002-2975-5330} \and %\inst{1}\orcidID{0000-0002-2975-5330} \and
+Claudio~Di~Ciccio\orcidID{0000-0001-5570-0475}%\inst{1}\orcidID{0000-0001-5570-0475}}
+}
 %
-\authorrunning{F. Author et al.}
+\authorrunning{V.\ Goretti, D.\ Basile, L.\ Barbaro, C.\ Di Ciccio}
 % First names are abbreviated in the running head.
 % If there are more than two authors, 'et al.' is used.
 %
-\institute{Sapienza University of Rome}
+\institute{Sapienza University of Rome, Italy\\ \email{\href{mailto:davide.basile@uniroma1.it;luca.barbaro@uniroma1.it;valerio.goretti@uniroma1.it;claudio.diciccio@uniroma1.it}{name.surname@uniroma1.it}}}
 %
-\title{Trusted Applications for Inter-organizational Process Mining}
+\title{Preserving Data Secrecy in \\ Inter-organizational Process Mining}
 \maketitle
 
 \begin{abstract}
- Through process mining tecniques, organizations enhances their operational efficiency, improve performances, and deepen the understanding of their business processes. While most process mining research focuses on intra-organizational settings, the emerging importance of inter-organizational collaborations for operational excellence cannot be ignored. Inter-organizational business processes involve multiple independent organizations collaborating to achieve mutual interests. However, inter-organizational process mining faces substantial challenges, primarily centered on confidentiality concerns. In this paper, we introduce a novel approach based on the adoption of trusted applications running in Trusted Execution Environments (TEEs). Our research work aims at ensuring privacy preservation and safeguarding the integrity of sensitive information during process mining procedures in inter-organizational contexts. Therefore, we introduce a TEE-based infrastructure supporting the execution of trusted applications through which partner organizations securely share operational information and apply process mining techniques. We show the feasibility of our solution by exposing an healthcare scenario that serve as running example. Our contribution includes a discussion of the proposed research work that addresses strengths and areas for improvement.
+ \input{content/abstract}
+ \keywords{Collaborative Business Processes \and Trusted Execution Environment \and Encryption \and Decentralized Computing}
 \end{abstract}
-
-
 
 \input{content/introduction.tex}
 \input{content/background_related_work.tex}
-\section{Motivating Scenario}\label{sec:motivating}
 \input{content/motivating}
 \section{Design}\label{sec:design}
 \input{content/design.tex}

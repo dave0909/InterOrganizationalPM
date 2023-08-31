@@ -4,16 +4,15 @@
 \providecommand{\doi}[1]{https://doi.org/#1}
 
 \bibitem{van2011intra}
-van~der Aalst, W.M.: Intra-and inter-organizational process mining: Discovering
-  processes within and between organizations. In: The Practice of Enterprise
-  Modeling: 4th IFIP WG 8.1 Working Conference, PoEM 2011 Oslo, Norway,
-  November 2-3, 2011 Proceedings 4. pp. 1--11. Springer (2011)
+van~der Aalst, W.M.P.: Intra-and inter-organizational process mining:
+  Discovering processes within and between organizations. In: The Practice of
+  Enterprise Modeling: 4th IFIP WG 8.1 Working Conference, PoEM 2011 Oslo,
+  Norway, November 2-3, 2011 Proceedings 4. pp. 1--11. Springer (2011)
 
 \bibitem{Basile_Blockchain_based_resource_governance_for_decentralized_web_environments}
-Basile, D., Ciccio, C.D., Goretti, V., Kirrane, S.: Blockchain based resource
-  governance for decentralized web environments. Frontiers in Blockchain
-  \textbf{6} (may 2023). \doi{10.3389/fbloc.2023.1141909},
-  \url{https://doi.org/10.3389%2Ffbloc.2023.1141909}
+Basile, D., {Di Ciccio}, C., Goretti, V., Kirrane, S.: Blockchain based
+  resource governance for decentralized web environments. Frontiers in
+  Blockchain  \textbf{6} (may 2023)
 
 \bibitem{claes2014merging}
 Claes, J., Poels, G.: Merging event logs for process mining: A rule based
@@ -22,16 +21,7 @@ Claes, J., Poels, G.: Merging event logs for process mining: A rule based
 
 \bibitem{Dumas.etal/2018:FundamentalsofBPM}
 Dumas, M., La~Rosa, M., Mendling, J., Reijers, H.A.: Fundamentals of Business
-  Process Management, Second Edition. Springer (2018).
-  \doi{10.1007/978-3-662-56509-4}
-
-\bibitem{elkoumy2020secure}
-Elkoumy, G., Fahrenkrog-Petersen, S.A., Dumas, M., Laud, P., Pankova, A.,
-  Weidlich, M.: Secure multi-party computation for inter-organizational process
-  mining. In: Enterprise, Business-Process and Information Systems Modeling:
-  21st International Conference, BPMDS 2020, 25th International Conference,
-  EMMSAD 2020, Held at CAiSE 2020, Grenoble, France, June 8--9, 2020,
-  Proceedings 21. pp. 166--181. Springer (2020)
+  Process Management, Second Edition. Springer (2018)
 
 \bibitem{elkoumy2020shareprom}
 Elkoumy, G., Fahrenkrog-Petersen, S.A., Dumas, M., Laud, P., Pankova, A.,
@@ -39,7 +29,7 @@ Elkoumy, G., Fahrenkrog-Petersen, S.A., Dumas, M., Laud, P., Pankova, A.,
   process mining. BPM (PhD/Demos)  \textbf{2673},  72--76 (2020)
 
 \bibitem{engel2011process}
-Engel, R., Krathu, W., Zapletal, M., Pichler, C., van~der Aalst, W.M.,
+Engel, R., Krathu, W., Zapletal, M., Pichler, C., van~der Aalst, W.M.P.,
   Werthner, H.: Process mining for electronic data interchange. In: E-Commerce
   and Web Technologies: 12th International Conference, EC-Web 2011, Toulouse,
   France, August 30-September 1, 2011. Proceedings 12. pp. 77--88. Springer
@@ -47,7 +37,7 @@ Engel, R., Krathu, W., Zapletal, M., Pichler, C., van~der Aalst, W.M.,
 
 \bibitem{engel2016analyzing}
 Engel, R., Krathu, W., Zapletal, M., Pichler, C., Bose, R.J.C., van~der Aalst,
-  W., Werthner, H., Huemer, C.: Analyzing inter-organizational business
+  W.M.P., Werthner, H., Huemer, C.: Analyzing inter-organizational business
   processes: process mining and business performance analysis using electronic
   data interchange messages. Information Systems and e-Business Management
   \textbf{14},  577--612 (2016)
@@ -57,12 +47,6 @@ Hernandez-Resendiz, J.D., Tello-Leal, E., Marin-Castro, H.M., Ramirez-Alcocer,
   U.M., Mata-Torres, J.A.: Merging event logs for inter-organizational process
   mining. In: New Perspectives on Enterprise Decision-Making Applying
   Artificial Intelligence Techniques, pp. 3--26. Springer (2021)
-
-\bibitem{hussain2021sharing}
-Hussain, A., Lasrado, L.A., Mukkamala, R.R., Tanveer, U.: Sharing is
-  caring--design and demonstration of a data privacy tool for
-  interorganizational transfer of data. Procedia Computer Science
-  \textbf{181},  394--402 (2021)
 
 \bibitem{koch2002expressive}
 Koch, N., Kraus, A.: The expressive power of uml-based web engineering. In:
@@ -74,16 +58,16 @@ Lo, N.W., Chen, S.C., Chang, S.C.: A flexible electronic data exchange
   framework based on consortium blockchain. Journal of Internet Technology
   \textbf{21}(5),  1313--1324 (2020)
 
-\bibitem{van1999process}
-Van Der~Aalst, W.M.: Process-oriented architectures for electronic commerce and
-  interorganizational workflow. Information systems  \textbf{24}(8),  639--671
-  (1999)
+\bibitem{muller2021process}
+M{\"u}ller, M., Simonet-Boulogne, A., Sengupta, S., Beige, O.: Process mining
+  in trusted execution environments: Towards hardware guarantees for
+  trust-aware inter-organizational process analysis. In: International
+  Conference on Process Mining. pp. 369--381. Springer International Publishing
+  Cham (2021)
 
 \bibitem{XIE2023321}
-Xie, H., Zheng, J., He, T., Wei, S., Hu, C.: Tebds: A trusted execution
-  environment-and-blockchain-supported iot data sharing system. Future
-  Generation Computer Systems  \textbf{140},  321--330 (2023).
-  \doi{https://doi.org/10.1016/j.future.2022.10.016},
-  \url{https://www.sciencedirect.com/science/article/pii/S0167739X22003326}
+Xie, H., Zheng, J., He, T., Wei, S., Hu, C.: {TEBDS}: A trusted execution
+  environment-and-blockchain-supported {IoT} data sharing system. Future
+  Generation Computer Systems  \textbf{140},  321--330 (2023)
 
 \end{thebibliography}

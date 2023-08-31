@@ -1,6 +1,9 @@
 In this section, we describe the implementation of our paper. The implementation proposed integrates a trusted application running in a
 trusted execution environment and some event logs generated to address the solution proposed in the motivating scenario. The code is available at the following address: \url{https://github.com/dave0909/TEExProcessMining/}
 
+We have encoded a well-known process discovery algorithm within the \texttt{Secure Miner} component to demonstrate the capability of conducting process analytics tasks with our approach.
+\todo{Modify and reposition as needed}
+
 %\subsubsection{Event Log Generation}
 %Technologies Used
 %Summary of the log generation process
@@ -11,7 +14,9 @@ In order to generate the logs for the execution of the trusted application, a pr
 %Language used to program in TEE
 %Algorithm implemented
 %Intermediate representations (PNML, Petrinet, etc.)
-Referring to the trusted execution environment, we used a framework called EGo\footnote{https://www.edgeless.systems/products/ego/}, which makes it possible to develop trusted applications programmed in GO\footnote{https://go.dev}. We developed the Trusted Application (TA) within the TEE with the same language. Within the TA there is the "Secure Miner" module, which allows logs from other organisations to be requested, managed, and processed. Log processing is made possible by the implementation of the "Heuristc Miner" process mining algorithm\ref{weijters2006process}, which takes the log traces as input and performs a discovery operation.
+Referring to the trusted execution environment, we used a framework called EGo\footnote{https://www.edgeless.systems/products/ego/}, which makes it possible to develop trusted applications programmed in GO\footnote{https://go.dev}. We developed the Trusted Application (TA) within the TEE with the same language. Within the TA there is the "Secure Miner"
+\todo{CDC: Double quotes MUST be written as `` and ''. Besides, why are we using quotes to indicate components here?}
+module, which allows logs from other organisations to be requested, managed, and processed. Log processing is made possible by the implementation of the "Heuristc Miner" process mining algorithm\ref{weijters2006process}, which takes the log traces as input and performs a discovery operation.
 The output of the algorithm is a PNML\footnote{https://www.pnml.org}(Petri Net Markup Language) which allows the representation of Petri nets that graphically illustrate the model calculated by the algorithm. 
 %The output of the algorithm is a file with the extension '.pnml'. PNML\footnote{https://www.pnml.org}(Petri Net Markup Language) is a markup language that allows the representation of Petri nets that graphically illustrate the model calculated by the algorithm. 
 In order to generate the graphic image of the Petri net, the WoPed\footnote{https://woped.dhbw-karlsruhe.de} software was used, which takes as input a PNML file and provides the graphic representation of the Petri net. 

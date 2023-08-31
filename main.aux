@@ -1,13 +1,16 @@
 \relax 
+\providecommand\hyper@newdestlabel[2]{}
 \providecommand\babel@aux[2]{}
 \@nameuse{bbl@beforestart}
-\providecommand\hyper@newdestlabel[2]{}
 \providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
 \HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
+\global\let\oldcontentsline\contentsline
+\gdef\contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
 \global\let\oldnewlabel\newlabel
 \gdef\newlabel#1#2{\newlabelxx{#1}#2}
 \gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
 \AtEndDocument{\ifx\hyper@anchor\@undefined
+\let\contentsline\oldcontentsline
 \let\newlabel\oldnewlabel
 \fi}
 \fi}
@@ -15,92 +18,144 @@
 \gdef\HyperFirstAtBeginDocument#1{#1}
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
-\citation{van1999process}
 \providecommand\@newglossary[4]{}
 \@newglossary{main}{glg}{gls}{glo}
 \@newglossary{acronym}{alg}{acr}{acn}
 \providecommand \oddpage@label [2]{}
 \babel@aux{english}{}
 \babel@aux{english}{}
-\@writefile{toc}{\contentsline {title}{Trusted Applications for Inter-organizational Process Mining}{1}{chapter.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {title}{Preserving Data Secrecy in \unskip \ \ignorespaces  Inter-organizational Process Mining}{1}{chapter.1}\protected@file@percent }
 \@writefile{toc}{\authcount {4}}
-\@writefile{toc}{\contentsline {author}{Davide~Basile \and Luca~Barbaro \and Valerio~Goretti \and Claudio~Di~Ciccio}{1}{chapter.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {author}{Valerio~Goretti \and Davide~Basile \and Luca~Barbaro \and Claudio~Di~Ciccio}{1}{chapter.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1.1}\protected@file@percent }
+\newlabel{sec:introduction}{{1}{1}{Introduction}{section.1.1}{}}
+\newlabel{sec:introduction@cref}{{[section][1][]1}{[1][1][]1}}
+\@writefile{tdo}{\contentsline {todo}{CDC: Status corrente secondo me. Abbiamo\ldots  Un'intro affabile ma che dobbiamo ricalibrare per toglierla dal pantano della TEE e puntare dritto al nostro obiettivo dichiarato e mantenuto, con vista sul potenziale inespresso.\\ Un motivating scenario che però resta staccato dal resto.\\ Un related work che però dovrebbe spostarsi sul far capire cosa facciamo di più e di diverso, o di simile ma rivisto.\\ Una overview eccellente dell'architettura che però non è connessa con l'esempio.\\ Una overview accurata delle interazioni dei moduli (e quando lo spazio è poco è il caso di fare il merge tra le due cose per risparmiare spazio, come ci dicemmo) -- anche qui senza esempio, dunque capire cosa si fa dove è arduo. Non per me o per te, ma perché conosciamo il lavoro. Chi non lo conosce, non ha assolutamente idea di cosa voglia dire fare il merge degli eventi da tracce provienienti da actor diversi rimettendoli in ordine così da preservare integrità temporale, per esempio.\\ Una discussion/evaluation ben congegnata in cui però manca la parte quantitativa e la qualitativa è ancora da dettagliare.\\ Una conclusione.}{1}{section*.2}\protected@file@percent }
+\pgfsyspdfmark {pgfid1}{20223214}{14397388}
+\citation{muller2021process}
 \citation{van2011intra}
 \citation{elkoumy2020shareprom}
 \citation{engel2016analyzing}
-\citation{elkoumy2020secure}
 \citation{hernandez2021merging}
 \citation{claes2014merging}
-\newlabel{sec:introduction}{{1}{2}{Introduction}{section.1.1}{}}
-\newlabel{sec:introduction@cref}{{[section][1][]1}{[1][2][]2}}
-\@writefile{toc}{\contentsline {section}{\numberline {2}Related Work}{2}{section.1.2}\protected@file@percent }
-\newlabel{sec:background}{{2}{2}{Related Work}{section.1.2}{}}
-\newlabel{sec:background@cref}{{[section][2][]2}{[1][2][]2}}
 \citation{engel2011process}
 \citation{lo2020flexible}
 \citation{XIE2023321}
 \citation{Basile_Blockchain_based_resource_governance_for_decentralized_web_environments}
-\citation{hussain2021sharing}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Related Work}{2}{section.1.2}\protected@file@percent }
+\@writefile{tdo}{\contentsline {todo}{It can be reduced. EDIT: Already reduced. MISSING: what do we do similarly to and what do we do differently from / improve on the cited papers? A comparison is offered only with the work of M{\"u}ller et al.}{2}{section*.3}\protected@file@percent }
+\pgfsyspdfmark {pgfid2}{20223214}{12562380}
+\newlabel{sec:background}{{2}{2}{Related Work}{section*.3}{}}
+\newlabel{sec:background@cref}{{[section][2][]2}{[1][2][]2}}
+\@writefile{tdo}{\contentsline {todo}{When do we use blockchain in this paper? If we do not use it, then we should make clear why we do not. Isn't it also the first paper that uses TEE for process mining? If it is, then we omit this blockchain thing and take it back for future work perhaps or as an additional detail.}{2}{section*.4}\protected@file@percent }
+\pgfsyspdfmark {pgfid3}{30322131}{10275447}
+\pgfsyspdfmark {pgfid4}{5178654}{10220561}
+\pgfsyspdfmark {pgfid5}{8111390}{10063821}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces BPMN Healthcare Scenario\relax }}{3}{figure.caption.5}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:BPMN_Healthcare}{{1}{3}{BPMN Healthcare Scenario\relax }{figure.caption.5}{}}
+\newlabel{fig:BPMN_Healthcare@cref}{{[figure][1][]1}{[1][3][]3}}
 \@writefile{toc}{\contentsline {section}{\numberline {3}Motivating Scenario}{3}{section.1.3}\protected@file@percent }
 \newlabel{sec:motivating}{{3}{3}{Motivating Scenario}{section.1.3}{}}
 \newlabel{sec:motivating@cref}{{[section][3][]3}{[1][3][]3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces BPMN Healthcare Scenario\relax }}{4}{figure.caption.2}\protected@file@percent }
-\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:sequence_diagram}{{1}{4}{BPMN Healthcare Scenario\relax }{figure.caption.2}{}}
-\newlabel{fig:sequence_diagram@cref}{{[figure][1][]1}{[1][4][]4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces High-level architectural overview.\relax }}{4}{figure.caption.3}\protected@file@percent }
-\newlabel{fig:architecture_diagram}{{2}{4}{High-level architectural overview.\relax }{figure.caption.3}{}}
+\@writefile{tdo}{\contentsline {todo}{It can be reduced}{3}{section*.6}\protected@file@percent }
+\pgfsyspdfmark {pgfid8}{20223214}{13619749}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces High-level architectural overview.\relax }}{4}{figure.caption.7}\protected@file@percent }
+\newlabel{fig:architecture_diagram}{{2}{4}{High-level architectural overview.\relax }{figure.caption.7}{}}
 \newlabel{fig:architecture_diagram@cref}{{[figure][2][]2}{[1][4][]4}}
 \@writefile{toc}{\contentsline {section}{\numberline {4}Design}{4}{section.1.4}\protected@file@percent }
 \newlabel{sec:design}{{4}{4}{Design}{section.1.4}{}}
 \newlabel{sec:design@cref}{{[section][4][]4}{[1][4][]4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Modules of the Secure Miner component.\relax }}{5}{figure.caption.4}\protected@file@percent }
-\newlabel{fig:trusted_miner}{{3}{5}{Modules of the Secure Miner component.\relax }{figure.caption.4}{}}
+\@writefile{tdo}{\contentsline {todo}{CDC: Do not use underscores in any circumstance, also NOT in labels or filenames. Look instead at Fig.~\ref  {fig:architecture_diagram}, for example. Underscores create troubles in most of the cases as {\LaTeX  } reserves that character for subscripts in math environments. We have gone through this too, so we should act as we know.}{4}{section*.8}\protected@file@percent }
+\pgfsyspdfmark {pgfid9}{14694130}{12640232}
+\pgfsyspdfmark {pgfid10}{5178654}{12585346}
+\pgfsyspdfmark {pgfid11}{8111390}{12428606}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Architecture at large}{4}{subsection.1.4.1}\protected@file@percent }
+\citation{citation}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Subcomponents of the Secure Miner.\relax }}{5}{figure.caption.11}\protected@file@percent }
+\newlabel{fig:trusted_miner}{{3}{5}{Subcomponents of the Secure Miner.\relax }{figure.caption.11}{}}
 \newlabel{fig:trusted_miner@cref}{{[figure][3][]3}{[1][5][]5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Architecture at large}{5}{subsection.1.4.1}\protected@file@percent }
-\citation{citation}
-\citation{citation}
-\citation{ciation}
+\@writefile{tdo}{\contentsline {todo}{CDC: This is the last time we write something about the motivating scenario to exemplify our architecture until Section~\ref  {sec:implementation:details}. Clearly, this is not OK. I have rejected papers for less.}{5}{section*.9}\protected@file@percent }
+\pgfsyspdfmark {pgfid14}{20223214}{30819866}
+\@writefile{tdo}{\contentsline {todo}{CDC: Figure widths should NEVER be absolute in terms of centimeters or so. They should always be a fraction of \texttt  {textwidth} or \texttt  {pageheight}. Otherwise, if we change a template (which is very likely, either because of extended versions of the paper or because sooner or later you might end up writing your PhD thesis), dimensions could all be screwed up. Look at Figs.~\ref  {fig:architecture_diagram}~and~\ref  {fig:trusted_miner} instead. We have gone through this too, so we should act as we know.}{5}{section*.10}\protected@file@percent }
+\pgfsyspdfmark {pgfid15}{19219761}{17717153}
+\pgfsyspdfmark {pgfid18}{35267774}{17662267}
+\pgfsyspdfmark {pgfid19}{38200510}{17505527}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Secure Miner}{5}{subsection.1.4.2}\protected@file@percent }
 \citation{koch2002expressive}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Secure Miners}{6}{subsection.1.4.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces UML deployment diagram.\relax }}{6}{figure.caption.14}\protected@file@percent }
+\newlabel{fig:deployment_diagram}{{4}{6}{UML deployment diagram.\relax }{figure.caption.14}{}}
+\newlabel{fig:deployment_diagram@cref}{{[figure][4][]4}{[1][6][]6}}
+\@writefile{tdo}{\contentsline {todo}{CDC: We do not show conformance checking nor performance analysis here. Why invite the reviewer to say we overpromise things we are not capable of doing?}{6}{section*.12}\protected@file@percent }
+\pgfsyspdfmark {pgfid20}{13666992}{19023352}
+\pgfsyspdfmark {pgfid21}{5178654}{18968466}
+\pgfsyspdfmark {pgfid22}{8111390}{18811726}
 \@writefile{toc}{\contentsline {section}{\numberline {5}Realization}{6}{section.1.5}\protected@file@percent }
 \newlabel{sec:implementation}{{5}{6}{Realization}{section.1.5}{}}
 \newlabel{sec:implementation@cref}{{[section][5][]5}{[1][6][]6}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Deployment}{6}{subsection.1.5.1}\protected@file@percent }
+\@writefile{tdo}{\contentsline {todo}{CDC: If the section is Realization, why is the label ``sec:implementation''? This has the potential to drive the authors nuts when trying to rewrite things. Please fix the issue.}{6}{section*.13}\protected@file@percent }
+\pgfsyspdfmark {pgfid25}{13272641}{11848311}
+\pgfsyspdfmark {pgfid26}{5178654}{11793425}
+\pgfsyspdfmark {pgfid27}{8111390}{11636685}
 \citation{Dumas.etal/2018:FundamentalsofBPM}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces UML deployment diagram.\relax }}{7}{figure.caption.5}\protected@file@percent }
-\newlabel{fig:deployment_diagram}{{4}{7}{UML deployment diagram.\relax }{figure.caption.5}{}}
-\newlabel{fig:deployment_diagram@cref}{{[figure][4][]4}{[1][6][]7}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces UML sequence diagram.\relax }}{8}{figure.caption.6}\protected@file@percent }
-\newlabel{fig:sequence_diagram}{{5}{8}{UML sequence diagram.\relax }{figure.caption.6}{}}
-\newlabel{fig:sequence_diagram@cref}{{[figure][5][]5}{[1][8][]8}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Workflow}{8}{subsection.1.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Deployment}{7}{subsection.1.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Workflow}{7}{subsection.1.5.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces UML sequence diagram.\relax }}{8}{figure.caption.15}\protected@file@percent }
+\newlabel{fig:sequence_diagram}{{5}{8}{UML sequence diagram.\relax }{figure.caption.15}{}}
+\newlabel{fig:sequence_diagram@cref}{{[figure][5][]5}{[1][7][]8}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Implementation}{9}{subsection.1.5.3}\protected@file@percent }
-\citation{ }
-\@writefile{toc}{\contentsline {section}{\numberline {6}Evaluation}{10}{section.1.6}\protected@file@percent }
-\newlabel{sec:evaluation}{{6}{10}{Evaluation}{section.1.6}{}}
+\newlabel{sec:implementation:details}{{5.3}{9}{Implementation}{subsection.1.5.3}{}}
+\newlabel{sec:implementation:details@cref}{{[subsection][3][5]5.3}{[1][9][]9}}
+\@writefile{tdo}{\contentsline {todo}{It can be reduced}{9}{section*.16}\protected@file@percent }
+\pgfsyspdfmark {pgfid30}{20223214}{38973378}
+\@writefile{tdo}{\contentsline {todo}{CDC: Double quotes MUST be written as `` and ''. Besides, why are we using quotes to indicate components here?}{9}{section*.17}\protected@file@percent }
+\pgfsyspdfmark {pgfid31}{27401402}{22210643}
+\pgfsyspdfmark {pgfid34}{35267774}{22155757}
+\pgfsyspdfmark {pgfid35}{38200510}{21999017}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Discussion}{10}{section.1.6}\protected@file@percent }
+\newlabel{sec:evaluation}{{6}{10}{Discussion}{section.1.6}{}}
 \newlabel{sec:evaluation@cref}{{[section][6][]6}{[1][10][]10}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Integrity and Confidentiality}{10}{subsection.1.6.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Applicability}{10}{subsection.1.6.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Convergence}{10}{subsection.1.6.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion and Future Work}{10}{section.1.7}\protected@file@percent }
-\newlabel{sec:conclusion}{{7}{10}{Conclusion and Future Work}{section.1.7}{}}
-\newlabel{sec:conclusion@cref}{{[section][7][]7}{[1][10][]10}}
+\@writefile{tdo}{\contentsline {todo}{CDC: MISSING: Nella evaluation, dobbiamo riportare 1) la memoria usata e 2) il tempo richiesto dall'algoritmo per fare (a) merge e (b) elaborazione. Se potessimo mostrare un grafico che illustra come la memoria richiesta aumenta pian pianino mentre si raccolgono i pezzi di log e infine quanta ne serva per l'elaborazione (parlo solo della memoria riservata in TEE) sarebbe ancora meglio. L'uso di memoria qui conta perché è un parametro fondamentale. \\ Dobbiamo informare il lettore sulle caratteristiche del log (numero eventi, numero tracce, dimensione totale in KB una volta salvato in formato XES), come lo abbiamo creato, perché il modello non è uguale a quello di Fig. 1. }{10}{section*.18}\protected@file@percent }
+\pgfsyspdfmark {pgfid36}{20223214}{37791688}
+\@writefile{tdo}{\contentsline {todo}{CDC: This is not a Petri net but a Workflow net. Not the same thing.}{10}{section*.19}\protected@file@percent }
+\pgfsyspdfmark {pgfid37}{10163511}{27844943}
+\pgfsyspdfmark {pgfid38}{5178654}{27790057}
+\pgfsyspdfmark {pgfid39}{8111390}{27633317}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Validation}{10}{subsection.1.6.1}\protected@file@percent }
+\@writefile{tdo}{\contentsline {todo}{CDC: Missing: citation}{10}{section*.20}\protected@file@percent }
+\pgfsyspdfmark {pgfid42}{11298302}{19846627}
+\pgfsyspdfmark {pgfid43}{5178654}{19791741}
+\pgfsyspdfmark {pgfid44}{8111390}{19635001}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Convergence}{10}{subsection.1.6.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Workflow Net generated from the merged event log\relax }}{11}{figure.caption.21}\protected@file@percent }
+\newlabel{fig:merged_petri}{{6}{11}{Workflow Net generated from the merged event log\relax }{figure.caption.21}{}}
+\newlabel{fig:merged_petri@cref}{{[figure][6][]6}{[1][10][]11}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Integrity and Confidentiality}{11}{subsection.1.6.3}\protected@file@percent }
+\citation{engel2011process}
+\citation{koch2002expressive}
+\citation{engel2011process}
+\citation{koch2002expressive}
 \bibstyle{splncs04}
 \bibdata{main}
 \bibcite{van2011intra}{1}
 \bibcite{Basile_Blockchain_based_resource_governance_for_decentralized_web_environments}{2}
 \bibcite{claes2014merging}{3}
 \bibcite{Dumas.etal/2018:FundamentalsofBPM}{4}
-\bibcite{elkoumy2020secure}{5}
-\bibcite{elkoumy2020shareprom}{6}
-\bibcite{engel2011process}{7}
-\bibcite{engel2016analyzing}{8}
-\bibcite{hernandez2021merging}{9}
-\bibcite{hussain2021sharing}{10}
-\bibcite{koch2002expressive}{11}
-\bibcite{lo2020flexible}{12}
-\bibcite{van1999process}{13}
-\bibcite{XIE2023321}{14}
-\gdef \@abspage@last{12}
+\bibcite{elkoumy2020shareprom}{5}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion and Future Work}{12}{section.1.7}\protected@file@percent }
+\@writefile{tdo}{\contentsline {todo}{It can be reduced}{12}{section*.22}\protected@file@percent }
+\pgfsyspdfmark {pgfid47}{20223214}{42736218}
+\newlabel{sec:conclusion}{{7}{12}{Conclusion and Future Work}{section*.22}{}}
+\newlabel{sec:conclusion@cref}{{[section][7][]7}{[1][11][]12}}
+\@writefile{tdo}{\contentsline {todo}{CDC: The bibliography entries are too rich. Look at \cite  {engel2011process}. Do we really care that the conference was in Toulouse? And look at \cite  {koch2002expressive}: the acronym is enough for the conference name. Also, the volume number is useless if we do not have the series (anyway, we could not care less about either of the two). We have already gone through this, so we should shorten the entries as we know.}{12}{section*.23}\protected@file@percent }
+\pgfsyspdfmark {pgfid48}{31515066}{19739909}
+\pgfsyspdfmark {pgfid49}{5178654}{19685023}
+\pgfsyspdfmark {pgfid50}{8111390}{19528283}
+\bibcite{engel2011process}{6}
+\bibcite{engel2016analyzing}{7}
+\bibcite{hernandez2021merging}{8}
+\bibcite{koch2002expressive}{9}
+\bibcite{lo2020flexible}{10}
+\bibcite{muller2021process}{11}
+\bibcite{XIE2023321}{12}
+\gdef \@abspage@last{13}
