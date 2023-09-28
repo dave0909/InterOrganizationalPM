@@ -1,52 +1,77 @@
-%In the fast-evolving landscape of healthcare, seamless collaboration between multiple organizations is essential to ensure the highest standard of patient care. We delve into the application of Trusted Execution Environment (TEE) to facilitate the secure exchange of event logs between three pivotal actors: an esteemed hospital, a specialized clinic, and a leading pharmaceutical company. This innovative approach fosters a robust and trustworthy ecosystem where sensitive patient data can be shared securely, promoting seamless collaboration for the betterment of patient outcomes.
-
-%Sintetizza il processo tra ospedale azienda farmaceutica e struttura specializzata
 \begin{figure}[t]
 \centering
-\includegraphics[width=0.9\linewidth]{content/figures/healthcarescenario.pdf}
-\caption{BPMN Healthcare Scenario}
+%\includegraphics[width=0.9\linewidth]{content/figures/healthcarescenario.pdf}
+\includegraphics[width=\linewidth]{content/figures/bpmnHealthcare2.pdf}
+\caption{A BPMN collaboration diagram of the healthcare scenario.}
 \label{fig:BPMN_Healthcare}
 \end{figure}
+\begin{table}[t]%\hskip-2.5cm
+  \caption{Cases 312 and 711 recorded in the event logs of the Hospital, the Specialized clinic, and the Pharmaceutical company.}
+ \centering
 
-\begin{table}[t]
-\begin{tabular}{|lll|l|lll|l|lll|}
-\cline{1-3} \cline{5-7} \cline{9-11}
-\multicolumn{3}{|l|}{Hospital}                                               &  & \multicolumn{3}{l|}{Pharmaceutical company}                                 &  & \multicolumn{3}{l|}{Specialised Clinic}                                     \\ \cline{1-3} \cline{5-7} \cline{9-11} 
-\multicolumn{1}{|l|}{Trace id} & \multicolumn{1}{l|}{Event name} & Timestamp &  & \multicolumn{1}{l|}{Trace id} & \multicolumn{1}{l|}{Event name} & Timestamp &  & \multicolumn{1}{l|}{Trace id} & \multicolumn{1}{l|}{Event name} & Timestamp \\ \cline{1-3} \cline{5-7} \cline{9-11} 
-\multicolumn{1}{|l|}{}         & \multicolumn{1}{l|}{}           &           &  & \multicolumn{1}{l|}{}         & \multicolumn{1}{l|}{}           &           &  & \multicolumn{1}{l|}{}         & \multicolumn{1}{l|}{}           &           \\ \cline{1-3} \cline{5-7} \cline{9-11} 
-\multicolumn{1}{|l|}{}         & \multicolumn{1}{l|}{}           &           &  & \multicolumn{1}{l|}{}         & \multicolumn{1}{l|}{}           &           &  & \multicolumn{1}{l|}{}         & \multicolumn{1}{l|}{}           &           \\ \cline{1-3} \cline{5-7} \cline{9-11} 
-\end{tabular}
-\end{table}
-
-\begin{table}[t]
-\begin{tabular}{lll}
-\hline
-\multicolumn{3}{|l|}{Hospital}                                                                             \\ \hline
-\multicolumn{1}{|l|}{Trace id} & \multicolumn{2}{l|}{Trace}                                                \\ \hline
-\multicolumn{1}{|l|}{0}        & \multicolumn{2}{l|}{\textless CPA, OD, RD, AD, PRM \textgreater{}}        \\ \hline
-                               &                                      &                                    \\ \hline
-\multicolumn{3}{|l|}{Pharmaceutical Company}                                                               \\ \hline
-\multicolumn{1}{|l|}{Trace id} & \multicolumn{2}{l|}{Trace}                                                \\ \hline
-\multicolumn{1}{|l|}{0}        & \multicolumn{2}{l|}{\textless BA, TI, MÒ, GI \textgreater{}}              \\ \hline
-                               &                                      &                                    \\ \hline
-\multicolumn{3}{|l|}{Specialised Clinic}                                                                   \\ \hline
-\multicolumn{1}{|l|}{Trace id} & \multicolumn{2}{l|}{Trace}                                                \\ \hline
-\multicolumn{1}{|l|}{0}        & \multicolumn{2}{l|}{\textless{}CT, QE, BTL, ASM, RTB, CDO \textgreater{}} \\ \hline
-\end{tabular}
-\end{table}
-
+    \subfloat{% Subtable 1
+       \resizebox{0.48\textwidth}{!}{% <------ Don't forget this %
+        \begin{tabular}{|l|l|l||l|l|l|}
+        \hline
+        \multicolumn{6}{|c|}{Hospital}                                               \\ \hline
+        {Case} & {Timestamp} & Activity & {Case} & {Timestamp} & Activity \\ \hline
+        {312}         & {2022-07-14T10:36}           & PH    & {312}         & {2022-07-15T22:06}           & TP     \\ \hline
+        {312}         & {2022-07-14T16:36}           & COPA  &   {711}         & {2022-07-16T00:55}           & PRTA          \\ \hline
+        {711}         & {2022-07-14T17:21}           & PH    &   {711}         & {2022-07-16T00:55}           & PCD            \\ \hline
+        {312}         & {2022-07-14T17:36}           & OD    &   {711}         & {2022-07-16T02:55}           & DPH           \\ \hline
+        {711}         & {2022-07-14T23:21}           & COPA  &   {711}         & {2022-07-16T04:55}           & DP          \\ \hline
+        {711}         & {2022-07-15T00:21}           & OD    &    {312}         & {2022-07-16T07:06}           & RPB        \\ \hline
+        {711}         & {2022-07-15T18:55}           & RD    &    {312}         & {2022-07-16T09:06}           & DPH          \\ \hline
+        {312}         & {2022-07-15T19:06}           & RD    &    {312}         & {2022-07-16T09:06}           & PCD         \\ \hline
+        {711}         & {2022-07-15T20:55}           & AD    &    {312}        & {2022-07-16T11:06}           & DP            \\ \hline
+        {312}         & {2022-07-15T21:06}           & AD     & \multicolumn{3}{c}{} \\ \cline{1-3}    
+        \end{tabular}%
+        }% resizebox
+    }% subfloat
+    %\end{minipage}
+    \hfill
+    %\begin{minipage}[t]{0.45\linewidth}
+    %\subfloat[Specialised Clinic]{\label{tab:testResults:decentralized}% Subtable 2
+    \subfloat{% Subtable 2
+        \resizebox{0.24\textwidth}{!}{% <------ Don't forget this %
+        \begin{tabular}{!{\color{pharmacolor}\vline}l!{\color{pharmacolor}\vline}l!{\color{pharmacolor}\vline}l!{\color{pharmacolor}\vline}}\arrayrulecolor{pharmacolor}
+        \hline
+        \multicolumn{3}{|c|}{Pharmaceutical company}                                               \\ \hline
+        {Case} & {Timestamp} & Activity \\ \hline
+        {312}         & {2022-07-15T09:06}           & DOR \\ \hline
+        {711}         & {2022-07-15T09:30}           & DOR \\ \hline
+        {312}         & {2022-07-15T11:06}           & PDL \\ \hline
+        {711}         & {2022-07-15T11:30}           & PDL \\ \hline
+        {312}         & {2022-07-15T13:06}           & SD \\ \hline
+        {711}         & {2022-07-15T13:30}           & SD \\ \hline
+        \end{tabular}%
+        }% resizebox
+    }% subfloat
+    %\end{minipage}
+    \hfill
+    %\begin{minipage}[t]{0.45\linewidth}
+    %\subfloat[Pharmaceutical Company]{\label{tab:testResults:decentralized}% Subtable 2
+    \subfloat{% Subtable 2
+        \resizebox{0.24\textwidth}{!}{% <------ Don't forget this %
+        \begin{tabular}{!{\color{specializedcliniccolor}\vline}l!{\color{specializedcliniccolor}\vline}l!{\color{specializedcliniccolor}\vline}l!{\color{specializedcliniccolor}\vline}}\arrayrulecolor{specializedcliniccolor}
+        \hline
+        \multicolumn{3}{!{\color{teal}\vline}c!{\color{teal}\vline}}{Specialized clinic}                                               \\ \hline
+        {Case} & {Timestamp} & Activity \\ \hline
+        {312}         & {2022-07-16T00:06}           & PAFH        \\ \hline
+        {312}         & {2022-07-16T01:06}           & PIA         \\ \hline
+        {312}         & {2022-07-16T03:06}           &  PT         \\ \hline
+        {312}         & {2022-07-16T04:06}           & VRT         \\ \hline
+        {312}         & {2022-07-16T05:06}           & TPB         \\ \hline
+        \end{tabular}%
+        }% resizebox
+    }% subfloat
+     \label{tab:trace}
+    \end{table}
 \section{Motivating Scenario}\label{sec:motivating}
-Cooperation between different structures is crucial in the medical field, and many processes are frequently outsourced. In our running example, we consider a simplified healthcare scenario in which an hospitalization process involves the cooperation of three organizations, namely, the \texttt{Hospital}, the \texttt{Pharmaceutical Organization}, and the \texttt{Specialized Clinic}. We explain the process depicted in the BPMN diagram in \cref{fig:BPMN_Healthcare} as follows.
-Preliminary examinations are carried out when a patient enters the \texttt{Hospital}. Then, the \texttt{Hospital} orders the drugs needed to treat the patient from the \texttt{Pharmaceutical Company}. The \texttt{Pharmaceutical Company} receives the order, produces the drugs in the laboratory, and sends them back to the \texttt{Hospital}. The \texttt{Hospital} manages the drugs received and verifies whether the patient can be treated internally. Patients requiring special care are transferred to the \texttt{Specialized Clinic} where more in-depth checks are carried out. Once the \texttt{Specialized Clinic} has verified the response to the alternative treatment, the patient is transferred to the \texttt{Hospital} to prepare the dehospitalization. Before discharging the patient, the \texttt{Hospital} prepares the necessary clinical documentation. In addition, the \texttt{Hospital} also carries out analysis checks. Finally, the \texttt{Hospital} discharges the patient.
-
-The \texttt{Hospital}, the  organizations record the events belonging to different process instances in the traces of their event logs. In \cref{fig:BPMN_Healthcare}, we propose as an example two possible traces scattered across the three organizations. Traces of different organizations having the same ID are in the same process instance. TO BE CONTINUED ONCE WE HAVE THE IMAGE.\todo[]{Add two trace examples below the bpmn.}
-
-%Any organization in the collaboration environment can request to perform process mining operations. For instance, the hospital cooperates with the specialized clinic and the pharmaceutical company, it can decide at any time to analyze the entire process by considering data from all three partners to provide an overview. The hospital requests the necessary data from all companies participating in the cooperation. All companies will send their process data in event log form. To mine all data together, the hospital must merge the event logs received. Once the event log has been merged, the hospital can proceed with the execution of the mining algorithm to analyze the entire process.
-
-%TRACE 555
-
-%Patient hospitalised, Carry out preliminary analyses , Order drugs, Receive drugs, Administer drug, Transfer the patient to chosen specialised clinic, Receive the patient back from specialised clinic, Declare patient healed, Prepare clinic documentation, Discharge patient
-
-% ()Receive drugs order from hospital (2022-12-15T09:30:00Z), Produce new drugs in laboratory (2022-12-15T11:30:00Z),  Ship drugs to hospital (2022-12-15T13:30:00Z)
-
-% Specialised: Patient arrives from hospital (2022-12-16T00:30:00Z), Perform more in-depth analyses (2022-12-16T02:30:00Z), Perform treatment (2022-12-16T04:30:00Z), Verify response to alternative treatment (2022-12-16T05:30:00Z), Transfer patient back to hospital (2022-12-16T06:30:00Z)
+For our motivating scenario, we focus on a simplified hospitalization process for the treatment of rare diseases that involves the cooperation of three parties: the \Actor{Hospital}, the \Actor{Pharmaceutical organization}, and the \Actor{Specialized clinic}. The process scheme is depicted in the BPMN diagram shown in \cref{fig:BPMN_Healthcare}. For the sake of simplicity, we describe the process through two cases. Alice's journey (case 312) begins when she enters the hospital for the preliminary examinations (the \emph{patient hospitalized} event, \Activ{PH}). The \Actor{Hospital} then places to the \Actor{Pharmaceutical company} an order for the drugs (\Activ{OD}) needed to treat Alice's specific condition. Afterwards, the \Actor{Pharmaceutical company} acknowledges that the drugs order is received (\Activ{DOR}), proceeds to produce the drugs in the laboratory (\Activ{PDL}), and ships the drugs (\Activ{SD}) back to the \Actor{Hospital}. Upon receiving the medications, the \Actor{Hospital} administer the drug (\Activ{AD}), and conducts an assessment to determine if Alice can be treated internally. If specialized care is required, Alice is moved from the \Actor{Hospital} to the \Actor{Specialized clinic} (\Activ{PAFH}). When the patient arrives from the \Actor{Hospital} (\Activ{PAFH}), the \Actor{Specialized clinic} performs in-depth analyses (\Activ{PIA}) and proceeds with the treatment (\Activ{PT}). Once the \Actor{Specialized clinic} had completed the evaluations and verified the response to the alternative treatment (\Activ{VRT}), it transfers the patient back \Activ{TPB}. The \Actor{Hospital} receive the Alice patient back \Activ(RPB) and prepares the necessary clinic documentation (\Activ{PCD}). If Alice has successfully recovered, declares her as healed (\Activ{DPH}). When Alice's treatment is complete, the \Actor{Hospital} discharges the patient (\Activ{DP}). Bob enters the \Actor{Hospital} a few hours later than Alice. His hospitalization process is similar to Alice's. However, he does not need specialized care, and his case (711) is only treated by the \Actor{Hospital}. Therefore, the \Actor{Hospital} perform the response to treatment analyses (\Activ{PRTA}) instead of transferring him to the \Actor{Specialized clinic}. Both the \Actor{National Institute of Statistics} of the country in which the three organizations reside, together with the \Actor{University} that hosts/manages the hospital, wish to uncover information on this inter-organizational process for reporting and auditing purposes~\cite{MiekeJans} via process analytics. The involved organizations share the urge for such an analysis, and wish to be able to repeat the mining task also in-house. 
+The \Actor{Hospital}, the \Actor{Specialized clinic}, and the \Actor{Pharmaceutical company} have a partial view of  the overall unfolding of the inter-organizational process as they record the events stemming from the parts of their pertinence. %They record the events, e.g., of Alice and Bob's hospitalizations on traces 312 and 711 % of their event logs respectively, 
+%alongside traces associated with other patients. 
+In \cref{tab:trace}, e.g., we show the traces 312 and 711 recorded by the \Actor{Hospital} (i.e., $T^H_{312}$ and $T^H_{711}$), the \Actor{Specialized clinic} (i.e., $T^S_{312}$ and $T^S_{711}$), and the \Actor{Pharmaceutical company} (i.e., $T^C_{312}$ and $T^C_{711}$).
+% In order to gain valuable insights concerning the whole hospitalization process, the \Activ{Hospital} retrieves event logs from the \Actor{Specialized clinic} and the \Actor{Pharmaceutical company}. These include $T_{S312}$, $T_{C312}$, $T_{S711}$, $T_{C711}$. The \Activ{Hospital} combines its traces with those sharing the same id from the \Actor{Specialized clinic} and the \Actor{Pharmaceutical company}. The results of this procedure are chronologically sorted traces that encompass the events of the three organizations. Therefore, the \Actor{Hospital} combines $T_{H312}, T_{C312}, T_{S312}$ and $T_{H711}, T_{C711}, T_{S711}$ generating 
+Those traces are projections of the two combined ones for the whole inter-organizational process: $T_{312}$={\textlangle}\Activ{PH, COPA, OD, DOR, PDL, SD, RD, AD, TP, PAFH, PIA, PT, VRT, TPB, RPB, DPH, PCD, DP}{\textrangle} and $T_{711}$={\textlangle}\Activ{PH, COPA, OD, DOR, PDL, SD, RD, AD, TP, PAFH, DPH, PCD, DP}{\textrangle}. %Merged traces are used by the \Actor{Hospital} as input of the HeuristicsMiner~\cite{heuristicsminer} algorithm that outputs the business model of the whole process. Finally, the \Actor{Hospital} employs the outputs of the algorithm to uncover hidden process insights, revealing patterns, deviations, and opportunities for optimization within the hospitalization routine. 
+Results stemming from the analysis of the local traces would not provide a full picture. Data should be merged. However, to preserve the privacy of the people involved and safeguard the confidentiality of the information, the involved parties cannot give open access to their traces to other organizations. The diverging interests (being able to conduct process mining on data from multiple sources without giving away the local event logs in-clear) motivate our research. In the following, we describe the design of our solution.
