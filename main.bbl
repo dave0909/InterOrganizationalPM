@@ -1,27 +1,19 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{1}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{URL }
 \providecommand{\doi}[1]{https://doi.org/#1}
 
-\bibitem{van2011intra}
-van~der Aalst, W.M.P.: Intra-and inter-organizational process mining:
-  Discovering processes within and between organizations. In: The Practice of
-  Enterprise Modeling: 4th IFIP WG 8.1 Working Conference, PoEM 2011 Oslo,
-  Norway, November 2-3, 2011 Proceedings 4. pp. 1--11. Springer (2011)
-
-\bibitem{Basile_Blockchain_based_resource_governance_for_decentralized_web_environments}
-Basile, D., {Di Ciccio}, C., Goretti, V., Kirrane, S.: Blockchain based
-  resource governance for decentralized web environments. Frontiers in
-  Blockchain  \textbf{6} (may 2023)
-
-\bibitem{claes2014merging}
-Claes, J., Poels, G.: Merging event logs for process mining: A rule based
-  merging method and rule suggestion algorithm. Expert Systems with
-  Applications  \textbf{41}(16),  7291--7306 (2014)
-
 \bibitem{Dumas.etal/2018:FundamentalsofBPM}
 Dumas, M., La~Rosa, M., Mendling, J., Reijers, H.A.: Fundamentals of Business
   Process Management, Second Edition. Springer (2018)
+
+\bibitem{elkoumy2020secure}
+Elkoumy, G., Fahrenkrog-Petersen, S.A., Dumas, M., Laud, P., Pankova, A.,
+  Weidlich, M.: Secure multi-party computation for inter-organizational process
+  mining. In: Enterprise, Business-Process and Information Systems Modeling:
+  21st International Conference, BPMDS 2020, 25th International Conference,
+  EMMSAD 2020, Held at CAiSE 2020, Grenoble, France, June 8--9, 2020,
+  Proceedings 21. pp. 166--181. Springer (2020)
 
 \bibitem{elkoumy2020shareprom}
 Elkoumy, G., Fahrenkrog-Petersen, S.A., Dumas, M., Laud, P., Pankova, A.,
@@ -30,33 +22,18 @@ Elkoumy, G., Fahrenkrog-Petersen, S.A., Dumas, M., Laud, P., Pankova, A.,
 
 \bibitem{engel2011process}
 Engel, R., Krathu, W., Zapletal, M., Pichler, C., van~der Aalst, W.M.P.,
-  Werthner, H.: Process mining for electronic data interchange. In: E-Commerce
-  and Web Technologies: 12th International Conference, EC-Web 2011, Toulouse,
-  France, August 30-September 1, 2011. Proceedings 12. pp. 77--88. Springer
-  (2011)
-
-\bibitem{engel2016analyzing}
-Engel, R., Krathu, W., Zapletal, M., Pichler, C., Bose, R.J.C., van~der Aalst,
-  W.M.P., Werthner, H., Huemer, C.: Analyzing inter-organizational business
-  processes: process mining and business performance analysis using electronic
-  data interchange messages. Information Systems and e-Business Management
-  \textbf{14},  577--612 (2016)
-
-\bibitem{hernandez2021merging}
-Hernandez-Resendiz, J.D., Tello-Leal, E., Marin-Castro, H.M., Ramirez-Alcocer,
-  U.M., Mata-Torres, J.A.: Merging event logs for inter-organizational process
-  mining. In: New Perspectives on Enterprise Decision-Making Applying
-  Artificial Intelligence Techniques, pp. 3--26. Springer (2021)
+  Werthner, H.: Process mining for electronic data interchange. In: EC-Web. pp.
+  77--88 (2011)
 
 \bibitem{koch2002expressive}
 Koch, N., Kraus, A.: The expressive power of uml-based web engineering. In:
   Second International Workshop on Web-oriented Software Technology (IWWOST02).
   vol.~16, pp. 40--41. Citeseer (2002)
 
-\bibitem{lo2020flexible}
-Lo, N.W., Chen, S.C., Chang, S.C.: A flexible electronic data exchange
-  framework based on consortium blockchain. Journal of Internet Technology
-  \textbf{21}(5),  1313--1324 (2020)
+\bibitem{sepsis}
+Mannhardt, F.: Sepsis cases - event log (2016).
+  \doi{10.4121/UUID:915D2BFB-7E84-49AD-A286-DC35F063A460},
+  \url{https://data.4tu.nl/articles/_/12707639/1}
 
 \bibitem{muller2021process}
 M{\"u}ller, M., Simonet-Boulogne, A., Sengupta, S., Beige, O.: Process mining
@@ -64,10 +41,5 @@ M{\"u}ller, M., Simonet-Boulogne, A., Sengupta, S., Beige, O.: Process mining
   trust-aware inter-organizational process analysis. In: International
   Conference on Process Mining. pp. 369--381. Springer International Publishing
   Cham (2021)
-
-\bibitem{XIE2023321}
-Xie, H., Zheng, J., He, T., Wei, S., Hu, C.: {TEBDS}: A trusted execution
-  environment-and-blockchain-supported {IoT} data sharing system. Future
-  Generation Computer Systems  \textbf{140},  321--330 (2023)
 
 \end{thebibliography}
