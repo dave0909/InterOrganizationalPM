@@ -1,7 +1,7 @@
 \section{Related Work}
 \label{sec:background}
-The theme of inter-organizational process mining is discussed in the literature from different perspectives. The work of M{\"u}ller et al.~\cite{muller2021process} is the first contribution that considers TEEs in combination with process mining techniques. this work was one of the first to pay attention to data privacy and security within third-party systems that mine other activities' data. In order to preserve the information to be mined, this research proposes a conceptual architecture in which process mining algorithms are executed inside cloud service equipped with trusted execution environment. Inspired by this preliminary contribution, we design an approach where each organization can run process mining algorithms without involving external stakeholders. Unlike M{\"u}ller et al. work in which an algorithm executed in the cloud sends the same result to all the organizations in the collaboration environment, in our architecture each organization is autonomous to choose when performing the mining operations.
-Elkoumy et al.~\cite{elkoumy2020shareprom,elkoumy2020secure} present a tool called Shareprom. Shareprom allows independent parties to perform mining operations in inter-company contexts without revealing their input data to other parties included in the context. Like our work Shareprom aims to protect the data of the companies involved in the mining operation. Shareprom is only capable of performing operations with directed acyclic graphs that are exchanged in a protected manner between parties. Unlike our work in which logs are exchanged in a protected manner. Using this type of graph restricts the possible use of Shareprom in many contexts, although they are widely used as process representations in process mining, other types of data or representations may be needed in many process mining contexts. In addition, the technology used by Shareprom is secure multiparty computation which does not guarantee high scalability. Our work solves this problem by using trusted applications that execute inside trusted execution environments owned by all parties involved in the inter-organizational context.
+The theme of inter-organizational process mining is discussed in the literature from different perspectives. The work of M{\"u}ller et al.~\cite{muller2021process} was one of the first to pay attention to data privacy and security within third-party systems that mine other activities' data. In order to preserve the information to be mined, this research proposes a conceptual architecture in which process mining algorithms are executed inside cloud service equipped with trusted execution environment. Inspired by this preliminary contribution, we design an approach where each organization can run process mining algorithms without involving external stakeholders. Unlike M{\"u}ller et al. work in which an algorithm executed in the cloud sends the same result to all the organizations in the collaboration environment, in our architecture each organization is autonomous to choose when performing the mining operations.
+Elkoumy et al.~\cite{elkoumy2020shareprom,elkoumy2020secure} present a tool called Shareprom. Shareprom allows independent parties to perform mining operations in inter-company contexts without revealing their input data to other parties included in the context. Like our work Shareprom aims to protect the data of the companies involved in the mining operation. Shareprom is only capable of performing operations with directed acyclic graphs that are exchanged in a protected manner between parties. Unlike our work, where exchanged data are company logs. Using this type of graph restricts the possible use of Shareprom in many contexts, although they are widely used as process representations in process mining, other types of data or representations may be needed in many process mining contexts. In addition, the technology used by Shareprom is secure multiparty computation which does not guarantee high scalability. Our work solves this problem by using trusted applications that execute inside trusted execution environments owned by all parties involved in the inter-organizational context. The results obtained from out work on scalability will be shown in the discussion section.
 
 
 
@@ -11,12 +11,11 @@ Elkoumy et al.~\cite{elkoumy2020shareprom,elkoumy2020secure} present a tool call
 
 
 
+Analyzing inter-organizational business processes: process mining and business performance analysis using electronic data interchange messages ~\cite{engel2016analyzing}
 
+Merging Event Logs for Inter-organizational Process Mining~\cite{hernandez2021merging}
 
-
-
-
-
+Merging event logs for process mining: A rule based merging method and rule suggestion algorithm~\cite{claes2014merging}
 
 
 
