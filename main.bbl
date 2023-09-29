@@ -1,7 +1,12 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{URL }
 \providecommand{\doi}[1]{https://doi.org/#1}
+
+\bibitem{claes2014merging}
+Claes, J., Poels, G.: Merging event logs for process mining: A rule based
+  merging method and rule suggestion algorithm. Expert Systems with
+  Applications  \textbf{41}(16),  7291--7306 (2014)
 
 \bibitem{Dumas.etal/2018:FundamentalsofBPM}
 Dumas, M., La~Rosa, M., Mendling, J., Reijers, H.A.: Fundamentals of Business
@@ -24,6 +29,19 @@ Elkoumy, G., Fahrenkrog-Petersen, S.A., Dumas, M., Laud, P., Pankova, A.,
 Engel, R., Krathu, W., Zapletal, M., Pichler, C., van~der Aalst, W.M.P.,
   Werthner, H.: Process mining for electronic data interchange. In: EC-Web. pp.
   77--88 (2011)
+
+\bibitem{engel2016analyzing}
+Engel, R., Krathu, W., Zapletal, M., Pichler, C., Bose, R.J.C., van~der Aalst,
+  W.M.P., Werthner, H., Huemer, C.: Analyzing inter-organizational business
+  processes: Process mining and business performance analysis using electronic
+  data interchange messages. Inf. Syst. E-Bus. Manag.  \textbf{14},  577--612
+  (2016)
+
+\bibitem{hernandez2021merging}
+Hernandez-Resendiz, J.D., Tello-Leal, E., Marin-Castro, H.M., Ramirez-Alcocer,
+  U.M., Mata-Torres, J.A.: Merging event logs for inter-organizational process
+  mining. In: New Perspectives on Enterprise Decision-Making Applying
+  Artificial Intelligence Techniques, pp. 3--26. Springer (2021)
 
 \bibitem{koch2002expressive}
 Koch, N., Kraus, A.: The expressive power of uml-based web engineering. In:
