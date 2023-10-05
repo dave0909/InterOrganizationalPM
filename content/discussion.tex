@@ -1,14 +1,14 @@
 \label{sec:discussion:subsec:convergence}
 \begin{figure}[t]
-     \subfloat[][Workflow net mined by the Pharmaceutical company.]{\includegraphics[width=0.37\linewidth]{content/figures/pharma_dep1.pdf}\label{fig:wfnet:a}}
+     \subfloat[][Workflow net mined from the log of Pharmaceutical company.]{\includegraphics[width=0.37\linewidth]{content/figures/pharma_dep1.pdf}\label{fig:wfnet:a}}
      \hfill
-     \subfloat[][Workflow net mined by the Specialized clinic.]{\includegraphics[width=0.57\linewidth]{content/figures/specialised_dep1.pdf}\label{fig:wfnet:b}}
+     \subfloat[][Workflow net mined from the log of Specialized clinic.]{\includegraphics[width=0.57\linewidth]{content/figures/specialised_dep1.pdf}\label{fig:wfnet:b}}
       \hfill
       \vspace{1em}
-     \subfloat[][Workflow net mined by the Hospital.]{\includegraphics[width=1\linewidth]{content/figures/hospital_dep1.pdf}\label{fig:wfnet:c}}
+     \subfloat[][Workflow net mined from the log of Hospital.]{\includegraphics[width=1\linewidth]{content/figures/hospital_dep1.pdf}\label{fig:wfnet:c}}
       \hfill
       \vspace{1em}
-      \subfloat[][Workflow net mined by the Hospital in inter-organizational setting.]{\includegraphics[width=1\linewidth]{content/figures/merged_dep1.pdf}\label{fig:wfnet:d}}
+      \subfloat[][Workflow net mined from the merged log in inter-organizational setting.]{\includegraphics[width=1\linewidth]{content/figures/merged_dep1.pdf}\label{fig:wfnet:d}}
      \caption{Outputs used for the convergence test.}
      \label{fig:wfnet}
 \end{figure}
@@ -26,6 +26,16 @@ Dobbiamo informare il lettore sulle caratteristiche del log (numero eventi, nume
 In this section, we evaluate the proposed approach. The primary objective of the \cref{sec:discussion:subsec:convergence} is to delve into a convergence analysis by evaluating the efficacy of the collaborative data exchange process. We then took into assessment the memory usage by measuring the RAM usage in diverse parameter configurations in \cref{sec:discussion:subsec:memory}. In \cref{sec:discussion:subsec:validation}, we validate the addressed approach using real-world data to conclude the discussion. 
 
 \subsection{Datasets}
+\todo[inline]{the following text was in the implementation and was moved here }
+In order to generate the logs for the execution of the trusted application, we produced a simulation model based on our running example (see~\cref{sec:motivating}).% was created based on BPMN notation\footnote{https://www.bpmn.org}. Subsequently, the model was imported fed as input into the BIMP tool.%
+\footnote{https://bimp.cs.ut.ee}
+% which made it possible to generate the synthetic event logs. 
+The number of log traces generated through BIMP aligns with other works in the state of the art; the generation software was set to 1000 traces.
+\todo{Mention Sepsis here}
+Following the generation, the synthetic event log relating to the process model was filtered via ProM.%
+\footnote{https://promtools.org}
+We were able to filter the logs based on attribute values, which allowed us to filter the synthetic log according to the resource involved in the activities. Referring to the motivating scenario, the resources involved are the hospital, the specialized clinic, and the pharmaceutical company. In this way, we created three separate event logs from the initial event log, which were used to exchange data between the organizations.
+
 
 \subsection{Convergence}
 \label{sec:discussion:subsec:convergence}  
@@ -52,6 +62,14 @@ In detail, \cref{fig:wfnet:a}, colored in blue, depicts the process of the \text
 \includegraphics[width=1\linewidth]{content/figures/barplot_segsize.pdf}
 \caption{RAM Memory usage for the healthcare synthetic log with 1000 traces}
 \label{fig:barplot_segsize}
+\end{figure}
+
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=1\linewidth]{content/figures/ram_usage_per_TS.pdf}
+\caption{RAM Memory usage for a single run for the healthcare synthetic log with 1000 traces}
+\label{fig:ramusage_ts}
 \end{figure}
 
 \begin{comment}
