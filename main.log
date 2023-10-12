@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.7.19)  8 OCT 2023 14:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.7.19)  12 OCT 2023 12:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2163,18 +2163,6 @@ LaTeX Font Info:    Trying to load font information for T1+lmr on input line 18
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) (main.aux
 
-LaTeX Warning: Label `<figure1>' multiply defined.
-
-
-LaTeX Warning: Label `<figure1>@cref' multiply defined.
-
-
-LaTeX Warning: Label `<figure1>' multiply defined.
-
-
-LaTeX Warning: Label `<figure1>@cref' multiply defined.
-
-
 LaTeX Warning: Label `sec:discussion:subsec:convergence' multiply defined.
 
 
@@ -2443,12 +2431,12 @@ Package wrapfig Warning: Stationary wrapfigure forced to float on input line 30
 
 [6 <./content/figures/architecturediagramsad.pdf> <./content/figures/securemine
 rsad.pdf>]) (content/realization.tex
-<content/figures/deploymentdiagram3.pdf, id=382, 832.36372pt x 363.58234pt>
+<content/figures/deploymentdiagram3.pdf, id=382, 828.6719pt x 363.58234pt>
 File: content/figures/deploymentdiagram3.pdf Graphic file (type pdf)
 <use content/figures/deploymentdiagram3.pdf>
 Package pdftex.def Info: content/figures/deploymentdiagram3.pdf  used on input 
-line 19.
-(pdftex.def)             Requested size: 347.12354pt x 151.62726pt.
+line 14.
+(pdftex.def)             Requested size: 347.12354pt x 152.29854pt.
 
 Overfull \hbox (13.30823pt too wide) has occurred while \output is active
                                    [] []
@@ -2456,31 +2444,29 @@ Overfull \hbox (13.30823pt too wide) has occurred while \output is active
 
 [7]
 
-LaTeX Warning: Citation `TEEHERE' on page 8 undefined on input line 29.
+LaTeX Warning: Citation `TEEHERE' on page 8 undefined on input line 20.
 
 [8 <./content/figures/deploymentdiagram3.pdf>] Excluding 'comment' comment.
-<content/figures/initializationworkflow.pdf, id=424, 276.07141pt x 351.23218pt>
+<content/figures/initializationworkflow.pdf, id=426, 276.07141pt x 351.23218pt>
 
 File: content/figures/initializationworkflow.pdf Graphic file (type pdf)
 <use content/figures/initializationworkflow.pdf>
 Package pdftex.def Info: content/figures/initializationworkflow.pdf  used on in
-put line 43.
+put line 38.
 (pdftex.def)             Requested size: 100.66348pt x 128.06737pt.
-<content/figures/attestationworkflow.pdf, id=425, 307.1475pt x 351.23218pt>
+<content/figures/attestationworkflow.pdf, id=427, 307.1475pt x 351.23218pt>
 File: content/figures/attestationworkflow.pdf Graphic file (type pdf)
 <use content/figures/attestationworkflow.pdf>
 Package pdftex.def Info: content/figures/attestationworkflow.pdf  used on input
- line 44.
+ line 39.
 (pdftex.def)             Requested size: 111.08206pt x 127.02765pt.
-<content/figures/datatransmissionworkflow.pdf, id=426, 321.11969pt x 351.23218p
+<content/figures/datatransmissionworkflow.pdf, id=428, 314.13359pt x 351.23218p
 t>
 File: content/figures/datatransmissionworkflow.pdf Graphic file (type pdf)
 <use content/figures/datatransmissionworkflow.pdf>
 Package pdftex.def Info: content/figures/datatransmissionworkflow.pdf  used on 
-input line 45.
-(pdftex.def)             Requested size: 114.55139pt x 125.29121pt.
-Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
-ine 62.
+input line 40.
+(pdftex.def)             Requested size: 114.55139pt x 128.0781pt.
 
 Overfull \hbox (13.30823pt too wide) has occurred while \output is active
                                    [] []
@@ -2488,110 +2474,82 @@ Overfull \hbox (13.30823pt too wide) has occurred while \output is active
 
 [9 <./content/figures/initializationworkflow.pdf> <./content/figures/attestatio
 nworkflow.pdf> <./content/figures/datatransmissionworkflow.pdf>]
-<content/figures/computationworkflow.pdf, id=468, 355.3275pt x 281.13028pt>
+<content/figures/computationworkflow.pdf, id=471, 382.5492pt x 272.93968pt>
 File: content/figures/computationworkflow.pdf Graphic file (type pdf)
 <use content/figures/computationworkflow.pdf>
 Package pdftex.def Info: content/figures/computationworkflow.pdf  used on input
- line 70.
-(pdftex.def)             Requested size: 114.55139pt x 90.63272pt.
+ line 49.
+(pdftex.def)             Requested size: 121.49535pt x 86.68028pt.
 
-Excluding 'comment' comment.) (content/discussion.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [10 <./content/figures/computationworkflow.pdf>]
+Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
+ine 71.
+ Excluding 'comment' comment.)
+(content/discussion.tex Excluding 'comment' comment.
+
+LaTeX Warning: Reference `sec:discussion:subsec:memory' on page 1 undefined on 
+input line 14.
+
+
+LaTeX Warning: Reference `sec:discussion:subsec:validation' on page 1 undefined
+ on input line 14.
+
+Excluding 'comment' comment.
 
 pdfTeX warning: pdflatex.exe (file ./content/figures/pharma_dep1.pdf): PDF incl
 usion: found PDF version <1.7>, but at most version <1.5> allowed
-<content/figures/pharma_dep1.pdf, id=472, 291.00719pt x 32.0397pt>
+<content/figures/pharma_dep1.pdf, id=491, 291.00719pt x 32.0397pt>
 File: content/figures/pharma_dep1.pdf Graphic file (type pdf)
 <use content/figures/pharma_dep1.pdf>
-Package pdftex.def Info: content/figures/pharma_dep1.pdf  used on input line 3.
-
+Package pdftex.def Info: content/figures/pharma_dep1.pdf  used on input line 29
+.
 (pdftex.def)             Requested size: 128.434pt x 14.14052pt.
 
 
 pdfTeX warning: pdflatex.exe (file ./content/figures/specialised_dep1.pdf): PDF
  inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<content/figures/specialised_dep1.pdf, id=473, 471.68219pt x 32.0397pt>
+<content/figures/specialised_dep1.pdf, id=492, 471.68219pt x 32.0397pt>
 File: content/figures/specialised_dep1.pdf Graphic file (type pdf)
 <use content/figures/specialised_dep1.pdf>
 Package pdftex.def Info: content/figures/specialised_dep1.pdf  used on input li
-ne 5.
+ne 31.
 (pdftex.def)             Requested size: 197.86295pt x 13.43994pt.
 
 
 pdfTeX warning: pdflatex.exe (file ./content/figures/hospital_dep1.pdf): PDF in
 clusion: found PDF version <1.7>, but at most version <1.5> allowed
-<content/figures/hospital_dep1.pdf, id=474, 839.05469pt x 118.5228pt>
+<content/figures/hospital_dep1.pdf, id=493, 839.05469pt x 118.5228pt>
 File: content/figures/hospital_dep1.pdf Graphic file (type pdf)
 <use content/figures/hospital_dep1.pdf>
 Package pdftex.def Info: content/figures/hospital_dep1.pdf  used on input line 
-8.
+34.
 (pdftex.def)             Requested size: 347.12354pt x 49.03412pt.
 
 
 pdfTeX warning: pdflatex.exe (file ./content/figures/merged_dep1.pdf): PDF incl
 usion: found PDF version <1.7>, but at most version <1.5> allowed
-<content/figures/merged_dep1.pdf, id=475, 839.05469pt x 162.6075pt>
+<content/figures/merged_dep1.pdf, id=494, 839.05469pt x 162.6075pt>
 File: content/figures/merged_dep1.pdf Graphic file (type pdf)
 <use content/figures/merged_dep1.pdf>
-Package pdftex.def Info: content/figures/merged_dep1.pdf  used on input line 11
+Package pdftex.def Info: content/figures/merged_dep1.pdf  used on input line 37
 .
 (pdftex.def)             Requested size: 347.12354pt x 67.27243pt.
-Excluding 'comment' comment.
-
-LaTeX Warning: Reference `sec:discussion:subsec:validation' on page 1 undefined
- on input line 26.
-
-[10 <./content/figures/computationworkflow.pdf>]
-Overfull \hbox (13.30823pt too wide) has occurred while \output is active
-                                   [] []
- []
-
-[11 <./content/figures/pharma_dep1.pdf> <./content/figures/specialised_dep1.pdf
-> <./content/figures/hospital_dep1.pdf> <./content/figures/merged_dep1.pdf>]
-<content/figures/barplot_segsize.pdf, id=574, 930.47626pt x 531.9875pt>
-File: content/figures/barplot_segsize.pdf Graphic file (type pdf)
-<use content/figures/barplot_segsize.pdf>
-Package pdftex.def Info: content/figures/barplot_segsize.pdf  used on input lin
-e 62.
-(pdftex.def)             Requested size: 347.12354pt x 198.4639pt.
-<content/figures/barplot_segsize_syth_2k.pdf, id=575, 1135.24126pt x 639.38875p
-t>
-File: content/figures/barplot_segsize_syth_2k.pdf Graphic file (type pdf)
-<use content/figures/barplot_segsize_syth_2k.pdf>
-Package pdftex.def Info: content/figures/barplot_segsize_syth_2k.pdf  used on i
-nput line 69.
-(pdftex.def)             Requested size: 347.12354pt x 195.50597pt.
-<content/figures/barplot_segsize_syth_4k.pdf, id=576, 1156.32pt x 650.43pt>
-File: content/figures/barplot_segsize_syth_4k.pdf Graphic file (type pdf)
-<use content/figures/barplot_segsize_syth_4k.pdf>
-Package pdftex.def Info: content/figures/barplot_segsize_syth_4k.pdf  used on i
-nput line 76.
-(pdftex.def)             Requested size: 347.12354pt x 195.2496pt.
-<content/figures/lineplot_segsize_combined.pdf, id=577, 1135.24126pt x 629.3512
-6pt>
-File: content/figures/lineplot_segsize_combined.pdf Graphic file (type pdf)
-<use content/figures/lineplot_segsize_combined.pdf>
-Package pdftex.def Info: content/figures/lineplot_segsize_combined.pdf  used on
- input line 83.
-(pdftex.def)             Requested size: 347.12354pt x 192.4368pt.
-<content/figures/ram_usage_per_TS.pdf, id=578, 1135.24126pt x 629.35126pt>
-File: content/figures/ram_usage_per_TS.pdf Graphic file (type pdf)
-<use content/figures/ram_usage_per_TS.pdf>
-Package pdftex.def Info: content/figures/ram_usage_per_TS.pdf  used on input li
-ne 91.
-(pdftex.def)             Requested size: 347.12354pt x 192.4368pt.
-
-Excluding 'comment' comment.) (content/conclusion.tex [12 <./content/figures/ba
-rplot_segsize.pdf>]
-Underfull \vbox (badness 4752) has occurred while \output is active []
-
 
 Overfull \hbox (13.30823pt too wide) has occurred while \output is active
                                    [] []
  []
 
-[13 <./content/figures/barplot_segsize_syth_2k.pdf>]
-Excluding 'comment' comment.) (main.bbl [14 <./content/figures/barplot_segsize_
-syth_4k.pdf>]
+[11] Excluding 'comment' comment.) (content/conclusion.tex [12 <./content/figur
+es/pharma_dep1.pdf> <./content/figures/specialised_dep1.pdf> <./content/figures
+/hospital_dep1.pdf> <./content/figures/merged_dep1.pdf>]
+Excluding 'comment' comment.) (main.bbl
+Overfull \hbox (13.30823pt too wide) has occurred while \output is active
+                                   [] []
+ []
+
+[13]
 Underfull \hbox (badness 1997) in paragraph at lines 61--64
 []\T1/lmr/m/n/9 (+20) Mannhardt, F.: Sep-sis cases - event log (2016). [][][][]
 []$https : / / doi . org / 10 . 4121 /
@@ -2602,13 +2560,7 @@ Underfull \hbox (badness 1997) in paragraph at lines 61--64
 Package caption Warning: Unused \captionsetup[subtable] on input line 50.
 See the caption package documentation for explanation.
 
-
-Overfull \hbox (13.30823pt too wide) has occurred while \output is active
-                                   [] []
- []
-
-[15 <./content/figures/lineplot_segsize_combined.pdf>] [16 <./content/figures/r
-am_usage_per_TS.pdf>] (main.aux)
+[14] (main.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -2619,13 +2571,13 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 9D84C1B74C4A722610BD903841F2EE62;2223.
  ) 
 Here is how much of TeX's memory you used:
- 51702 strings out of 476331
- 1088510 string characters out of 5787765
+ 51651 strings out of 476331
+ 1086497 string characters out of 5787765
  1876660 words of memory out of 5000000
- 70786 multiletter control sequences out of 15000+600000
- 589059 words of font info for 212 fonts, out of 8000000 for 9000
+ 70746 multiletter control sequences out of 15000+600000
+ 589264 words of font info for 215 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 104i,16n,100p,2849b,1101s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 104i,16n,100p,2849b,1093s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\david\AppData\Local\MiKTeX\fonts/pk/ljfour/public/mathabx/dpi600\m
 atha10.pk> <C:\Users\david\AppData\Local\MiKTeX\fonts/pk/ljfour/public/mathabx/
 dpi600\matha9.pk> <C:\Users\david\AppData\Local\MiKTeX\fonts/pk/ljfour/public/m
@@ -2644,9 +2596,9 @@ lm/lmri10.pfb><C:/Users/david/AppData/Local/Programs/MiKTeX/fonts/type1/public/
 lm/lmss10.pfb><C:/Users/david/AppData/Local/Programs/MiKTeX/fonts/type1/public/
 lm/lmtt10.pfb><C:/Users/david/AppData/Local/Programs/MiKTeX/fonts/type1/public/
 lm/lmtt9.pfb>
-Output written on main.pdf (16 pages, 836591 bytes).
+Output written on main.pdf (14 pages, 767297 bytes).
 PDF statistics:
- 924 PDF objects out of 1000 (max. 8388607)
- 75 named destinations out of 1000 (max. 500000)
- 40258 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 706 PDF objects out of 1000 (max. 8388607)
+ 63 named destinations out of 1000 (max. 500000)
+ 40233 words of extra memory for PDF output out of 42996 (max. 10000000)
 
