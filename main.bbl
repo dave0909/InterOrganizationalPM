@@ -8,6 +8,11 @@ van~der Aalst, W.M.: Federated process mining: Exploiting event data across
   organizational boundaries. In: 2021 IEEE International Conference on Smart
   Data Services (SMDS). pp.~1--7 (2021). \doi{10.1109/SMDS53860.2021.00011}
 
+\bibitem{rfc9334}
+Birkholz, H., Thaler, D., Richardson, M., Smith, N., Pan, W.: {Remote
+  ATtestation procedureS (RATS) Architecture} (2023). \doi{10.17487/RFC9334},
+  \url{https://www.rfc-editor.org/info/rfc9334}
+
 \bibitem{claes2014merging}
 Claes, J., Poels, G.: Merging event logs for process mining: A rule based
   merging method and rule suggestion algorithm. Expert Systems with
@@ -34,18 +39,6 @@ Elkoumy, G., Fahrenkrog-Petersen, S.A., Dumas, M., Laud, P., Pankova, A.,
   Weidlich, M.: Shareprom: A tool for privacy-preserving inter-organizational
   process mining. BPM (PhD/Demos)  \textbf{2673},  72--76 (2020)
 
-\bibitem{engel2011process}
-Engel, R., Krathu, W., Zapletal, M., Pichler, C., van~der Aalst, W.M.P.,
-  Werthner, H.: Process mining for electronic data interchange. In: EC-Web. pp.
-  77--88 (2011)
-
-\bibitem{engel2016analyzing}
-Engel, R., Krathu, W., Zapletal, M., Pichler, C., Bose, R.J.C., van~der Aalst,
-  W.M.P., Werthner, H., Huemer, C.: Analyzing inter-organizational business
-  processes: Process mining and business performance analysis using electronic
-  data interchange messages. Inf. Syst. E-Bus. Manag.  \textbf{14},  577--612
-  (2016)
-
 \bibitem{hernandez2021merging}
 Hernandez-Resendiz, J.D., Tello-Leal, E., Marin-Castro, H.M., Ramirez-Alcocer,
   U.M., Mata-Torres, J.A.: Merging event logs for inter-organizational process
@@ -56,11 +49,6 @@ Hernandez-Resendiz, J.D., Tello-Leal, E., Marin-Castro, H.M., Ramirez-Alcocer,
 Koch, N., Kraus, A.: The expressive power of uml-based web engineering. In:
   Second International Workshop on Web-oriented Software Technology (IWWOST02).
   vol.~16, pp. 40--41. Citeseer (2002)
-
-\bibitem{sepsis}
-Mannhardt, F.: Sepsis cases - event log (2016).
-  \doi{10.4121/UUID:915D2BFB-7E84-49AD-A286-DC35F063A460},
-  \url{https://data.4tu.nl/articles/_/12707639/1}
 
 \bibitem{muller2021process}
 M{\"u}ller, M., Simonet-Boulogne, A., Sengupta, S., Beige, O.: Process mining

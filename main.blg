@@ -6,45 +6,46 @@ The style file: splncs04.bst
 Reallocating 'name_of_file' (item size: 1) to 5 items.
 Database file #1: main.bib
 Warning--I didn't find a database entry for "MiekeJans"
-You've used 13 entries,
+Warning--I didn't find a database entry for "TEEHERE"
+You've used 11 entries,
             2850 wiz_defined-function locations,
-            680 strings with 7646 characters,
-and the built_in function-call counts, 8262 in all, are:
-= -- 679
-> -- 301
-< -- 15
-+ -- 124
-- -- 110
-* -- 529
-:= -- 1060
-add.period$ -- 23
-call.type$ -- 13
-change.case$ -- 103
+            670 strings with 7114 characters,
+and the built_in function-call counts, 6858 in all, are:
+= -- 562
+> -- 247
+< -- 12
++ -- 102
+- -- 90
+* -- 438
+:= -- 882
+add.period$ -- 20
+call.type$ -- 11
+change.case$ -- 85
 chr.to.int$ -- 0
-cite$ -- 13
-duplicate$ -- 699
-empty$ -- 721
-format.name$ -- 121
-if$ -- 1809
+cite$ -- 11
+duplicate$ -- 582
+empty$ -- 606
+format.name$ -- 100
+if$ -- 1503
 int.to.chr$ -- 0
-int.to.str$ -- 13
-missing$ -- 147
-newline$ -- 45
-num.names$ -- 26
-pop$ -- 290
+int.to.str$ -- 11
+missing$ -- 122
+newline$ -- 39
+num.names$ -- 22
+pop$ -- 243
 preamble$ -- 1
-purify$ -- 80
+purify$ -- 66
 quote$ -- 0
-skip$ -- 222
+skip$ -- 182
 stack$ -- 0
-substring$ -- 441
-swap$ -- 391
-text.length$ -- 15
+substring$ -- 359
+swap$ -- 321
+text.length$ -- 12
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 48
+type$ -- 40
 warning$ -- 0
-while$ -- 68
-width$ -- 15
-write$ -- 140
-(There was 1 warning)
+while$ -- 56
+width$ -- 13
+write$ -- 120
+(There were 2 warnings)

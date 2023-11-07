@@ -1,5 +1,5 @@
 
-In this section, we present the high-level architecture of our CONFINE framework. We consider the main functionalities of each component, avoiding details on the employed technologies discussed in the next sections. After introducing the architecture, we focus on the \Compo{Secure Miner}, a core component of our contribution.
+In this section, we present the high-level architecture of the CONFINE framework. We consider the main functionalities of each component, avoiding details on the employed technologies discussed in the next sections. After introducing the architecture, we focus on the \Compo{Secure Miner}, a core component of our contribution.
 
 \subsection{CONFINE architecture at large}
 Our architecture involves different organizational ecosystems characterized by one or more machines. An organization may take at least one of the following roles: 
@@ -7,9 +7,7 @@ Our architecture involves different organizational ecosystems characterized by o
 \item[provisioning] if it delivers local event logs to be collaboratively mined;
 \item[mining] if it applies process mining algorithms using event logs retrieved from provisioners.
 \end{inparadesc}
-% Provisioners collaborate to achieve common objectives and compose inter-organizational business processes whose event logs are scattered across multiple places. 
-% Provisioners produce event logs, recording the operations executed to complete their part in the inter-organizational business process.
-In \cref{fig:architecture_diagram}, we propose the high-level schematization of our solution.
+In \cref{fig:architecture_diagram}, we propose the high-level schematization of the CONFINE framework.
 In our solution, every organization hosts one or more \Compo{Node}s. Depending on the played role, \Compo{Node}s come endowed with a \Compo{Provisioner} or a \Compo{Secure Miner} component, or both. The \Compo{Provisioner} component consists of the following two main sub-components. The \begin{inparadesc}
 \item[\Compo{Log Recorder}] registers the events taking place in the organizations' systems. The
 \item[\Compo{Log Provider}] delivers on-demand data to mining players.
@@ -34,7 +32,7 @@ Next, we provide an in-depth focus on the latter.
 \begin{figure}[t]
 	\centering
 	\includegraphics[width=0.79\linewidth]{content/figures/architecturediagram.pdf}
-	\caption{High-level architectural overview.}
+	\caption{CONFINE high-level architecture.}
 	\label{fig:architecture_diagram}
 \end{figure}
 

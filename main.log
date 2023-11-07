@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.7.19)  13 OCT 2023 14:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.7.19)  3 NOV 2023 19:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2109,8 +2109,95 @@ Package footmisc Info: Declaring symbol style lamport*-robust on input line 765
 \WF@box=\box173
 \WF@everypar=\toks75
 Package: wrapfig 2003/01/31  v 3.6
+)
+(C:\Users\david\AppData\Local\Programs\MiKTeX\tex/latex/datetime\datetime.sty
+Package: datetime 2015/03/20 v2.60 Date Time Package
+
+(C:\Users\david\AppData\Local\Programs\MiKTeX\tex/latex/fmtcount\fmtcount.sty
+Package: fmtcount 2020/01/30 v3.07
+
+(C:\Users\david\AppData\Local\Programs\MiKTeX\tex/latex/fmtcount\fcprefix.sty
+Package: fcprefix 2012/09/28
+
+(C:\Users\david\AppData\Local\Programs\MiKTeX\tex/latex/fmtcount\fcnumparser.st
+y
+Package: fcnumparser 2017/06/15
+\fc@digit@counter=\count453
 ))
-(C:\Users\david\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
+\c@padzeroesN=\count454
+\fc@tmpcatcode=\count455
+
+(C:\Users\david\AppData\Local\Programs\MiKTeX\tex/latex/fmtcount\fc-english.def
+File: fc-english.def 2016/01/12
+)
+\@DT@modctr=\count456
+\@ordinalctr=\count457
+\@orgargctr=\count458
+\@strctr=\count459
+\@tmpstrctr=\count460
+\@DT@loopN=\count461
+\@DT@X=\count462
+)
+(C:\Users\david\AppData\Local\Programs\MiKTeX\tex/latex/datetime\datetime-defau
+lts.sty
+Package: datetime-defaults 2013/09/10
+)
+\@day=\count463
+\@month=\count464
+\@year=\count465
+\c@HOUR=\count466
+\c@HOURXII=\count467
+\c@MINUTE=\count468
+\c@TOHOUR=\count469
+\c@TOMINUTE=\count470
+\c@SECOND=\count471
+\currenthour=\count472
+\currentminute=\count473
+\currentsecond=\count474
+Package datetime Info: No datetime.cfg file found, using default settings on in
+put line 308.
+\@dtctr=\count475
+\dayofyear=\count476
+\dayofweek=\count477
+LaTeX Info: Redefining \today on input line 736.
+\dt@a=\toks76
+\dt@b=\toks77
+))
+(C:\Users\david\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\scrextend.s
+ty
+Package: scrextend 2023/07/07 v3.41 KOMA-Script package (extend other classes w
+ith features of KOMA-Script classes)
+
+(C:\Users\david\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\scrkbase.st
+y
+Package: scrkbase 2023/07/07 v3.41 KOMA-Script package (KOMA-Script-dependent b
+asics and keyval usage)
+
+(C:\Users\david\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\scrbase.sty
+Package: scrbase 2023/07/07 v3.41 KOMA-Script package (KOMA-Script-independent 
+basics and keyval usage)
+
+(C:\Users\david\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\scrlfile.st
+y
+Package: scrlfile 2023/07/07 v3.41 KOMA-Script package (file load hooks)
+
+(C:\Users\david\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\scrlfile-ho
+ok.sty
+Package: scrlfile-hook 2023/07/07 v3.41 KOMA-Script package (using LaTeX hooks)
+
+
+(C:\Users\david\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\scrlogo.sty
+Package: scrlogo 2023/07/07 v3.41 KOMA-Script package (logo)
+)))
+Applying: [2021/05/01] Usage of raw or classic option list on input line 252.
+Already applied: [0000/00/00] Usage of raw or classic option list on input line
+ 368.
+))
+
+LaTeX Warning: Command \@footnotemark  has changed.
+               Check if current package is valid.
+
+) (C:\Users\david\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 )
 (C:\Users\david\AppData\Local\Programs\MiKTeX\tex/latex/lm\lmodern.sty
@@ -2162,6 +2249,66 @@ LaTeX Warning: Label `sec:discussion:subsec:convergence' multiply defined.
 LaTeX Warning: Label `sec:discussion:subsec:convergence@cref' multiply defined.
 
 
+
+LaTeX Warning: Label `fig:wfnet:a' multiply defined.
+
+
+LaTeX Warning: Label `fig:wfnet:a@cref' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:wfnet:a' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:wfnet:a@cref' multiply defined.
+
+
+LaTeX Warning: Label `fig:wfnet:b' multiply defined.
+
+
+LaTeX Warning: Label `fig:wfnet:b@cref' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:wfnet:b' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:wfnet:b@cref' multiply defined.
+
+
+LaTeX Warning: Label `fig:wfnet' multiply defined.
+
+
+LaTeX Warning: Label `fig:wfnet@cref' multiply defined.
+
+
+LaTeX Warning: Label `fig:wfnet:a' multiply defined.
+
+
+LaTeX Warning: Label `fig:wfnet:a@cref' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:wfnet:a' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:wfnet:a@cref' multiply defined.
+
+
+LaTeX Warning: Label `fig:wfnet:b' multiply defined.
+
+
+LaTeX Warning: Label `fig:wfnet:b@cref' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:wfnet:b' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:wfnet:b@cref' multiply defined.
+
+
+LaTeX Warning: Label `fig:wfnet' multiply defined.
+
+
+LaTeX Warning: Label `fig:wfnet@cref' multiply defined.
+
 )
 \openout1 = `main.aux'.
 
@@ -2195,6 +2342,9 @@ Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 )
 Package caption Info: Fixing longtable code of `floatrow' package.
 Package caption Info: rotating package is loaded.
+Package caption Info: scrextend package is loaded.
+\caption@addmargin@hsize=\dimen430
+\caption@addmargin@linewidth=\dimen431
 Package caption Info: supertabular package is loaded.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
@@ -2202,17 +2352,17 @@ Package caption Info: End \AtBeginDocument code.
 (C:\Users\david\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count453
-\scratchdimen=\dimen430
+\scratchcounter=\count478
+\scratchdimen=\dimen432
 \scratchbox=\box174
-\nofMPsegments=\count454
-\nofMParguments=\count455
-\everyMPshowfont=\toks76
-\MPscratchCnt=\count456
-\MPscratchDim=\dimen431
-\MPnumerator=\count457
-\makeMPintoPDFobject=\count458
-\everyMPtoPDFconversion=\toks77
+\nofMPsegments=\count479
+\nofMParguments=\count480
+\everyMPshowfont=\toks78
+\MPscratchCnt=\count481
+\MPscratchDim=\dimen433
+\MPnumerator=\count482
+\makeMPintoPDFobject=\count483
+\everyMPtoPDFconversion=\toks79
 )
 (C:\Users\david\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
 ase.sty
@@ -2238,9 +2388,9 @@ Package: fr-longtable 2007/11/28 v0.1b (beta) floatrow: additions for longtable
 
 \flrow@LT@lasthead=\box175
 \flrow@LT@prelastfoot=\box176
-\c@FBLTpage=\count459
+\c@FBLTpage=\count484
 )
-\c@lstlisting=\count460
+\c@lstlisting=\count485
 
 (C:\Users\david\AppData\Local\Programs\MiKTeX\tex/latex/translations/dicts\tran
 slations-basic-dictionary-english.trsl
@@ -2253,7 +2403,10 @@ LaTeX Info: Redefining \microtypecontext on input line 18.
 Package microtype Info: Applying patch `item' on input line 18.
 Package microtype Info: Applying patch `toc' on input line 18.
 Package microtype Info: Applying patch `eqnum' on input line 18.
-Package microtype Info: Applying patch `footnote' on input line 18.
+
+
+Package microtype Warning: Unable to apply patch `footnote' on input line 18.
+
 Package microtype Info: Applying patch `verbatim' on input line 18.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
@@ -2265,7 +2418,6 @@ LaTeX Info: Redefining \showhyphens on input line 18.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
-
 (C:\Users\david\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
@@ -2358,7 +2510,7 @@ pData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/david/AppDat
 a/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}]) (content/relatedwork.t
 ex [2]
 Excluding 'comment' comment.) (content/motivating.tex
-<content/figures/bpmnHealthcare2.pdf, id=139, 748.92198pt x 211.26128pt>
+<content/figures/bpmnHealthcare2.pdf, id=126, 748.92198pt x 211.26128pt>
 File: content/figures/bpmnHealthcare2.pdf Graphic file (type pdf)
 <use content/figures/bpmnHealthcare2.pdf>
 Package pdftex.def Info: content/figures/bpmnHealthcare2.pdf  used on input lin
@@ -2398,184 +2550,191 @@ Overfull \hbox (13.30823pt too wide) has occurred while \output is active
 
 [3] [4{C:/Users/david/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathi
 t.enc} <./content/figures/bpmnHealthcare2.pdf>] (content/design.tex
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 12.
+
 Excluding 'comment' comment.
 Overfull \hbox (13.30823pt too wide) has occurred while \output is active
                                    [] []
  []
 
 [5]
-<content/figures/architecturediagramsad.pdf, id=331, 1077.06381pt x 350.26859pt
->
-File: content/figures/architecturediagramsad.pdf Graphic file (type pdf)
-<use content/figures/architecturediagramsad.pdf>
-Package pdftex.def Info: content/figures/architecturediagramsad.pdf  used on in
-put line 17.
-(pdftex.def)             Requested size: 312.40906pt x 101.59666pt.
-<content/figures/secureminersad.pdf, id=332, 335.33278pt x 153.6942pt>
+<content/figures/architecturediagram.pdf, id=319, 1096.095pt x 366.40887pt>
+File: content/figures/architecturediagram.pdf Graphic file (type pdf)
+<use content/figures/architecturediagram.pdf>
+Package pdftex.def Info: content/figures/architecturediagram.pdf  used on input
+ line 34.
+(pdftex.def)             Requested size: 274.22525pt x 91.66908pt.
+<content/figures/secureminersad.pdf, id=320, 335.33278pt x 153.6942pt>
 File: content/figures/secureminersad.pdf Graphic file (type pdf)
 <use content/figures/secureminersad.pdf>
 Package pdftex.def Info: content/figures/secureminersad.pdf  used on input line
- 25.
+ 42.
 (pdftex.def)             Requested size: 138.84729pt x 63.63884pt.
 
 
-Package wrapfig Warning: Stationary wrapfigure forced to float on input line 30
+Package wrapfig Warning: Stationary wrapfigure forced to float on input line 47
 .
 
-[6 <./content/figures/architecturediagramsad.pdf> <./content/figures/securemine
-rsad.pdf>]) (content/realization.tex
-<content/figures/deploymentdiagram3.pdf, id=382, 828.6719pt x 363.58234pt>
+[6 <./content/figures/architecturediagram.pdf> <./content/figures/secureminersa
+d.pdf>]) (content/realization.tex
+<content/figures/deploymentdiagram3.pdf, id=374, 828.6719pt x 354.35387pt>
 File: content/figures/deploymentdiagram3.pdf Graphic file (type pdf)
 <use content/figures/deploymentdiagram3.pdf>
 Package pdftex.def Info: content/figures/deploymentdiagram3.pdf  used on input 
-line 14.
-(pdftex.def)             Requested size: 347.12354pt x 152.29854pt.
+line 13.
+(pdftex.def)             Requested size: 347.12354pt x 148.43289pt.
+
+
+LaTeX Warning: Citation `TEEHERE' on page 7 undefined on input line 19.
+
 
 Overfull \hbox (13.30823pt too wide) has occurred while \output is active
                                    [] []
  []
 
-[7]
-
-LaTeX Warning: Citation `TEEHERE' on page 8 undefined on input line 20.
-
-[8 <./content/figures/deploymentdiagram3.pdf>] Excluding 'comment' comment.
-<content/figures/initializationworkflow.pdf, id=427, 276.07141pt x 351.23218pt>
+[7] Excluding 'comment' comment.
+<content/figures/initializationworkflow.pdf, id=396, 276.07141pt x 351.23218pt>
 
 File: content/figures/initializationworkflow.pdf Graphic file (type pdf)
 <use content/figures/initializationworkflow.pdf>
 Package pdftex.def Info: content/figures/initializationworkflow.pdf  used on in
-put line 40.
+put line 37.
 (pdftex.def)             Requested size: 100.66348pt x 128.06737pt.
-<content/figures/attestationworkflow.pdf, id=428, 307.1475pt x 351.23218pt>
+<content/figures/attestationworkflow.pdf, id=397, 307.1475pt x 351.23218pt>
 File: content/figures/attestationworkflow.pdf Graphic file (type pdf)
 <use content/figures/attestationworkflow.pdf>
 Package pdftex.def Info: content/figures/attestationworkflow.pdf  used on input
- line 41.
+ line 38.
 (pdftex.def)             Requested size: 111.08206pt x 127.02765pt.
-<content/figures/datatransmissionworkflow.pdf, id=429, 314.13359pt x 351.23218p
+<content/figures/datatransmissionworkflow.pdf, id=398, 314.13359pt x 351.23218p
 t>
 File: content/figures/datatransmissionworkflow.pdf Graphic file (type pdf)
 <use content/figures/datatransmissionworkflow.pdf>
 Package pdftex.def Info: content/figures/datatransmissionworkflow.pdf  used on 
-input line 42.
+input line 39.
 (pdftex.def)             Requested size: 114.55139pt x 128.0781pt.
-
+ [8 <./content/figures/deploymentdiagram3.pdf>]
 Overfull \hbox (13.30823pt too wide) has occurred while \output is active
                                    [] []
  []
 
-[9]
-<content/figures/computationworkflow.pdf, id=437, 382.5492pt x 272.93968pt>
+[9 <./content/figures/initializationworkflow.pdf> <./content/figures/attestatio
+nworkflow.pdf> <./content/figures/datatransmissionworkflow.pdf>]
+<content/figures/computationworkflow.pdf, id=473, 382.5492pt x 272.93968pt>
 File: content/figures/computationworkflow.pdf Graphic file (type pdf)
 <use content/figures/computationworkflow.pdf>
 Package pdftex.def Info: content/figures/computationworkflow.pdf  used on input
- line 51.
+ line 50.
 (pdftex.def)             Requested size: 138.84729pt x 99.06198pt.
-
-Underfull \hbox (badness 1281) in paragraph at lines 52--52
-[]\T1/lmr/m/n/10 (+20) Fig.6: |Schema-ti-za-tion of the
- []
-
-[10 <./content/figures/initializationworkflow.pdf> <./content/figures/attestati
-onworkflow.pdf> <./content/figures/datatransmissionworkflow.pdf> <./content/fig
-ures/computationworkflow.pdf>]
-Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
-ine 81.
- Excluding 'comment' comment.)
-(content/discussion.tex Excluding 'comment' comment.
-
-LaTeX Warning: Reference `sec:discussion:subsec:memory' on page 1 undefined on 
-input line 14.
-
-
-LaTeX Warning: Reference `sec:discussion:subsec:validation' on page 1 undefined
- on input line 14.
-
-
-Underfull \vbox (badness 1960) has occurred while \output is active []
-
-
-Overfull \hbox (13.30823pt too wide) has occurred while \output is active
-                                   [] []
- []
-
-[11] Excluding 'comment' comment.
+ [10 <./content/figures/computationworkflow.pdf>]) (content/discussion.tex
+Excluding 'comment' comment.
 
 pdfTeX warning: pdflatex.exe (file ./content/figures/pharma_dep1.pdf): PDF incl
 usion: found PDF version <1.7>, but at most version <1.5> allowed
-<content/figures/pharma_dep1.pdf, id=507, 291.00719pt x 32.0397pt>
+<content/figures/pharma_dep1.pdf, id=496, 291.00719pt x 32.0397pt>
 File: content/figures/pharma_dep1.pdf Graphic file (type pdf)
 <use content/figures/pharma_dep1.pdf>
-Package pdftex.def Info: content/figures/pharma_dep1.pdf  used on input line 29
+Package pdftex.def Info: content/figures/pharma_dep1.pdf  used on input line 16
 .
 (pdftex.def)             Requested size: 128.434pt x 14.14052pt.
 
 
 pdfTeX warning: pdflatex.exe (file ./content/figures/specialised_dep1.pdf): PDF
  inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<content/figures/specialised_dep1.pdf, id=508, 471.68219pt x 32.0397pt>
+<content/figures/specialised_dep1.pdf, id=497, 471.68219pt x 32.0397pt>
 File: content/figures/specialised_dep1.pdf Graphic file (type pdf)
 <use content/figures/specialised_dep1.pdf>
 Package pdftex.def Info: content/figures/specialised_dep1.pdf  used on input li
-ne 31.
+ne 18.
 (pdftex.def)             Requested size: 197.86295pt x 13.43994pt.
 
 
 pdfTeX warning: pdflatex.exe (file ./content/figures/hospital_dep1.pdf): PDF in
 clusion: found PDF version <1.7>, but at most version <1.5> allowed
-<content/figures/hospital_dep1.pdf, id=509, 839.05469pt x 118.5228pt>
+<content/figures/hospital_dep1.pdf, id=498, 839.05469pt x 118.5228pt>
 File: content/figures/hospital_dep1.pdf Graphic file (type pdf)
 <use content/figures/hospital_dep1.pdf>
 Package pdftex.def Info: content/figures/hospital_dep1.pdf  used on input line 
-34.
+21.
 (pdftex.def)             Requested size: 347.12354pt x 49.03412pt.
 
 
 pdfTeX warning: pdflatex.exe (file ./content/figures/merged_dep1.pdf): PDF incl
 usion: found PDF version <1.7>, but at most version <1.5> allowed
-<content/figures/merged_dep1.pdf, id=510, 839.05469pt x 162.6075pt>
+<content/figures/merged_dep1.pdf, id=499, 839.05469pt x 162.6075pt>
 File: content/figures/merged_dep1.pdf Graphic file (type pdf)
 <use content/figures/merged_dep1.pdf>
-Package pdftex.def Info: content/figures/merged_dep1.pdf  used on input line 37
+Package pdftex.def Info: content/figures/merged_dep1.pdf  used on input line 24
 .
 (pdftex.def)             Requested size: 347.12354pt x 67.27243pt.
-[12 <./content/figures/pharma_dep1.pdf> <./content/figures/specialised_dep1.pdf
-> <./content/figures/hospital_dep1.pdf> <./content/figures/merged_dep1.pdf>]
-Excluding 'comment' comment.) (content/conclusion.tex
+
 Overfull \hbox (13.30823pt too wide) has occurred while \output is active
                                    [] []
  []
 
-[13] Excluding 'comment' comment.) (main.bbl
-Underfull \hbox (badness 1997) in paragraph at lines 61--64
-[]\T1/lmr/m/n/9 (+20) Mannhardt, F.: Sep-sis cases - event log (2016). [][][][]
-[]$https : / / doi . org / 10 . 4121 /
+[11]
+<content/figures/ram_usage_per_TS.pdf, id=521, 1135.24126pt x 629.35126pt>
+File: content/figures/ram_usage_per_TS.pdf Graphic file (type pdf)
+<use content/figures/ram_usage_per_TS.pdf>
+Package pdftex.def Info: content/figures/ram_usage_per_TS.pdf  used on input li
+ne 50.
+(pdftex.def)             Requested size: 166.61781pt x 92.36275pt.
+<content/figures/lineplot_segsize_combined.pdf, id=522, 1135.24126pt x 629.3512
+6pt>
+File: content/figures/lineplot_segsize_combined.pdf Graphic file (type pdf)
+<use content/figures/lineplot_segsize_combined.pdf>
+Package pdftex.def Info: content/figures/lineplot_segsize_combined.pdf  used on
+ input line 52.
+(pdftex.def)             Requested size: 166.61781pt x 92.36275pt.
+File: content/figures/ram_usage_per_TS.pdf Graphic file (type pdf)
+<use content/figures/ram_usage_per_TS.pdf>
+Package pdftex.def Info: content/figures/ram_usage_per_TS.pdf  used on input li
+ne 57.
+(pdftex.def)             Requested size: 166.61781pt x 92.36275pt.
+
+Underfull \hbox (badness 7256) in paragraph at lines 57--57
+[]\T1/lmr/m/n/9 (+20) (a) |FIG-URE TO BE RE-PLACED
  []
 
-)
+
+Underfull \hbox (badness 10000) in paragraph at lines 57--57
+\T1/lmr/m/n/9 (+20) WITH LINE-PLOT (THROUGH-
+ []
+
+File: content/figures/lineplot_segsize_combined.pdf Graphic file (type pdf)
+<use content/figures/lineplot_segsize_combined.pdf>
+Package pdftex.def Info: content/figures/lineplot_segsize_combined.pdf  used on
+ input line 59.
+(pdftex.def)             Requested size: 166.61781pt x 92.36275pt.
+) (content/conclusion.tex [12 <./content/figures/pharma_dep1.pdf> <./content/fi
+gures/specialised_dep1.pdf> <./content/figures/hospital_dep1.pdf> <./content/fi
+gures/merged_dep1.pdf>]
+Overfull \hbox (13.30823pt too wide) has occurred while \output is active
+                                   [] []
+ []
+
+[13 <./content/figures/ram_usage_per_TS.pdf> <./content/figures/lineplot_segsiz
+e_combined.pdf>] Excluding 'comment' comment.) (main.bbl)
 
 Package caption Warning: Unused \captionsetup[subtable] on input line 51.
 See the caption package documentation for explanation.
 
 [14] (main.aux)
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 9D84C1B74C4A722610BD903841F2EE62;2223.
+(rerunfilecheck)             Checksum: DA3B3B64240C49DBA0C89AEB51D11F26;1968.
  ) 
 Here is how much of TeX's memory you used:
- 51903 strings out of 476331
- 1087748 string characters out of 5787765
- 1881660 words of memory out of 5000000
- 70993 multiletter control sequences out of 15000+600000
- 592745 words of font info for 219 fonts, out of 8000000 for 9000
+ 53323 strings out of 476331
+ 1115156 string characters out of 5787765
+ 1884660 words of memory out of 5000000
+ 72357 multiletter control sequences out of 15000+600000
+ 593955 words of font info for 227 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 104i,16n,100p,2849b,1128s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 112i,16n,109p,2849b,2478s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\david\AppData\Local\MiKTeX\fonts/pk/ljfour/public/mathabx/dpi600\m
 atha10.pk> <C:\Users\david\AppData\Local\MiKTeX\fonts/pk/ljfour/public/mathabx/
 dpi600\matha9.pk> <C:\Users\david\AppData\Local\MiKTeX\fonts/pk/ljfour/public/m
@@ -2592,12 +2751,13 @@ lic/lm/lmr7.pfb><C:/Users/david/AppData/Local/Programs/MiKTeX/fonts/type1/publi
 c/lm/lmr9.pfb><C:/Users/david/AppData/Local/Programs/MiKTeX/fonts/type1/public/
 lm/lmri10.pfb><C:/Users/david/AppData/Local/Programs/MiKTeX/fonts/type1/public/
 lm/lmss10.pfb><C:/Users/david/AppData/Local/Programs/MiKTeX/fonts/type1/public/
+lm/lmtk10.pfb><C:/Users/david/AppData/Local/Programs/MiKTeX/fonts/type1/public/
 lm/lmtt10.pfb><C:/Users/david/AppData/Local/Programs/MiKTeX/fonts/type1/public/
 lm/lmtt8.pfb><C:/Users/david/AppData/Local/Programs/MiKTeX/fonts/type1/public/l
 m/lmtt9.pfb>
-Output written on main.pdf (14 pages, 794620 bytes).
+Output written on main.pdf (14 pages, 845329 bytes).
 PDF statistics:
- 720 PDF objects out of 1000 (max. 8388607)
+ 795 PDF objects out of 1000 (max. 8388607)
  68 named destinations out of 1000 (max. 500000)
- 42793 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 43291 words of extra memory for PDF output out of 51595 (max. 10000000)
 
