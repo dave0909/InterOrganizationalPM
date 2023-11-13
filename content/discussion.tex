@@ -33,34 +33,86 @@ We assess the convergence of the \textit{HeuristicsMiner} outcomes as a means of
 \begin{table}[t!]%\hskip-2.5cm
   \caption{Tested event logs.}
  \centering
-    \begin{minipage}[t]{1\linewidth}
+%    \begin{minipage}[t]{1\linewidth}
     %\subfloat{% Subtable 1
-       \resizebox{0.98\textwidth}{!}{%
-            \begin{tabular}{l|l|l|l|l}
-            \textbf{Name}                & \textbf{Synthetic/Real} & \textbf{Max events} & \textbf{Cases} & \textbf{Organizations} \\ \hline
-            Motivating Scenario (MS\_0) & Synthetic      & 19         & 1000   & 3             \\
-            Sepsis & Real      & 19         & 4000   & 1             \\
-            BPIC2013 & Real      & 35         & 1432    & 3             \\
+       \resizebox{0.85\textwidth}{!}{%
+            \begin{tabular}{l l S[table-format = 2.0] S[table-format = 2.0] S[table-format = 2.0] S[table-format = 2.0] S[table-format = 4.0] l} \toprule
+ %           	                &   &  & &  \multicolumn{3}{c}{\textbf{Trace length}} &                        \\ \cmidrule{5-7}
+            	\textbf{Name}               & \textbf{Type} & \textbf{Activities} & \textbf{Cases} & \textrm{\textbf{Max} tr.\ len.} & \textrm{\textbf{Min} tr.\ len.} & \textrm{\textbf{Avg}.\ tr.\ len.} & \textbf{Organization $\mapsto$ Activities}                        \\ \midrule
+            	Motivating Scenario  & Synthetic     & 19                  & 1000           & & & & ${\Org}^P \mapsto 3$, ${\Org}^C \mapsto 5$, ${\Org}^H \mapsto 14$ \\
+            	Sepsis                      & Real          & 16\cite{mannhardt2017analyzing}                 & 1050\cite{mannhardt2017analyzing}           & & & & 1                                                                 \\
+            	BPIC2013                    & Real          & 35                  & 7554           & & & & 3 \\ \bottomrule& & 
             \end{tabular}
         }% resizebox
     %}% subfloat
-    \end{minipage}%
+%    \end{minipage}%
 \end{table}
-\begin{figure}[t!]
+\begin{comment}
+    
+
+\begin{figure}[p]
+    \subfloat[][FIGURE TO BE REPLACED WITH SINGLE RUNTIME WITH MARKPOINTS (USE MOTIVATING LOG).]{\includegraphics[width=0.48\linewidth]{content/figures/Ram_usage_per_TS_combined.pdf}\label{fig:wfnet:a}}
+        \hfill
     \subfloat[][Memory usage at runtime.]{\includegraphics[width=0.48\linewidth]{content/figures/Ram_usage_per_TS_combined.pdf}\label{fig:wfnet:a}}
         \hfill
     \subfloat[][Memory usage as segment size increases.]{\includegraphics[width=0.48\linewidth]{content/figures/lineplot_segsize_combined.pdf}\label{fig:wfnet:b}}
     \caption{Memory usage tests.}
     \label{fig:wfnet}
 \end{figure}
-\begin{figure}[t!]
-    \subfloat[][FIGURE TO BE REPLACED WITH LINEPLOT (THROUGHPUT;n°organizaitons)]{\includegraphics[width=0.48\linewidth]{content/figures/ram_usage_per_TS.pdf}\label{fig:wfnet:a}}
+\begin{figure}[p]
+    \subfloat[][FIGURE TO BE REPLACED WITH CHART (RAM;MAX\_ACTIVITIES)]{\includegraphics[width=0.48\linewidth]{content/figures/ram_usage_per_TS.pdf}\label{fig:wfnet:a}}
         \hfill
-    \subfloat[][FIGURE TO BE REPLACED WITH LINEPLOT(RAM;n°organizations)]{\includegraphics[width=0.48\linewidth]{content/figures/lineplot_segsize_combined.pdf}\label{fig:wfnet:b}}
+    \subfloat[][FIGURE TO BE REPLACED WITH CHART (RAM;n°organizations)]{\includegraphics[width=0.48\linewidth]{content/figures/lineplot_segsize_combined.pdf}\label{fig:wfnet:b}}
+                \hfill
+    \subfloat[][FIGURE TO BE REPLACED WITH CHART (RAM;N°CASES)]{\includegraphics[width=0.48\linewidth]{content/figures/lineplot_segsize_combined.pdf}\label{fig:wfnet:b}}
     \caption{FIGURE FOR SCALABILITY TEST TO BE REPLACED}
     \label{fig:wfnet}
 \end{figure}
+\end{comment}
+\begin{figure}[ht]
+\centering
+\begin{subfigure}{0.49\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{content/figures/Ram_usage_per_TS_combined.pdf}
+  \caption{to be replaced with the single event log version with mark lines.}
+  \label{snr_a}
+\end{subfigure}\hfill
+\begin{subfigure}{0.49\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{content/figures/Ram_usage_per_TS_combined.pdf}
+  \caption{Ram usage at run time for three event logs.}
+  \label{snr_b}   
+\end{subfigure}
 
+\begin{subfigure}{0.49\textwidth}   
+  \centering      
+  \includegraphics[width=\textwidth]{content/figures/lineplot_segsize_combined.pdf}
+  \caption{Memory usage as segment size increases}
+  \label{snr_c}
+\end{subfigure}\hfill
+\begin{subfigure}{0.49\textwidth}   
+  \centering
+  \includegraphics[width=\textwidth]{content/figures/lineplot_segsize_combined.pdf}
+  \caption{to be replaced with scalability test}
+  \label{snr_d}
+\end{subfigure}
+
+\begin{subfigure}{0.49\textwidth}   
+  \centering
+  \includegraphics[width=\textwidth]{content/figures/lineplot_segsize_combined.pdf}
+  \caption{to be replaced with scalability test}
+  \label{snr_e}
+\end{subfigure}\hfill
+\begin{subfigure}{0.49\textwidth}   
+  \centering
+  \includegraphics[width=\textwidth]{content/figures/lineplot_segsize_combined.pdf}
+  \caption{to be replaced with scalability test}
+  \label{snr_f}
+\end{subfigure}
+\caption{Memory usage and scalability tests}
+\label{os}
+
+\end{figure}
 \textbf{Memory Usage.}
 
 \textbf{Scalability.}

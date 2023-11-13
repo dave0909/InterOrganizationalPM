@@ -3,20 +3,23 @@
 \providecommand{\urlprefix}{URL }
 \providecommand{\doi}[1]{https://doi.org/#1}
 
+\bibitem{van2011intra}
+van~der Aalst, W.M.P.: Intra-and inter-organizational process mining:
+  Discovering processes within and between organizations. In: IFIP WG 8.1
+  (2011)
+
 \bibitem{FederatedPM2021}
 van~der Aalst, W.M.: Federated process mining: Exploiting event data across
-  organizational boundaries. In: 2021 IEEE International Conference on Smart
-  Data Services (SMDS). pp.~1--7 (2021). \doi{10.1109/SMDS53860.2021.00011}
+  organizational boundaries. In: SMDS 2021 (2021)
 
 \bibitem{rfc9334}
 Birkholz, H., Thaler, D., Richardson, M., Smith, N., Pan, W.: {Remote
-  ATtestation procedureS (RATS) Architecture} (2023). \doi{10.17487/RFC9334},
-  \url{https://www.rfc-editor.org/info/rfc9334}
+  ATtestation procedureS (RATS) Architecture} (2023)
 
 \bibitem{claes2014merging}
 Claes, J., Poels, G.: Merging event logs for process mining: A rule based
-  merging method and rule suggestion algorithm. Expert Systems with
-  Applications  \textbf{41}(16),  7291--7306 (2014)
+  merging method and rule suggestion algorithm. Expert Syst. Appl.
+  \textbf{41}(16) (2014)
 
 \bibitem{SMPC2015}
 Cramer, R., Damg{\aa}rd, I.B., et~al.: Secure multiparty computation. Cambridge
@@ -24,42 +27,41 @@ Cramer, R., Damg{\aa}rd, I.B., et~al.: Secure multiparty computation. Cambridge
 
 \bibitem{Dumas.etal/2018:FundamentalsofBPM}
 Dumas, M., La~Rosa, M., Mendling, J., Reijers, H.A.: Fundamentals of Business
-  Process Management, Second Edition. Springer (2018)
+  Process Management, Second Edition (2018)
 
 \bibitem{elkoumy2020secure}
 Elkoumy, G., Fahrenkrog-Petersen, S.A., Dumas, M., Laud, P., Pankova, A.,
   Weidlich, M.: Secure multi-party computation for inter-organizational process
-  mining. In: Enterprise, Business-Process and Information Systems Modeling:
-  21st International Conference, BPMDS 2020, 25th International Conference,
-  EMMSAD 2020, Held at CAiSE 2020, Grenoble, France, June 8--9, 2020,
-  Proceedings 21. pp. 166--181. Springer (2020)
+  mining. In: BPMDS/EMMSAD CAiSE (2020)
 
 \bibitem{elkoumy2020shareprom}
 Elkoumy, G., Fahrenkrog-Petersen, S.A., Dumas, M., Laud, P., Pankova, A.,
   Weidlich, M.: Shareprom: A tool for privacy-preserving inter-organizational
-  process mining. BPM (PhD/Demos)  \textbf{2673},  72--76 (2020)
+  process mining. BPM (PhD/Demos)  \textbf{2673} (2020)
 
 \bibitem{hernandez2021merging}
 Hernandez-Resendiz, J.D., Tello-Leal, E., Marin-Castro, H.M., Ramirez-Alcocer,
   U.M., Mata-Torres, J.A.: Merging event logs for inter-organizational process
   mining. In: New Perspectives on Enterprise Decision-Making Applying
-  Artificial Intelligence Techniques, pp. 3--26. Springer (2021)
+  Artificial Intelligence Techniques (2021)
 
 \bibitem{koch2002expressive}
 Koch, N., Kraus, A.: The expressive power of uml-based web engineering. In:
-  Second International Workshop on Web-oriented Software Technology (IWWOST02).
-  vol.~16, pp. 40--41. Citeseer (2002)
+  IWWOST02. vol.~16 (2002)
 
 \bibitem{muller2021process}
 M{\"u}ller, M., Simonet-Boulogne, A., Sengupta, S., Beige, O.: Process mining
   in trusted execution environments: Towards hardware guarantees for
-  trust-aware inter-organizational process analysis. In: International
-  Conference on Process Mining. pp. 369--381. Springer International Publishing
-  Cham (2021)
+  trust-aware inter-organizational process analysis. In: ICPM (2021)
+
+\bibitem{van2012process}
+Van Der~Aalst, W., Adriansyah, A., De~Medeiros, A.K.A., Arcieri, F., Baier, T.,
+  Blickle, T., Bose, J.C., Van Den~Brand, P., Brandtjen, R., Buijs, J., et~al.:
+  Process mining manifesto (2012)
 
 \bibitem{SMPC2019}
 Zhao, C., Zhao, S., Zhao, M., Chen, Z., Gao, C.Z., Li, H., Tan, Y.a.: Secure
-  multi-party computation: theory, practice and applications. Information
-  Sciences  \textbf{476},  357--372 (2019)
+  multi-party computation: theory, practice and applications. Inf. Sci.
+  \textbf{476} (2019)
 
 \end{thebibliography}
