@@ -1,0 +1,136 @@
+% !TeX encoding = utf8
+% !TeX root = ../main.tex
+%
+\begin{comment}
+	% See macros file
+	\def\LPrv {\ensuremath{\mathcal{P}}}   % Log provider
+	\def\SecM {\ensuremath{\mathcal{M}}}   % Secure Miner
+	\def\LPrvS {\ensuremath{\widehat{\mathcal{P}}}}  % Log provider set
+	\def\CStor {\ensuremath{\textrm{Cases}}}  % Case store 
+	\def\Case {\ensuremath{c}}  % Case 
+	\def\CasP {\ensuremath{\textrm{casePart}}}  % Case part
+	\def\CId {\ensuremath{\textrm{cid}}}  % CaseId
+	\def\CIdU {\ensuremath{\widehat{\textrm{CID}}}}  % CaseId universe
+	\def\CS {\ensuremath{C}}  % Case set
+	\def\CasU {\ensuremath{\widehat{C}}}  % Case universe
+	\def\CIdS {\ensuremath{\textrm{CIDs}}}  % CaseId set
+	\def\CIDMap {\ensuremath{\textrm{CIDMap}}} % CaseId Map
+	\def\LPrvMap {\ensuremath{\textrm{PMap}}} % Log provider Map
+	\newcommand{\Mesg}[1]{\ensuremath{\textrm{\textsc{#1}}}}
+	\newcommand{\SuchThat}[1]{~\upshape\textrm{\textbf{such that}}~{#1}}
+	\newcommand{\To}[1]{~\upshape\textrm{\textbf{to}}~{#1}}
+	\newcommand{\Call}[1]{\texttt{#1}}
+	
+	\def\SegSize {\ensuremath{\textrm{seg\_size}}}
+	\def\Segm {\ensuremath{S}}
+\end{comment}
+
+\tiny
+% \scriptsize
+\DontPrintSemicolon \SetAlgoVlined
+\SetKw{Trigger}{trigger}
+\SetKw{Yield}{yield}
+\SetKw{Return}{return}
+\SetKwProg{UponEv}{upon event}{ do}{}
+\SetKwProg{Upon}{upon}{ do}{}
+\SetKwInput{Implements}{Implements}
+\SetKwInput{Uses}{Uses}
+\SetKwProg{Fn}{Function}{ is}{}
+\def\self {\ensuremath{\textrm{self}}}
+
+\KwIn{%
+	$\LPrvS = \{ \LPrv_1, \ldots, \LPrv_n \}$, the (references to) $n$ log provisioners;%
+	\newline
+	$\SegSize$, the maximum size of the log segment to be transmitted by the log provisioners;%
+	%	\newline%
+	%	$\DecRepertoire$, a finite set of {\Declare} templates to be considered to express the discovered specification;%
+	%	\newline%
+	%	$\ProActvts \subseteq \Uact$, a finite set of activities to be included in the discovered specification;%
+	%	\newline%
+	%	$\MinThrld{\ConfTr}$, $\MinThrld{\SuppTr}$, $\MinThrld{\ConfEv}$, $\MinThrld{\SuppEv}$, the minimum thresholds for trace-based confidence and support, and event-based confidence and support, respectively (default for all four paramenters: $0.0$); %the minimum support 
+}
+\KwData{%
+	$\CIDMap : \CIdU \to 2^{\LPrvS}$, a map from case references $\CId \in \CIdU$ to the set of log provisioners in $\LPrvS$ ; \newline%
+	$\LPrvMap : \LPrvS \to 2^{\CIdU}$, a map from log provisioners $\LPrv \in \LPrvS$ to the set of references to their cases in $\CIdU$ ; \newline%
+	$\CStor : \CIdU \to \CasU$, a map from case references $\CId \in \CIdU$ to a set of cases in $\CasU$
+}
+%\KwOut{%
+	%	$\DecSpec$, a declarative process specification
+	%}
+\Implements{\Compo{SecureMiner} \SecM}
+\Uses{\Compo{LogProvisioner} \LPrv}
+
+\begin{comment}
+	\todo{For an extended version, we should enlarge this pseudocode with the full interface}
+	\Fn{\Call{getAttestationReport}(\LPrv) \SuchThat{$\LPrv \in \LPrvS$} \label{alg:getAttestationReport}}{
+		\Return {attestation\_report}
+	}
+\end{comment}
+
+\BlankLine
+% 
+%\ForEach{$\LPrv \in \LPrvS$ \tcc*[r]{For every log provider $\LPrv$}}{%
+	%	$\CaseIdS \gets \CaseIdS \cup \LPrv.\CaseIdS$; \tcc*[r]{Register the $\LPrv$'s case reference list}%
+	%	
+	%}
+\UponEv(\tcp*[f]{The \textit{initialization} phase begins here -- \cref{fig:init}}){\upshape $\langle \SecM.\Compo{LogRequester}, \Mesg{Init} \:|\: \LPrvS, \SegSize \rangle$}{
+	\ForEach(\tcp*[f]{Request the list of cases provided by every \Compo{Log Provider} $\LPrv$}){$\LPrv \in \LPrvS$}{%
+		\Trigger{\upshape $\langle \LPrv.\Compo{LogProvider}, \Mesg{CaseRefsReq} \rangle$\label{alg:CaseRefsReq:call}} \tcp*{$\LPrv$ will reply with \Mesg{CaseRefsRes} (see line~\ref{alg:CaseRefsRes})}
+	}
+	\Upon(\tcp*[f]{Once all $\LPrv$s have answered, the \Compo{Secure Miner} requests their cases}){\upshape $|\LPrvS| = |\textrm{dom}(\LPrvMap)|$}{%
+		\lForEach%(\tcp*[f]{For every reference to the \Compo{Log Provider} $\LPrv'$})
+		{$\LPrv \in \LPrvS$}{
+			\Trigger{\upshape $\langle \LPrv.\Compo{LogProvider}, \Mesg{CasesReq} \:|\: \LPrv, \SegSize, \LPrvMap[\LPrv] \rangle$\label{alg:CasesReq:call}}
+			\tcp*[f]{(see line~\ref{alg:CasesReq})}
+			%\tcc*{Request the cases that are provided by $\LPrv'$. Before sending them, $\LPrv'$ will trigger \Mesg{AttestReportReq} in return, to attest the \Compo{Secure Miner}.}
+		}
+	}
+}
+\UponEv(\tcp*[f]{{\SecM} gets case references (line~\ref{alg:CaseRefsReq:call})}){\upshape $\langle \SecM.\Compo{LogRequester}, \Mesg{CaseRefsRes} \:|\: \LPrv, \CIdS \rangle$ \SuchThat{$\LPrv \in \LPrvS$} \label{alg:CaseRefsRes}}{
+	\ForEach(\tcp*[f]{For every reference to a case $\CId$}){\upshape $\CId \in \CIdS$}{%
+		$\CIDMap[\CId] \gets \CIDMap[\CId] \cup \{\LPrv\} $ \tcp*{Add $\LPrv$ to the set of providers for case $\CId$ in $\CIDMap$}
+	}
+	$\LPrvMap[\LPrv] \gets \LPrvMap[\LPrv] \cup \CIdS $ \tcp*{Register the references of the cases provided by $\LPrv$ in $\LPrvMap$}
+}
+\UponEv(\tcp*[f]{The \Compo{Log Provider} gets the case request (line~\ref{alg:CasesReq:call})}){\upshape$\langle \LPrv.\Compo{LogProvider}, \Mesg{CasesReq} \:|\: \SecM, \SegSize, \CIdS \rangle$ \label{alg:CasesReq}}{%
+	\If(\tcp*[f]{The \textit{attestation phase} (see \cref{fig:attestation})}){\upshape \SecM.\Compo{LogReceiver}.\Call{getAttestationReport}(\LPrv) is valid}{
+		$\{\Segm_1, \ldots, \Segm_m\} \gets \LPrv.\Compo{LogProvider}.\Call{segmentEventLog}( \Compo{LogRecorder}.\Call{accessEventLog}(\CIdS), \SegSize )$ \tcp*[f]{Split by \SegSize} \\
+		\ForEach(\tcp*[f]{For every split segment}){$i \in \{1, \ldots, m\}$}{%
+			\Trigger{\upshape $\langle \SecM.\Compo{LogReceiver}, \Mesg{CasesRes} \:|\: \LPrv, \Segm_i \rangle$ } \tcp*[f]{\LPrv sends segments to {\SecM} (see line \ref{alg:CasesRes})} \label{alg:sendSegs}
+		}
+	}
+}
+\UponEv(\tcp*[f]{$\SecM$ gets segments (line \ref{alg:sendSegs})}){\upshape $\langle \SecM.\Compo{LogReceiver}, \Mesg{CasesRes} \:|\: \LPrv, \Segm \rangle$ \SuchThat{$\LPrv \in \LPrvS$} \label{alg:CasesRes} }{
+	% See {\LaTeX} comments\\
+	% Per ogni pezzo-di-caso ricevuto nel segmento, controlla che il provider sia stato dichiarato in possesso di esso
+	% SE PMap ha ancora il CID
+	% Aggiungi il pezzo-di-caso alla lista di pezzi-di-caso associati a quell'id
+	% Togli il CID del pezzo-di-caso da PMap in P
+	% Togli il P dal CIDMap
+	% upon CIDMap vuoto in un CID, mergia e yielda il caso
+	\ForEach(\tcp*[f]{For every $\CasP_\CId$ in the delivered set of segments $\Segm$, each associated with a \CId}){\upshape $\CasP_\CId \in \Segm$}{%
+		\If(\tcp*[f]{The store phase (see \cref{fig:transmission})}){\upshape $\CId \in \LPrvMap[\LPrv]$}  {%
+			$\LPrvMap[\LPrv] \gets \LPrvMap[\LPrv] \,\setminus\, \{\CId\}$ \tcp*[f]{\raggedright Remove {\CId} from the set of cases to be provided by {\LPrv}}\;
+			$\CIDMap[\CId] \gets \CIDMap[\CId] \,\setminus\, \{\LPrv\}$ \tcp*[f]{Remove $\LPrv$ from the set of $\CId$ providers}\;
+			$\Compo{LogManager}.\Call{mergeAndStore}\left(\CStor, \CasP_\CId\right)$ \tcp*[f]{Update the case via $\Merge$ and store the result in {\CStor}}
+		}
+	}
+}
+
+\Upon(\tcp*[f]{When all the pieces of some $\CId$ have arrived}){\upshape $\CIDMap[\CId]= \emptyset$ for some $\CId \in \textrm{dom}(\CIDMap)$} {%
+	$\textrm{dom}(\CIDMap) \gets \textrm{dom}(\CIDMap) \,\setminus\, \{\CId\}$\tcp*[f]{Remove $\CId$ from the $\CId$ domain which still needs to be processed}\;
+	\Yield{\upshape \CStor[\CId] \To{}} \Compo{LogElaborator} \tcp*[f]{\Compo{Log Manager} forwards the $\CId$ to the \Compo{Log Elaborator} for mining (\cref{fig:computation})}
+}
+
+\endinput
+UPON EVENT(M,CASERES|P,S) SUCH THAT P in \widehat{\mathcal{P}} DO
+	for each C ∈ S:
+		if C.cid ∈ PMap[P]
+			CMap[C.cid]<--CMap[C.cid] ∪ {C}
+			PMap[P]<-- PMap[P] \ {C.cid}
+			CIDMap[C.cid]<-- CIDMap[C.cid] \ {P}
+
+
+UPON |CIDMap[cid]|=0 such that cid in dom(CIDMap) //Computation phase start here.
+merge all traces in CIDMap[cid] using mergingSchema and put it in mergedTrace
+yeld PMAlgorithm(mergedTrace)

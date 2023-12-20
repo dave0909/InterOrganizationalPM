@@ -1,0 +1,144 @@
+% !TeX encoding = utf8
+% !TeX root = ../main.tex
+%
+\def\LPrv {\ensuremath{\mathcal{P}}}   % Log provider
+\def\SecM {\ensuremath{\mathcal{M}}}   % Secure Miner
+\def\LPrvS {\ensuremath{\widehat{\mathcal{P}}}}  % Log provider set
+\def\Case {\ensuremath{c}}  % Case 
+\def\CId {\ensuremath{\textrm{cid}}}  % CaseId
+\def\CIdU {\ensuremath{\widehat{\textrm{CID}}}}  % CaseId universe
+\def\CS {\ensuremath{C}}  % Case set
+\def\CIdS {\ensuremath{\textrm{CIDs}}}  % CaseId set
+\def\CIDMap {\ensuremath{\textrm{CIDMap}}} % CaseId Map
+\def\LPrvMap {\ensuremath{\textrm{PMap}}} % Log provider Map
+\newcommand{\Mesg}[1]{\ensuremath{\textrm{\textsc{#1}}}}
+\newcommand{\SuchThat}[1]{~\upshape\textrm{\textbf{such that}}~{#1}}
+\newcommand{\Call}[1]{\textrm{#1}}
+
+\def\SegSize {\ensuremath{\textrm{seg\_size}}}
+\def\Segm {\ensuremath{S}}
+
+\tiny
+% \scriptsize
+\DontPrintSemicolon \SetAlgoVlined
+\SetKw{Trigger}{trigger}
+\SetKw{Return}{return}
+\SetKwProg{UponEv}{upon event}{ do}{}
+\SetKwProg{Upon}{upon}{ do}{}
+\SetKwInput{Implements}{Implements}
+\SetKwInput{Uses}{Uses}
+\SetKwProg{Fn}{Function}{ is}{}
+\def\self {\ensuremath{\textrm{self}}}
+
+\KwIn{%
+	$\LPrvS \ni \{ \LPrv_1, \ldots, \LPrv_n \}$, the (references to) $n$ \Compo{Log Provider}s;%
+	\newline
+	$\SegSize$, the maximum size of the log segment to be transmitted by the \Compo{Log Provider}s;%
+%	\newline%
+%	$\DecRepertoire$, a finite set of {\Declare} templates to be considered to express the discovered specification;%
+%	\newline%
+%	$\ProActvts \subseteq \Uact$, a finite set of activities to be included in the discovered specification;%
+%	\newline%
+%	$\MinThrld{\ConfTr}$, $\MinThrld{\SuppTr}$, $\MinThrld{\ConfEv}$, $\MinThrld{\SuppEv}$, the minimum thresholds for trace-based confidence and support, and event-based confidence and support, respectively (default for all four paramenters: $0.0$); %the minimum support 
+}
+\KwData{%
+	$\CIDMap : \CIdU \to 2^{\LPrvS}$, a map from case references $\CId \in \CIdU$ to the set of log providers $\LPrv \in \LPrvS$ \newline%
+	$\LPrvMap : \LPrvS \to 2^{\CIdU}$, a map from log providers $\LPrv \in \LPrvS$ to the set of references to their cases $\CId \in \CIdU$
+}
+%\KwOut{%
+%	$\DecSpec$, a declarative process specification
+%}
+\Implements{\Compo{Secure Miner} \SecM}
+\Uses{\Compo{Log Provider} \LPrv}
+
+\Fn{\Call{getAttestationReport}(\LPrv) \SuchThat{$\LPrv \in \LPrvS$} \label{alg:getAttestationReport}}{
+	\Return {attestation\_report}
+}
+
+\BlankLine
+% 
+%\ForEach{$\LPrv \in \LPrvS$ \tcc*[r]{For every log provider $\LPrv$}}{%
+%	$\CaseIdS \gets \CaseIdS \cup \LPrv.\CaseIdS$; \tcc*[r]{Register the $\LPrv$'s case reference list}%
+%	
+%}
+\UponEv(\tcp*[f]{The \textit{initialization} phase begins here -- \cref{fig:init}}){$\langle \SecM, \Mesg{Init} \:|\: \LPrvS, \SegSize \rangle$}{
+	\ForEach(\tcp*[f]{Request the list of cases provided by every \Compo{Log Provider} $\LPrv$}){$\LPrv \in \LPrvS$}{%
+		\Trigger{$\langle \LPrv, \Mesg{CaseRefsReq} \rangle$\label{alg:CaseRefsReq:call}} \tcp*{$\LPrv$ will reply with \Mesg{CaseRefsRes} (see line~\ref{alg:CaseRefsRes})}
+	}
+	\Upon(\tcp*[f]{Once all $\LPrv$s have answered, the \Compo{Secure Miner} requests their cases\ldots}){\upshape $|\LPrvS| = |\textrm{dom}(\LPrvMap)|$}{%
+	\lForEach%(\tcp*[f]{For every reference to the \Compo{Log Provider} $\LPrv'$})
+		{$\LPrv \in \LPrvS$}{
+			\Trigger{\upshape $\langle \LPrv, \Mesg{CasesReq} \:|\: \self, \SegSize \rangle$\label{alg:CasesReq:call}}
+			\tcp*[f]{\ldots specifying the {\SegSize} (see line~\ref{alg:CasesReq})}
+			%\tcc*{Request the cases that are provided by $\LPrv'$. Before sending them, $\LPrv'$ will trigger \Mesg{AttestReportReq} in return, to attest the \Compo{Secure Miner}.}
+		}
+	}
+}
+\UponEv(\tcp*[f]{{\SecM} receives {\LPrv}'s case references (line~\ref{alg:CaseRefsReq:call})}){$\langle \SecM, \Mesg{CaseRefsRes} \:|\: \LPrv, \CIdS \rangle$ \SuchThat{$\LPrv \in \LPrvS$} \label{alg:CaseRefsRes}}{
+	\ForEach(\tcp*[f]{For every reference to a case $\CId$}){$\CId \in \CIdS$}{%
+		$\CIDMap[\CId] \gets \CIDMap[\CId] \cup \{\LPrv\} $ \tcp*{Add $\LPrv$ to the set of providers for case $\CId$ in $\CIDMap$}
+	}
+	$\LPrvMap[\LPrv] \gets \LPrvMap[\LPrv] \cup \CIdS $ \tcp*{Register the references of the cases provided by $\LPrv$ in $\LPrvMap$}
+}
+\UponEv(\tcp*[f]{The \Compo{Log Provider} receives the request for cases (see line~\ref{alg:CasesReq:call})}){$\langle \LPrv, \Mesg{CasesReq} \:|\: \SecM, \SegSize \rangle$ \label{alg:CasesReq}}{%
+	\If(\tcp*[f]{The \textit{attestation phase} (see \cref{fig:attestation} and line~\ref{alg:getAttestationReport})}){\SecM.\Call{getAttestationReport}(\LPrv) is valid}{
+		$\{\Segm_1, \ldots, \Segm_m\} \gets \Call{segmentEventLog}( \Call{accessEventLog}(), \SegSize )$ \\
+		\ForEach{$\Segm \in \{\Segm_1, \ldots, \Segm_m\}$}{%
+			\Trigger{$\langle \SecM, \Mesg{CasesRes} \:|\: \self, \Segm \rangle$ }
+		}
+	}
+}
+\UponEv{$\langle \SecM, \Mesg{CasesRes} \:|\: \LPrv, \Segm \rangle$ \SuchThat{$\LPrv \in \LPrvS$}}{
+	See {\LaTeX} comments\\
+	% Per ogni pezzo-di-caso ricevuto nel segmento, controlla che il provider sia stato dichiarato in possesso di esso
+	% SE PMap ha ancora il CID
+		% Aggiungi il pezzo-di-caso alla lista di pezzi-di-caso associati a quell'id
+		% Togli il CID del pezzo-di-caso da PMap in P
+		% Togli il P dal CIDMap
+	% upon CIDMap vuoto in un CID, mergia e yielda il caso
+        
+}       
+
+\endinput
+
+\KwOut{%
+	$\DecSpec$, a declarative process specification
+}
+%
+\BlankLine
+$ \CnsSet \gets \left\{ \DecTemp(a_1, \ldots, a_m) : \DecTemp \in \DecRepertoire, a_1; \ldots, a_m \in \ProActvts, a_i \neq a_j \textrm{ with } 1 \leq i,j \leq m \right\}$\; \tcc*[r]{candidate constraints: templates assigned with any pair of distinct activities} \label{alg:candidates}
+\BlankLine
+%
+\ForEach{$ \Cns \in\CnsSet $ \tcc*[r]{compute measures} }{
+	$\mathrm{c_\textrm{t}} \gets \ConfTrOf{\Cns}{\EvtLog}$;
+	$\mathrm{s_\textrm{e}} \gets \SuppTrOf{\Cns}{\EvtLog}$;
+	$\mathrm{c_\textrm{e}} \gets \ConfEvOf{\Cns}{\EvtLog}$;
+	$\mathrm{s_\textrm{e}} \gets \SuppEvOf{\Cns}{\EvtLog}$\;
+	\If{${ c_\textrm{t} \leq \MinThrld{\ConfTr} } \textrm{ or }
+		{ s_\textrm{t} \leq \MinThrld{\SuppTr} } \textrm{ or }
+		{ c_\textrm{e} \leq \MinThrld{\ConfEv} } \textrm{ or }
+		{ s_\textrm{e} \leq \MinThrld{\SuppEv} }$
+	}{$ \CnsSet \gets \CnsSet \setminus \{ \Cns \}$ \tcc*[r]{remove constraints with a measure below the threshold}}
+} 
+%
+% \BlankLine
+%
+\ForEach{$ \Cns \in \CnsSet $ \tcc*[r]{remove constraints as per subsumption hierarchy and negated v.} }{
+	\ForEach{${ \Cns' \in \CnsSet }$ s.t.\ ${ \Cns' \sqsubseteq \Cns }$ \tcc*[r]{for every $\Cns'$ that subsumes $\Cns$ in $\CnsSet$}}{
+		\uIf{$\AllMsrsOf{\Cns'}{\EvtLog} \leq \AllMsrsOf{\Cns}{\EvtLog}$ \tcc*[r]{if the measures of $\Cns'$ are $\leq$ those of $\Cns$}}
+		%		\If{${ \ConfTrOf{\Cns'}{\EvtLog} \geq \ConfTrOf{\Cns'}{\EvtLog} } \textrm{ and }
+			%			 { \SuppTrOf{\Cns}{\EvtLog} \leq \SuppTrOf{\Cns}{\EvtLog} } \textrm{ and }
+			%			 { \ConfEvOf{\Cns}{\EvtLog} \leq \ConfEvOf{\Cns}{\EvtLog} } \textrm{ and }
+			%			 { \SuppEvOf{\Cns}{\EvtLog} \leq \SuppEvOf{\Cns}{\EvtLog} }$
+			{ $ \CnsSet \gets \CnsSet \setminus \{ \Cns \}$ }
+			\lElse{ $ \CnsSet \gets \CnsSet \setminus \{ \Cns' \}$ }%
+		}
+		\ForEach{${ \Cns' \in \DecSpec }$ s.t.\ $\Cns'$ is the negated version of $\Cns$ }{
+			\lIf{$\AllMsrsOf{\Cns'}{\EvtLog} < 
+				\AllMsrsOf{\Cns}{\EvtLog}$ }
+			{ $ \CnsSet \gets \CnsSet \setminus \{ \Cns \}$ }
+			\lElse{ $ \CnsSet \gets \CnsSet \setminus \{ \Cns' \}$ }%
+		}
+	} 
+	\BlankLine
+	\Return $\DecSpec = \left( \DecRepertoire, \ProActvts, \CnsSet \right)$\;

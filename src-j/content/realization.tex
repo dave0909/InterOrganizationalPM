@@ -1,0 +1,167 @@
+\section{Realization}
+\label{sec:realization}
+%Focus generale sulle tecnologie utilizzate
+In this section, we outline the technical aspects concerning the realization of our solution. Therefore, we first present the enabler technologies through which we instantiate the design principles presented in \cref{sec:design}. After that, we discuss the CONFINE interaction protocol. Finally, we show the implementation details.
+
+%
+\begin{figure}[t]
+	\centering
+	\includegraphics[width=1\linewidth]{content/figures/deploymentdiagram.pdf}
+	\caption{UML deployment diagram of the CONFINE architecture}
+	\label{fig:deployment_diagram}
+\end{figure}
+%
+\subsection{Deployment}
+\label{sec:deployment}
+%
+%As follows, we bridge the gap between the CONFINE high-level architecture and its practical realization. 
+\Cref{fig:deployment_diagram} depicts a UML deployment diagram~\cite{koch2002expressive} to illustrate the employed technologies and computation environments. %that aims to help with understanding the instantiated technologies. We differentiate between the technologies designated for mining, denoted as \Compo{Miner Node}s, and those specifically associated with provisioners, identified as \Compo{Provisioner Node}s. To enhance clarity, we maintain the separation of these \textit{devices} in the accompanying diagram. However, organizations have the flexibility to opt for integrated technologies that incorporate both mining and provisioning functionalities. 
+We recall that the \Compo{Miner} and \Compo{Provisioner} nodes are drawn as separated, although organizations can host both.
+In our motivating scenario, e.g., the \Actor{Hospital} can be equipped with machines aimed for both mining and provisioning. %, while the \Actor{Specialized clinic} can make use of separate devices. 
+% We included the \texttt{Log Recorder}, the \texttt{Log Provider}, and \texttt{Secure Miner} (already discussed in \cref{sec:design}) as abstract \textit{components} of the diagram, whose manifestations are described as follows. 
+
+\Compo{Provisioner Node}s host the \Compo{Provisioner}'s components, encompassing the \Compo{Log Recorder} and the \Compo{Log Provider}. 
+The Process-Aware Information System (\Compo{PAIS}) manifests the \Compo{Log Recorder}~\cite{Dumas.etal/2018:FundamentalsofBPM}. % which plays a crucial role in managing various business processes, including accounting and resource management . In our motivating scenario, the \Actor{Hospital} and the other provisioners record Alice and Bob's cases through this class of systems.
+%
+%
+The \Compo{PAIS} grants access to the \Compo{Log Server}, enabling it to retrieve event log data. The \Compo{Log Server}, on the other hand, embodies the functionalities of the \Compo{Log Provider}, implementing web services aimed at handling remote data requests and providing event log data to miners. %The \Actor{Hospital}, the \Actor{Specialized Clinic}, and the \Actor{Pharmaceutical Company} of our running example employes \Compo{Log Servers} adhering to established web standards such as HTTP\footnote{\url{w3.org/Protocols/rfc2616/rfc2616.html}. Accessed: \today.}, FTP\footnote{\url{w3.org/Protocols/rfc959/}. Accessed: \today.}, and Goopher\footnote{\url{datatracker.ietf.org/doc/html/rfc1436}. Accessed: \today.}. 
+% ^The \Compo{PAIS} and \Compo{Log Server} run on the top of the \Compo{Operating System} of the \Compo{Provisioner Node}.
+
+The \Compo{Miner Node} is characterized by two distinct \textit{execution environments}: the \Compo{Operating System} (\Compo{OS}) and the Trusted Execution Environment (\Compo{TEE})~\cite{DBLP:conf/trustcom/SabtAB15}. \Compo{TEE}s establish isolated contexts separate from the \Compo{OS}, safeguarding code and data through hardware-based encryption mechanisms. This technology relies on %specialized %components of the \Compo{Miner Node}'s 
+dedicated sections of a CPU capable of handling encrypted data within a reserved section of the main memory~\cite{costan2016intel}.
+By enforcing memory access restrictions, TEEs aim to prevent one application from reading or altering the memory space of another, thus enhancing the overall security of the system.
+This dedicated areas in memory are, however, limited.
+Once the limits are exceeded, TEEs have to scout around in outer memory areas, thus conceding the opportunity to malicious reader to understand the saved data based on the memory reads and writes.
+To avoid this risk, TEE implementations often raise errors that halt the program execution when the memory demand goes beyond the available space. %dedicated to a trusted application is exceeded. %, are generated and execution is halted.
+Therefore, the design of secure systems that resort to TEEs must take into account that memory consumption must be kept under control.
+%TEEs incorporate defined memory constraints as a deliberate measure to augment security and establish a secure demarcation for sensitive computational processes. 
+We leverage the security guarantees provided by \Compo{TEE}s~\cite{DBLP:journals/ieeesp/JauernigSS20} to protect a \Compo{Trusted App} responsible for fulfilling the functions of the \Compo{Secure Miner} and its associated sub-components. %The \Compo{Trusted App} consolidates the logic required for generating verifiable data requests, receiving external event logs, securely storing them within the \Compo{TEE}, and executing process mining algorithms. %All procedures executed by the \Compo{Trusted App} are tamper-proof. 
+The \Compo{TEE} ensures the integrity of the \Compo{Trusted App} code, protecting it against potential malicious manipulations and unauthorized access by programs running within the \Compo{Operating System}. Additionally, we utilize the isolated environment of \Compo{TEE}s to securely store event log data (e.g., Alice and Bob's cases). % from provisioner organizations within the \Compo{Miner Node}. 
+The \Compo{TEE} retains a private key in the externally inaccessible section of memory, paired with a public key in a Rivest-Shamir-Adleman
+(RSA)~\cite{DBLP:journals/cacm/RivestSA83} scheme for attestation (only the owner of the private key can sign messages that are verifiable via the public key) and secure message encryption (only the owner of the private key can decode messages that are encrypted with the corresponding public key).
+%, preventing exposure to the \Compo{Operating System}. 
+In our solution, access to data located in the \Compo{TEE} is restricted solely to the \Compo{Trusted App}. Users interact with the \Compo{Trusted App} through the \Compo{Trusted App Interface}, which serves as the exclusive communication channel. The \Compo{Trusted App} offers secure methods, invoked by the \Compo{Trusted App Interface}, for safely receiving information from the \Compo{Operating System} and outsourcing the results of computations. %, maintaining a high level of data security.
+
+\begin{comment}
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.9\linewidth]{content/figures/sequencediagram.pdf}
+\caption{UML sequence diagram.}
+\label{fig:sequence_diagram}
+\end{figure}
+\end{comment}
+
+
+\subsection{The CONFINE protocol}
+We orchestrate the interaction of the components in CONFINE via a protocol.
+%\begin{comment}
+\todo[inline]{Assumptions.
+``We assume that every process executes the code triggered by events in a mutually
+exclusive way. This means that the same process does not handle two events concur-
+rently. Once the handling of an event is terminated, the process keeps on checking
+if any other event is triggered. This periodic checking is assumed to be fair, and is
+achieved in an implicit way: it is not visible in the pseudo code we describe.''~\cite{Cachin.etal/2011:ReliableSecureDistributedProgramming}
+``(Regular) reliable brodcast, (d’ora in poi solo Reliable broadcast) :
+Safety. 
+Integrity (No Duplication, No Creation): per qualsiasi messaggio m, ogni processo corretto consegna m al più una volta, e solo se m è stato precedentemente inviato in broadcast da un processo mittente
+Liveness:
+Validity: se un processo corretto invia in broadcast un messaggio m, allora tutti i processi corretti alla fine consegnano m.
+Agreement : se un processo corretto consegna un messaggio m, allora tutti i processi corretti alla fine consegnano m.''
+I provisioner e il miner devono essere corretti, i.e., they do not crash.~\cite{Cachin.etal/2011:ReliableSecureDistributedProgramming}
+\\
+We resort to the following:
+``a general-purpose secure transport
+layer protocol, such as SSL/TLS~\cite{Thomas/2000:SSL-TLS}. The secure transport protocol provides a
+secure channel to the application layer, i.e., it provides a communication channel
+with some extra security services; for example, the secure channel may prevent
+an attacker from faking messages, hijacking messages (redirecting them to an
+unintended recipient, or reascribing them so that they seem to have come from
+a different sender), or learning the content of messages.''~\cite{KamilLowe/FAST2010:AbstractionsSecureChannels} 
+}
+Our protocol involves two main actors: a \Compo{Secure Miner} (henceforth, \SecM) and one to many \Compo{Log Provisioner}s ($\LPrv_1, \ldots, \LPrv_n \in \LPrvS$).
+
+
+Given a finite set of events $\EvtU$ and a total-order relation $\preceq$ subset of $\EvtU \times \EvtU$, we identify an event log as the totally ordered set $\left( \EvtU, \preceq \right)$.
+In the example, \ldots\todo{Add example}
+%
+Let $\CIdU$ be a finite non-empty set of symbols such that $|\CIdU| \leqslant |\EvtU|$.
+We assume that every event be associated with a \emph{case identifier} $\CId \in \CIdU$ via a total surjective function $\CIdF: \EvtU \to \CIdU$ such that the restriction $\prec_\CId \,=\, \preceq \cap \{ \Evt \in \EvtU: \CIdF(\Evt) = \CId \}^2$ of total order $\preceq$ on all events mapped to the same $\CId$ is strict (i.e., if $\Evt \preceq \Evt'$ with $\Evt \neq \Evt'$ and $\CIdF(\Evt) = \CIdF(\Evt')$ then $\Evt' \npreceq \Evt$).
+%
+In the example, \ldots\todo{Add example}
+%
+In other words, $\CIdF$ acts as an equivalence relation partitioning $\EvtU$ into $\left\{ \EvtU_\CId \right\}_{\CId \in \CIdU} \subseteq 2^{\EvtU}$ based on the {\CId} to which the events $\Evt \in \EvtU_\CId$ map, and imposing that events are linearly ordered by the restriction of $\preceq$ on every $\EvtU_\CId$.
+Every pair $\left( \EvtU_\CId, \prec_\CId \right)$ thus represents a finite linearly totally ordered set (or \emph{loset} for brevity) with $\EvtU_\CId \subseteq \EvtU$ and $\prec_\CId \;\subseteq \EvtU_\CId \times \EvtU_\CId \subseteq\; \preceq \;\subseteq \EvtU \times \EvtU$.
+Let $\left(\EvtU, \prec\right)$ be a loset and $(\EvtU', \prec')$, $(\EvtU'', \prec'')$ two (sub-)losets such that $\EvtU' \cup \EvtU'' \subseteq \EvtU$ and $\EvtU' \cap \EvtU'' = \emptyset$, with $\prec'$ and $\prec''$ being the restrictions of $\prec$ on $\EvtU'$ and $\EvtU''$, respectively.
+We define the order-preserving union $\Merge: \EvtU^3 \times \EvtU^3 \to \EvtU^3$ of losets as follows: $(\EvtU', \prec') \Merge (\EvtU'', \prec'') = \left(\EvtU' \cup \EvtU'', \prec \cap\, (\EvtU'\cup\EvtU'')^2\right)$.
+\todo{Continue here revising the definition of order preserving union}
+%
+We can thus derive the notion of case $\Case_\CId$ given a $\CId \in \CIdU$ as a loset of events mapping to the same $\CId$ and ordered by the linear restriction $\prec$ of $\preceq$ over the events in $\Case_\CId$: $\CId=(\EvtU_\CId, \prec)$ where $\Case_\CId = \langle \Evt_1, \ldots, \Evt_{|\Case_\CId|} \rangle$ where $\CIdF(\Evt_i) = \CId \in \CIdU$ for every $i$ s.t.\ $ 1 \leqslant i \leqslant |\Case_\CId|$ and $e_i \prec e_j$ for every $ i \leq j \leqslant |\Case_\CId|$.%
+\footnote{We employ the angular-bracket notation here for the sake of simplicity, although it is typically used for sequences. Unlike sequences, cases do not allow for the same event to occur more than once.}
+Notice that the cardinality of $\CasU$ and $\CIdU$ coincide.
+%
+Events are also the domain of a function $\LPrvF: \EvtU \to \LPrvS$ mapping events to log provisioners.
+In the example, \ldots\todo{Add example}
+We shall denote with $\CasP_\CId$ the loset consisting of every event $\Evt \in \Case_\CId$ such that $\LPrvF(\Evt) = \LPrv$, with the restriction of the strict total order of $\Case_\CId$ on those events.
+In the example, \ldots\todo{Add example}
+\todo[inline]{Gotta move this one earlier when we introduce the example with the partitioned event log. (Section 4.2??). Clarify the difference between segmentation (given a segsize, i.e., a segment of a case-part in a sublog) and partitioning (of a log into case-parts of sublogs}. Then, prove that the pipeline of partitioning and segmentation has its inverse in the union and merge for soundness. 
+%\end{comment}
+%
+\begin{comment}
+\todo[inline]{In \cref{fig:workflow}, please rename components as per their concept-diagram name. Hence, PAIS $\to$ \textit{PAIS} {\textbackslash}n : Log Recorder, Log Server $\to$ \textit{Log Server} \textbackslash n : Log Provider; Trusted App $\to$ \textit{Trusted App}: Secure Miner. Make the TEE boundary box thicker and dark-grey (or semi-transparent black). On overlay, make sure the boundary box is below the arrows. The same holds for \cref{fig:workflow}, with OS with a thick grey boundary box.}
+\end{comment}
+We separate it in four subsequent stages, namely
+\begin{inparaenum}[\itshape(i)\upshape]
+	\item \textit{initialization}, \item \textit{remote attestation}, \item \textit{data transmission}, and \item \textit{computation}.
+\end{inparaenum}
+These stages are depicted in \cref{fig:init,fig:attestation,fig:transmission,fig:computation}, respectively. They are mainly enacted by a \Compo{Miner Node} and $n$ \Compo{Provisioner Node}s. We assume their communication channel is reliable~\cite{Cachin.etal/2011:ReliableSecureDistributedProgramming} and secure~\cite{KamilLowe/FAST2010:AbstractionsSecureChannels}. In the following, we describe each phase in detail.
+
+\begin{figure}[t]
+	\subfloat[][Initialization]{\includegraphics[width=0.31\linewidth]{content/figures/initializationworkflow.pdf}\label{fig:init}}\hfill
+	\subfloat[][Remote attestation]{\includegraphics[width=0.32\linewidth]{content/figures/attestationworkflow.pdf}\label{fig:attestation}}\hfill
+	\subfloat[][Data transmission]{\includegraphics[width=0.32\linewidth]{content/figures/datatransmissionworkflow.pdf}\label{fig:transmission}}\hfill
+	\caption{Unfolding example for the initialization, remote attestation and data transmission phases of the CONFINE protocol}
+	\label{fig:workflow}
+\end{figure}
+
+\noindent\textbf{Initialization.} The objective of the initialization stage is to inform the miner about the distribution of cases related to a business process among the \Compo{Provisioner Nodes}. At the onset of this stage, the \Compo{Log Requester} within the \Compo{Trusted App} issues $n$ requests, one per \Compo{Log Server} component, %of the provisioners 
+to retrieve the list of case references they record (step 1 in \cref{fig:init}). Following sender authentication (2), each \Compo{Log Server} retrieves the local event log from the \Compo{PAIS} (3, 4) and subsequently responds to the \Compo{Log Requester} by providing a list of its associated case references (5). After collecting these $n$ responses, the \Compo{Log Requester} delineates the distribution of cases. In the context of our motivating scenario, by the conclusion of the initialization, the miner gains knowledge that the case associated with Bob, synthesized in the traces $T^H_{711}$ and $T^C_{711}$, is exclusively retained by the \Actor{Hospital} and the \Actor{Specialized Clinic}. In contrast, the traces of Alice's case, denoted as $T^H_{312}$, $T^C_{312}$, and $T^S_{312}$, are scattered across all three organizations.
+
+\noindent\textbf{Remote attestation.} The remote attestation serves the purpose of establishing trust between miners and provisioners in the context of fulfilling data requests. This phase adheres to the overarching principles outlined in the RATS RFC standard~\cite{rfc9334} serving as the foundation for several TEE attestation schemes (e.g., Intel EPID,\footnote{\url{sgx101.gitbook.io/sgx101/sgx-bootstrap/attestation}. Accessed: \today.} and AMD SEV-SNP\footnote{\url{amd.com/en/processors/amd-secure-encrypted-virtualization}. Accessed: \today.}). Remote attestation has a dual objective:
+\begin{inparaenum}[\itshape(i)\upshape]
+    \item to furnish provisioners with compelling evidence that the data request for an event log originates from a \Compo{Trusted App} running within a TEE;
+    \item to confirm the specific nature of the \Compo{Trusted App} as an authentic \Compo{Secure Miner} software entity.
+\end{inparaenum}
+This phase is triggered when the \Compo{Log Requester} sends a new case request to the \Compo{Log Server}, specifying:
+\begin{inparaenum}[\itshape(i)\upshape]
+    \item the segment size (henceforth, \SegSize), and
+    \item the set of the requested case references.
+\end{inparaenum}
+Both parameters will be used in the subsequent \textit{data transmission} phase. Each of the $n$ \Compo{Log Server}s commences the verification process by requesting the necessary information from the \Compo{Log Receiver} to conduct the attestation (2). Subsequently, the \Compo{Log Receiver} generates the attestation report containing the so-called \emph{measurement} of the \Compo{Trusted App}, which is defined as the hash value of the combination of its source code and data. Once this report is signed using the attestation private key associated with the \Compo{TEE}'s hardware of the \Compo{Miner Node}, it is transmitted by the \Compo{Log Receiver} to the \Compo{Log Server}s alongside the attestation public key of the \Compo{Miner Node} (3). The \Compo{Log Server}s authenticate the miner using the public key and decrypt the report (4). In this last step, the \Compo{Log Server}s undertake a comparison procedure in which they juxtapose the measurement found within the decrypted report against a predefined reference value associated with the source code of the \Compo{Secure Miner}. If the decrypted measurement matches the predefined value, the \Compo{Miner Node} gains trust from the provisioner.
+
+\noindent\textbf{Data transmission.} Once the trusted nature of the \Compo{Trusted App} is verified, the \Compo{Log Server}s proceed with the transmission of their cases. To accomplish this, each \Compo{Log Server} retrieves the event log from the \Compo{PAIS} (steps 1 and 2, in \cref{fig:transmission}), and filters it according to the case reference set specified by the miner. Given the constrained workload capacity of the \Compo{TEE}, it is imperative for \Compo{Log Server}s to partition the filtered event log into distinct segments. %We take this precautionary measure to avert runtime crashes. 
+Consequently, each \Compo{Log Server} generates $m$ log segments comprising a variable count of entire cases (3). The cumulative size of these segments is governed by the threshold parameter specified by the miner in the initial request (step 1 of the remote attestation phase, \cref{fig:attestation}). As an illustrative example from our motivating scenario, the \Compo{Log Server} of the \Actor{Hospital} may structure the segmentation such that $T^H_{312}$ and $T^H_{711}$ reside within the same segment, whereas the \Actor{Specialized clinic} might have $T^S_{312}$ and $T^S_{711}$ in separate segments. Subsequently, the $n$ \Compo{Log Server}s transmit their $m$ encrypted segments to the \Compo{Log Receiver} of the \Compo{Trusted App} (4). The \Compo{Log Receiver}, in turn, collects the $n \times m$ responses in a queue, processing them one at a time. After decrypting the processed segment (5), the \Compo{Log Receiver} forwards the cases contained in the segment to the \Compo{Log Manager} (6). To reconstruct the process instance, cases belonging to the same process instance must be merged by the \Compo{Log Manager} resulting in a single trace (e.g., $T_{312}$ for Alice case) comprehensive of all the events in the partial traces (e.g., $T^H_{312}$, $T^S_{312}$ and $T^C_{312}$ for Alice case). During this operation, the \Compo{Log Manager} applies a specific \textit{merging schema} (i.e., a rule specifying the attributes that link two cases during the merge) as stated in \cite{claes2014merging}. In our illustrative scenario, the merging schema to combine the cases of Alice is contingent upon the linkage established through their case identifier (i.e., 312). We underline that our proposed solution facilitates the incorporation of diverse merging schemas encompassing distinct trace attributes. The outcomes arising from merging the cases within the processed segment are securely stored by the \Compo{Log Manager} in the \Compo{TEE}.
+
+\begin{wrapfigure}[12]{r}{0.33\textwidth}
+	\vspace{-1em}
+	%\centering
+	\includegraphics[width=\textwidth]{content/figures/computationworkflow.pdf}
+	\caption[A gull]{Computation phase of the CONFINE protocol}
+	\vspace{-2pt}
+	\label{fig:computation}
+\end{wrapfigure}
+%
+\noindent\textbf{Computation.} The \texttt{Trusted App} requires all the provisioners to have delivered cases referring to the same process instances. For example, when the \Actor{Hospital} and the other organizations have all delivered their information concerning case 312 to the \Compo{Trusted App}, the process instance associated with Alice becomes eligible for computation. Upon meeting this condition, the \Compo{Log Manager} forwards the case earmarked for computation to the \Compo{Log Elaborator} (step 1 in \cref{fig:computation}). Subsequently, the \Compo{Log Elaborator} proceeds to input the merged case into the process mining algorithm (2). Ultimately, the outcome of the computation is relayed by the \Compo{Log Elaborator} from the \Compo{TEE} to the \Compo{TEE Interface} running atop the \Compo{Operating System} of the \Compo{Miner Node} (3). The CONFINE protocol does not impose restrictions on the post-computational handling of results. In our motivating scenario, the University and the National Institute of Statistics, serving as miners, disseminate the outcomes of computations, generating analyses that benefit the provisioners (though the original data are never revealed in clear). Furthermore, our protocol enables the potential for provisioners to have their proprietary \Compo{Secure Miner}, allowing them autonomous control over the computed results.
+
+%\begin{comment}
+\begin{algorithm2e}[tb]
+	\input{algorithms/confine}
+	\caption{Overview of CONFINE's core components' behavior.}
+	\label{alg:data:processing}
+\end{algorithm2e} 
+%\end{comment}
+%
+\subsection{Implementation}
+\label{sec:implementation:details}
+We implemented the \texttt{Secure Miner} component as an Intel SGX\footnote{\url{sgx101.gitbook.io/sgx101/}. Accessed: \today.} trusted application, encoded in Go through the EGo framework.\footnote{\url{docs.edgeless.systems/ego}. Accessed: \today.} We resort to a TLS~\cite{Thomas/2000:SSL-TLS} communication channel between miners and provisioners over the HTTP web protocol to secure the information exchange. To demonstrate the effectiveness of our framework, 
+we re-implemented and integrated the \textit{HeuristicsMiner} discovery algorithm~\cite{weijters2006process} within the \Compo{Trusted Application}. %Upon successful execution, our \textit{HeuristicsMiner} implementation generates workflow nets corresponding to the analyzed processes. 
+Our implementation of CONFINE, including the \textit{HeuristicsMiner} in Go, is openly accessible at the following URL: \href{https://github.com/Process-in-Chains/CONFINE/}{\nolinkurl{github.com/Process-in-Chains/CONFINE/}}.

@@ -1,0 +1,54 @@
+\definecolor{specializedcliniccolor}{RGB}{0, 153, 0}
+\definecolor{pharmacolor}{RGB}{0, 110, 175}% Define a custom color (in this case, red)
+\definecolor{scriptcolor}{RGB}{237, 237, 237}
+\newcommand{\Actor}[1]{\textrm{\MakeTextLowercase{#1}}}
+\newcommand{\Compo}[1]{\texttt{#1}}
+\newcommand{\Activ}[1]{\textrm{#1}}
+\def\Org{\ensuremath{\mathscr{O}}}
+
+\deffootnote{0.5em}{0em}{\textsuperscript{\thefootnotemark}\,}
+%Symbols used for the formulas
+\def\LinearCorrelationCoefficent{\ensuremath{\rho}}
+\newcommand{\LinearCorrelationCoefficentF}[0]{\ensuremath{%
+		 \frac{\sum_{i=1}^k\left(x_i-\bar{x}\right)\left(y_i-\bar{y}\right)}{\sqrt{\sum_{i=1}^k\left(x_i-\bar{x}\right)^2} \sqrt{\sum_{i=1}^k\left(y_i-\bar{y}\right)^2}}}}
+
+\def\RCoefficent{\ensuremath{R^2}}
+\newcommand{\RCoefficentF}[0]{\ensuremath{%
+		 1-\frac{\sum_{i=1}^{k}(y_i- \hat{y_i})^2}{\sum_{i=1}^{k}(y_i- \overline{y_i})^2}}}
+\def\Rlin{\ensuremath{R^2_\textrm{lin}}}
+\def\Rlog{\ensuremath{R^2_\textrm{log}}}
+
+\def\Slope{\ensuremath{\widehat{\mathcal{\beta}}}}
+\newcommand{\SlopeF}[0]{\ensuremath{%
+\frac{\sum_{i=1}^k\left(x_i-\bar{x}\right)\left(y_i-\bar{y}\right)}{\sum_{i=1}^k\left(x_i-\bar{x}\right)^2}}}
+
+
+
+
+\def\OrgU {\ensuremath{\widehat{\mathcal{O}}}} % Set of all organizations
+
+% Symbols used throughout the algorithm
+\def\LPrv {\ensuremath{\mathcal{P}}}   % Log provider
+\def\LPrvF {\ensuremath{\mathfrak{p}}}   % Log provider mapping function
+\def\SecM {\ensuremath{\mathcal{M}}}   % Secure Miner
+\def\LPrvS {\ensuremath{\widehat{\mathcal{P}}}}  % Log provider set
+\def\CStor {\ensuremath{\textsl{Cases}}}  % Case store 
+\def\Case {\ensuremath{\textsl{C}}}  % Case 
+\def\Evt {\ensuremath{e}}  % Event 
+\def\EvtU {\ensuremath{\widehat{\mathrm{E}}}}  % Event universe
+\def\CasP {\ensuremath{\Case^{\LPrv}}}  % Case part
+\def\CId {\ensuremath{\textrm{\textsl{cid}}}}  % CaseId
+\def\CIdF {\ensuremath{\mathfrak{id}}}  % CaseId mapping function
+\def\CIdU {\ensuremath{\widehat{\mathrm{CID}}}}  % CaseId universe
+\def\CasU {\ensuremath{\widehat{\mathrm{C}}}}  % Case universe
+\def\CIdS {\ensuremath{\textsl{CIDs}}}  % CaseId set
+\def\CIDMap {\ensuremath{\textsl{CIDMap}}} % CaseId Map
+\def\LPrvMap {\ensuremath{\textsl{PMap}}} % Log provider Map
+\def\Merge {\ensuremath{\bigoplus}}
+\newcommand{\Mesg}[1]{\ensuremath{\textrm{\textsc{#1}}}}
+\newcommand{\SuchThat}[1]{~\upshape\textrm{\textbf{such that}}~{#1}}
+\newcommand{\To}[1]{~\upshape\textrm{\textbf{to}}~{#1}}
+\newcommand{\Call}[1]{\texttt{#1}}
+
+\def\SegSize {\ensuremath{\textsl{seg\_size}}}
+\def\Segm {\ensuremath{S}}

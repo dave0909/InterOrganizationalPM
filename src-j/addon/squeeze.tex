@@ -1,0 +1,12 @@
+%% Saving trees -- put this in the preamble
+\usepackage{newtxtext}
+%% Do not let the Times package affect the monospaced font (Courier is utterly ugly)
+\renewcommand{\ttdefault}{cmtt}
+%% Shrinking white space here and there…
+\usepackage[subtle]{savetrees}
+%\addtolength{\topmargin}{-1\baselineskip} % Careful!
+%\addtolength{\textheight}{2\baselineskip} % Careful!
+%% save space around floats (tables, algo's, fig's):
+\setlength{\textfloatsep}{15pt}% Reduce \textfloatsep
+%% save more space by suppressing vertical space between paragraphs
+%\parskip1pt

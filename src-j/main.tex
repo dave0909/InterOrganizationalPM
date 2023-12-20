@@ -1,0 +1,100 @@
+ % This is samplepaper.tex, a sample chapter demonstrating the
+% LLNCS macro package for Springer Computer Science proceedings;
+% Version 2.20 of 2017/10/04
+%
+\documentclass[runningheads]{llncs}
+%
+% Used for displaying a sample figure. If possible, figure files should
+% be included in EPS format.
+\input{addon/pkgloading.tex}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+% If you use the hyperref package, please uncomment the following line
+% to display URLs in blue roman font according to Springer's eBook style:
+\renewcommand\UrlFont{\color{blue}\rmfamily}
+%
+\input{addon/macros}
+%
+\usepackage{orcidlink}
+\input{addon/squeeze}
+% Customize cleveref format for enumerate items
+\crefformat{enumi}{#2\textup{#1}#3}
+
+
+
+\newenvironment{leftbox}[1]
+ {\itemize[
+    nosep,
+    leftmargin=0pt,
+    rightmargin=\dimexpr\textwidth-#1\relax,
+    itemindent=\parindent,
+    listparindent=\parindent,
+  ]\item[]\relax}
+ {\enditemize}
+
+\newenvironment{rightbox}[1]
+ {\itemize[
+    nosep,
+    leftmargin=\dimexpr\textwidth-#1\relax,
+    rightmargin=0pt,
+    itemindent=\parindent,
+    listparindent=\parindent,
+  ]\item[]\relax}
+ {\enditemize}
+\begin{document}
+%
+\title{Preserving Data Secrecy in Decentralized \\ Inter-organizational Process Mining}
+%
+\titlerunning{Data Secrecy in Decentralized Inter-organizational Process Mining}
+% If the paper title is too long for the running head, you can set
+% an abbreviated paper title here
+%
+\author{%
+Valerio~Goretti\inst{1}\orcidlink{0000-0001-9714-4278} \and %\inst{1}\orcidID{0000-0001-9714-4278} \and 
+Davide~Basile\inst{1}\orcidlink{0000-1111-2222-3333} \and %\inst{1}\orcidID{0000-1111-2222-3333} \and
+Luca~Barbaro\inst{1}\orcidlink{0000-0002-2975-5330} \and %\inst{1}\orcidID{0000-0002-2975-5330} \and
+Claudio~Di~Ciccio\inst{1,2}\orcidlink{0000-0001-5570-0475}%\inst{1}\orcidID{0000-0001-5570-0475}}
+}
+%
+\authorrunning{V.\ Goretti, D.\ Basile, L.\ Barbaro, C.\ Di Ciccio}
+% First names are abbreviated in the running head.
+% If there are more than two authors, 'et al.' is used.
+%
+\institute{Sapienza University of Rome, Italy, \email{\href{mailto:davide.basile@uniroma1.it;luca.barbaro@uniroma1.it;valerio.goretti@uniroma1.it;claudio.diciccio@uniroma1.it}{name.surname@uniroma1.it}}
+\and
+Utrecht University, Netherlands}%, \email{\href{mailto:c.diciccio@uu.nl}{c.diciccio@uu.nl}}}
+%
+\maketitle
+
+\begin{abstract}
+ \input{content/abstract}
+ \keywords{%
+ 	Collaborative information systems architectures
+ 	\and
+ 	Trusted execution environments
+ 	\and
+ 	Confidential computing%
+ }
+\end{abstract}
+
+\linenumbers
+
+\input{content/introduction.tex}
+\input{content/relatedwork.tex}
+\input{content/motivating}
+\section{Design}\label{sec:design}
+\input{content/design.tex}
+\input{content/realization.tex}
+\input{content/discussion.tex}
+\input{content/conclusion.tex}
+\input{content/ack.tex}
+
+\vspace{-2ex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Biblography
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{splncs04}
+\bibliography{bibliography}
+
+
+\end{document}

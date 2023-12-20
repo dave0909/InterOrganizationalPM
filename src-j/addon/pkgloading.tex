@@ -1,0 +1,170 @@
+% For language-specific hyphenations etc.
+\usepackage[english]{babel}
+% For subfigures
+\usepackage{subcaption}
+\usepackage{xcolor}
+% For nice links
+\usepackage{url}
+% For playing with colors in tabular environments
+\usepackage{colortbl}
+% For math symbols, such as \nexists
+\usepackage{amssymb}
+% For more math symbols, such as \mapsfrom
+\usepackage{stmaryrd}
+% For advanced graphics
+% For equations, arrays of equations, defining operator names, etc.
+\usepackage{amsmath}
+% For cursive math
+\usepackage{mathrsfs}
+% For math symbols, such as \nexists
+\usepackage{amssymb}
+%% For math environments, such as "definition"
+%\usepackage{amsthm}
+%\theoremstyle{definition}
+%\newdefinition{definition}{Definition}[section]
+%\newtheorem{theorem}{Theorem}[section]
+% For enumerating the line numbers
+\usepackage[left]{lineno}
+% For diagonally-split fractions (\sfrac)
+\usepackage{xfrac}
+% For nice (diagonal) fractions
+\usepackage{nicefrac}
+% For side notes, missing figures and inline to-do's
+\usepackage[textsize=scriptsize,backgroundcolor=yellow!40]{todonotes}
+% Resize the width of todo-notes on the margins
+%\setlength{\marginparwidth}{1.25cm}
+% For specifying kewords and acronyms
+\usepackage[nonumberlist,acronym,sanitize=none]{glossaries}
+\glsdisablehyper
+% For commenting out some parts of the text
+\usepackage{comment}
+% For hyperlinks
+\usepackage[pdftex, colorlinks=true, hyperfootnotes=true, hyperindex=true,
+            plainpages=false, pagebackref=false, pdfpagelabels=true, pdfstartview=FitH,
+            linkcolor=blue, citecolor=blue, urlcolor=blue,
+            bookmarks, bookmarksopen, bookmarksdepth=3]{hyperref}
+% For smart references
+\usepackage[capitalise,nameinlink]{cleveref}
+% To have "Figure 3(a)" in place of "Figure 3a" and  "Table 3(a)" in place of "Table 3a"
+\captionsetup[subfigure]{subrefformat=simple,labelformat=simple}
+    \renewcommand\thesubfigure{(\alph{subfigure})}
+\captionsetup[subtable]{subrefformat=simple,labelformat=simple}
+    \renewcommand\thesubtable{(\alph{subtable})}
+\crefname{algocf}{alg.}{algs.}
+\Crefname{algocf}{Algorithm}{Algorithms}
+\crefname{section}{Sect.}{Sects.} % Era un poco prolisso
+\crefname{Section}{Section}{Sections} % Era un poco prolisso
+% TikZ/Pgf advanced graphics
+\usepackage{tkz-base}
+\usetikzlibrary{decorations.pathmorphing,trees,snakes,arrows,shapes,automata,petri}
+% To use inline and other fancy list-like environments (e.g., inparaenum)
+\usepackage{paralist}
+% To divide a text line into multiple columns
+\usepackage{multicol}
+% To create good-looking book-style tables
+\usepackage{booktabs}
+% To play around with list environments
+\usepackage{enumitem}
+% To create multirow cells in tables
+\usepackage{multirow}
+% To create rotated cells in tables
+\usepackage{rotating}
+% To create enumerated lists, whose numbering is reversed
+\usepackage{etaremune}
+%% To make algorithmic nice-looking pseudocode
+\usepackage[ruled,linesnumbered,algo2e]{algorithm2e}
+%% For creating side-notes
+\usepackage{marginnote}
+% For superimposing symbols over one another within math env.
+\usepackage{mathtools}
+% For strange math symbols like \Dashv
+\usepackage{mathabx}
+% For adjusting the size of tables to the text width, if necessary: \begin{adjustbox}{max width=\textwidth}
+\usepackage{adjustbox}
+% For LaTeX if/then statements
+\usepackage{ifthen}
+% For strike-through cancellations
+\usepackage[normalem]{ulem}
+%% The lineno packages adds line numbers. Start line numbering with
+%% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
+%% for the whole article with \linenumbers.
+\usepackage{lineno}
+% For highlighted text
+\usepackage{soul}
+% To put table environments and co. side by side
+\usepackage{floatrow}
+\floatsetup[table]{style=plaintop}
+\usepackage{listings}
+\begin{comment}
+	contenuto...
+\lstset{ %
+%	backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}; should come as last argument
+	basicstyle=\tiny\ttfamily,       % the size of the fonts that are used for the code
+	breakatwhitespace=true,          % sets if automatic breaks should only happen at whitespace
+	breaklines=true,                 % sets automatic line breaking
+	captionpos=b,                    % sets the caption-position to bottom
+	commentstyle=\color{gray},       % comment style
+%	escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+	extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+	frame=single,	                 % adds a frame around the code
+	keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+%	keywordstyle=\color{blue},       % keyword style
+%	language=SQL,                    % the language of the code
+%	deletekeywords={Time},      % if you want to delete keywords from the given language
+%	morekeywords={*,...},            % if you want to add more keywords to the set
+	numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+	numbersep=5pt,                   % how far the line-numbers are from the code
+	numberstyle=\tiny\color{gray}, % the style that is used for the line-numbers
+%	rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+	showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+	showstringspaces=false,          % underline spaces within strings only
+	showtabs=false,                  % show tabs within strings adding particular underscores
+	stepnumber=1,                    % the step between two line-numbers. If it's 1, each line will be numbered
+%	stringstyle=\color{mymauve},     % string literal style
+	tabsize=2,	                   % sets default tabsize to 2 spaces
+%	title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+	morecomment=[l]\%
+}
+
+
+\end{comment}
+
+\lstset{
+	backgroundcolor=\color{scriptcolor},
+	extendedchars=true,
+	basicstyle=\fontsize{8pt}{8pt}\selectfont\ttfamily,
+	showstringspaces=false,
+	showspaces=false,
+%	linewidth=19em,
+	numbers=left,
+	numberstyle=\footnotesize,
+	numbersep=5pt,
+	tabsize=2,
+	breaklines=true,
+	showtabs=false,
+	captionpos=b,
+	%belowskip=-0.2em,
+	lineskip = 0.1em
+}
+\crefname{lstlisting}{Listing}{Listings}
+% To add dummy text
+\usepackage{lipsum}
+% To have newlines in cells, with commands such as \makecell or \thead
+\usepackage{makecell}
+% For diagonal lines in tables
+\usepackage{diagbox}
+% For a decent formatting of numbers (and a wonderful system for numeric columns in tables, ``S'')
+\usepackage[scientific-notation=false,group-separator={,}]{siunitx}
+% To enable text protrusion
+\usepackage{microtype}
+% For footnote-references: \footref
+\usepackage{footmisc}
+% For side figures
+\usepackage{wrapfig}
+%
+%\usepackage{xcolor}
+
+\usepackage{listings}
+\usepackage[ddmmyyyy]{datetime}
+\usepackage{scrextend}
+\usepackage{textcase}
