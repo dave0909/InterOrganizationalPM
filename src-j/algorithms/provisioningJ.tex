@@ -26,17 +26,17 @@
 \Implements{\Compo{Provisioner
 } \LPrv}
 \Uses{\Compo{Secure Miner} \SecM}
-\UponEv(\tcp*[f]{{\LPrv} gets the request for case references (see \cref{alg:secure-miner},~\cref{alg:CaseRefsReq:call})}){\upshape$\langle \LPrv.\Compo{LogProvider}, \Mesg{CasesRefsReq} \:|\: \SecM \rangle$ \label{alg2:CasesRefReq}}{%
-	\If(\tcp*[f]{Miner authetication}){\upshape \LPrv.\Compo{LogProvider}.\Call{authenticateMiner}(\SecM) is successfull}{
-            $\CIdS \gets \LPrv.{\Compo{LogRecorder}}.\Call{accessCaseReferences()}$\tcp*[f]{ get the case references from the \Compo{Log Recorder}}\\
-            \Trigger{\upshape $\langle \SecM.\Compo{LogRequester}, \Mesg{CasesRefsRes} \:|\: \LPrv, \CIdS \rangle$ } \tcp*[f]{{\LPrv} sends case references to {\SecM} (see \hyperref[alg:CaseRefsRes]{Alg.1 line 6})\label{alg2:sendRefs}}
+\UponEv(\tcp*[f]{{\LPrv} receives the request for case references (see \hyperref[alg:CaseRefsReq:call]{Alg.1, Line \ref{alg:CaseRefsReq:call}})}){\upshape$\langle \LPrv.\Compo{LogProvider}, \Mesg{CasesRefsReq} \:|\: \SecM \rangle$ \label{alg2:CasesRefReq}}{%
+	\If(\tcp*[f]{Authenticate the sender miner {\SecM}}){\upshape \LPrv.\Compo{LogProvider}.\Call{authenticateMiner}(\SecM) is successfull}{
+            $\CIdS \gets \LPrv.{\Compo{LogRecorder}}.\Call{accessCaseReferences()}$\tcp*[f]{Access the case references via \Compo{Log Recorder}}\\
+            \Trigger{\upshape $\langle \SecM.\Compo{LogRequester}, \Mesg{CasesRefsRes} \:|\: \LPrv, \CIdS \rangle$ } \tcp*[f]{{\LPrv} sends the case references to {\SecM} (see \hyperref[alg:CaseRefsRes]{Alg.1, Line \ref{alg:CaseRefsRes}})\label{alg2:sendRefs}}
 	}
 }
-\UponEv(\tcp*[f]{{\LPrv} gets the case request (see \hyperref[alg:CasesReq:call]{Alg.1, line 5})}){\upshape$\langle \LPrv.\Compo{LogProvider}, \Mesg{CasesReq} \:|\: \SecM, \SegSize, \CIdS \rangle$ \label{alg2:CasesReq}}{%
+\UponEv(\tcp*[f]{{\LPrv} gets the case request (see \hyperref[alg:CasesReq:call]{Alg.1, Line \ref{alg:CasesReq:call}})}){\upshape$\langle \LPrv.\Compo{LogProvider}, \Mesg{CasesReq} \:|\: \SecM, \SegSize, \CIdS \rangle$ \label{alg2:CasesReq}}{%
 	\If(\tcp*[f]{The \textit{attestation phase} (see \cref{fig:attestation})}){\upshape \SecM.\Compo{LogReceiver}.\Call{getAttestationReport}(\LPrv) is valid}{
-		$\{\Segm_1, \ldots, \Segm_m\} \gets \LPrv.\Compo{LogProvider}.\Call{segmentEventLog}(\LPrv.\Compo{LogRecorder}.\Call{accessEventLog}(\CIdS), \SegSize )$\tcp*[f]{Segment event log} \\
-		\ForEach(\tcp*[f]{For every split segment}){$i \in \{1, \ldots, m\}$}{%
-			\Trigger{\upshape $\langle \SecM.\Compo{LogReceiver}, \Mesg{CasesRes} \:|\: \LPrv, \Segm_i \rangle$ } \tcp*[f]{\LPrv sends segments to {\SecM} (see \hyperref[alg:CasesRes]{Alg.1 line 10})} \label{alg2:sendSegs}
+		$\{\Segm_1, \ldots, \Segm_m\} \gets \LPrv.\Compo{LogProvider}.\Call{segmentEventLog}(\LPrv.\Compo{LogRecorder}.\Call{accessEventLog}(\CIdS), \SegSize )$\tcp*[f]{Segment the log} \\
+		\ForEach(\tcp*[f]{For every split segment \dots}){$i \in \{1, \ldots, m\}$}{%
+			\Trigger{\upshape $\langle \SecM.\Compo{LogReceiver}, \Mesg{CasesRes} \:|\: \LPrv, \Segm_i \rangle$ } \tcp*[f]{\dots {\LPrv} sends the segment to {\SecM} (see \hyperref[alg:CasesRes]{Alg.1, Line \ref{alg:CasesRes}})} \label{alg2:sendSegs}
 		}
 	}
 }
