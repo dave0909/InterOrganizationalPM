@@ -35,14 +35,7 @@ shelters external event logs inside a protected environment to preserve data con
 Notice that \Compo{Log Provider}s accept requests issued solely by \Compo{Secure Miner}s. 
 Next, we provide an in-depth focus on the latter.
 % We provide an in-depth focus on this key component in the following.
-\begin{comment}
-\begin{figure}[t]
-	\centering
-	\includegraphics[width=0.5\linewidth]{content/figures/secureminersad.pdf}
-	\caption{Subcomponents of the Secure Miner.}
-	\label{fig:trusted_miner}
-\end{figure}
-\end{comment}
+
 
 \noindent\textbf{The Secure Miner.}
 The primary objective of the \Compo{Secure Miner} is to allow miners to securely execute process mining algorithms using event logs retrieved from provisioners such as the \Actor{Specialized clinic}, \Actor{Pharmaceutical company}, and the \Actor{Hospital} in our example. \Compo{Secure Miner}s are isolated components that guarantee data inalterability and confidentiality. In \cref{fig:trusted_miner}, we show a schematization of the \Compo{Secure Miner}, which consists of four sub-components:

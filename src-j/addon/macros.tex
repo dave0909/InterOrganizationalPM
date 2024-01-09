@@ -6,7 +6,8 @@
 \newcommand{\Activ}[1]{\textrm{#1}}
 \def\Org{\ensuremath{\mathscr{O}}}
 
-\deffootnote{0.5em}{0em}{\textsuperscript{\thefootnotemark}\,}
+% To remove the starting indentation in footnotes.
+% \deffootnote{0.5em}{0em}{\textsuperscript{\thefootnotemark}\,}
 %Symbols used for the formulas
 \def\LinearCorrelationCoefficent{\ensuremath{\rho}}
 \newcommand{\LinearCorrelationCoefficentF}[0]{\ensuremath{%
@@ -52,3 +53,14 @@
 
 \def\SegSize {\ensuremath{\textsl{seg\_size}}}
 \def\Segm {\ensuremath{S}}
+
+% Additional macros for algorithm2e
+\SetKw{Trigger}{trigger}
+\SetKw{Yield}{yield}
+\SetKw{Return}{return}
+\SetKwProg{UponEv}{upon event}{ do}{}
+\SetKwProg{Upon}{upon}{ do}{}
+\SetKwInput{Implements}{Implements}
+\SetKwInput{Uses}{Uses}
+\SetKwProg{Fn}{Function}{ is}{}
+\def\self {\ensuremath{\textrm{self}}}

@@ -52,8 +52,8 @@
     \renewcommand\thesubtable{(\alph{subtable})}
 \crefname{algocf}{alg.}{algs.}
 \Crefname{algocf}{Algorithm}{Algorithms}
-\crefname{section}{Sect.}{Sects.} % Era un poco prolisso
-\crefname{Section}{Section}{Sections} % Era un poco prolisso
+\crefname{section}{Sect.}{Sects.} % Do not use too many char's
+\crefname{Section}{Section}{Sections}
 % TikZ/Pgf advanced graphics
 \usepackage{tkz-base}
 \usetikzlibrary{decorations.pathmorphing,trees,snakes,arrows,shapes,automata,petri}
@@ -125,8 +125,6 @@
 %	title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
 	morecomment=[l]\%
 }
-
-
 \end{comment}
 
 \lstset{
@@ -161,10 +159,9 @@
 \usepackage{footmisc}
 % For side figures
 \usepackage{wrapfig}
-%
-%\usepackage{xcolor}
-
-\usepackage{listings}
-\usepackage[ddmmyyyy]{datetime}
-\usepackage{scrextend}
+% To create nice ORCiD-like circles in the authors' block
+\usepackage{orcidlink}
+% Override casing of text (e.g., via \MakeTextLowercase
 \usepackage{textcase}
+% Override the writing of dates (here, 09/01/2024 rather than January 9, 2024)
+\usepackage[ddmmyyyy]{datetime}
