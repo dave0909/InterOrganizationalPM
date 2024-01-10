@@ -66,20 +66,20 @@
 	%	
 	%}
 \UponEv(\tcp*[f]{The \textit{initialization} phase begins here -- \cref{fig:init}}){\upshape $\langle \SecM.\Compo{LogRequester}, \Mesg{Init} \:|\: \LPrvS, \SegSize \rangle$}{
-	\ForEach(\tcp*[f]{Request the list of cases provided by every \Compo{Log Provider} $\LPrv$}){$\LPrv \in \LPrvS$}{%
-		\Trigger{\upshape $\langle \LPrv.\Compo{LogProvider}, \Mesg{CaseRefsReq} \:|\: \SecM \rangle$\label{alg:CaseRefsReq:call}} \tcp*{$\LPrv$ will reply with its case references (see \hyperref[alg2:CasesRefReq]{Alg.2 line 1})}
+	\ForEach(\tcp*[f]{For every \Compo{Log Provider} $\LPrv$}){$\LPrv \in \LPrvS$}{%
+		\Trigger{\upshape $\langle \LPrv.\Compo{LogProvider}, \Mesg{CaseRefsReq} \:|\: \SecM \rangle$\label{alg:CaseRefsReq:call}} \tcp*{Request its case references (see \hyperref[alg2:CasesRefReq]{Alg.2, Line \ref{alg2:CasesRefReq}})}
 	}
-	\Upon(\tcp*[f]{Once all $\LPrv$s have answered {\SecM} requests their cases}){\upshape $|\LPrvS| = |\textrm{dom}(\LPrvMap)|$}{%
+	\Upon(\tcp*[f]{Once all $\LPrv$s have answered with their case references}){\upshape $|\LPrvS| = |\textrm{dom}(\LPrvMap)|$}{%
 		\lForEach%(\tcp*[f]{For every reference to the \Compo{Log Provider} $\LPrv'$})
 		{$\LPrv \in \LPrvS$}{
 			\Trigger{\upshape $\langle \LPrv.\Compo{LogProvider}, \Mesg{CasesReq} \:|\: \SecM, \SegSize, \LPrvMap[\LPrv] \rangle$\label{alg:CasesReq:call}}
-			\tcp*[f]{see \hyperref[alg2:CasesReq]{Alg.2 line 5}}
+			\tcp*[f]{Request their cases (see \hyperref[alg2:CasesReq]{Alg.2 Line \ref{alg2:CasesReq}})}
 			%\tcc*{Request the cases that are provided by $\LPrv'$. Before sending them, $\LPrv'$ will trigger \Mesg{AttestReportReq} in return, to attest the \Compo{Secure Miner}.}
 		}
 	}
 }
-\UponEv(\tcp*[f]{{\SecM} gets case references (see \hyperref[alg2:sendRefs]{Alg.2 line 4})}){\upshape $\langle \SecM.\Compo{LogRequester}, \Mesg{CaseRefsRes} \:|\: \LPrv, \CIdS \rangle$ \SuchThat{$\LPrv \in \LPrvS$} \label{alg:CaseRefsRes}}{
-	\ForEach(\tcp*[f]{For every reference to a case $\CId$}){\upshape $\CId \in \CIdS$}{%
+\UponEv(\tcp*[f]{{\SecM} gets the case references (see \hyperref[alg2:sendRefs]{Alg.2, Line \ref{alg2:sendRefs}})}){\upshape $\langle \SecM.\Compo{LogRequester}, \Mesg{CaseRefsRes} \:|\: \LPrv, \CIdS \rangle$ \SuchThat{$\LPrv \in \LPrvS$} \label{alg:CaseRefsRes}}{
+	\ForEach(\tcp*[f]{For every case reference $\CId$}){\upshape $\CId \in \CIdS$}{%
 		$\CIDMap[\CId] \gets \CIDMap[\CId] \cup \{\LPrv\} $ \tcp*{Add $\LPrv$ to the set of providers for case $\CId$ in $\CIDMap$}
 	}
 	$\LPrvMap[\LPrv] \gets \LPrvMap[\LPrv] \cup \CIdS $ \tcp*{Register the references of the cases provided by $\LPrv$ in $\LPrvMap$}
