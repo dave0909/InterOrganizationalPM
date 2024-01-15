@@ -79,7 +79,8 @@ unintended recipient, or reascribing them so that they seem to have come from
 a different sender), or learning the content of messages.''~\citep{KamilLowe/FAST2010:AbstractionsSecureChannels} 
 }
 \end{comment}
-Our protocol involves two main actors: a \Compo{Secure Miner} (henceforth, \SecM) and one to many \Compo{Log Provisioner}s ($\LPrv_1, \ldots, \LPrv_n \in \LPrvS$).
+
+Our protocol involves two main actors: a \Compo{Secure Miner} (henceforth, \SecM) and one to many \Compo{Log Provisioner}s ($\LPrv_1, \ldots, \LPrv_n \in \LPrvS$). Their behaviour is documented in \cref{alg:secm} and \cref{alg:lprv}
 
 \begin{comment}
 Given a finite set of events $\EvtU$ and a total-order relation $\preceq$ subset of $\EvtU \times \EvtU$, we identify an event log as the totally ordered set $\left( \EvtU, \preceq \right)$.
