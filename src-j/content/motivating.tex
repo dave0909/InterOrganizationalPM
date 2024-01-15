@@ -1,3 +1,5 @@
+
+%==============================================UNCOMMENT HERE FOR THE PREVIOUS VERSION OF THE TABLE================================================
 \def\Talice{\Activ{PH, COPA, OD, \color{pharmacolor}DOR, PDL, SD, \color{black}RD, AD, TP, \color{specializedcliniccolor}PAFH, PIA, PT, VRT, TPB, \color{black}RPB, DPH, PCD, DP}}
 \def\Tbob{\Activ{PH, COPA, OD, \color{pharmacolor}DOR, PDL, SD, \color{black}RD, AD, TP, DPH, PCD, DP}}
 \def\TaliceUncolored{\Activ{PH, COPA, OD, DOR, PDL, SD, RD, AD, TP, PAFH, PIA, PT, VRT, TPB, RPB, DPH, PCD, DP}}
@@ -84,6 +86,8 @@
      \label{tab:trace}
     \end{table}
 
+%==========================================================================================
+
 \begin{comment}
 \begin{figure}[t]
 \centering
@@ -155,6 +159,98 @@
      \label{tab:trace}
     \end{table}
 \end{comment}
+
+
+\begin{comment}
+    
+
+%==============================NEW VERSION OF THE TABLE================================================
+\def\Talice{\Activ{PH, COPA, OD, \color{pharmacolor}DOR, PDL, SD, \color{black}RD, AD, TP, \color{specializedcliniccolor}PAFH, PIA, PT, VRT, TPB, \color{black}RPB, DPH, PCD, DP}}
+\def\Tbob{\Activ{PH, COPA, OD, \color{pharmacolor}DOR, PDL, SD, \color{black}RD, AD, TP, DPH, PCD, DP}}
+\def\TaliceUncolored{\Activ{PH, COPA, OD, DOR, PDL, SD, RD, AD, TP, PAFH, PIA, PT, VRT, TPB, RPB, DPH, PCD, DP}}
+\def\TbobUncolored{\Activ{PH, COPA, OD, DOR, PDL, SD, RD, AD, TP, DPH, PCD, DP}}
+\begin{figure}[t]
+\centering
+%\includegraphics[width=0.9\linewidth]{content/figures/healthcarescenario.pdf}
+\includegraphics[width=\linewidth]{content/figures/bpmnHealthcare2.pdf}
+\caption{A BPMN collaboration diagram of a simplified healthcare scenario}
+\label{fig:BPMN_Healthcare}
+\end{figure}
+\begin{table}[t]%\hskip-2.5cm
+  \caption[Event log]{Events from cases 312 (Alice) and 711 (Bob) recorded by the \Actor{Hospital}, the \Actor{Specialized clinic}, and the \Actor{Pharmaceutical company}}
+ \centering
+    \begin{minipage}[c]{0.55\linewidth}
+    %\subfloat{% Subtable 1
+       \resizebox{\textwidth}{!}{% <------ Don't forget this %
+        \begin{tabular}{|l|l|l||l|l|l|}
+        \hline
+        \multicolumn{6}{|c|}{Hospital}                                               \\ \hline
+        {Case} & {Timestamp} & Activity & {Case} & {Timestamp} & Activity \\ \hline
+        {312}         & {2022-07-14T10:36}           & PH    & {312}         & {2022-07-15T22:06}           & TP     \\ \hline
+        {312}         & {2022-07-14T16:36}           & COPA  &   {711}         & {2022-07-16T00:55}           & PRTA          \\ \hline
+        {711}         & {2022-07-14T17:21}           & PH    &   {711}         & {2022-07-16T00:55}           & PCD            \\ \hline
+        {312}         & {2022-07-14T17:36}           & OD    &   {711}         & {2022-07-16T02:55}           & DPH           \\ \hline
+        {711}         & {2022-07-14T23:21}           & COPA  &   {711}         & {2022-07-16T04:55}           & DP          \\ \hline
+        {711}         & {2022-07-15T00:21}           & OD    &    {312}         & {2022-07-16T07:06}           & RPB        \\ \hline
+        {711}         & {2022-07-15T18:55}           & RD    &    {312}         & {2022-07-16T09:06}           & DPH          \\ \hline
+        {312}         & {2022-07-15T19:06}           & RD    &    {312}         & {2022-07-16T09:06}           & PCD         \\ \hline
+        {711}         & {2022-07-15T20:55}           & AD    &    {312}        & {2022-07-16T11:06}           & DP            \\ \hline
+        {312}         & {2022-07-15T21:06}           & AD    &    {312}        & {2022-07-16T11:06}           & DP            \\ \hline  
+        \end{tabular}%
+        }% resizebox
+    %}% subfloat
+    \end{minipage}%
+    \hspace{0.005\textwidth}%
+    \begin{minipage}[c]{0.31\linewidth}
+    %\subfloat[Specialised Clinic]{\label{tab:testResults:decentralized}% Subtable 2
+    %\subfloat{% Subtable 2
+        \resizebox{\textwidth}{!}{% <------ Don't forget this %
+            \raisebox{2\baselineskip}{%
+                \begin{tabular}{!{\color{pharmacolor}\vline}l!{\color{pharmacolor}\vline}l!{\color{pharmacolor}\vline}l!{\color{pharmacolor}\vline}}\arrayrulecolor{pharmacolor}
+                \hline
+                \multicolumn{3}{|c|}{Pharmaceutical company}                                               \\ \hline
+                {hospitalCaseId} & {Timestamp} & Activity \\ \hline
+                312          & {2022-07-15T09:06}           & DOR \\ \hline
+                711         & {2022-07-15T09:30}           & DOR \\ \hline
+                312         & {2022-07-15T11:06}           & PDL \\ \hline
+                711         & {2022-07-15T11:30}           & PDL \\ \hline
+                312         & {2022-07-15T13:06}           & SD  \\ \hline
+                711          & {2022-07-15T13:30}           & SD  \\ \hline
+                \end{tabular}%
+            }% raisebox
+        }% resize box
+     %\end{minipage}%<
+        \hspace{0.001\textwidth}
+     %\begin{minipage}[t]{0.49\linewidth}
+        \resizebox{\textwidth}{!}{% <------ Don't forget this %
+            \raisebox{2.5\baselineskip}{%
+                \begin{tabular}{!{\color{specializedcliniccolor}\vline}l!{\color{specializedcliniccolor}\vline}l!{\color{specializedcliniccolor}\vline}l!{\color{specializedcliniccolor}\vline}}\arrayrulecolor{specializedcliniccolor}
+                \hline
+                \multicolumn{3}{!{\color{teal}\vline}c!{\color{teal}\vline}}{Specialized clinic}                                               \\ \hline
+                {treatmentID}  & {Timestamp} & Activity \\ \hline
+                312         & {2022-07-16T00:06}           & PAFH        \\ \hline
+                312          & {2022-07-16T01:06}           & PIA         \\ \hline
+                312          & {2022-07-16T03:06}           &  PT         \\ \hline
+                312          & {2022-07-16T04:06}           & VRT         \\ \hline
+                312          & {2022-07-16T05:06}           & TPB         \\ \hline
+                \end{tabular}%
+            }% raisebox
+        }% resizebox
+    \end{minipage}
+
+    \end{table}
+     \begin{minipage}[t]{\linewidth}
+            \resizebox{\textwidth}{!}{%
+                \begin{tabular}{r p{17cm}}
+                $T_{312}=${\textlangle} & \Talice \,{\textrangle}\\[0.5\baselineskip]
+                $T_{711}=${\textlangle} & \Tbob \,{\textrangle}\\
+                \end{tabular}%
+                     \label{tab:trace}
+            }% resizebox
+    \end{minipage}
+%==============================END NEW VERSION OF THE TABLE================================================
+\end{comment}
+
 \section{Motivating Scenario}\label{sec:motivating}
 For our motivating scenario, we focus on a simplified hospitalization process for the treatment of rare diseases.
 The process model is depicted as a BPMN diagram in \cref{fig:BPMN_Healthcare} and involves the cooperation of three parties: a \Actor{Hospital}, a \Actor{Pharmaceutical company}, and a \Actor{Specialized clinic}.

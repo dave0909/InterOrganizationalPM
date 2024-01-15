@@ -75,6 +75,11 @@
 \usepackage{etaremune}
 %% To make algorithmic nice-looking pseudocode
 \usepackage[ruled,linesnumbered,algo2e]{algorithm2e}
+\SetCommentSty{textrm} % Avoid that comments are written in teletype text: it consumes loads of space!
+\SetArgSty{textrm} % Avoid that arguments are in italic. It barely ever serves the purpose!
+\SetFuncArgSty{textrm} % Avoid that fuction arguments are in italic. It barely ever serves the purpose!
+\renewcommand{\SetProgSty}[1]{\renewcommand{\ProgSty}[1]{\textnormal{\csname#1\endcsname{##1}}\unskip}}% https://tex.stackexchange.com/questions/701459/how-to-set-the-kwprog-arg-font-style-with-something-like-setprogsty-in-algori
+\SetProgSty{textrm} % Avoid that program arguments are in italic. It barely ever serves the purpose!
 %% For creating side-notes
 \usepackage{marginnote}
 % For superimposing symbols over one another within math env.

@@ -1,0 +1,30 @@
+% Additional macros for algorithm2e
+% Requires:
+%   \usepackage[...]{algorithm2e}
+\SetKw{Trigger}{trigger}
+\SetKw{Yield}{yield}
+\SetKw{Return}{return}
+\SetKwProg{UponEv}{upon event}{ do}{}
+\SetKwProg{Upon}{upon}{ do}{}
+\SetKwInput{Implements}{Implements}
+\SetKwInput{Uses}{Uses}
+\SetKwProg{Fn}{Function}{ is}{}
+\def\self {\ensuremath{\textrm{self}}}
+\newcommand{\Mesg}[1]{\ensuremath{\textrm{\textsc{#1}}}}
+\newcommand{\SuchThat}[1]{~\textrm{\textbf{such that}}~{#1}}
+\newcommand{\To}[1]{~\textrm{\textbf{to}}~{#1}}
+\newcommand{\Call}[1]{\texttt{#1}}
+
+% Creates a smart reference to an algorithm pseudocode block (1st parameter, OPTIONAL, in square brackets) and line (2nd parameter)
+% Requires:
+%  \usepackage[capitalise,nameinlink]{cleveref}
+%  \crefname{algocf}{Alg.}{Algs.}
+%  \Crefname{algocf}{Algorithm}{Algorithms}
+%  \usepackage{xparse}
+\DeclareDocumentCommand{\crefalgln}{ o m }{%
+	\IfNoValueF{#1}{\cref{#1}, }% if the first optional parameter is passed, print the reference to the algorithm
+	{\hyperref[#2]{line~\ref{#2}}}% Print the line number with reference
+}%
+% Usage examples:
+%   \crefalgln[alg:lprv]{alg:lprv:CasesRefReq} → Alg. 2, Line 1
+%   \crefalgln{alg:lprv:CasesRefReq} → Line 1

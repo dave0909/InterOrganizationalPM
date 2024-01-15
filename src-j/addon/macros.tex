@@ -33,6 +33,7 @@
 \def\LPrvF {\ensuremath{\mathfrak{p}}}   % Log provider mapping function
 \def\SecM {\ensuremath{\mathcal{M}}}   % Secure Miner
 \def\LPrvS {\ensuremath{\widehat{\mathcal{P}}}}  % Log provider set
+\def\SecMS {\ensuremath{\widehat{\mathcal{M}}}}  % Miner set
 \def\CStor {\ensuremath{\textsl{Cases}}}  % Case store 
 \def\Case {\ensuremath{\textsl{C}}}  % Case 
 \def\Evt {\ensuremath{e}}  % Event 
@@ -46,21 +47,8 @@
 \def\CIDMap {\ensuremath{\textsl{CIDMap}}} % CaseId Map
 \def\LPrvMap {\ensuremath{\textsl{PMap}}} % Log provider Map
 \def\Merge {\ensuremath{\bigoplus}}
-\newcommand{\Mesg}[1]{\ensuremath{\textrm{\textsc{#1}}}}
-\newcommand{\SuchThat}[1]{~\upshape\textrm{\textbf{such that}}~{#1}}
-\newcommand{\To}[1]{~\upshape\textrm{\textbf{to}}~{#1}}
-\newcommand{\Call}[1]{\texttt{#1}}
-
 \def\SegSize {\ensuremath{\textsl{seg\_size}}}
 \def\Segm {\ensuremath{S}}
-
-% Additional macros for algorithm2e
-\SetKw{Trigger}{trigger}
-\SetKw{Yield}{yield}
-\SetKw{Return}{return}
-\SetKwProg{UponEv}{upon event}{ do}{}
-\SetKwProg{Upon}{upon}{ do}{}
-\SetKwInput{Implements}{Implements}
-\SetKwInput{Uses}{Uses}
-\SetKwProg{Fn}{Function}{ is}{}
-\def\self {\ensuremath{\textrm{self}}}
+\def \AuthPtP{\ensuremath{al}}
+\def\Msg{\ensuremath{\textsl{msg}}}
+\def\Inst{\textbf{instance}}

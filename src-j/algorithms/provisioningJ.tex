@@ -2,41 +2,25 @@
 % \scriptsize
 \DontPrintSemicolon \SetAlgoVlined \SetInd{0.3em}{1em}
 \setstretch{1.1}
-% Additional macros in addon/macros.tex
+% Additional macros in addon/macros.tex and addon/utils.tex
+
 \KwIn{%
-	%$\LPrvS = \{ \LPrv_1, \ldots, \LPrv_n \}$, the (references to) $n$ log provisioners;%
-	%\newline
-	%$\SegSize$, the maximum size of the log segment to be transmitted by the log provisioners;%
- 
-	%	\newline%
-	%	$\DecRepertoire$, a finite set of {\Declare} templates to be considered to express the discovered specification;%
-	%	\newline%
-	%	$\ProActvts \subseteq \Uact$, a finite set of activities to be included in the discovered specification;%
-	%	\newline%
-	%	$\MinThrld{\ConfTr}$, $\MinThrld{\SuppTr}$, $\MinThrld{\ConfEv}$, $\MinThrld{\SuppEv}$, the minimum thresholds for trace-based confidence and support, and event-based confidence and support, respectively (default for all four paramenters: $0.0$); %the minimum support 
+	$\SecMS = \{ \SecM_1, \ldots, \SecM_s \}$, the (references to) $s$ miners.%
 }
-\KwData{%
-	%$\CIDMap : \CIdU \to 2^{\LPrvS}$, a map from case references $\CId \in \CIdU$ to the set of log provisioners in $\LPrvS$ ; \newline%
-	%$\LPrvMap : \LPrvS \to 2^{\CIdU}$, a map from log provisioners $\LPrv \in \LPrvS$ to the set of references to their cases in $\CIdU$ ; \newline%
-	%$\CStor : \CIdU \to \CasU$, a map from case references $\CId \in \CIdU$ to a set of cases in $\CasU$
-}
-%\KwOut{%
-	%	$\DecSpec$, a declarative process specification
-	%}
-\Implements{\Compo{Provisioner
-} \LPrv}
-\Uses{\Compo{Secure Miner} \SecM}
-\UponEv(\tcp*[f]{{\LPrv} receives the request for case references (see \hyperref[alg:CaseRefsReq:call]{Alg.1, Line \ref{alg:CaseRefsReq:call}})}){\upshape$\langle \LPrv.\Compo{LogProvider}, \Mesg{CasesRefsReq} \:|\: \SecM \rangle$ \label{alg2:CasesRefReq}}{%
-	\If(\tcp*[f]{Authenticate the sender miner {\SecM}}){\upshape \LPrv.\Compo{LogProvider}.\Call{authenticateMiner}(\SecM) is successfull}{
+
+\Implements{\Compo{Provisioner}, {\Inst} {\LPrv}.}
+\Uses{\textit{AuthenticatedPerfectPointToPointLink}, {\Inst} {\AuthPtP}.}
+\UponEv(\tcp*[f]{{\LPrv} receives the request for case references from {\SecM} (see \crefalgln[alg:secm]{alg:secm:CaseRefsReq:call})}){$\langle \AuthPtP, \Mesg{Deliver} \:|\: \SecM,[\Mesg{CasesRefsReq}] \rangle$ \label{alg:lprv:CasesRefReq}\SuchThat{$\SecM \in \SecMS$}}{%
+	%\If(\tcp*[f]{Authenticate the sender miner {\SecM}}){\LPrv.\Compo{LogProvider}.\Call{authenticateMiner}(\SecM) is successful}{
             $\CIdS \gets \LPrv.{\Compo{LogRecorder}}.\Call{accessCaseReferences()}$\tcp*[f]{Access the case references via \Compo{Log Recorder}}\\
-            \Trigger{\upshape $\langle \SecM.\Compo{LogRequester}, \Mesg{CasesRefsRes} \:|\: \LPrv, \CIdS \rangle$ } \tcp*[f]{{\LPrv} sends the case references to {\SecM} (see \hyperref[alg:CaseRefsRes]{Alg.1, Line \ref{alg:CaseRefsRes}})\label{alg2:sendRefs}}
-	}
+            \Trigger{$\langle \AuthPtP, \Mesg{Send} \:|\: \SecM,[\Mesg{CasesRefRes},\CIdS] \rangle$ } \tcp*[f]{{send the case references to {\SecM} (see \crefalgln[alg:secm]{alg:secm:CaseRefsRes})\label{alg:lprv:sendRefs}}}
+	%}
 }
-\UponEv(\tcp*[f]{{\LPrv} gets the case request (see \hyperref[alg:CasesReq:call]{Alg.1, Line \ref{alg:CasesReq:call}})}){\upshape$\langle \LPrv.\Compo{LogProvider}, \Mesg{CasesReq} \:|\: \SecM, \SegSize, \CIdS \rangle$ \label{alg2:CasesReq}}{%
-	\If(\tcp*[f]{The \textit{attestation phase} (see \cref{fig:attestation})}){\upshape \SecM.\Compo{LogReceiver}.\Call{getAttestationReport}(\LPrv) is valid}{
-		$\{\Segm_1, \ldots, \Segm_m\} \gets \LPrv.\Compo{LogProvider}.\Call{segmentEventLog}(\LPrv.\Compo{LogRecorder}.\Call{accessEventLog}(\CIdS), \SegSize )$\tcp*[f]{Segment the log} \\
-		\ForEach(\tcp*[f]{For every split segment \dots}){$i \in \{1, \ldots, m\}$}{%
-			\Trigger{\upshape $\langle \SecM.\Compo{LogReceiver}, \Mesg{CasesRes} \:|\: \LPrv, \Segm_i \rangle$ } \tcp*[f]{\dots {\LPrv} sends the segment to {\SecM} (see \hyperref[alg:CasesRes]{Alg.1, Line \ref{alg:CasesRes}})} \label{alg2:sendSegs}
+\UponEv(\tcp*[f]{{\LPrv} gets the case request from {\SecM} (see \crefalgln[alg:secm]{alg:secm:CasesReq:call})}){$\langle \AuthPtP, \Mesg{Deliver} \:|\: \SecM, [\Mesg{CasesReq},\SegSize, \CIdS]\rangle$ \label{alg:lprv:CasesReq}\SuchThat{$\SecM \in \SecMS$}}{%
+	\If(\tcp*[f]{Get and verify the attestation report of {\SecM} -- \textit{remote attestation} in \cref{fig:attestation}}){\SecM.\Compo{LogReceiver}.\Call{getAttestationReport}(\LPrv) is valid}{
+		$\{\Segm_1, \ldots, \Segm_m\} \gets \LPrv.\Compo{LogProvider}.\Call{segmentEventLog}(\LPrv.\Compo{LogRecorder}.\Call{accessEventLog}(\CIdS), \SegSize )$\tcp*[f]{Segment the event log} \\
+		\ForEach(\tcp*[f]{For every split segment $\Segm_i$}){$i \in \{1, \ldots, m\}$}{%
+			\Trigger{$\langle \AuthPtP, \Mesg{Send} \:|\: \SecM,[\Mesg{CasesRes},\Segm_i] \rangle$ } \tcp*[f]{send the segment $\Segm_i$ to {\SecM} (see \crefalgln[alg:secm]{alg:secm:CasesRes}) -- \textit{data transmission} phase in \cref{fig:transmission}} \label{alg:lprv:sendSegs}
 		}
 	}
 }

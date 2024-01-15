@@ -54,7 +54,7 @@ In our solution, access to data located in the \Compo{TEE} is restricted solely 
 
 \subsection{The CONFINE protocol}
 We orchestrate the interaction of the components in CONFINE via a protocol.
-%\begin{comment}
+\begin{comment}
 \todo[inline]{Assumptions.
 ``We assume that every process executes the code triggered by events in a mutually
 exclusive way. This means that the same process does not handle two events concur-
@@ -78,9 +78,10 @@ an attacker from faking messages, hijacking messages (redirecting them to an
 unintended recipient, or reascribing them so that they seem to have come from
 a different sender), or learning the content of messages.''~\citep{KamilLowe/FAST2010:AbstractionsSecureChannels} 
 }
+\end{comment}
 Our protocol involves two main actors: a \Compo{Secure Miner} (henceforth, \SecM) and one to many \Compo{Log Provisioner}s ($\LPrv_1, \ldots, \LPrv_n \in \LPrvS$).
 
-
+\begin{comment}
 Given a finite set of events $\EvtU$ and a total-order relation $\preceq$ subset of $\EvtU \times \EvtU$, we identify an event log as the totally ordered set $\left( \EvtU, \preceq \right)$.
 In the example, \ldots\todo{Add example}
 %
@@ -103,11 +104,9 @@ Events are also the domain of a function $\LPrvF: \EvtU \to \LPrvS$ mapping even
 In the example, \ldots\todo{Add example}
 We shall denote with $\CasP_\CId$ the loset consisting of every event $\Evt \in \Case_\CId$ such that $\LPrvF(\Evt) = \LPrv$, with the restriction of the strict total order of $\Case_\CId$ on those events.
 In the example, \ldots\todo{Add example}
-\todo[inline]{Gotta move this one earlier when we introduce the example with the partitioned event log. (Section 4.2??). Clarify the difference between segmentation (given a segsize, i.e., a segment of a case-part in a sublog) and partitioning (of a log into case-parts of sublogs}. Then, prove that the pipeline of partitioning and segmentation has its inverse in the union and merge for soundness. 
+\todo[inline]{Gotta move this one earlier when we introduce the example with the partitioned event log. (Section 4.2??). Clarify the difference between segmentation (given a segsize, i.e., a segment of a case-part in a sublog) and partitioning (of a log into case-parts of sublogs. Then, prove that the pipeline of partitioning and segmentation has its inverse in the union and merge for soundness.} 
 %\end{comment}
 %
-\begin{comment}
-\todo[inline]{In \cref{fig:workflow}, please rename components as per their concept-diagram name. Hence, PAIS $\to$ \textit{PAIS} {\textbackslash}n : Log Recorder, Log Server $\to$ \textit{Log Server} \textbackslash n : Log Provider; Trusted App $\to$ \textit{Trusted App}: Secure Miner. Make the TEE boundary box thicker and dark-grey (or semi-transparent black). On overlay, make sure the boundary box is below the arrows. The same holds for \cref{fig:workflow}, with OS with a thick grey boundary box.}
 \end{comment}
 We separate it in four subsequent stages, namely
 \begin{inparaenum}[\itshape(i)\upshape]
@@ -162,14 +161,14 @@ Consequently, each \Compo{Log Server} generates $m$ log segments comprising a va
 \begin{algorithm2e}[tb]
 	\input{algorithms/secureMinerJ}
 	\caption{Secure Miner's behavior in CONFINE.}
-	\label{alg:secure-miner}
+	\label{alg:secm}
 \end{algorithm2e} 
 %\end{comment}
 %\begin{comment}
 \begin{algorithm2e}[tb]
 	\input{algorithms/provisioningJ}
 	\caption{Provisioner's behavior in CONFINE.}
-	\label{alg:provisioner}
+	\label{alg:lprv}
 \end{algorithm2e} 
 %\end{comment}
 %
