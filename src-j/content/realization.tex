@@ -53,7 +53,11 @@ In our solution, access to data located in the \Compo{TEE} is restricted solely 
 
 
 \subsection{The CONFINE protocol}
-We orchestrate the interaction of the components in CONFINE via a protocol.
+We orchestrate the interaction of the components in CONFINE via a protocol. We separate it in four subsequent stages, namely
+\begin{inparaenum}[\itshape(i)\upshape]
+	\item \textit{initialization}, \item \textit{remote attestation}, \item \textit{data transmission}, and \item \textit{computation}.
+\end{inparaenum}
+These stages are depicted in \cref{fig:init,fig:attestation,fig:transmission,fig:computation}, respectively.
 \begin{comment}
 \todo[inline]{Assumptions.
 ``We assume that every process executes the code triggered by events in a mutually
@@ -79,41 +83,19 @@ unintended recipient, or reascribing them so that they seem to have come from
 a different sender), or learning the content of messages.''~\citep{KamilLowe/FAST2010:AbstractionsSecureChannels} 
 }
 \end{comment}
-
-Our protocol involves two main actors: a \Compo{Secure Miner} (henceforth, \SecM) and one to many \Compo{Log Provisioner}s ($\LPrv_1, \ldots, \LPrv_n \in \LPrvS$). Their behaviour is documented in \cref{alg:secm} and \cref{alg:lprv}
-
-\begin{comment}
-Given a finite set of events $\EvtU$ and a total-order relation $\preceq$ subset of $\EvtU \times \EvtU$, we identify an event log as the totally ordered set $\left( \EvtU, \preceq \right)$.
-In the example, \ldots\todo{Add example}
-%
-Let $\CIdU$ be a finite non-empty set of symbols such that $|\CIdU| \leqslant |\EvtU|$.
-We assume that every event be associated with a \emph{case identifier} $\CId \in \CIdU$ via a total surjective function $\CIdF: \EvtU \to \CIdU$ such that the restriction $\prec_\CId \,=\, \preceq \cap \{ \Evt \in \EvtU: \CIdF(\Evt) = \CId \}^2$ of total order $\preceq$ on all events mapped to the same $\CId$ is strict (i.e., if $\Evt \preceq \Evt'$ with $\Evt \neq \Evt'$ and $\CIdF(\Evt) = \CIdF(\Evt')$ then $\Evt' \npreceq \Evt$).
-%
-In the example, \ldots\todo{Add example}
-%
-In other words, $\CIdF$ acts as an equivalence relation partitioning $\EvtU$ into $\left\{ \EvtU_\CId \right\}_{\CId \in \CIdU} \subseteq 2^{\EvtU}$ based on the {\CId} to which the events $\Evt \in \EvtU_\CId$ map, and imposing that events are linearly ordered by the restriction of $\preceq$ on every $\EvtU_\CId$.
-Every pair $\left( \EvtU_\CId, \prec_\CId \right)$ thus represents a finite linearly totally ordered set (or \emph{loset} for brevity) with $\EvtU_\CId \subseteq \EvtU$ and $\prec_\CId \;\subseteq \EvtU_\CId \times \EvtU_\CId \subseteq\; \preceq \;\subseteq \EvtU \times \EvtU$.
-Let $\left(\EvtU, \prec\right)$ be a loset and $(\EvtU', \prec')$, $(\EvtU'', \prec'')$ two (sub-)losets such that $\EvtU' \cup \EvtU'' \subseteq \EvtU$ and $\EvtU' \cap \EvtU'' = \emptyset$, with $\prec'$ and $\prec''$ being the restrictions of $\prec$ on $\EvtU'$ and $\EvtU''$, respectively.
-We define the order-preserving union $\Merge: \EvtU^3 \times \EvtU^3 \to \EvtU^3$ of losets as follows: $(\EvtU', \prec') \Merge (\EvtU'', \prec'') = \left(\EvtU' \cup \EvtU'', \prec \cap\, (\EvtU'\cup\EvtU'')^2\right)$.
-\todo{Continue here revising the definition of order preserving union}
-%
-We can thus derive the notion of case $\Case_\CId$ given a $\CId \in \CIdU$ as a loset of events mapping to the same $\CId$ and ordered by the linear restriction $\prec$ of $\preceq$ over the events in $\Case_\CId$: $\CId=(\EvtU_\CId, \prec)$ where $\Case_\CId = \langle \Evt_1, \ldots, \Evt_{|\Case_\CId|} \rangle$ where $\CIdF(\Evt_i) = \CId \in \CIdU$ for every $i$ s.t.\ $ 1 \leqslant i \leqslant |\Case_\CId|$ and $e_i \prec e_j$ for every $ i \leq j \leqslant |\Case_\CId|$.%
-\footnote{We employ the angular-bracket notation here for the sake of simplicity, although it is typically used for sequences. Unlike sequences, cases do not allow for the same event to occur more than once.}
-Notice that the cardinality of $\CasU$ and $\CIdU$ coincide.
-%
-Events are also the domain of a function $\LPrvF: \EvtU \to \LPrvS$ mapping events to log provisioners.
-In the example, \ldots\todo{Add example}
-We shall denote with $\CasP_\CId$ the loset consisting of every event $\Evt \in \Case_\CId$ such that $\LPrvF(\Evt) = \LPrv$, with the restriction of the strict total order of $\Case_\CId$ on those events.
-In the example, \ldots\todo{Add example}
-\todo[inline]{Gotta move this one earlier when we introduce the example with the partitioned event log. (Section 4.2??). Clarify the difference between segmentation (given a segsize, i.e., a segment of a case-part in a sublog) and partitioning (of a log into case-parts of sublogs. Then, prove that the pipeline of partitioning and segmentation has its inverse in the union and merge for soundness.} 
-%\end{comment}
-%
-\end{comment}
-We separate it in four subsequent stages, namely
+Our protocol involves two primary entities: a \Compo{Secure Miner} (hereafter referred to as \SecM) and one or more \Compo{Provisioner}s ($\LPrv_1, \ldots, \LPrv_n \in \LPrvS$). The behavioral descriptions for \SecM\ and $\LPrv_i$ are outlined in \cref{alg:secm} and \cref{alg:lprv}, respectively. These specifications adhere to the distributed programming syntax detailed in \cite{Cachin.etal/2011:ReliableSecureDistributedProgramming}. We assume that communication between \Compo{Secure Miner}s and \Compo{Log Provisioner}s occurs through an \textit{Authenticated Point-to-Point Perfect Link} \cite{Cachin.etal/2011:ReliableSecureDistributedProgramming}. This communication abstraction guarantees:
 \begin{inparaenum}[\itshape(i)\upshape]
-	\item \textit{initialization}, \item \textit{remote attestation}, \item \textit{data transmission}, and \item \textit{computation}.
-\end{inparaenum}
-These stages are depicted in \cref{fig:init,fig:attestation,fig:transmission,fig:computation}, respectively. They are mainly enacted by a \Compo{Miner Node} and $n$ \Compo{Provisioner Node}s. We assume their communication channel is reliable~\citep{Cachin.etal/2011:ReliableSecureDistributedProgramming} and secure~\citep{KamilLowe/FAST2010:AbstractionsSecureChannels}. In the following, we describe each phase in detail.
+\item \textit{reliable delivery},
+\item \textit{no duplication}, and
+\item \textit{authenticity}
+\end{inparaenum}. In order to enhance clarity, we have adapted the foundational notations of the \Mesg{Send} and \Mesg{Deliver} events of this primitive to emphasize message senders (indicated by the symbol `$\ll$' when \Mesg{Deliver} occurs) and receivers (indicated by `$\gg$' when \Mesg{Send} is triggered). In \cref{alg:secm},  the \Compo{Secure Miner} is provided with the following inputs:
+\begin{inparadesc}
+    \item the list of \Compo{Provisioner}s' references ($\LPrv_1, \ldots, \LPrv_n$) and
+    \item a segment size {\SegSize} employed for the log segmentation during the \textit{data trasmission} phase.  
+\end{inparadesc}
+Similarly, the \Compo{Provisioner}'s specification in \cref{alg:lprv} considers as input the list of references to miners ($\SecM_1, \ldots, \SecM_s$) for which event log access is enabled. 
+
+In the following, we describe each protocol phase in detail.
 
 \begin{figure}[t]
 	\subfloat[][Initialization]{\includegraphics[width=0.45\linewidth]{content/figures/initializationworkflow.pdf}\label{fig:init}}\hfill

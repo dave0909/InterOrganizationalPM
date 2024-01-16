@@ -74,21 +74,21 @@
 % 	$\textrm{dom}(\CIDMap) \gets \textrm{dom}(\CIDMap) \,\setminus\, \{\CId\}$\tcp*[r]{Remove $\CId$ from the domain of cases which still needs to be processed}
 % 	\Yield{\CStor[\CId] \To{}} \SecM.\Compo{LogElaborator} \tcp*[f]{Forward the $\CId$ to the \Compo{Log Elaborator} for mining -- \textit{computation} phase in \cref{fig:computation}}
 % }
-\UponEv(\tcp*[f]{The \Compo{Log Requester} of {\SecM} starts the CONFINE protocol -- \textit{initialization} phase in \cref{fig:init})}){$\langle \SecM, \Mesg{Init} \:|\: \LPrvS, \SegSize \rangle$}{
+\UponEv(\tcp*[f]{The \Compo{Log Requester} of {\SecM} starts the CONFINE protocol -- \textit{initialization} phase in \cref{fig:init})}){$\langle \SecM, \Mesg{Init} \: |\: \LPrvS, \SegSize \rangle$}{
 	\ForEach(\tcp*[f]{For every \Compo{Provisioner} $\LPrv$}){$\LPrv \in \LPrvS$}{%
-		\Trigger{$\langle \AuthPtP, \Mesg{Send} \:|\: \LPrv, [\Mesg{CasesRefReq}] \rangle$\label{alg:secm:CaseRefsReq:call}} \tcp*{Request \LPrv's case references (see \crefalgln[alg:lprv]{alg:lprv:CasesRefReq})}
+		\Trigger{$\langle \AuthPtP, \Mesg{Send} \gg \LPrv \:|\: \Mesg{CasesRefReq} \rangle$\label{alg:secm:CaseRefsReq:call}} \tcp*{Request \LPrv's case references (see \crefalgln[alg:lprv]{alg:lprv:CasesRefReq})}
 	}
 	\Upon(\tcp*[f]{Once all \Compo{Provisioner}s have answered with their case references}){$|\LPrvS| = |\textrm{dom}(\LPrvMap)|$}{%
 		\lForEach%(\tcp*[f]{For every reference to the \Compo{Log Provider} $\LPrv'$})
 		{$\LPrv \in \LPrvS$}{
-			\Trigger{$\langle \AuthPtP, \Mesg{Send} \:|\: {\LPrv}, [\Mesg{CasesReq},\SegSize, \LPrvMap[\LPrv]] \rangle$\label{alg:secm:CasesReq:call}}
+			\Trigger{$\langle \AuthPtP, \Mesg{Send} \gg {\LPrv}\:|\:\Mesg{CasesReq},\SegSize, \LPrvMap[\LPrv]\rangle$\label{alg:secm:CasesReq:call}}
 			\tcp*[f]{Request their cases via {\AuthPtP} (see \crefalgln[alg:lprv]{alg:lprv:CasesReq})}
 			%\tcc*{Request the cases that are provided by $\LPrv'$. Before sending them, $\LPrv'$ will trigger \Mesg{AttestReportReq} in return, to attest the \Compo{Secure Miner}.}
 		}
 	}
 }
 
-\UponEv(\tcp*[f]{{\SecM}'s \Compo{Log Requester} gets {\LPrv}'s case references via {\AuthPtP} (\crefalgln[alg:lprv]{alg:lprv:sendRefs})}){$\langle \AuthPtP, \Mesg{Deliver} \:|\:\LPrv,[\Mesg{CasesRefRes}, \CIdS] \rangle$ \SuchThat{$\LPrv \in \LPrvS$} \label{alg:secm:CaseRefsRes}}{
+\UponEv(\tcp*[f]{{\SecM}'s \Compo{Log Requester} gets {\LPrv}'s case references via {\AuthPtP} (\crefalgln[alg:lprv]{alg:lprv:sendRefs})}){$\langle \AuthPtP, \Mesg{Deliver} \ll \LPrv \:|\: \Mesg{CasesRefRes}, \CIdS\rangle$ \SuchThat{$\LPrv \in \LPrvS$} \label{alg:secm:CaseRefsRes}}{
 	\ForEach(\tcp*[f]{For every case reference $\CId$} received in {\CIdS}){$\CId \in \CIdS$}{%
 		$\CIDMap[\CId] \gets \CIDMap[\CId] \cup \{\LPrv\} $ \tcp*{Add $\LPrv$ to the set of provisioners for case $\CId$ in $\CIDMap$}
 	}
