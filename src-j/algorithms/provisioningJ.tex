@@ -17,8 +17,8 @@
 	%}
 }
 \UponEv(\tcp*[f]{{\LPrv} gets the case request from {\SecM} (see \crefalgln[alg:secm]{alg:secm:CasesReq:call})}){$\langle \AuthPtP, \Mesg{Deliver} \ll \SecM \:|\: \Mesg{CasesReq},\SegSize, \CIdS\rangle$ \label{alg:lprv:CasesReq}\SuchThat{$\SecM \in \SecMS$}}{%
-	\If(\tcp*[f]{Get and verify the attestation report of {\SecM} -- \textit{remote attestation} in \cref{fig:attestation}}){\SecM.\Compo{LogReceiver}.\Call{getAttestationReport}(\LPrv) is valid}{
-		$\{\Segm_1, \ldots, \Segm_m\} \gets \LPrv.\Compo{LogProvider}.\Call{segmentEventLog}(\LPrv.\Compo{LogRecorder}.\Call{accessEventLog}(\CIdS), \SegSize )$\tcp*[f]{Segment the event log} \\
+	\If(\tcp*[f]{Get and verify the attestation report of {\SecM} -- \textit{remote attestation} in \cref{fig:attestation}}){\SecM.\Compo{LogReceiver}.\Call{getAttestationReport}(\LPrv) is valid \label{alg:lprv:attestation}}{
+		$\{\Segm_1, \ldots, \Segm_m\} \gets \LPrv.\Compo{LogProvider}.\Call{segmentEventLog}(\LPrv.\Compo{LogRecorder}.\Call{accessEventLog}(\CIdS), \SegSize \label{alg:lprv:logaccess})$\tcp*[f]{Segment the event log} \\
 		\ForEach(\tcp*[f]{For every split segment $\Segm_i$}){$i \in \{1, \ldots, m\}$}{%
 			\Trigger{$\langle \AuthPtP, \Mesg{Send} \gg \SecM \:|\: \Mesg{CasesRes},\Segm_i \rangle$ } \tcp*[f]{send the segment $\Segm_i$ to {\SecM} (see \crefalgln[alg:secm]{alg:secm:CasesRes}) -- \textit{data transmission} phase in \cref{fig:transmission}} \label{alg:lprv:sendSegs}
 		}

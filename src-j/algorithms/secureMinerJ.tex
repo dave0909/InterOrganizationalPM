@@ -74,11 +74,11 @@
 % 	$\textrm{dom}(\CIDMap) \gets \textrm{dom}(\CIDMap) \,\setminus\, \{\CId\}$\tcp*[r]{Remove $\CId$ from the domain of cases which still needs to be processed}
 % 	\Yield{\CStor[\CId] \To{}} \SecM.\Compo{LogElaborator} \tcp*[f]{Forward the $\CId$ to the \Compo{Log Elaborator} for mining -- \textit{computation} phase in \cref{fig:computation}}
 % }
-\UponEv(\tcp*[f]{The \Compo{Log Requester} of {\SecM} starts the CONFINE protocol -- \textit{initialization} phase in \cref{fig:init})}){$\langle \SecM, \Mesg{Init} \: |\: \LPrvS, \SegSize \rangle$}{
+\UponEv(\tcp*[f]{The \Compo{Log Requester} of {\SecM} starts the CONFINE protocol -- \textit{initialization} phase in \cref{fig:init})}){$\langle \SecM, \Mesg{Init} \: |\: \LPrvS, \SegSize \rangle$ \label{alg:secm:init}}{
 	\ForEach(\tcp*[f]{For every \Compo{Provisioner} $\LPrv$}){$\LPrv \in \LPrvS$}{%
-		\Trigger{$\langle \AuthPtP, \Mesg{Send} \gg \LPrv \:|\: \Mesg{CasesRefReq} \rangle$\label{alg:secm:CaseRefsReq:call}} \tcp*{Request \LPrv's case references (see \crefalgln[alg:lprv]{alg:lprv:CasesRefReq})}
+		\Trigger{$\langle \AuthPtP, \Mesg{Send} \gg \LPrv\ \:|\: \Mesg{CasesRefReq} \rangle$\label{alg:secm:CaseRefsReq:call}} \tcp*{Request \LPrv's case references (see \crefalgln[alg:lprv]{alg:lprv:CasesRefReq})}
 	}
-	\Upon(\tcp*[f]{Once all \Compo{Provisioner}s have answered with their case references}){$|\LPrvS| = |\textrm{dom}(\LPrvMap)|$}{%
+	\Upon(\tcp*[f]{Once all \Compo{Provisioner}s have answered with their case references}){$|\LPrvS| = |\textrm{dom}(\LPrvMap)|$\label{alg:secm:respcollection}}{%
 		\lForEach%(\tcp*[f]{For every reference to the \Compo{Log Provider} $\LPrv'$})
 		{$\LPrv \in \LPrvS$}{
 			\Trigger{$\langle \AuthPtP, \Mesg{Send} \gg {\LPrv}\:|\:\Mesg{CasesReq},\SegSize, \LPrvMap[\LPrv]\rangle$\label{alg:secm:CasesReq:call}}
@@ -100,12 +100,12 @@
 		\If(\tcp*[f]{If {\LPrv} has declared the ownership of {\CId} (see \crefalgln{alg:secm:CaseRefsRes})}){$\CId \in \LPrvMap[\LPrv]$}  {%
 			$\LPrvMap[\LPrv] \gets \LPrvMap[\LPrv] \,\setminus\, \{\CId\}$  \tcp*[r]{\raggedright Remove {\CId} from the set of case references to be provided by {\LPrv}}
 			$\CIDMap[\CId] \gets \CIDMap[\CId] \,\setminus\, \{\LPrv\}$ \tcp*[r]{Remove $\LPrv$ from the set of $\CId$ provisioners}
-			$\SecM.\Compo{LogManager}.\Call{mergeAndStore}\left(\CStor, \CasP_\CId\right)$ \tcp*[r]{Update the case via $\Merge$ and store the result in {\CStor}}
+			$\SecM.\Compo{LogManager}.\Call{mergeAndStore}\left(\CStor, \CasP_\CId\right)$ \tcp*[r]{Update the case via $\Merge$ and store the result in {\CStor}\label{alg:secm:mergeAndStore}}
 		}
 	}
 }
 
-\Upon(\tcp*[f]{When all the pieces of some $\CId$ have arrived} to \SecM's \Compo{Log Manager}){$\CIDMap[\CId]= \emptyset$ for some $\CId \in \textrm{dom}(\CIDMap)$} {%
+\Upon(\tcp*[f]{When all the pieces of some $\CId$ have arrived} to \SecM's \Compo{Log Manager}){$\CIDMap[\CId]= \emptyset$ for some $\CId \in \textrm{dom}(\CIDMap)$\label{alg:secm:computation}} {%
 	$\textrm{dom}(\CIDMap) \gets \textrm{dom}(\CIDMap) \,\setminus\, \{\CId\}$\tcp*[r]{Remove $\CId$ from the domain of cases which still needs to be processed}
-	\Yield{\CStor[\CId] \To{}} \SecM.\Compo{LogElaborator} \tcp*[f]{Forward the case $\CId$ to the \Compo{Log Elaborator} of {\SecM} for mining -- \textit{computation} phase in \cref{fig:computation}}
+	\Yield{\CStor[\CId] \To{}} \SecM.\Compo{LogElaborator} \tcp*[f]{Forward the case $\CId$ to the \Compo{Log Elaborator} of {\SecM} for mining -- \textit{computation} phase in \cref{fig:computation}\label{alg:secm:yield}}
 }

@@ -1,4 +1,4 @@
-\begin{thebibliography}{32}
+\begin{thebibliography}{31}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -168,12 +168,6 @@
   \bibinfo{author}{L.~E.~T. Rodrigues}, \bibinfo{title}{Introduction to
   Reliable and Secure Distributed Programming {(2.} ed.)},
   \bibinfo{publisher}{Springer}, \bibinfo{year}{2011}.
-%Type = Inproceedings
-\bibitem[{Kamil and Lowe(2010)}]{KamilLowe/FAST2010:AbstractionsSecureChannels}
-\bibinfo{author}{A.~Kamil}, \bibinfo{author}{G.~Lowe},
-\newblock \bibinfo{title}{Understanding abstractions of secure channels},
-\newblock in: \bibinfo{booktitle}{FAST}, \bibinfo{year}{2010}, pp.
-  \bibinfo{pages}{50--64}.
 %Type = Misc
 \bibitem[{Birkholz et~al.(2023)Birkholz, Thaler, Richardson et~al.}]{rfc9334}
 \bibinfo{author}{H.~Birkholz}, \bibinfo{author}{D.~Thaler},
