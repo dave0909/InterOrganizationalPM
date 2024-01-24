@@ -1,7 +1,7 @@
 \section{Threat Model}
 \begin{figure}
     \centering
-    \includegraphics[width=0.9\linewidth]{content//figures/threatmodel.pdf}
+    \includegraphics[width=0.95\linewidth]{content//figures/threatmodel.pdf}
     \caption{Data flow diagram employed for our threat model}
     \label{fig:threatmodel:dataflow}
 \end{figure}
@@ -33,12 +33,19 @@
     \caption{Vulnerabilities in the CONFINE architecture}
 }
 \end{table}
-The following section discusses the security implications of the CONFINE architecture. We aim to identify the threats that can jeopardize the confidentiality of provisioners' event logs. Our threat model is based on the theoretical foundation of the \textit{STRIDE} framework.
-\todo[inline]{Introduce stride framework;\\
+\begin{newj}
+	
+
+In the following section we identify the threats that can jeopardize the confidentiality of provisioners' event logs in CONFINE. Our threat analysis is based upon the theoretical foundation of the \textit{STRIDE} framework \cite{aa}. This model groups the threats in six cathegories: spoofing (i.e, the impersonation a legitimate entity), tampering (i.e., the modification of data to alter its integrity), repudiation (i.e., the denial of performing a particular action), information disclosure (i.e., the exposure of sensistive data), denial of service (i.e., the disruption or degradation of availability) and elevation of priviledges (i.e., the misappropriation of higher level of rights).
+
+
+\todo[inline]{
 Introduce \cref{fig:threatmodel:dataflow} adoption;\\
 Describe each boundary box with their adversary type (Provisioner --> honest, Secure Miner and input sources--> semi-honest)\\
 Explain TB02 AND TB01;\\
 For each TBi: describe all the STRICE threats that are in our scope
 }
+
+\end{newj}
 
 
