@@ -131,7 +131,7 @@ to retrieve the list of case references they record (step 1 in \cref{fig:init} a
 \end{algorithm2e} 
 %\end{comment}
 %
-\noindent\textbf{Remote attestation.} The remote attestation serves the purpose of establishing trust between miners and provisioners in the context of fulfilling data requests. This phase adheres to the overarching principles outlined in the RATS RFC standard~\citep{rfc9334} serving as the foundation for several TEE attestation schemes (e.g., Intel EPID,\footnote{\url{sgx101.gitbook.io/sgx101/sgx-bootstrap/attestation}. Accessed: \today.} and AMD SEV-SNP\footnote{\url{amd.com/en/processors/amd-secure-encrypted-virtualization}. Accessed: \today.}). Remote attestation has a dual objective:
+\noindent\textbf{Remote attestation.} The remote attestation serves the purpose of establishing trust between miners and provisioners in the context of fulfilling data requests. This phase adheres to the overarching principles outlined in the RATS RFC standard~\citep{rfc9334} serving as the foundation for several TEE attestation schemes. Remote attestation has a dual objective:
 \begin{inparaenum}[\itshape(i)\upshape]
     \item to furnish provisioners with compelling evidence that the data request for an event log originates from a \Compo{Trusted App} running within a TEE;
     \item to confirm the specific nature of the \Compo{Trusted App} as an authentic \Compo{Secure Miner} software entity.
