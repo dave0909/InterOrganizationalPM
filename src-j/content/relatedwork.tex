@@ -1,8 +1,18 @@
 \section{Background and Related Work}
-\label{sec:background}
+\begin{newj}
 \subsection{Background}
+\label{sec:background}
 \subsubsection{Inter-organizational Process Mining}
+
+
+
 \subsubsection{Trusted Execution Environments}
+\label{sec:background:tee}
+A Trusted Execution Environment (TEE) is an tamper-proof processing environment that operates on a separation kernel~\citep{mcgillion2015open}. By integrating both software and hardware techniques, it segregates the execution of code from the operating system. The separation kernel method guarantees distinct execution between two environments.
+TEEs were initially proposed by Rushby~\citet{rushby1981design}, enable multiple systems with different security requirements to coexist on a single platform. Owing to kernel separation, the system is divided into numerous segments, ensuring robust isolation between them.
+TEEs ensure the authenticity of the executed code, the integrity of the runtime states, and the privacy of the code and data preserved in persistent memory. The content produced by the TEE is dynamic, with data securely updated and stored. Consequently, TEEs are fortified against both software and hardware attacks, precluding the exploitation of even backdoor security vulnerabilities~\citep{DBLP:conf/trustcom/SabtAB15}. Numerous TEE providers exist, differing in terms of the software system and, more specifically, the processor on which they operate. In this study, we utilize the Intel Software Guard Extensions (Intel SGX)\footnote{\url{https://www.intel.co.uk/content/www/uk/en/architecture-and-technology/software-guard-extensions.html}. Accessed: \today.}. Intel SGX comprises a set of CPU-level instructions that enable applications to establish enclaves. An enclave is a secure section of the application that ensures the confidentiality and integrity of the data and code within it. These guarantees are also effective against malware with administrative privileges~\citep{zheng2021survey}. The presence of one or more enclaves within an application can minimize the application’s potential attack surfaces. An enclave is unaffected to external read or write operations. Only the enclave itself can modify its secrets, regardless of Central Processing Unit (CPU) privileges employed. Indeed, enclave access is not feasible by manipulating registers or the stack. Each call to the enclave necessitates a new instruction that conducts checks to safeguard the data that are exclusively accessible through the enclave code. In addition to being difficult to access, the data within the enclave is encrypted. Accessing the Dynamic Random Access Memory (DRAM) modules would yield encrypted data~\citep{jauernig2020trusted}. The cryptographic key undergoes alterations each time the system is restarted following a shutdown or hibernation~\citep{costan2016intel}. 
+\todo{remote attestation in sgx, epid dicap. ARM trustzone, AMD sev, Multizon security trusted execution environment}
+\end{newj}
 \subsection{Related Work}
 %The theme of inter-organizational process mining has been a subject of considerable exploration, featuring various perspectives within the academic literature. 
 % While inter-organizational process mining remains a consistent challenge, the academic literature has introduced a limited set of solutions. In the subsequent section, we enumerate these contributions, highlighting both their commonalities and distinctions in comparison to our work.

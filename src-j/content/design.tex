@@ -7,15 +7,6 @@ In this section, we present the high-level architecture of the CONFINE framework
 	\label{fig:architecture_diagram}
 \end{figure}
 
-\begin{wrapfigure}[6]{r}{0.4\textwidth}
-%	\vspace{-2em}
-	\centering
-	\includegraphics[width=1\textwidth]{content/figures/secureminersad.pdf}
-	\caption[Secure Miner sub-components]{Sub-components of the \\Secure Miner}
-	\label{fig:trusted_miner}
-	\vspace{-6pt}
-\end{wrapfigure} 
-
 \noindent\textbf{The CONFINE architecture at large.}
 Our architecture involves different information systems running on multiple machines. An organization can take at least one of the following roles: 
 \begin{inparadesc}
@@ -36,7 +27,14 @@ Notice that \Compo{Log Provider}s accept requests issued solely by \Compo{Secure
 Next, we provide an in-depth focus on the latter.
 % We provide an in-depth focus on this key component in the following.
 
-
+\begin{wrapfigure}[6]{r}{0.4\textwidth}
+%	\vspace{-2em}
+	\centering
+	\includegraphics[width=1\textwidth]{content/figures/secureminersad.pdf}
+	\caption[Secure Miner sub-components]{Sub-components of the \\Secure Miner}
+	\label{fig:trusted_miner}
+	\vspace{-6pt}
+\end{wrapfigure} 
 \noindent\textbf{The Secure Miner.}
 The primary objective of the \Compo{Secure Miner} is to allow miners to securely execute process mining algorithms using event logs retrieved from provisioners such as the \Actor{Specialized clinic}, \Actor{Pharmaceutical company}, and the \Actor{Hospital} in our example. \Compo{Secure Miner}s are isolated components that guarantee data inalterability and confidentiality. In \cref{fig:trusted_miner}, we show a schematization of the \Compo{Secure Miner}, which consists of four sub-components:
 \begin{inparaenum}[\itshape(i)\upshape]

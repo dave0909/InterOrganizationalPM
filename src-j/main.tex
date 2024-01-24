@@ -79,7 +79,21 @@
   ]\item[]\relax}
  {\enditemize}
 
-\newcommand\new[1]{{\textcolor{violet}{#1}}}
+\newenvironment{newj}[1][]{%
+	% No hyperrefs here
+%	\begin{NoHyper}%
+	% Change the colour to olive green
+        \color{violet}
+        %uncomment the line below for black text 
+	%\color{black}%
+ 
+}{%
+	% Restores the normal colour
+	\normalcolor%
+	% Restores the normal hyperref behaviour
+%	\end{NoHyper}%
+}
+\newcommand\NewJ[1]{{\textcolor{violet}{#1}}}
 
 \journal{Journal of Information Security and Applications}
 
@@ -145,6 +159,7 @@ Collaborative information systems architectures \sep%
 \input{content/notation}
 \section{Design}\label{sec:design}
 \input{content/design.tex}
+\input{content/threatmodel}
 \input{content/realization.tex}
 \input{content/discussion.tex}
 \input{content/conclusion.tex}
