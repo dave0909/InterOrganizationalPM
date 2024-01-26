@@ -2,3 +2,5 @@
 src-j/main.log
 *.pdf
 *.gz
+*.spl
+*.synctex(busy)
