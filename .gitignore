@@ -4,3 +4,7 @@ src-j/main.log
 *.gz
 *.spl
 *.synctex(busy)
+*.blg
+*.aux
+*.bbl
+*.out
