@@ -26,9 +26,6 @@
         T012& & Tampering & The attacker alters the data flow between the \Compo{Provisioner} and the \Compo{Secure Miner}\\
         \bottomrule
         
-        
-        
-        
     \end{tabular}
     \caption{Vulnerabilities in the CONFINE architecture}
 }
@@ -36,7 +33,7 @@
 \begin{newj}
 	
 
-In the following section, we identify the threats that can jeopardize the confidentiality of provisioners' event logs in CONFINE. Our threat analysis is based upon the theoretical foundation of the \textit{STRIDE} framework \cite{aa}. This model groups the threats into six categories: spoofing (i.e., the impersonation of a legitimate entity), tampering (i.e., the modification of data to alter its integrity), repudiation (i.e., the denial of performing a particular action), information disclosure (i.e., the exposure of sensitive data), denial of service (i.e., the disruption or degradation of availability) and elevation of privileges (i.e., the misappropriation of higher level of rights). With the help of the dataflow depicted in \cref{fig:threatmodel:dataflow}, we demarcate the \textit{trust boundaries} (i.e., transitions of trust level) among the CONFINE components. Trust boundary boxes (the red dashed squares in \cref{fig:threatmodel:dataflow}) indicate entities with mutual trust. Therefore, we group the sub-components of the \Compo{Secure Miner} and the \Compo{Provisioner} in the TB02 and TB04 boundary boxes, respectively. The trust boundariesTB01 and TB02 
+In the following section, we identify the threats that can jeopardize the confidentiality of provisioners' event logs in CONFINE. Our threat analysis is based upon the theoretical foundation of the \textit{STRIDE} framework \cite{aa}. This model groups the threats into six categories: spoofing (i.e., the impersonation of a legitimate entity), tampering (i.e., the modification of data to alter its integrity), repudiation (i.e., the denial of performing a particular action), information disclosure (i.e., the exposure of sensitive data), denial of service (i.e., the disruption or degradation of availability) and elevation of privileges (i.e., the misappropriation of higher level of rights). With the help of the dataflow depicted in \cref{fig:threatmodel:dataflow}, we demarcate the \textit{trust boundaries} (i.e., transitions of trust level) among the CONFINE components. Trust boundary boxes (the red dashed squares in \cref{fig:threatmodel:dataflow}) indicate entities with mutual trust. Therefore, we group the sub-components of the \Compo{Secure Miner} and the \Compo{Provisioner} in the TB02 and TB04 boundary boxes, respectively. The trust boundaries TB01 and TB02 
 \todo[inline]{
 Introduce \cref{fig:threatmodel:dataflow} adoption;\\
 Describe each boundary box with their adversary type (Provisioner --> honest, Secure Miner and input sources--> semi-honest)\\
