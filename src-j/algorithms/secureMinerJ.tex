@@ -78,30 +78,24 @@
 	\ForEach(\tcp*[f]{For every \Compo{Provisioner} $\LPrv$}){$\LPrv \in \LPrvS$}{%
 		\Trigger{$\langle \AuthPtP, \Mesg{Send} \gg \LPrv\ \:|\: \Mesg{CasesRefReq} \rangle$\label{alg:secm:CaseRefsReq:call}} \tcp*{Request \LPrv's case references (see \crefalgln[alg:lprv]{alg:lprv:CasesRefReq})}
 	}
-	\Upon(\tcp*[f]{Once all \Compo{Provisioner}s have answered with their case references}){$|\LPrvS| = |\textrm{dom}(\LPrvMap)|$\label{alg:secm:respcollection}}{% 
-		\ForEach(\tcp*[f]{For every \Compo{Provisioner} $\LPrv$})
-	{$\LPrv \in \LPrvS$}{
-                \ForEach(\tcp*[f]{For every case declared by $\LPrv$}){$\CId \in \LPrvMap[\LPrv]$}{
-                    \lIf(\tcp*[f]{If the weight the of case {\CId} is above the {\SegSize}} do not consider {\CId}){$\WMap[\CId] > \SegSize$}{
-                        $\LPrvMap[\LPrv] \gets \LPrvMap[\LPrv] \,\setminus\,\{\CId\}$
-                    }}
+	\Upon(\tcp*[f]{Once all \Compo{Provisioner}s have answered with their case references}){$|\LPrvS| = |\textrm{dom}(\LPrvMap)|$\label{alg:secm:respcollection}}{%
+		\lForEach%(\tcp*[f]{For every reference to the \Compo{Log Provider} $\LPrv'$})
+		{$\LPrv \in \LPrvS$}{
 			\Trigger{$\langle \AuthPtP, \Mesg{Send} \gg {\LPrv}\:|\:\Mesg{CasesReq},\SegSize, \LPrvMap[\LPrv]\rangle$\label{alg:secm:CasesReq:call}}
-			\tcp*[f]{Request the cases of \LPrv via {\AuthPtP} (see \crefalgln[alg:lprv]{alg:lprv:CasesReq})}
+			\tcp*[f]{Request their cases via {\AuthPtP} (see \crefalgln[alg:lprv]{alg:lprv:CasesReq})}
 			%\tcc*{Request the cases that are provided by $\LPrv'$. Before sending them, $\LPrv'$ will trigger \Mesg{AttestReportReq} in return, to attest the \Compo{Secure Miner}.}
-                
 		}
 	}
 }
 
-\UponEv(\tcp*[f]{{\SecM}'s \Compo{Log Requester} gets {\LPrv}'s case references via {\AuthPtP} (\crefalgln[alg:lprv]{alg:lprv:sendRefs})}){$\langle \AuthPtP, \Mesg{Deliver} \ll \LPrv \:|\: \Mesg{CasesRefRes}, \WMapPrime\rangle$ \SuchThat{$\LPrv \in \LPrvS$} \label{alg:secm:CaseRefsRes}}{
-	\ForEach(\tcp*[f]{For every case reference $\CId$} received in {\CIdS}){$\CId,\Wght \in \WMapPrime$}{%
-		$\CIDMap[\CId] \gets \CIDMap[\CId] \cup \{\LPrv\} $ \tcp*{Add $\LPrv$ to the set of provisioners for case $\CId$ in $\CIDMap$}\\
-        $\WMap[\CId] \gets \WMap[\CId] + \Wght  $
+\UponEv(\tcp*[f]{{\SecM}'s \Compo{Log Requester} gets {\LPrv}'s case references via {\AuthPtP} (\crefalgln[alg:lprv]{alg:lprv:sendRefs})}){$\langle \AuthPtP, \Mesg{Deliver} \ll \LPrv \:|\: \Mesg{CasesRefRes}, \CIdS\rangle$ \SuchThat{$\LPrv \in \LPrvS$} \label{alg:secm:CaseRefsRes}}{
+	\ForEach(\tcp*[f]{For every case reference $\CId$} received in {\CIdS}){$\CId \in \CIdS$}{%
+		$\CIDMap[\CId] \gets \CIDMap[\CId] \cup \{\LPrv\} $ \tcp*{Add $\LPrv$ to the set of provisioners for case $\CId$ in $\CIDMap$}
 	}
 	$\LPrvMap[\LPrv] \gets \LPrvMap[\LPrv] \cup \CIdS $ \tcp*{Register the references of the cases provided by $\LPrv$ in $\LPrvMap$}
 }
 
-\UponEv(\tcp*[f]{$\SecM$'s \Compo{Log Receiver} gets a segment from {\LPrv} via {\AuthPtP} (\crefalgln[alg:lprv]{alg:lprv:sendSegs}))}){$\langle \AuthPtP, \Mesg{Deliver} \ll \LPrv \:|\: \Mesg{CasesRes},\Segm \rangle$ \SuchThat{$\LPrv \in \LPrvS$} \label{alg:secm:CasesRes} }{
+\UponEv(\tcp*[f]{$\SecM$'s \Compo{Log Receiver} gets a segment from {\LPrv} via {\AuthPtP} (\crefalgln[alg:lprv]{alg:lprv:sendSegs}))}){$\langle \AuthPtP, \Mesg{Deliver} \:|\: \LPrv, [\Mesg{CasesRes},\Segm] \rangle$ \SuchThat{$\LPrv \in \LPrvS$} \label{alg:secm:CasesRes} }{
 	\ForEach(\tcp*[f]{For every $\CasP_\CId$ in the delivered segment $\Segm$, each associated with a \CId -- \textit{data transmission} phase in \cref{fig:transmission}}){$\CasP_\CId \in \Segm$}{%
 		\If(\tcp*[f]{If {\LPrv} has declared the ownership of {\CId} (see \crefalgln{alg:secm:CaseRefsRes})}){$\CId \in \LPrvMap[\LPrv]$}  {%
 			$\LPrvMap[\LPrv] \gets \LPrvMap[\LPrv] \,\setminus\, \{\CId\}$  \tcp*[r]{\raggedright Remove {\CId} from the set of case references to be provided by {\LPrv}}

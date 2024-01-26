@@ -1,19 +1,53 @@
-\section{Preliminaries}
-Given a finite set of events $\EvtU$ and a total-order relation $\preceq$ subset of $\EvtU \times \EvtU$, we identify an event log as the totally ordered set $\left( \EvtU, \preceq \right)$.
+\begin{newj}
+Thus far, we have intuitively introduced the concepts of events, (partial) cases, (partial) traces, event logs and related aspects.
+In this section, we delve deeper into these notions from a formal standpoint. The definitions provided henceforward pave the ground for properties and aspects to which we will resort in the design and realization of our solution.
+\todo{Consider using \textbf{Definition} environments.}
+
+\begin{definition}[Event]\label{def:evt}
+	Let $\EvtU \ni \Evt$ be a finite non-empty set of symbols. We refer to $\Evt$ as \emph{event} and to $\EvtU$ as the \emph{universe of events}.
+	Given a non-empty set of domain values $\textrm{Dom}$, an \emph{attribute} is a partial function $\textrm{Attr} : \EvtU \nrightarrow \textrm{Dom} $ mapping events to domain values. % We indicate the value mapped by $\textrm{Attr}$ to an event $e$ by using a dot notation, i.e., $e.\textrm{Attr}$.
+\end{definition}
+%
 In the example, \ldots\todo{Add example}
 %
-Let $\CIdU$ be a finite non-empty set of symbols such that $|\CIdU| \leqslant |\EvtU|$.
+\begin{definition}[Event log]\label{def:evt:log}
+	Given the universe of events $\EvtU$ as per \cref{def:evt}, let $\preceq \;\subseteq\; \EvtU \times \EvtU$ be a total-order relation defined over $\EvtU$.
+	The pair $\left( \EvtU, \preceq \right)$ is an \emph{event log}.
+\end{definition}
+%
+In the example, \ldots\todo{Add example. Claudio: loko at the comment and make it mathly!}
+
+\begin{comment}
+def iid(event):
+  bla bla bla
+  
+caseid = iid
+hospitalcaseid = iid
+treatmentid = iid
+
+comesichiama = {"hospital" : "caseid", "pharma" : "hospitalcaseid", "clinic" : "treatmentid"}
+
+comesichiama["hospital"](x)
+\end{comment}
+
+	Let $\CIdU$ be a finite non-empty set of symbols such that $|\CIdU| \leqslant |\EvtU|$.
+
+, and (blah) as above. The order-preserving union $\Merge: \EvtU^3 \times \EvtU^3 \to \EvtU^3$ of losets is computed as follows: $(\EvtU', \prec') \Merge (\EvtU'', \prec'') = \left(\EvtU' \cup \EvtU'', \prec \cap\, (\EvtU'\cup\EvtU'')^2\right)$.
+
+%
 We assume that every event be associated with a \emph{case identifier} $\CId \in \CIdU$ via a total surjective function $\CIdF: \EvtU \to \CIdU$ such that the restriction $\prec_\CId \,=\, \preceq \cap \{ \Evt \in \EvtU: \CIdF(\Evt) = \CId \}^2$ of total order $\preceq$ on all events mapped to the same $\CId$ is strict (i.e., if $\Evt \preceq \Evt'$ with $\Evt \neq \Evt'$ and $\CIdF(\Evt) = \CIdF(\Evt')$ then $\Evt' \npreceq \Evt$).
 %
 In the example, \ldots\todo{Add example}
 %
 In other words, $\CIdF$ acts as an equivalence relation partitioning $\EvtU$ into $\left\{ \EvtU_\CId \right\}_{\CId \in \CIdU} \subseteq 2^{\EvtU}$ based on the {\CId} to which the events $\Evt \in \EvtU_\CId$ map, and imposing that events are linearly ordered by the restriction of $\preceq$ on every $\EvtU_\CId$.
 Every pair $\left( \EvtU_\CId, \prec_\CId \right)$ thus represents a finite linearly totally ordered set (or \emph{loset} for brevity) with $\EvtU_\CId \subseteq \EvtU$ and $\prec_\CId \;\subseteq \EvtU_\CId \times \EvtU_\CId \subseteq\; \preceq \;\subseteq \EvtU \times \EvtU$.
-Let $\left(\EvtU, \prec\right)$ be a loset and $(\EvtU', \prec')$, $(\EvtU'', \prec'')$ two (sub-)losets such that $\EvtU' \cup \EvtU'' \subseteq \EvtU$ and $\EvtU' \cap \EvtU'' = \emptyset$, with $\prec'$ and $\prec''$ being the restrictions of $\prec$ on $\EvtU'$ and $\EvtU''$, respectively.
-We define the order-preserving union $\Merge: \EvtU^3 \times \EvtU^3 \to \EvtU^3$ of losets as follows: $(\EvtU', \prec') \Merge (\EvtU'', \prec'') = \left(\EvtU' \cup \EvtU'', \prec \cap\, (\EvtU'\cup\EvtU'')^2\right)$.
-\todo{Continue here revising the definition of order preserving union}
+Let $\left(\EvtU, \prec\right)$ be a loset and $(\EvtU', \prec')$, $(\EvtU'', \prec'')$ two (sub-)losets such that $\EvtU' \cup \EvtU'' \subseteq \EvtU$ and $\EvtU' \cap \EvtU'' = \emptyset$, with $\prec'$ and $\prec''$ being the restrictions of $\prec$ on $\EvtU'$ and $\EvtU''$, respectively:
+$\prec' \triangleq \prec \cap \, \EvtU' \times \EvtU'$ and $\prec'' \triangleq \prec \cap \, \EvtU'' \times \EvtU''$.
+\begin{definition}[Order-preserving union]\label{def:order-prev:union}
+Let $\prec$ be a finite linear order defined over $\EvtU$, and (blah) as above. The order-preserving union $\Merge: \EvtU^3 \times \EvtU^3 \to \EvtU^3$ of losets is computed as follows: $(\EvtU', \prec') \Merge (\EvtU'', \prec'') = \left(\EvtU' \cup \EvtU'', \prec \cap\, (\EvtU'\cup\EvtU'')^2\right)$.
+\end{definition}
 %
-We can thus derive the notion of case $\Case_\CId$ given a $\CId \in \CIdU$ as a loset of events mapping to the same $\CId$ and ordered by the linear restriction $\prec$ of $\preceq$ over the events in $\Case_\CId$: $\CId=(\EvtU_\CId, \prec)$ where $\Case_\CId = \langle \Evt_1, \ldots, \Evt_{|\Case_\CId|} \rangle$ where $\CIdF(\Evt_i) = \CId \in \CIdU$ for every $i$ s.t.\ $ 1 \leqslant i \leqslant |\Case_\CId|$ and $e_i \prec e_j$ for every $ i \leq j \leqslant |\Case_\CId|$.%
+We can thus derive the notion of case $\Case_\CId$ given a $\CId \in \CIdU$ as a loset of events mapping to the same $\CId$ and ordered by the linear restriction $\prec$ of $\preceq$ over the events in $\Case_\CId$: $\Case_\CId=\left(\EvtU_\CId, \prec\right)$ where $\Case_\CId = \langle \Evt_1, \ldots, \Evt_{|\Case_\CId|} \rangle$ where $\CIdF(\Evt_i) = \CId \in \CIdU$ for every $i$ s.t.\ $ 1 \leqslant i \leqslant |\Case_\CId|$ and $e_i \prec e_j$ for every $ i \leq j \leqslant |\Case_\CId|$.%
 \footnote{We employ the angular-bracket notation here for the sake of simplicity, although it is typically used for sequences. Unlike sequences, cases do not allow for the same event to occur more than once.}
 Notice that the cardinality of $\CasU$ and $\CIdU$ coincide.
 %
@@ -24,3 +58,4 @@ In the example, \ldots\todo{Add example}
 \todo[inline]{Gotta move this one earlier when we introduce the example with the partitioned event log. (Section 4.2??). Clarify the difference between segmentation (given a segsize, i.e., a segment of a case-part in a sublog) and partitioning (of a log into case-parts of sublogs. Then, prove that the pipeline of partitioning and segmentation has its inverse in the union and merge for soundness.} 
 %\end{comment}
 %
+\end{newj}

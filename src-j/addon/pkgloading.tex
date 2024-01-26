@@ -19,10 +19,10 @@
 % For math symbols, such as \nexists
 \usepackage{amssymb}
 %% For math environments, such as "definition"
-%\usepackage{amsthm}
-%\theoremstyle{definition}
-%\newdefinition{definition}{Definition}[section]
-%\newtheorem{theorem}{Theorem}[section]
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newdefinition{definition}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
 % For enumerating the line numbers
 \usepackage[left]{lineno}
 % For diagonally-split fractions (\sfrac)
@@ -52,6 +52,8 @@
     \renewcommand\thesubtable{(\alph{subtable})}
 \crefname{algocf}{Alg.}{Algs.}
 \Crefname{algocf}{Algorithm}{Algorithms}
+\crefname{definition}{Def.}{Defs.}
+\Crefname{definition}{Definition}{Definition}
 \crefname{aAlgocflLine}{line}{lines}
 \Crefname{algocfline}{Line}{Lines}
 \crefname{section}{Sect.}{Sects.} % Era un poco prolisso
