@@ -42,16 +42,25 @@
 \def\CId {\ensuremath{\textrm{\textsl{iid}}}}  % CaseId
 \def\CIdF {\ensuremath{\mathfrak{iid}}}  % CaseId mapping function
 \def\CIdU {\ensuremath{\widehat{\mathrm{IID}}}}  % CaseId universe
-\def\CasU {\ensuremath{\widehat{\mathrm{C}}}}  % Case universe
+\def\CasU {\ensuremath{\widehat{\mathrm{C}}}}  % Set of cases
 \def\CIdS {\ensuremath{\textsl{IIDs}}}  % CaseId set
 \def\CIDMap {\ensuremath{\textsl{IIDMap}}} % CaseId Map
 \def\LPrvMap {\ensuremath{\textsl{PMap}}} % Log provider Map
 \def\Merge {\ensuremath{\bigoplus}}
 \def\SegSize {\ensuremath{\textsl{seg\_size}}}
 \def\Segm {\ensuremath{S}}
-\def \AuthPtP{\ensuremath{\textsl{al}}}
+\def\ActS {\ensuremath{\widehat{\mathrm{A}}}}  % Activity set
+\def\ActF {\ensuremath{\mathfrak{act}}}  % Activity mapping function
+\def\TimeF {\ensuremath{\mathfrak{tms}}}  % Activity mapping function
+\def\Timestamp {\ensuremath{\widehat{\mathrm{A}}}}  % Activity set
+\def\AuthPtP{\ensuremath{\textsl{al}}}
+
 \def\Msg{\ensuremath{\textsl{msg}}}
 \def\Inst{\textbf{instance}}
 \def\Wght {\ensuremath{\textrm{\textsl{wh}}}} % Weight of a trace
 \def\WMap {\ensuremath{\textsl{WMap}}} % Map: iid --> weight
 \def\WMapPrime {\ensuremath{\textsl{WMap}^\prime}}
+
+\def\PartEq {\ensuremath{\sim_{\LPrv}}}
+\def\PartMap {\ensuremath{\to_{\LPrv}}}
+\newcommand{\EqCls}[1]{\ensuremath{\EvtU^{\sim}_{#1}}}
