@@ -8,8 +8,7 @@ In this section, we delve deeper into these notions from a formal standpoint. Th
 \end{definition}
 %
 %In the example, $\Evt=\{\texttt{312},\ \texttt{2022-07-14T10:36},\ \texttt{PH}\}$ represents the event occurring when Alice's hospitalization journey begins. An attribute is a generic function that returns one or more symbols of $\Evt$.\todo{Add example.Done}
-Referring to the example of Alice and Bob's hospitalization process, every generic event denoted as $\Evt_i$ in \cref{Tab:traces} is contained in the universe of events $\EvtU$.\todo{Add example.Done}
-Due to the general nature of elements that can be linked to events via the attribute function, we leave the range unspecified, akin to the definition of finite sequence as a function in \cite{Mendelson/2015:IntroductionMathematicalLogic}. We assume the following attributes as mandatory, though, as in the classical process mining literature~\cite{Aalst/2016:ProcessMiningBook:DataScienceinAction}.
+Referring to the example of Alice and Bob's hospitalization process, each generic event denoted as $\Evt_i$ within \cref{Tab:traces} is contained in the universe of events $\EvtU$. Due to the general nature of elements that can be linked to events via the attribute function, we leave the range unspecified, akin to the definition of finite sequence as a function in \cite{Mendelson/2015:IntroductionMathematicalLogic}. We assume the following attributes as mandatory, though, as in the classical process mining literature~\cite{Aalst/2016:ProcessMiningBook:DataScienceinAction}. \todo{Add example.Done}
 %
 \begin{assumption}[Mandatory attributes]\label{asm:attribute}
 	The following attributes are total on the universe of events $\EvtU$:
@@ -20,19 +19,21 @@ Due to the general nature of elements that can be linked to events via the attri
 	\end{inparadesc}
 \end{assumption}
 %
-Considering the event $\Evt_1$ of our motivating scenario, the {\CIdF} function computed over this event returns the identifier 312, which groups the events constituting Alice's hospitalization in the three organizations. Similarly, the function applications {$\ActF(\Evt_1)$} and the {$\TimeF(\Evt_1)$} link $\Evt_i$ to its activity label (i.e., \texttt{PH}) and its timestamp (i.e., \texttt{2022-07-14T10:36}), respectively.\todo{Add example.Done}
+%Considering the event $\Evt_1$ of our motivating scenario, the {\CIdF} function computed over this event returns the identifier 312, which groups the events constituting Alice's hospitalization in the three organizations. Similarly, the function applications {$\ActF(\Evt_1)$} and the {$\TimeF(\Evt_1)$} link $\Evt_i$ to its activity label (i.e., \texttt{PH}) and its timestamp (i.e., \texttt{2022-07-14T10:36}), respectively.
+In the context of our motivating scenario, when examining the event $\Evt_1$ in \cref{Tab:traces}, the {\CIdF} function yields the inter-organizational identifier 312. This id serves to collate the events associated with Alice's hospitalization across the three organizations. Furthermore, the function applications {$\ActF(\Evt_1)$} and {$\TimeF(\Evt_1)$} establish connections between $\Evt_1$ and its activity label (i.e., \texttt{PH}) and timestamp (i.e., \texttt{2022-07-14T10:36}), respectively.
+\todo{Add example.Done}
 %
 \begin{definition}[Event log]\label{def:evt:log}
 	Given the universe of events $\EvtU$ as per \cref{def:evt}, let ${\prec \;\subseteq\; \EvtU \times \EvtU}$ be a strict total-order relation defined over $\EvtU$.
 	The pair $\left( \EvtU, \prec \right)$ is an \emph{event log}.
 \end{definition}
-In our example, we exemplify the event log $(\EvtU,\prec)$ as the totally ordered set comprehensive of all the events recorded by the \Actor{Hospital}, \Actor{Pharmaceutical company}, and \Actor{Specialized clinic}.\todo[]{Add comment.Done}
+In our illustrative example, we exemplify the event log $(\EvtU,\prec)$ as the totally ordered set comprehensive of all the events $\Evt_1 \dots \Evt_{31}$ recorded by the \Actor{Hospital}, the \Actor{Pharmaceutical company}, and the \Actor{Specialized clinic}.\todo[]{Add comment.Done}
 %
 \begin{assumption}[Timestamp as an order isomorphism]\label{asm:order:timestamp}
 	Given an event log $\left( \EvtU, \prec \right)$, the timestamp attribute $\TimeF: \EvtU \to \mathbb{N}$ is an \textit{order isomorphism}, i.e., given $\Evt, \Evt' \in \EvtU$ with $\Evt \neq \Evt'$, $\Evt \prec \Evt'$ if and only if $\TimeF(\Evt) < \TimeF(\Evt')$.
 \end{assumption}
 %
-Considering the events $\Evt_{1}$ and $\Evt_{31}$ of our motivating scenario, we can derive from the order relation established upon their timestamp attributes (i.e., \texttt{2022-07-14T10:36} and \texttt{2022-07-16T05:06}, respectively) that $\Evt_{1}$ has occurred before $\Evt_{31}$. Hence, we have  ${\Evt_1}\prec{\Evt_{31}}$. The same argumentation is valid with every generic couple of events taken from the event log.\todo[]{Add example.Done.}
+Examining the events $\Evt_{1}$ and $\Evt_{31}$ within our motivating scenario, we can deduce from the order relation established based on their timestamp attributes (i.e., \texttt{2022-07-14T10:36} and \texttt{2022-07-16T05:06}, respectively) that $\Evt_{1}$ precedes $\Evt_{31}$. Consequently, ${\Evt_1}\prec{\Evt_{31}}$. This rationale holds true for any generic pair of events selected from the event log.\todo[]{Add example.Done.}
 %
 
 In our setting, events may be recorded by different entities. We name these entities \emph{provisioners} and formally define them as follows.
@@ -40,22 +41,21 @@ In our setting, events may be recorded by different entities. We name these enti
 	$\LPrvS = \{ \LPrv_1, \ldots, \LPrv_n \}$ is a non-empty finite set of entities (with $n \in \mathbb{N}$) we name \emph{provisioner}s. 
 	Given an event $\Evt \in \EvtU$ as per \cref{def:evt}, $\PartMap$ is a total surjective function over the domain of events $\EvtU$ and the range $\LPrvS$ of provisioners. Function $\PartMap$ defines an equivalence relation $\PartEq$ on $\EvtU$ (i.e., $\Evt \PartEq \Evt'$ iff $\Evt \PartMap \LPrv$ and $\Evt' \PartMap \LPrv$) and hence partitions $\EvtU$ into equivalence classes we denote with $\EqCls{\LPrv}$ for every $\LPrv \in \LPrvS$.
 \end{definition}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-In the motivating scenario, we introduce three provisioners, namely the \Actor{Hospital} ($\LPrv_1$), the \Actor{Specialized clinic} ($\LPrv_2$), and the \Actor{Pharmaceutical company}($\LPrv_3$). For the sake of the exemplification, we refer to them as ($\LPrv_1$), ($\LPrv_2$) and ($\LPrv_3$).  The events $\Evt=\{\texttt{312},\ \texttt{2022-07-14T10:36},\ \texttt{PH}\}$ and $\Evt'=\{\texttt{312},\ \texttt{2022-07-15T21:06},\ \texttt{AD}\}$ belongs to the same equivalence class $\EqCls{\LPrv_1}$, having that they both are recorded by the \Actor{Hospital} (hence $\Evt \PartEq \Evt'$). Differently, $\Evt''=\{\texttt{312},\ \texttt{2022-07-14T16:36},\ \texttt{COPA}\}$ and $\Evt'''=\{\texttt{312},\ \texttt{2022-07-16T05:06},\ \texttt{TPB}\}$ belongs to different equivalence classes (i.e., $\EqCls{\LPrv_1}$ and $\EqCls{\LPrv_2}$, respectively). In this case, the relation $\Evt'' \PartEq \Evt'''$ is not verified.\todo[]{Add examples.Done.}
+In the depicted scenario, we introduce three provisioners: the \Actor{Hospital}, the \Actor{Pharmaceutical company}, and the \Actor{Specialized clinic}  referred to as ($\LPrv_1$), ($\LPrv_2$), and ($\LPrv_3$) for purposes of exemplification. Events $\Evt_{1}$ and $\Evt_{20}$ fall within the same equivalence class $\EqCls{\LPrv_1}$ as they are both recorded by the \Actor{Hospital}. Consequently, the relation $\Evt_1 \PartEq \Evt_{20}$ holds true. Conversely, $\Evt_{1}$ and $\Evt_{31}$ are recorded by the \Actor{Hospital} and the \Actor{Specialized clinic}, respectively, placing them in distinct equivalence classes, namely $\EqCls{\LPrv_1}$ and $\EqCls{\LPrv_3}$. Therefore, the relation $\Evt_1 \PartEq \Evt_{31}$ does not hold in this instance.
+\todo{Add examples.Done.} 
 
 \begin{definition}[Log partition]\label{def:partition}
 	Given an event log $\left( \EvtU, \prec \right)$ as per \cref{def:evt:log}, provisioner $\LPrv \in \LPrvS$ and the equivalence class $\EqCls{\LPrv}$ as per \cref{def:provisioner}, a \emph{log partition} is a pair $\left( \EqCls{\LPrv}, \prec_\LPrv \right)$, where $\prec_\LPrv$ is the restriction of the total order $\prec$ over the elements in $\EqCls{\LPrv} \subseteq \EvtU$, i.e., $\;\prec_\LPrv$ is $(\prec) \cap (\EqCls{\LPrv} \times \EqCls{\LPrv})$.
 \end{definition}
 %
- In our example, the \Actor{Hospital}'s log partition (the black table in \cref{Tab:traces}) groups the events belonging to the equivalence class associated with the 
-
-We recall that the restriction of a totally ordered set (like the event log) is a total order. Therefore, the log partition is a totally ordered set, too.   \ldots\todo{Add example}
+In our example, we posit that each organization independently maintains its own log partition. The events  $\Evt_{1}, \Evt_{2} \ldots \Evt_{20}$ associated with the equivalence class $\EqCls{\LPrv_{1}}$ are contained in the hospital's log partition  $\left( \EqCls{\LPrv_{1}}, \prec_{\LPrv_{1}} \right)$. Similarly, the two groups of events $\Evt_{21}, \Evt_{22} \ldots \Evt_{26}$ and $\Evt_{27}, \Evt_{28} \ldots \Evt_{31}$ constitue the elements of the \Actor{Pharmaceutical company} and the  \Actor{Specialized clinic} log partitions, namely,  $\left( \EqCls{\LPrv_{2}}, \prec_{\LPrv_{2}} \right)$ and  $\left( \EqCls{\LPrv_{3}}, \prec_{\LPrv_{3}} \right)$, respectively. We recall that the restriction of a totally ordered set (like the event log) is a total order. Therefore, the log partition is a totally ordered set, too. For instance, the relation $\Evt_1 \prec \Evt_2$ defined onto {\EvtU} implies that $\Evt_1 \prec_{\LPrv_{1}} \Evt_2$ is defined within $\EqCls{\LPrv_{1}}$. The same principle applies likewise to the restrictions $\prec_{\LPrv_{2}}$ and $\prec_{\LPrv_{3}}$ defined onto $\EqCls{\LPrv_{2}}$ and $\EqCls{\LPrv_{3}}$, respectively.
+\todo{Add example}
 
 \begin{definition}[Segment]\label{def:segment}
 	Given a log partition $\left( \EqCls{\LPrv}, \prec_\LPrv \right)$ as per \cref{def:partition} and a subset of {\CId}s $\{\CId_i\}_{i \in [1,k]}$ (see \cref{def:evt}) with $k \leq |\CIdU|$, $k \in \mathbb{N}$, $\CId_i \in \CIdU$, a \emph{segment} $\Segm = \left( \EvtU_\Segm, \prec_\Segm \right)$ is a restriction of the log partition to all the events $\Evt_\Segm \in \EqCls{\LPrv}$ such that $\CIdF(\Evt') = \CId_i$ for any $\CId_i$ in the given subset. 
 \end{definition}
 %
-In light of the above, the log partition is a totally ordered set, too. Also, notice that a segment can be the whole log partition if the given set of {\CId}s contains all the {\CId}s to which the events in the log partition map. In the example, \ldots\todo{Add example}
+In light of the above, the segment is a totally ordered set, too. Also, notice that a segment can be the whole log partition if the given set of {\CId}s contains all the {\CId}s to which the events in the log partition map. In the context of our example, when considering the \Actor{Pharmaceutical company}'s log partition $\left( \EqCls{\LPrv_{2}}, \prec_{\LPrv_{2}} \right)$, under every conceivable segmentation scenario, the events associated with Alice's hospitalization (i.e., $\Evt_{21}$, $\Evt_{23}$, and $\Evt_{25}$) consistently reside within the same segment \Segm'. Hence, any scenario wherein any two events pertaining to Alice's case are allocated to different segments (e.g., $\Evt_{21}$ in \Segm' and $\Evt_{23}$, $\Evt_{25}$ in \Segm'' respectively) is precluded by definition, as per \cref{def:segment}.  \todo{Add example.Done.} 
 
 
 \begin{definition}[Merge]\label{def:merge}
