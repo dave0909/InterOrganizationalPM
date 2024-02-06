@@ -164,6 +164,21 @@ Consequently, each \Compo{Log Server} generates $m$ log segments comprising a va
 
 \subsection{Implementation}
 \label{sec:implementation:details}
-We implemented the \texttt{Secure Miner} component as an Intel SGX\footnote{\url{sgx101.gitbook.io/sgx101/}. Accessed: \today.} trusted application, encoded in Go through the EGo framework.\footnote{\url{docs.edgeless.systems/ego}. Accessed: \today.} We resort to a TLS~\citep{Thomas/2000:SSL-TLS} communication channel between miners and provisioners over the HTTP web protocol to secure the information exchange. To demonstrate the effectiveness of our framework, 
+We implemented the \texttt{Secure Miner} component as an Intel SGX\footnote{\url{sgx101.gitbook.io/sgx101/}. Accessed: \today.} trusted application, encoded in Go through the EGo framework.\footnote{\url{docs.edgeless.systems/ego}. Accessed: \today.} \NewJ{Our \Compo{Secure Miner}'s implementation takes input from the local user via terminal commands (\Compo{TEE Interface in \cref{sec:deployment}}). }
+\todo[inline]{Add details on:
+enclave json\\
+public and private keys\\
+Communication protocol HTTP\\
+Metadata structures\\
+Authentication mechanism and security channel\\
+Remote attestation model\\
+Data transmission and integrity check\\
+Event log store\\
+Computation phase: Algorithms implemented\\
+Output: format and location of the results\\
+Datasets\\
+}
+
+We resort to a TLS~\citep{Thomas/2000:SSL-TLS} communication channel between miners and provisioners over the HTTP web protocol to secure the information exchange. To demonstrate the effectiveness of our framework, 
 we re-implemented and integrated the \textit{HeuristicsMiner} discovery algorithm~\citep{weijters2006process} within the \Compo{Trusted Application}. %Upon successful execution, our \textit{HeuristicsMiner} implementation generates workflow nets corresponding to the analyzed processes. 
 Our implementation of CONFINE, including the \textit{HeuristicsMiner} in Go, is openly accessible at the following URL: \href{https://github.com/Process-in-Chains/CONFINE/}{\nolinkurl{github.com/Process-in-Chains/CONFINE/}}.

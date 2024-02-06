@@ -1,51 +1,55 @@
 \begin{newj}
 Thus far, we have intuitively introduced the concepts of events, (partial) cases, (partial) traces, event logs and related aspects.
 In this section, we delve deeper into these notions from a formal standpoint. The definitions provided henceforward pave the ground for properties and aspects to which we will resort in the design and realization of our solution.
-\todo{Consider using \textbf{Definition} environments.}
 
 \begin{definition}[Event]\label{def:evt}
 	Let $\EvtU \ni \Evt$ be a finite non-empty set of symbols. We refer to $\Evt$ as \emph{event} and to $\EvtU$ as the \emph{universe of events}.
 	An \emph{attribute} is a function having the universe of events as its domain.
 \end{definition}
 %
-In the example, \ldots\todo{Add example}
+%In the example, $\Evt=\{\texttt{312},\ \texttt{2022-07-14T10:36},\ \texttt{PH}\}$ represents the event occurring when Alice's hospitalization journey begins. An attribute is a generic function that returns one or more symbols of $\Evt$.\todo{Add example.Done}
+Referring to the example of Alice and Bob's hospitalization process, every generic event denoted as $\Evt_i$ in \cref{Tab:traces} is contained in the universe of events $\EvtU$.\todo{Add example.Done}
 Due to the general nature of elements that can be linked to events via the attribute function, we leave the range unspecified, akin to the definition of finite sequence as a function in \cite{Mendelson/2015:IntroductionMathematicalLogic}. We assume the following attributes as mandatory, though, as in the classical process mining literature~\cite{Aalst/2016:ProcessMiningBook:DataScienceinAction}.
 %
 \begin{assumption}[Mandatory attributes]\label{asm:attribute}
 	The following attributes are total on the universe of events $\EvtU$:
 	\begin{inparadesc}
-		\item[instance identifier] (or {\CId} for short), a total surjective function $\CIdF : \EvtU \to \CIdU$, where $\CIdU$ is a finite non-empty set we name \emph{instance set};
+		\item[inter-organizational instance identifier] (or {\CId} for short), a total surjective function $\CIdF : \EvtU \to \CIdU$, where $\CIdU$ is a finite non-empty set we name \emph{instance set};
 		\item[activity label\textnormal{,}] a total function $\ActF : \EvtU \to \ActS$, where $\ActS$ is a finite non-empty set we name \emph{activity set};
 		\item[timestamp\textnormal{,}] a total function $\TimeF : \EvtU \to \mathbb{N}$, where $\mathbb{N}$ is the set of positive integers.
 	\end{inparadesc}
 \end{assumption}
-
+%
+Considering the event $\Evt_1$ of our motivating scenario, the {\CIdF} function computed over this event returns the identifier 312, which groups the events constituting Alice's hospitalization in the three organizations. Similarly, the function applications {$\ActF(\Evt_1)$} and the {$\TimeF(\Evt_1)$} link $\Evt_i$ to its activity label (i.e., \texttt{PH}) and its timestamp (i.e., \texttt{2022-07-14T10:36}), respectively.\todo{Add example.Done}
+%
 \begin{definition}[Event log]\label{def:evt:log}
 	Given the universe of events $\EvtU$ as per \cref{def:evt}, let ${\prec \;\subseteq\; \EvtU \times \EvtU}$ be a strict total-order relation defined over $\EvtU$.
 	The pair $\left( \EvtU, \prec \right)$ is an \emph{event log}.
 \end{definition}
-%
-In the example,\todo{Add example here}
+In our example, we exemplify the event log $(\EvtU,\prec)$ as the totally ordered set comprehensive of all the events recorded by the \Actor{Hospital}, \Actor{Pharmaceutical company}, and \Actor{Specialized clinic}.\todo[]{Add comment.Done}
 %
 \begin{assumption}[Timestamp as an order isomorphism]\label{asm:order:timestamp}
 	Given an event log $\left( \EvtU, \prec \right)$, the timestamp attribute $\TimeF: \EvtU \to \mathbb{N}$ is an \textit{order isomorphism}, i.e., given $\Evt, \Evt' \in \EvtU$ with $\Evt \neq \Evt'$, $\Evt \prec \Evt'$ if and only if $\TimeF(\Evt) < \TimeF(\Evt')$.
 \end{assumption}
 %
-In the example,\todo{Add example here}
+Considering the events $\Evt_{1}$ and $\Evt_{31}$ of our motivating scenario, we can derive from the order relation established upon their timestamp attributes (i.e., \texttt{2022-07-14T10:36} and \texttt{2022-07-16T05:06}, respectively) that $\Evt_{1}$ has occurred before $\Evt_{31}$. Hence, we have  ${\Evt_1}\prec{\Evt_{31}}$. The same argumentation is valid with every generic couple of events taken from the event log.\todo[]{Add example.Done.}
+%
 
-In our setting, events may be recorded by different entities (e.g., the \Actor{Hospital}). We name these entities \emph{provisioners} and formally define them as follows.
+In our setting, events may be recorded by different entities. We name these entities \emph{provisioners} and formally define them as follows.
 \begin{definition}[Provisioner]\label{def:provisioner}
 	$\LPrvS = \{ \LPrv_1, \ldots, \LPrv_n \}$ is a non-empty finite set of entities (with $n \in \mathbb{N}$) we name \emph{provisioner}s. 
 	Given an event $\Evt \in \EvtU$ as per \cref{def:evt}, $\PartMap$ is a total surjective function over the domain of events $\EvtU$ and the range $\LPrvS$ of provisioners. Function $\PartMap$ defines an equivalence relation $\PartEq$ on $\EvtU$ (i.e., $\Evt \PartEq \Evt'$ iff $\Evt \PartMap \LPrv$ and $\Evt' \PartMap \LPrv$) and hence partitions $\EvtU$ into equivalence classes we denote with $\EqCls{\LPrv}$ for every $\LPrv \in \LPrvS$.
 \end{definition}
-%
-In the example, \ldots\todo{Add example}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+In the motivating scenario, we introduce three provisioners, namely the \Actor{Hospital} ($\LPrv_1$), the \Actor{Specialized clinic} ($\LPrv_2$), and the \Actor{Pharmaceutical company}($\LPrv_3$). For the sake of the exemplification, we refer to them as ($\LPrv_1$), ($\LPrv_2$) and ($\LPrv_3$).  The events $\Evt=\{\texttt{312},\ \texttt{2022-07-14T10:36},\ \texttt{PH}\}$ and $\Evt'=\{\texttt{312},\ \texttt{2022-07-15T21:06},\ \texttt{AD}\}$ belongs to the same equivalence class $\EqCls{\LPrv_1}$, having that they both are recorded by the \Actor{Hospital} (hence $\Evt \PartEq \Evt'$). Differently, $\Evt''=\{\texttt{312},\ \texttt{2022-07-14T16:36},\ \texttt{COPA}\}$ and $\Evt'''=\{\texttt{312},\ \texttt{2022-07-16T05:06},\ \texttt{TPB}\}$ belongs to different equivalence classes (i.e., $\EqCls{\LPrv_1}$ and $\EqCls{\LPrv_2}$, respectively). In this case, the relation $\Evt'' \PartEq \Evt'''$ is not verified.\todo[]{Add examples.Done.}
 
 \begin{definition}[Log partition]\label{def:partition}
 	Given an event log $\left( \EvtU, \prec \right)$ as per \cref{def:evt:log}, provisioner $\LPrv \in \LPrvS$ and the equivalence class $\EqCls{\LPrv}$ as per \cref{def:provisioner}, a \emph{log partition} is a pair $\left( \EqCls{\LPrv}, \prec_\LPrv \right)$, where $\prec_\LPrv$ is the restriction of the total order $\prec$ over the elements in $\EqCls{\LPrv} \subseteq \EvtU$, i.e., $\;\prec_\LPrv$ is $(\prec) \cap (\EqCls{\LPrv} \times \EqCls{\LPrv})$.
 \end{definition}
 %
-We recall that the restriction of a totally ordered set (like the event log) is a total order. Therefore, the log partition is a totally ordered set, too. In the example, \ldots\todo{Add example}
+ In our example, the \Actor{Hospital}'s log partition (the black table in \cref{Tab:traces}) groups the events belonging to the equivalence class associated with the 
+
+We recall that the restriction of a totally ordered set (like the event log) is a total order. Therefore, the log partition is a totally ordered set, too.   \ldots\todo{Add example}
 
 \begin{definition}[Segment]\label{def:segment}
 	Given a log partition $\left( \EqCls{\LPrv}, \prec_\LPrv \right)$ as per \cref{def:partition} and a subset of {\CId}s $\{\CId_i\}_{i \in [1,k]}$ (see \cref{def:evt}) with $k \leq |\CIdU|$, $k \in \mathbb{N}$, $\CId_i \in \CIdU$, a \emph{segment} $\Segm = \left( \EvtU_\Segm, \prec_\Segm \right)$ is a restriction of the log partition to all the events $\Evt_\Segm \in \EqCls{\LPrv}$ such that $\CIdF(\Evt') = \CId_i$ for any $\CId_i$ in the given subset. 
@@ -63,9 +67,10 @@ In light of the above, the log partition is a totally ordered set, too. Also, no
 	where 
 	$\prec_{\Merge}$ is the restriction of $\prec$ over $\EvtU_{\Segm'} \cup \EvtU_{\Segm''}$, i.e.,  $\prec \cap\, \left(\EvtU_{\Segm'} \cup \EvtU_{\Segm''}\right) \times \left(\EvtU_{\Segm'} \cup \EvtU_{\Segm''}\right)$. 
 \end{definition}
+\todo[inline]{The preservation of the total order wrt the original log cannot be guaranteed if we have only two operands, namely the segments. We have to make it a property that only \emph{special} merges have. Surprise surprise, our function will do it by resorting to the timestamping.}
 %
 We remark that \textbf{BALSDLADBASDBLADBLADJASBDBAJSD}
-In light of the above, the log partition is a totally ordered set, too. In the example, \ldots\todo{Add example}
+
 
 \begin{comment}
 def iid(event):
@@ -79,10 +84,13 @@ comesichiama = {"hospital" : "caseid", "pharma" : "hospitalcaseid", "clinic" : "
 
 comesichiama["hospital"](x)
 \end{comment}
-
-	Let $\CIdU$ be a finite non-empty set of symbols such that $|\CIdU| \leqslant |\EvtU|$.
+\begin{comment}
+In light of the above, the log partition is a totally ordered set, too. In the example, \ldots\todo{Add example}
+Let $\CIdU$ be a finite non-empty set of symbols such that $|\CIdU| \leqslant |\EvtU|$.
 
 , and (blah) as above. The order-preserving union $\Merge: \EvtU^3 \times \EvtU^3 \to \EvtU^3$ of losets is computed as follows: $(\EvtU', \prec') \Merge (\EvtU'', \prec'') = \left(\EvtU' \cup \EvtU'', \prec \cap\, (\EvtU'\cup\EvtU'')^2\right)$.
+
+    
 
 %
 We assume that every event be associated with a \emph{case identifier} $\CId \in \CIdU$ via a total surjective function $\CIdF: \EvtU \to \CIdU$ such that the restriction $\prec_\CId \,=\, \prec \cap \{ \Evt \in \EvtU: \CIdF(\Evt) = \CId \}^2$ of total order $\prec$ on all events mapped to the same $\CId$ is strict (i.e., if $\Evt \prec \Evt'$ with $\Evt \neq \Evt'$ and $\CIdF(\Evt) = \CIdF(\Evt')$ then $\Evt' \npreceq \Evt$).
@@ -108,4 +116,5 @@ In the example, \ldots\todo{Add example}
 \todo[inline]{Gotta move this one earlier when we introduce the example with the partitioned event log. (Section 4.2??). Clarify the difference between segmentation (given a segsize, i.e., a segment of a case-part in a sublog) and partitioning (of a log into case-parts of sublogs. Then, prove that the pipeline of partitioning and segmentation has its inverse in the union and merge for soundness.} 
 %\end{comment}
 %
+\end{comment}
 \end{newj}
