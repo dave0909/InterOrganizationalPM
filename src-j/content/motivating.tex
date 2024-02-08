@@ -158,8 +158,6 @@
     \end{table}
 \end{comment}
 
-%This newpage was added to wrap minipages
-\newpage 
 
 \def\Talice{\Activ{PH, COPA, OD, \color{pharmacolor}DOR, PDL, SD, \color{black}RD, AD, TP, \color{specializedcliniccolor}PAFH, PIA, PT, VRT, TPB, \color{black}RPB, DPH, PCD, DP}}
 \def\Tbob{\Activ{PH, COPA, OD, \color{pharmacolor}DOR, PDL, SD, \color{black}RD, AD, TP, DPH, PCD, DP}}
@@ -178,20 +176,20 @@
     \begin{minipage}[c]{0.55\linewidth}
     %\subfloat{% Subtable 1
        \resizebox{0.99\textwidth}{!}{% <------ Don't forget this %
-        \begin{tabular}{|l l|l|l||l l|l|l|}
+        \begin{tabular}{l|l|l|l|l|l|l|l|}
         \hline
         \multicolumn{8}{|c|}{Hospital}                                               \\ \hline
-         & {Case} & {Timestamp} & Activity &  & {Case} & {Timestamp} & Activity \\ \hline
-        $\Evt_1$ & {312}         & {2022-07-14T10:36}           & PH    & $\Evt_{11}$ & {312}         & {2022-07-15T22:06}           & TP     \\ \hline
-        $\Evt_2$ & {312}         & {2022-07-14T16:36}           & COPA  & $\Evt_{12}$ &  {711}         & {2022-07-16T00:55}           & PRTA          \\ \hline
-        $\Evt_3$ & {711}         & {2022-07-14T17:21}           & PH    & $\Evt_{13}$ &  {711}         & {2022-07-16T00:55}           & PCD            \\ \hline
-        $\Evt_4$ & {312}         & {2022-07-14T17:36}           & OD    & $\Evt_{14}$ &  {711}         & {2022-07-16T02:55}           & DPH           \\ \hline
-        $\Evt_5$ & {711}         & {2022-07-14T23:21}           & COPA  & $\Evt_{15}$ &  {711}         & {2022-07-16T04:55}           & DP          \\ \hline
-        $\Evt_6$ & {711}         & {2022-07-15T00:21}           & OD    & $\Evt_{16}$ &   {312}         & {2022-07-16T07:06}           & RPB        \\ \hline
-        $\Evt_7$ & {711}         & {2022-07-15T18:55}           & RD    & $\Evt_{17}$ &   {312}         & {2022-07-16T09:06}           & DPH          \\ \hline
-        $\Evt_8$ & {312}         & {2022-07-15T19:06}           & RD    & $\Evt_{18}$ &   {312}         & {2022-07-16T09:06}           & PCD         \\ \hline
-        $\Evt_9$ & {711}         & {2022-07-15T20:55}           & AD    & $\Evt_{19}$ &   {312}        & {2022-07-16T11:06}           & DP            \\ \hline
-        $\Evt_{10}$ & {312}         & {2022-07-15T21:06}           & AD   & $\Evt_{20}$ &   {312}        & {2022-07-16T11:06}           & DP            \\ \hline  
+         & {Case} & {Timestamp} & Activity &  & {Case} & {Timestamp} & Activity \\ \cline{2-4} \cline{6-8}
+        $\Evt_1$ & {312}         & {2022-07-14T10:36}           & PH    & $\Evt_{11}$ & {312}         & {2022-07-15T22:06}           & TP     \\ \cline{2-4} \cline{6-8}
+        $\Evt_2$ & {312}         & {2022-07-14T16:36}           & COPA  & $\Evt_{12}$ &  {711}         & {2022-07-16T00:55}           & PRTA          \\ \cline{2-4} \cline{6-8} \cline{6-8}
+        $\Evt_3$ & {711}         & {2022-07-14T17:21}           & PH    & $\Evt_{13}$ &  {711}         & {2022-07-16T00:55}           & PCD            \\ \cline{2-4} \cline{6-8}
+        $\Evt_4$ & {312}         & {2022-07-14T17:36}           & OD    & $\Evt_{14}$ &  {711}         & {2022-07-16T02:55}           & DPH           \\ \cline{2-4} \cline{6-8}
+        $\Evt_5$ & {711}         & {2022-07-14T23:21}           & COPA  & $\Evt_{15}$ &  {711}         & {2022-07-16T04:55}           & DP          \\ \cline{2-4} \cline{6-8}
+        $\Evt_6$ & {711}         & {2022-07-15T00:21}           & OD    & $\Evt_{16}$ &   {312}         & {2022-07-16T07:06}           & RPB        \\ \cline{2-4} \cline{6-8}
+        $\Evt_7$ & {711}         & {2022-07-15T18:55}           & RD    & $\Evt_{17}$ &   {312}         & {2022-07-16T09:06}           & DPH          \\ \cline{2-4} \cline{6-8}
+        $\Evt_8$ & {312}         & {2022-07-15T19:06}           & RD    & $\Evt_{18}$ &   {312}         & {2022-07-16T09:06}           & PCD         \\ \cline{2-4} \cline{6-8}
+        $\Evt_9$ & {711}         & {2022-07-15T20:55}           & AD    & $\Evt_{19}$ &   {312}        & {2022-07-16T11:06}           & DP            \\ \cline{2-4} \cline{6-8}
+        $\Evt_{10}$ & {312}         & {2022-07-15T21:06}           & AD   & $\Evt_{20}$ &   {312}        & {2022-07-16T11:06}           & DP            \\ \cline{2-4} \cline{6-8} \cline{6-8}
         \end{tabular}%
         \label{Tab:traces}
         }% resizebox
@@ -235,8 +233,8 @@
             }% raisebox
         }% resizebox
     \end{minipage}
-    \end{table}
-\begin{minipage}[t]{\linewidth}
+    \\[0.3em]
+    \begin{minipage}[t]{\linewidth}
             \resizebox{\textwidth}{!}{%
                 \begin{tabular}{p{18cm}}
                 $T_{312}=${\textlangle}  \Talice \,{\textrangle}\\[0.5\baselineskip]
@@ -245,6 +243,8 @@
                      \label{tab:trace}
             }% resizebox
 \end{minipage}
+    \end{table}
+
     
 \section{Motivating Scenario}\label{sec:motivating}
 For our motivating scenario, we focus on a simplified hospitalization process for the treatment of rare diseases.
