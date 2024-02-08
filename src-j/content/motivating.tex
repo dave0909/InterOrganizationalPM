@@ -177,8 +177,8 @@
     %\subfloat{% Subtable 1
        \resizebox{0.99\textwidth}{!}{% <------ Don't forget this %
         \begin{tabular}{l|l|l|l|l|l|l|l|}
-        \hline
-        \multicolumn{8}{|c|}{Hospital}                                               \\ \hline
+        
+        & \multicolumn{7}{c}{Hospital}                                               \\ \cline{2-4}\cline{6-8}
          & {Case} & {Timestamp} & Activity &  & {Case} & {Timestamp} & Activity \\ \cline{2-4} \cline{6-8}
         $\Evt_1$ & {312}         & {2022-07-14T10:36}           & PH    & $\Evt_{11}$ & {312}         & {2022-07-15T22:06}           & TP     \\ \cline{2-4} \cline{6-8}
         $\Evt_2$ & {312}         & {2022-07-14T16:36}           & COPA  & $\Evt_{12}$ &  {711}         & {2022-07-16T00:55}           & PRTA          \\ \cline{2-4} \cline{6-8} \cline{6-8}
@@ -201,16 +201,15 @@
     %\subfloat{% Subtable 2
         \resizebox{\textwidth}{!}{% <------ Don't forget this %
             \raisebox{2\baselineskip}{%
-                \begin{tabular}{!{\color{pharmacolor}\vline}l !{\color{pharmacolor}}l!{\color{pharmacolor}\vline}l!{\color{pharmacolor}\vline}l!{\color{pharmacolor}\vline}}\arrayrulecolor{pharmacolor}
-                \hline
-                \multicolumn{4}{|c|}{Pharmaceutical company}                                               \\ \hline
-                &{HospitalCaseID} & {Timestamp} & Activity \\ \hline
-                $\Evt_{21}$&312          & {2022-07-15T09:06}           & DOR \\ \hline
-                $\Evt_{22}$&711         & {2022-07-15T09:30}           & DOR \\ \hline
-                $\Evt_{23}$&312         & {2022-07-15T11:06}           & PDL \\ \hline
-                $\Evt_{24}$&711         & {2022-07-15T11:30}           & PDL \\ \hline
-                $\Evt_{25}$&312         & {2022-07-15T13:06}           & SD  \\ \hline
-                $\Evt_{26}$&711          & {2022-07-15T13:30}           & SD  \\ \hline
+                \begin{tabular}{l !{\color{pharmacolor}\vline}l!{\color{pharmacolor}\vline}l!{\color{pharmacolor}\vline}l!{\color{pharmacolor}\vline}}\arrayrulecolor{pharmacolor}
+                & \multicolumn{3}{c}{Pharmaceutical company}                                               \\ \cline{2-4}
+                &{HospitalCaseID} & {Timestamp} & Activity \\ \cline{2-4}
+                $\Evt_{21}$&312          & {2022-07-15T09:06}           & DOR \\ \cline{2-4}
+                $\Evt_{22}$&711         & {2022-07-15T09:30}           & DOR \\ \cline{2-4}
+                $\Evt_{23}$&312         & {2022-07-15T11:06}           & PDL \\ \cline{2-4}
+                $\Evt_{24}$&711         & {2022-07-15T11:30}           & PDL \\ \cline{2-4}
+                $\Evt_{25}$&312         & {2022-07-15T13:06}           & SD  \\ \cline{2-4}
+                $\Evt_{26}$&711          & {2022-07-15T13:30}           & SD  \\ \cline{2-4}
                 \end{tabular}%
             }% raisebox
         }% resize box
@@ -220,15 +219,15 @@
      %\begin{minipage}[t]{0.49\linewidth}
         \resizebox{\textwidth}{!}{% <------ Don't forget this %
             \raisebox{2.5\baselineskip}{%
-                \begin{tabular}{!{\color{specializedcliniccolor}\vline}l!{\color{specializedcliniccolor}}l!{\color{specializedcliniccolor}\vline}l!{\color{specializedcliniccolor}\vline}l!{\color{specializedcliniccolor}\vline}}\arrayrulecolor{specializedcliniccolor}
-                \hline
-                \multicolumn{4}{!{\color{teal}\vline}c!{\color{teal}\vline}}{Specialized clinic}                                               \\ \hline
-                & {TreatmentID}  & {Timestamp} & Activity \\ \hline
-                $\Evt_{27}$&312         & {2022-07-16T00:06}           & PAFH        \\ \hline
-                $\Evt_{28}$&312          & {2022-07-16T01:06}           & PIA         \\ \hline
-                $\Evt_{29}$&312          & {2022-07-16T03:06}           &  PT         \\ \hline
-                $\Evt_{30}$&312          & {2022-07-16T04:06}           & VRT         \\ \hline
-                $\Evt_{31}$&312          & {2022-07-16T05:06}           & TPB         \\ \hline
+                \begin{tabular}{l!{\color{specializedcliniccolor}\vline}l!{\color{specializedcliniccolor}\vline}l!{\color{specializedcliniccolor}\vline}l!{\color{specializedcliniccolor}\vline}}\arrayrulecolor{specializedcliniccolor}
+        
+                & \multicolumn{3}{c}{Specialized clinic}                                               \\\cline{2-4}
+                & {TreatmentID}  & {Timestamp} & Activity \\ \cline{2-4}
+                $\Evt_{27}$&312         & {2022-07-16T00:06}           & PAFH        \\ \cline{2-4}
+                $\Evt_{28}$&312          & {2022-07-16T01:06}           & PIA         \\ \cline{2-4}
+                $\Evt_{29}$&312          & {2022-07-16T03:06}           &  PT         \\ \cline{2-4}
+                $\Evt_{30}$&312          & {2022-07-16T04:06}           & VRT         \\ \cline{2-4}
+                $\Evt_{31}$&312          & {2022-07-16T05:06}           & TPB         \\ \cline{2-4}
                 \end{tabular}%
             }% raisebox
         }% resizebox
