@@ -176,20 +176,20 @@
     \begin{minipage}[c]{0.55\linewidth}
     %\subfloat{% Subtable 1
        \resizebox{0.99\textwidth}{!}{% <------ Don't forget this %
-        \begin{tabular}{l|l|l|l|l|l|l|l|}
+        \begin{tabular}{ll|l|l|l|l|l|l|}
         
-        & \multicolumn{7}{c}{Hospital}                                               \\ \cline{2-4}\cline{6-8}
-         & {Case} & {Timestamp} & Activity &  & {Case} & {Timestamp} & Activity \\ \cline{2-4} \cline{6-8}
-        $\Evt_1$ & {312}         & {2022-07-14T10:36}           & PH    & $\Evt_{11}$ & {312}         & {2022-07-15T22:06}           & TP     \\ \cline{2-4} \cline{6-8}
-        $\Evt_2$ & {312}         & {2022-07-14T16:36}           & COPA  & $\Evt_{12}$ &  {711}         & {2022-07-16T00:55}           & PRTA          \\ \cline{2-4} \cline{6-8} \cline{6-8}
-        $\Evt_3$ & {711}         & {2022-07-14T17:21}           & PH    & $\Evt_{13}$ &  {711}         & {2022-07-16T00:55}           & PCD            \\ \cline{2-4} \cline{6-8}
-        $\Evt_4$ & {312}         & {2022-07-14T17:36}           & OD    & $\Evt_{14}$ &  {711}         & {2022-07-16T02:55}           & DPH           \\ \cline{2-4} \cline{6-8}
-        $\Evt_5$ & {711}         & {2022-07-14T23:21}           & COPA  & $\Evt_{15}$ &  {711}         & {2022-07-16T04:55}           & DP          \\ \cline{2-4} \cline{6-8}
-        $\Evt_6$ & {711}         & {2022-07-15T00:21}           & OD    & $\Evt_{16}$ &   {312}         & {2022-07-16T07:06}           & RPB        \\ \cline{2-4} \cline{6-8}
-        $\Evt_7$ & {711}         & {2022-07-15T18:55}           & RD    & $\Evt_{17}$ &   {312}         & {2022-07-16T09:06}           & DPH          \\ \cline{2-4} \cline{6-8}
-        $\Evt_8$ & {312}         & {2022-07-15T19:06}           & RD    & $\Evt_{18}$ &   {312}         & {2022-07-16T09:06}           & PCD         \\ \cline{2-4} \cline{6-8}
-        $\Evt_9$ & {711}         & {2022-07-15T20:55}           & AD    & $\Evt_{19}$ &   {312}        & {2022-07-16T11:06}           & DP            \\ \cline{2-4} \cline{6-8}
-        $\Evt_{10}$ & {312}         & {2022-07-15T21:06}           & AD   & $\Evt_{20}$ &   {312}        & {2022-07-16T11:06}           & DP            \\ \cline{2-4} \cline{6-8} \cline{6-8}
+        & \multicolumn{7}{c}{\large{\textbf{Hospital}}\vspace{0.2em}}                                               \\ \cline{2-4}\cline{6-8}
+        \multicolumn{1}{c|}{} & {Case} & {Timestamp} & Activity &  & {Case} & {Timestamp} & Activity \\ \cline{2-4} \cline{6-8}
+        \multicolumn{1}{c|}{$\Evt_1$} & {312}         & {2022-07-14T10:36}           & PH    & $\Evt_{11}$ & {312}         & {2022-07-15T22:06}           & TP     \\ \cline{2-4} \cline{6-8}
+        \multicolumn{1}{c|}{$\Evt_2$} & {312}         & {2022-07-14T16:36}           & COPA  & $\Evt_{12}$ &  {711}         & {2022-07-16T00:55}           & PRTA          \\ \cline{2-4} \cline{6-8} \cline{6-8}
+        \multicolumn{1}{c|}{$\Evt_3$} & {711}         & {2022-07-14T17:21}           & PH    & $\Evt_{13}$ &  {711}         & {2022-07-16T00:55}           & PCD            \\ \cline{2-4} \cline{6-8}
+        \multicolumn{1}{c|}{$\Evt_4$} & {312}         & {2022-07-14T17:36}           & OD    & $\Evt_{14}$ &  {711}         & {2022-07-16T02:55}           & DPH           \\ \cline{2-4} \cline{6-8}
+        \multicolumn{1}{c|}{$\Evt_5$} & {711}         & {2022-07-14T23:21}           & COPA  & $\Evt_{15}$ &  {711}         & {2022-07-16T04:55}           & DP          \\ \cline{2-4} \cline{6-8}
+        \multicolumn{1}{c|}{$\Evt_6$} & {711}         & {2022-07-15T00:21}           & OD    & $\Evt_{16}$ &   {312}         & {2022-07-16T07:06}           & RPB        \\ \cline{2-4} \cline{6-8}
+        \multicolumn{1}{c|}{$\Evt_7$} & {711}         & {2022-07-15T18:55}           & RD    & $\Evt_{17}$ &   {312}         & {2022-07-16T09:06}           & DPH          \\ \cline{2-4} \cline{6-8}
+        \multicolumn{1}{c|}{$\Evt_8$} & {312}         & {2022-07-15T19:06}           & RD    & $\Evt_{18}$ &   {312}         & {2022-07-16T09:06}           & PCD         \\ \cline{2-4} \cline{6-8}
+        \multicolumn{1}{c|}{$\Evt_9$} & {711}         & {2022-07-15T20:55}           & AD    & $\Evt_{19}$ &   {312}        & {2022-07-16T11:06}           & DP            \\ \cline{2-4} \cline{6-8}
+        \multicolumn{1}{c|}{$\Evt_{10}$} & {312}         & {2022-07-15T21:06}           & AD   & \multicolumn{1}{c|}{$\Evt_{20}$} &   {312}        & {2022-07-16T11:06}           & DP            \\ \cline{2-4} \cline{6-8} \cline{6-8}
         \end{tabular}%
         \label{Tab:traces}
         }% resizebox
@@ -201,15 +201,15 @@
     %\subfloat{% Subtable 2
         \resizebox{\textwidth}{!}{% <------ Don't forget this %
             \raisebox{2\baselineskip}{%
-                \begin{tabular}{l !{\color{pharmacolor}\vline}l!{\color{pharmacolor}\vline}l!{\color{pharmacolor}\vline}l!{\color{pharmacolor}\vline}}\arrayrulecolor{pharmacolor}
-                & \multicolumn{3}{c}{Pharmaceutical company}                                               \\ \cline{2-4}
-                &{HospitalCaseID} & {Timestamp} & Activity \\ \cline{2-4}
-                $\Evt_{21}$&312          & {2022-07-15T09:06}           & DOR \\ \cline{2-4}
-                $\Evt_{22}$&711         & {2022-07-15T09:30}           & DOR \\ \cline{2-4}
-                $\Evt_{23}$&312         & {2022-07-15T11:06}           & PDL \\ \cline{2-4}
-                $\Evt_{24}$&711         & {2022-07-15T11:30}           & PDL \\ \cline{2-4}
-                $\Evt_{25}$&312         & {2022-07-15T13:06}           & SD  \\ \cline{2-4}
-                $\Evt_{26}$&711          & {2022-07-15T13:30}           & SD  \\ \cline{2-4}
+                \begin{tabular}{ll!{\color{pharmacolor}\vline}l!{\color{pharmacolor}\vline}l!{\color{pharmacolor}\vline}}\arrayrulecolor{pharmacolor}
+                & \multicolumn{3}{c}{\large{\textbf{Pharmaceutical company}}\vspace{0.2em}}                                               \\ \cline{2-4}
+                \multicolumn{1}{c|}{}&{HospitalCaseID} & {Timestamp} & Activity \\ \cline{2-4}
+                \multicolumn{1}{c|}{$\Evt_{21}$} &312          & {2022-07-15T09:06}           & DOR \\ \cline{2-4}
+                \multicolumn{1}{c|}{$\Evt_{22}$} &711         & {2022-07-15T09:30}           & DOR \\ \cline{2-4}
+                \multicolumn{1}{c|}{$\Evt_{23}$} &312         & {2022-07-15T11:06}           & PDL \\ \cline{2-4}
+                \multicolumn{1}{c|}{$\Evt_{24}$} &711         & {2022-07-15T11:30}           & PDL \\ \cline{2-4}
+                \multicolumn{1}{c|}{$\Evt_{25}$} &312         & {2022-07-15T13:06}           & SD  \\ \cline{2-4}
+                \multicolumn{1}{c|}{$\Evt_{26}$} &711          & {2022-07-15T13:30}           & SD  \\ \cline{2-4}
                 \end{tabular}%
             }% raisebox
         }% resize box
@@ -219,15 +219,15 @@
      %\begin{minipage}[t]{0.49\linewidth}
         \resizebox{\textwidth}{!}{% <------ Don't forget this %
             \raisebox{2.5\baselineskip}{%
-                \begin{tabular}{l!{\color{specializedcliniccolor}\vline}l!{\color{specializedcliniccolor}\vline}l!{\color{specializedcliniccolor}\vline}l!{\color{specializedcliniccolor}\vline}}\arrayrulecolor{specializedcliniccolor}
+                \begin{tabular}{ll!{\color{specializedcliniccolor}\vline}l!{\color{specializedcliniccolor}\vline}l!{\color{specializedcliniccolor}\vline}}\arrayrulecolor{specializedcliniccolor}
         
-                & \multicolumn{3}{c}{Specialized clinic}                                               \\\cline{2-4}
-                & {TreatmentID}  & {Timestamp} & Activity \\ \cline{2-4}
-                $\Evt_{27}$&312         & {2022-07-16T00:06}           & PAFH        \\ \cline{2-4}
-                $\Evt_{28}$&312          & {2022-07-16T01:06}           & PIA         \\ \cline{2-4}
-                $\Evt_{29}$&312          & {2022-07-16T03:06}           &  PT         \\ \cline{2-4}
-                $\Evt_{30}$&312          & {2022-07-16T04:06}           & VRT         \\ \cline{2-4}
-                $\Evt_{31}$&312          & {2022-07-16T05:06}           & TPB         \\ \cline{2-4}
+                & \multicolumn{3}{c}{\large{\textbf{Specialized clinic}}\vspace{0.2em}}                                               \\\cline{2-4}
+                \multicolumn{1}{c|}{} & {TreatmentID}  & {Timestamp} & Activity \\ \cline{2-4}
+                \multicolumn{1}{c|}{$\Evt_{27}$}&312         & {2022-07-16T00:06}           & PAFH        \\ \cline{2-4}
+                \multicolumn{1}{c|}{$\Evt_{28}$}&312          & {2022-07-16T01:06}           & PIA         \\ \cline{2-4}
+                \multicolumn{1}{c|}{$\Evt_{29}$}&312          & {2022-07-16T03:06}           &  PT         \\ \cline{2-4}
+                \multicolumn{1}{c|}{$\Evt_{30}$}&312          & {2022-07-16T04:06}           & VRT         \\ \cline{2-4}
+                \multicolumn{1}{c|}{$\Evt_{31}$}&312          & {2022-07-16T05:06}           & TPB         \\ \cline{2-4}
                 \end{tabular}%
             }% raisebox
         }% resizebox
