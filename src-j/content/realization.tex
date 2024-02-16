@@ -113,7 +113,7 @@ In the following, we describe each protocol phase in detail.
 
 \begin{figure}[t]
 	\subfloat[][Initialization]{\includegraphics[width=0.45\linewidth]{content/figures/initializationworkflow.pdf}\label{fig:init}}\hfill
-	\subfloat[][Remote attestation]{\includegraphics[width=0.45\linewidth]{content/figures/attestationworkflow.pdf}\label{fig:attestation}}\hfill
+	\subfloat[][Remote attestation]{\includegraphics[width=0.47\linewidth]{content/figures/attestationworkflow.pdf}\label{fig:attestation}}\hfill
 	\caption{Unfolding example for the initialization and remote attestation phases of the CONFINE protocol}
 	\label{fig:workflow}
 \end{figure}
@@ -135,7 +135,7 @@ to retrieve the list of case references they record (step 1 in \cref{fig:init} a
 \end{algorithm2e} 
 %\end{comment}
 %
-\noindent\textbf{Remote attestation.} The remote attestation\todo{Adjust this subsection} serves the purpose of establishing trust between miners and provisioners in the context of fulfilling data requests. This phase adheres to the overarching principles outlined in the RATS RFC standard~\citep{rfc9334} serving as the foundation for several TEE attestation schemes. \NewJ{Our remote attestation has a triple objective}: \begin{inparaenum}[\itshape(i)\upshape]
+\noindent\textbf{Remote attestation.} The remote attestation serves the purpose of establishing trust between miners and provisioners in the context of fulfilling data requests. This phase adheres to the overarching principles outlined in the RATS RFC standard~\citep{rfc9334} serving as the foundation for several TEE attestation schemes. \NewJ{Our remote attestation has a triple objective}: \begin{inparaenum}[\itshape(i)\upshape]
     \item to furnish provisioners with compelling evidence that the data request for an event log originates from a \Compo{Trusted App} running within a TEE;
     \item to confirm the specific nature of the \Compo{Trusted App} as an authentic \Compo{Secure Miner} software entity;
     \item \NewJ{to identify the owner of the \Compo{Secure Miner} application.}
@@ -157,7 +157,7 @@ The \Compo{Log Server}s decrypt the received report and verifies that it has bee
 
 
 \begin{figure}[t]
-	\subfloat[][Data transmission]{\includegraphics[width=0.4\linewidth]{content/figures/datatransmissionworkflow.pdf}\label{fig:transmission}}\hfill
+	\subfloat[][Data transmission]{\includegraphics[width=0.43\linewidth]{content/figures/datatransmissionworkflow.pdf}\label{fig:transmission}}\hfill
 	\subfloat[][Computation]{\includegraphics[width=0.45\linewidth]{content/figures/computationworkflow.pdf}\label{fig:computation}}\hfill	
 	\caption{Unfolding example for the data transmission and computation phases of the CONFINE protocol}
 	\label{fig:workflow}

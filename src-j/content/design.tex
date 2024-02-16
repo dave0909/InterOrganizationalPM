@@ -17,13 +17,15 @@ In this section, we present the high-level architecture of the CONFINE framework
 \end{inparadesc}
 In \cref{fig:architecture_diagram}, we propose the high-level schematization of the CONFINE framework.
 In our solution, every organization hosts one or more nodes hosting components (the names of which will henceforth be formatted with a \Compo{teletype} font). Depending on the played role, nodes come endowed with a \Compo{Provisioner} or a \Compo{Secure Miner} component, or both. The \Compo{Provisioner} component consists of the following two main sub-components. The \begin{inparadesc}
-\item[\Compo{Log Recorder}] registers the events taking place in the organizations' systems. The
-\item[\Compo{Log Provider}] delivers on-demand data to mining players.
+\item[\Compo{Log Recorder}] registers the events taking place in the organizations' systems \NewJ{and builds the provisioner's log partition, introduced by \cref{def:partition}}.
+\item[\Compo{Log Provider}] delivers %on-demand
+\NewJ{log partitions} to mining players.
 \end{inparadesc}
-The \Actor{Hospital} and all other parties in our example record Alice and Bob's cases using the \Compo{Log Recorder}. The \Compo{Log Recorder} is queried by the \Compo{Log Provider} for event logs to be made available for mining. The latter controls access to local event logs by authenticating data requests by miners and rejecting those that come from unauthorized parties.
-In our motivating scenario, the \Actor{Specialized clinic}, the \Actor{Pharmaceutical company}, and the \Actor{Hospital} leverage \Compo{Log Provider}s to authenticate the miner party before sending their logs.  The \Compo{Secure Miner} component
+The \Actor{Hospital} and all other parties in our example record Alice and Bob's cases using the \Compo{Log Recorder}. The \Compo{Log Recorder} is queried by the \Compo{Log Provider} for event logs to be made available for mining. The latter controls access to local %event logs 
+\NewJ{log partitions} by authenticating data requests by miners and rejecting those that come from unauthorized parties.
+In our motivating scenario, the \Actor{Specialized clinic}, the \Actor{Pharmaceutical company}, and the \Actor{Hospital} leverage \Compo{Log Provider}s to authenticate the miner party before sending their log partition. The \Compo{Secure Miner} component
 % \Compo{Log Provider}s reject demands from unauthorized parties and only permit \texttt{Secure Miners} to use the data. 
-% The \Compo{Secure Miner} 
+% The \Compo{Secure Miner}
 shelters external event logs inside a protected environment to preserve data confidentiality and integrity.
 Notice that \Compo{Log Provider}s accept requests issued solely by \Compo{Secure Miner}s. 
 Next, we provide an in-depth focus on the latter.
