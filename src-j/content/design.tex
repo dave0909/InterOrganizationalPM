@@ -7,11 +7,13 @@ In this section, we present the high-level architecture of the CONFINE framework
 	\label{fig:architecture_diagram}
 \end{figure}
 
-\noindent\textbf{The CONFINE architecture at large.}
-Our architecture involves different information systems running on multiple machines. An organization can take at least one of the following roles: 
+
+\noindent\textbf{The CONFINE architecture at large.} Our architecture involves different information systems running on multiple machines. An organization can take at least one of the following roles: 
 \begin{inparadesc}
-\item[provisioning] if it delivers local event logs to be collaboratively mined;
-\item[mining] if it applies process mining algorithms using event logs retrieved from provisioners.
+%\item[provisioning] if it delivers local event logs to be collaboratively mined;
+%\item[mining] if it applies process mining algorithms using event logs retrieved from provisioners.
+\item[\NewJ{provisioner}] \NewJ{if it delivers local event logs to be collaboratively mined, according to \cref{def:provisioner}};
+\item[miner] if it applies process mining algorithms using event logs retrieved from provisioners.
 \end{inparadesc}
 In \cref{fig:architecture_diagram}, we propose the high-level schematization of the CONFINE framework.
 In our solution, every organization hosts one or more nodes hosting components (the names of which will henceforth be formatted with a \Compo{teletype} font). Depending on the played role, nodes come endowed with a \Compo{Provisioner} or a \Compo{Secure Miner} component, or both. The \Compo{Provisioner} component consists of the following two main sub-components. The \begin{inparadesc}
