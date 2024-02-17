@@ -12,12 +12,12 @@ In this section, we present the high-level architecture of the CONFINE framework
 \begin{inparadesc}
 %\item[provisioning] if it delivers local event logs to be collaboratively mined;
 %\item[mining] if it applies process mining algorithms using event logs retrieved from provisioners.
-\item[\NewJ{provisioner}] \NewJ{if it delivers local event logs to be collaboratively mined, according to \cref{def:provisioner}};
+\item[\NewJ{provisioner}] \NewJ{if it delivers local event logs to be collaboratively mined} (as per \cref{def:provisioner});
 \item[miner] if it applies process mining algorithms using event logs retrieved from provisioners.
 \end{inparadesc}
 In \cref{fig:architecture_diagram}, we propose the high-level schematization of the CONFINE framework.
 In our solution, every organization hosts one or more nodes hosting components (the names of which will henceforth be formatted with a \Compo{teletype} font). Depending on the played role, nodes come endowed with a \Compo{Provisioner} or a \Compo{Secure Miner} component, or both. The \Compo{Provisioner} component consists of the following two main sub-components. The \begin{inparadesc}
-\item[\Compo{Log Recorder}] registers the events taking place in the organizations' systems \NewJ{and builds the provisioner's log partition, introduced by \cref{def:partition}}.
+\item[\Compo{Log Recorder}] registers the events (introduced in \cref{def:evt}) taking place in the organizations' systems\NewJ{, and builds the provisioner's log partition (according to \cref{def:partition})}.
 \item[\Compo{Log Provider}] delivers %on-demand
 \NewJ{log partitions} to mining players.
 \end{inparadesc}
