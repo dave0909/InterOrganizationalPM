@@ -12,18 +12,17 @@ In this section, we present the high-level architecture of the CONFINE framework
 \begin{inparadesc}
 %\item[provisioning] if it delivers local event logs to be collaboratively mined;
 %\item[mining] if it applies process mining algorithms using event logs retrieved from provisioners.
-\item[\NewJ{provisioner}] \NewJ{if it delivers local event logs to be collaboratively mined} (as per \cref{def:provisioner});
+\item[provisioning] \NewJ{if it delivers local event logs to be collaboratively mined} (as per \cref{def:provisioner});
 \item[miner] if it applies process mining algorithms using event logs retrieved from provisioners.
 \end{inparadesc}
 In \cref{fig:architecture_diagram}, we propose the high-level schematization of the CONFINE framework.
 In our solution, every organization hosts one or more nodes hosting components (the names of which will henceforth be formatted with a \Compo{teletype} font). Depending on the played role, nodes come endowed with a \Compo{Provisioner} or a \Compo{Secure Miner} component, or both. The \Compo{Provisioner} component consists of the following two main sub-components. The \begin{inparadesc}
-\item[\Compo{Log Recorder}] registers the events (introduced in \cref{def:evt}) taking place in the organizations' systems\NewJ{, and builds the provisioner's log partition (according to \cref{def:partition})}.
-\item[\Compo{Log Provider}] delivers %on-demand
-\NewJ{log partitions} to mining players.
+\item[\Compo{Log Recorder}] \NewJ{registers the \emph{events} (introduced in \cref{def:evt}) taking place in the organizations' systems, and builds the local \emph{event log} (\cref{def:evt:log})}.
+\item[\Compo{Log Provider}] delivers on-demand event log data to mining players.
 \end{inparadesc}
-The \Actor{Hospital} and all other parties in our example record Alice and Bob's cases using the \Compo{Log Recorder}. The \Compo{Log Recorder} is queried by the \Compo{Log Provider} for event logs to be made available for mining. The latter controls access to local %event logs 
-\NewJ{log partitions} by authenticating data requests by miners and rejecting those that come from unauthorized parties.
-In our motivating scenario, the \Actor{Specialized clinic}, the \Actor{Pharmaceutical company}, and the \Actor{Hospital} leverage \Compo{Log Provider}s to authenticate the miner party before sending their log partition. The \Compo{Secure Miner} component
+\NewJ{Henceforth, we will refer to provisioners' event logs as \emph{log partitions}, according to the formal definition in \cref{def:partition}}. The \Actor{Hospital} and all other parties in our example record Alice and Bob's cases in their log partition using the \Compo{Log Recorder}. The \Compo{Log Recorder} is queried by the \Compo{Log Provider} for \NewJ{log partitions} to be made available for mining. The latter controls access to local %event logs 
+logs by authenticating data requests by miners and rejecting those that come from unauthorized parties.
+In our motivating scenario, the \Actor{Specialized clinic}, the \Actor{Pharmaceutical company}, and the \Actor{Hospital} leverage \Compo{Log Provider}s to authenticate the miner party before sending their \NewJ{log partition}. The \Compo{Secure Miner} component
 % \Compo{Log Provider}s reject demands from unauthorized parties and only permit \texttt{Secure Miners} to use the data. 
 % The \Compo{Secure Miner}
 shelters external event logs inside a protected environment to preserve data confidentiality and integrity.
