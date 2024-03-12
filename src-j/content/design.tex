@@ -1,5 +1,6 @@
-
-In this section, we present the high-level architecture of the CONFINE framework. We consider the main functionalities of each component, avoiding details on the employed technologies discussed in the next sections. %After introducing the architecture, we focus on the \emph{Secure Miner}, a core component of our contribution.
+\NewJ{Our goal is to enable the secure aggregation and elaboration of original, unaltered event logs from decentralized sources in dedicated environments that potentially lie beyond the individual organizations' information perimeter.
+With this objective in mind, we devise the \Compo{Secure Miner} component, which is capable of securing data merge and processing by running certified code in an isolated execution vault. Thus, we decouple provisioning from treatment, and the two tasks can be carried out by distinct computing nodes.
+Here, we introduce CONFINE's key components, with a special focus on the \Compo{Secure Miner}.}
 \begin{figure}[t]
 	\centering
 	\includegraphics[width=1\linewidth]{content/figures/architecturediagram.pdf}
@@ -53,7 +54,7 @@ The \NewJ{\Compo{Log Manager}} combines the event data locked in the \Compo{Secu
 %Thereupon, it 
 \NewJ{\Compo{Log Elaborator}} executes process mining algorithms using \NewJ{merged event logs} in a protected environment, inaccessible from the outside computation environment.
 %In our motivating scenario, the \Compo{Log Elaborator} combines the traces associated with the cases of Alice (i.e., $T^H_{312}$, $T^S_{312}$, and $T^C_{312}$) and Bob (i.e, $T^H_{711}$, $T^S_{711}$, and $T^C_{711}$) and generates the chronologically sorted traces $T_{312}$ and $T_{711}$ \NewJ{according to their \emph{timestamp} (as described in \cref{post:order:timestamp})}, and feeds them into the mining algorithms (see the bottom of \cref{tab:trace}).
-In our motivating scenario, the \Compo{Log Manager} combines the traces associated with the cases of Alice (i.e., $T^H_{312}$, $T^S_{312}$, and $T^C_{312}$) and Bob (i.e, $T^H_{711}$, $T^S_{711}$, and $T^C_{711}$) and generates the chronologically sorted traces $T_{312}$ and $T_{711}$ \NewJ{preserving the events' temporal sequence (as described in \cref{post:order:timestamp}). Subsequently, The \Compo{Log Elaborator} feeds these cases into the mining algorithms.}
+In our motivating scenario, the \Compo{Log Manager} combines the traces associated with the cases of Alice (i.e., $T^H_{312}$, $T^S_{312}$, and $T^C_{312}$) and Bob (i.e, $T^H_{711}$, $T^S_{711}$, and $T^C_{711}$) and generates the chronologically sorted traces $T_{312}$ and $T_{711}$ \NewJ{preserving the events' temporal sequence (as described in \cref{post:order:timestamp}). Subsequently, The \Compo{Log Elaborator} feeds these cases into the mining algorithms.} Thus far, we have outlined the main functionalities of each component at large. Next, we provide the details of the CONFINE protocol and prototype implementation.
 
 
 

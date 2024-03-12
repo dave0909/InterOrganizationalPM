@@ -1,4 +1,5 @@
 \section{Threat Model}
+\label{sec:thretmodel}
 \begin{figure}
     \centering
     \includegraphics[width=0.95\linewidth]{content//figures/threatmodel.pdf}
@@ -6,7 +7,6 @@
     \label{fig:threatmodel:dataflow}
 \end{figure}
 \begin{table}[t]
-\label{table:threatmodel:threats}
 \resizebox{\textwidth}{!}{%
     \centering
     \begin{tabular}{llll}\toprule
@@ -24,9 +24,9 @@
         T11&     & Tampering  & The intra-organizational interactor sends malicious input to the \Compo{Secure Miner}\\ %11
         T12&     & Information disclosure  & The attacker sniffs the messages between the interactor and the \Compo{Secure Miner}\\ %12
         \bottomrule
-        
     \end{tabular}
     \caption{Vulnerabilities in the CONFINE architecture}
+    \label{table:threatmodel:threats}
 }
 \end{table}
 \begin{newj}

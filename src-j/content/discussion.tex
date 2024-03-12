@@ -5,33 +5,26 @@
 	\input{content/tables/eventLogs}
 \end{table}
 \label{sec:discussion:subsec:convergence}
-\section{Evaluation}
+\section{Discussion}
+\begin{newj}
+This section presents a detailed analysis of the CONFINE approach. We initiate the discussion by establishing a formal verification of our protocol's soundness and completeness. Subsequently, we address the threat model outlined in \cref{sec:thretmodel}. Finally, we conclude this section by evaluating the implementation of CONFINE.
 \label{sec:evaluation}
+\subsection{Soundness and completeness}
+\subsection{Security}
+Within this subsection, we conduct an analysis to show how the technological components of the high-level CONFINE architecture effectively mitigate the STRIDE threats outlined in ~\cref{sec:thretmodel}. We employ a systematic approach to evaluate the alignment between the deployed technologies, detailed in \cref{sec:deployment}, and the identified security vulnerabilities. 
 
-\begin{comment}
-\todo[inline]{CDC: MISSING:
-Nella evaluation, dobbiamo riportare l'uso di memoria qui conta perché è un parametro fondamentale.
-\\
-Dobbiamo informare il lettore sulle caratteristiche del log (numero eventi, numero tracce, dimensione totale in KB una volta salvato in formato XES), come lo abbiamo creato, perché il modello non è uguale a quello di Fig. 1.}
-\end{comment}
+We resort to \Compo{Trusted App}s running in \Compo{TEE}s to mitigate threats targeting the secure miner's trust boundary (\textbf{TB01} in \cref{table:threatmodel:threats}). Data and code belonging to the \Compo{Secure Miner} trusted app are stored by the CPU in a hardware-encrypted memory region. In the event of a physical leakage attack (\textbf{T01} in \cref{table:threatmodel:threats}), where attackers attempt to compromise sensitive information by gaining direct access to this private storage, they would only acquire ciphered data. Furthermore, log partitions (as per \cref{def:partition}) residing within the \Compo{TEE} can solely be manipulated by the source code of our \Compo{Secure Miner} trusted app. Any unauthorized modifications to the \Compo{Secure Miner}'s code after its deployment in memory are detectable by the processor, thereby preventing malicious alterations of event log data (\textbf{T02}). Our approach ensures that each \Compo{Secure Miner} operates within its own dedicated TEE instance. Consequently, any other trusted application software running on the same device is allocated a separate TEE instance, effectively rendering privilege escalation attacks infeasible (\textbf{T03}).
 
-
-In this section, we evaluate our approach through the testing of our tool implementation. %In the first paragraph of the section  we delve into 
+Through the CONFINE protocol (presented in \cref{sec:deployment:protocol}), we mitigate the threats associated with the inter-organizational trust boundary (\textbf{TB02} in \cref{table:threatmodel:threats}) on the occasion of the messages exchanged between \Compo{Secure Miner}s and \Compo{Provisioner}s. Our protocol involves the authentication of the \Compo{Secure Miner} when generating the initial data requests to the \Compo{Provisioner}s during step 2 and of the \emph{initialization} phase. Furthermore,  
+\end{newj}
+\subsection{Evaluation}
+In this subsection, we evaluate our approach through the testing of our tool implementation. %In the first paragraph of the section  we delve into 
 We begin with a convergence analysis %%by evaluating the 
 to demonstrate the correctness of the collaborative data exchange process. Subsequently, we %took into assessment the memory usage by measuring the memory usage associated with the execution of the \Compo{Secure Miner} components, using diverse test configurations.
-gauge the memory usage with synthetic and real-life event logs, to observe the trend during the enactment of our protocol and assess scalability. We recall that we focus on memory utilization since the availability of space in the dedicated areas is limited as we discussed in~\cref{sec:deployment}. We discuss our experimental results in the following.
-For the sake of reproducibility, we make available all the testbeds and results in our public code repository (linked above).
+gauge the memory usage with synthetic and real-life event logs, to observe the trend during the enactment of our protocol and assess scalability. We discuss our experimental results in the following.
+For the sake of reproducibility, we make all the testbeds and results available in our public code repository (linked above).
 %
 \begin{figure}[t]
-%	\subfloat[][Pharmaceutical company's log.]{\includegraphics[width=0.37\linewidth]{content/figures/pharmaDep1.pdf}\label{fig:wfnet:a}}
-%	\hfill
-%	\subfloat[][Specialized clinic's log.]{\includegraphics[width=0.57\linewidth]{content/figures/specialisedDep1.pdf}\label{fig:wfnet:b}}
-%	\hfill
-%	\vspace{1em}
-%	\subfloat[][Hospital's log.]{\includegraphics[width=1\linewidth]{content/figures/hospitalDep1.pdf}\label{fig:wfnet:c}}
-%	\hfill
-%	\vspace{1em}
-%	\subfloat[][Full log, merged via the CONFINE protocol.]
 	\includegraphics[width=1\linewidth]{content/figures/mergedDep1.pdf}\label{fig:wfnet:d}
 	\caption[HeuristicsMiner output]{\emph{HeuristicsMiner} output in CONFINE}
 	\label{fig:wfnet}
@@ -75,17 +68,11 @@ As expected, the results converge and are depicted in \cref{fig:wfnet} in the fo
   \caption{Memory usage comparison with three event logs}
   \label{snr_c}
 \end{subfigure}
-\begin{subfigure}{0.49\textwidth}   
-  \centering
-  \includegraphics[width=\textwidth]{content/figures/memoryusage4-2.pdf}
-  \caption{Segment size impact on memory usage}
-  \label{snr_d}
-\end{subfigure}
 \caption{Memory usage test results}
 \label{fig:memtest}
 \end{figure}
 
-\noindent\textbf{Memory usage.} \label{sec:evaluation:subsec:MemoryUsage} \Cref{snr_a,snr_b} display plots corresponding to the runtime memory utilization of our CONFINE implementation (in MegaBytes). Differently from \cref{snr_b}, \cref{snr_a} excludes the computation stage by leaving the \emph{HeuristicsMiner} inactive so as to isolate the execution from the mining-specific operations. %phases an execution where the Heuristics Miner algorithm remained inactive. The 
+\noindent\textbf{Memory usage.} \label{sec:evaluation:subsec:MemoryUsage} As discussed in~\cref{sec:deployment}, the availability of space in the dedicated TEE areas is subject to hardware limitations. Therefore, we focus on memory consumption as exceeding those limits could diminish the level of security guaranteed by TEEs. \Cref{snr_a,snr_b} display plots corresponding to the runtime memory utilization of our CONFINE implementation (in MegaBytes). Differently from \cref{snr_b}, \cref{snr_a} excludes the computation stage by leaving the \emph{HeuristicsMiner} inactive so as to isolate the execution from the mining-specific operations. %phases an execution where the Heuristics Miner algorithm remained inactive. The 
 The dashed lines mark %purple line illustrates the trend of memory usage (in MegaBytes), during the execution, while the two lines mark 
 the starting points for the remote attestation, the data transmission and the computation stages. %receiving of event log segments sent by the providers, indicated by the green and the red dotted line, respectively. In this examination, 
 We held the {\SegSize} constant at \num{2000} KiloBytes. % and utilized the Motivating Scenario event log. To emphasize the transmission and reception of event logs with the greatest data volume, we designated the \Actor{Specialized clinic} as the miner due to the lower weight of its corresponding event log. \Actor{Hospital} and \Actor{Pharmaceutical company} served as the two providers.\cref{snr_b} reveals that the initial computation by the \textit{HeuristicsMiner} algorithm, depicted by the orange dashed line, commences immediately after the conclusion of the segment reception phase. 
@@ -98,9 +85,6 @@ Since those are \textit{intra-organizational} event logs, we %have resorted to m
 split the contents to mimic an \textit{inter-organizational} context.
 In particular, we separated the Sepsis event log based on the distinction between normal-care and intensive-care paths, as if they were conducted by two distinct organizations. Similarly, we processed the BPIC~2013 event log to sort it out into the three departments of the Volvo IT incident management system. % For each scenario, we designated the actor with the smallest log size as the miner to maximize the exchanged data volume. %Clearly, the 
 \Cref{snr_c} depicts the results. We observe that the processing of the BPIC 2013 event log demands more memory, particularly during the initial stages, probably owing to its larger size. Conversely, the Sepsis event log turns out to entail the least expensive run. %, with the least memory consumption and a well-balanced profile. 
-To verify whether these trends are affected by the dimension of the exchanged data segments, we conducted an additional test to examine the trend of memory usage as the {\SegSize} varies with all the aforementioned event logs. %In this configuration, we used the same three event logs mentioned above with identical settings. 
-Notably, the polylines displayed in \cref{snr_d} indicate a linear increment of memory occupation until a breakpoint is reached. After that, the memory in use is steady. These points, marked by vertical dashed lines, correspond %where the execution reaches a maximum memory usage value, corresponding 
-to the {\SegSize} value that allows the provider's segments to be contained in a single data segment.
 
 \begin{comment}
 \begin{wrapfigure}[8]{r}{0.40\textwidth}
@@ -207,6 +191,23 @@ to the {\SegSize} value that allows the provider's segments to be contained in a
 \end{comment}
 
 \begin{figure}[t]
+        \begin{subfigure}{0.49\textwidth}   
+          \centering
+          \includegraphics[width=\textwidth]{content/figures/memoryusage4-2.pdf}
+          \caption{Segment size impact on memory usage}
+          \label{snr_d}
+        \end{subfigure}
+	\begin{subfigure}{0.49\textwidth}   
+		\centering
+		\includegraphics[width=\textwidth]{src-j/content/figures/messagestest.pdf}
+		\caption{Results of exchange messages test}
+		\label{fig:messages_result}
+	\end{subfigure}
+	\caption{SegSize test result}
+	\label{fig:segsizeresult}
+\end{figure}
+
+\begin{figure}[t]
 	\begin{subfigure}{0.49\textwidth}   
 		\centering
 		\includegraphics[width=\textwidth]{content/figures/maxevents-2.pdf}
@@ -237,6 +238,16 @@ to the {\SegSize} value that allows the provider's segments to be contained in a
 	\caption{Scalability test results}
 	\label{fig:scalabtest}
 \end{figure}
+
+\begin{newj}
+\noindent\textbf{Segment Size.}
+\todo{Intro}
+To verify whether these trends are affected by the dimension of the exchanged data segments, we conducted an additional test to examine the trend of memory usage and the overhead of the exchanged message as the {\SegSize} varies with all the aforementioned event logs. Notably, the polylines displayed in \cref{snr_d} indicate a linear increment of memory occupation until a breakpoint is reached. After that, the memory in use is steady. These points, marked by vertical dashed lines, correspond %where the execution reaches a maximum memory usage value, corresponding 
+to the {\SegSize} value that allows the provider's segments to be contained in a single data segment.
+\end{newj}
+
+
+
 \noindent\textbf{Scalability.}
 In this subsection, we examine the scalability of the \Compo{Secure Miner}, focusing on its capacity to efficiently manage an increasing workload in the presence of limited memory resources. We implemented three distinct test configurations gauging runtime memory usage as variations of our motivating scenario log. In particular, we considered
 \begin{inparaenum}[(I)]
@@ -283,6 +294,5 @@ approaches \num{0}, indicating that the growth rate of memory usage as the numbe
 In \cref{fig:org_results}, we present the results of test~\ref{test:organizations}, on the relation between the number of organizations and the memory usage. The chart shows that memory usage trends increase as provisioning organizations increase for all three segment sizes. The {\Rlin} values for the three {\SegSize}s are very high, %(\num{0.9770}, \num{0.9602}, and \num{0.9066}, from the lower to the higher \SegSize), 
 indicating a strong positive linear correlation. % between the number of organizations and memory usage. 
 The test with {\SegSize} \num{100} exhibits the slowest growth rate, as corroborated by the lowest {\Slope} result (\num{0.3184}). 
-For the configuration with {\SegSize} \num{500}, the memory usage increases slightly faster (${\Slope} = {0.5174}$). With {\SegSize} \num{1000}, the overall memory usage increases significantly faster than the previous configurations (${\Slope} = 0.6102$). We derive from these findings that the \Compo{Secure Miner} may encounter scalability issues when handling settings with a large number of provisioning organizations. Further investigation is warranted to determine the precise cause of this behavior and identify potential mitigation strategies. 
+For the configuration with {\SegSize} \num{500}, the memory usage increases slightly faster (${\Slope} = {0.5174}$). With {\SegSize} \num{1000}, the overall memory usage increases significantly faster than the previous configurations (${\Slope} = 0.6102$). We derive from these findings that the \Compo{Secure Miner} may encounter scalability issues when handling settings with a large number of provisioning organizations. Further investigation is warranted to determine the precise cause of this behavior and identify potential mitigation strategies. In the next section, we conclude our work and outline future research directions based upon our current findings and the limitations of our approach.
 
-In the next section, we conclude our work and outline future research directions based upon our current findings and the limitations of our approach.

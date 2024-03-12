@@ -13,10 +13,10 @@ Dobbiamo informare il lettore sulle caratteristiche del log (numero eventi, nume
 In this section, we evaluate our approach through the testing of our tool implementation. %In the first paragraph of the section  we delve into 
 We begin with a convergence analysis %%by evaluating the 
 to demonstrate the correctness of the collaborative data exchange process. Subsequently, we %took into assessment the memory usage by measuring the memory usage associated with the execution of the \Compo{Secure Miner} components, using diverse test configurations.
-gauge the memory usage with synthetic and real-life event logs, to observe the trend during the enactment of our protocol and assess scalability. We recall that we focus on memory utilization since the availability of space in the dedicated areas is limited as we discussed in~\cref{sec:deployment}. We discuss our experimental results in the following.
-For the sake of reproducibility, we make available all the testbeds and results in our public code repository (linked above).
+gauge the memory usage with synthetic and real-life event logs, to observe the trend during the enactment of our protocol and assess scalability. We discuss our experimental results in the following.
+For the sake of reproducibility, we make all the testbeds and results available in our public code repository (linked above).
 %
-\begin{figure}[t]
+\begin{figure}[bt]
 %	\subfloat[][Pharmaceutical company's log.]{\includegraphics[width=0.37\linewidth]{content/figures/pharmaDep1.pdf}\label{fig:wfnet:a}}
 %	\hfill
 %	\subfloat[][Specialized clinic's log.]{\includegraphics[width=0.57\linewidth]{content/figures/specialisedDep1.pdf}\label{fig:wfnet:b}}
@@ -27,7 +27,7 @@ For the sake of reproducibility, we make available all the testbeds and results 
 %	\vspace{1em}
 %	\subfloat[][Full log, merged via the CONFINE protocol.]
 	\includegraphics[width=1\linewidth]{content/figures/mergedDep1.pdf}\label{fig:wfnet:d}
-	\caption[HeuristicsMiner output]{\emph{HeuristicsMiner} output in CONFINE}
+	\caption[HeuristicsMiner output]{\emph{HeuristicsMiner} output with CONFINE}
 	\label{fig:wfnet}
 \end{figure}    
 
@@ -53,7 +53,6 @@ As expected, the results converge and are depicted in \cref{fig:wfnet} in the fo
 	\input{content/tables/eventLogs}
 \end{table}
 %
-
 \begin{figure}[t]
 \centering
 \begin{subfigure}{0.49\textwidth}
@@ -72,7 +71,7 @@ As expected, the results converge and are depicted in \cref{fig:wfnet} in the fo
 \begin{subfigure}{0.49\textwidth}   
   \centering      
   \includegraphics[width=\textwidth]{content/figures/memoryusage3-2.pdf}
-  \caption{Memory usage comparison with three event logs}
+  \caption{Memory usage with three event logs}
   \label{snr_c}
 \end{subfigure}
 \begin{subfigure}{0.49\textwidth}   
@@ -117,15 +116,23 @@ As expected, the results converge and are depicted in \cref{fig:wfnet} in the fo
 \label{fig:scalabtest}
 \end{figure}
 
-\noindent\textbf{Memory usage.} \label{sec:evaluation:subsec:MemoryUsage} %We conducted an analysis focusing on  the \Compo{Secure Miner}'s memory usage at runtime. In \cref{snr_a}, we presented 
-\Cref{snr_a,snr_b} display plots corresponding to the runtime memory utilization of our CONFINE implementation (in MegaBytes). Differently from \cref{snr_b}, \cref{snr_a} excludes the computation stage by leaving the \emph{HeuristicsMiner} inactive so as to isolate the execution from the mining-specific operations. %phases an execution where the Heuristics Miner algorithm remained inactive. The 
+\noindent\textbf{Memory usage.} \label{sec:evaluation:subsec:MemoryUsage} %We conducted an analysis focusing on  the \Compo{Secure Miner}'s memory usage at runtime. In \cref{snr_a}, we presented
+\NewJ{%
+As discussed in~\cref{sec:deployment}, the availability of space in the dedicated TEE areas is subject to hardware limitations. Therefore, we focus on memory consumption as exceeding those limits could diminish the level of security guaranteed by TEEs.
+}%
+\Cref{snr_a,snr_b} display plots corresponding to the runtime space utilization of CONFINE (in MegaBytes). Differently from \cref{snr_b}, \cref{snr_a} excludes the computation stage by leaving the \emph{HeuristicsMiner} inactive so as to isolate the execution from the mining-specific operations. %phases an execution where the Heuristics Miner algorithm remained inactive. The 
 The dashed lines mark %purple line illustrates the trend of memory usage (in MegaBytes), during the execution, while the two lines mark 
 the starting points for the remote attestation, the data transmission and the computation stages. %receiving of event log segments sent by the providers, indicated by the green and the red dotted line, respectively. In this examination, 
 We held the {\SegSize} constant at \num{2000} KiloBytes. % and utilized the Motivating Scenario event log. To emphasize the transmission and reception of event logs with the greatest data volume, we designated the \Actor{Specialized clinic} as the miner due to the lower weight of its corresponding event log. \Actor{Hospital} and \Actor{Pharmaceutical company} served as the two providers.\cref{snr_b} reveals that the initial computation by the \textit{HeuristicsMiner} algorithm, depicted by the orange dashed line, commences immediately after the conclusion of the segment reception phase. 
 We observe that the data transmission stage reaches the highest peak of memory utilization, % concludes approximately at the initiation of the first computation, 
 which is then partially freed by the subsequent computation stage, steadily occupying memory space at a lower level. %which absorbs a substantial portion of the resources utilized 
 %throughout .
-To verify whether this phenomenon is due to the synthetic nature of our simulation-based event log, we also gauge the runtime memory usage of two public real-world event logs too (Sepsis~\cite{seps} and BPIC 2013~\cite{bpic2013}). %from existing literature. As shown in \cref{tab:testedlogs}, we selected similar event logs based on the number of cases and overall weight to facilitate a meaningful comparison.
+To verify whether this phenomenon is due to the synthetic nature of our simulation-based event log, we also gauge the runtime memory usage of two public real-world event logs too (Sepsis~\cite{seps}
+% \footnote{\label{foot:seps}%
+% \url{https://doi.org/10.4121/UUID:915D2BFB-7E84-49AD-A286-DC35F063A460}}
+and BPIC 2013~\cite{bpic2013}).
+% \footnote{\label{foot:bpic2013}%
+% \url{https://doi.org/10.4121/UUID:500573E6-ACCC-4B0C-9576-AA5468B10CEE}}). %from existing literature. As shown in \cref{tab:testedlogs}, we selected similar event logs based on the number of cases and overall weight to facilitate a meaningful comparison.
 The characteristics of the event logs are summarized in \cref{tab:testedlogs}.
 Since those are \textit{intra-organizational} event logs, we %have resorted to modifications to make the log matching to an \textit{inter-organizational} context. 
 split the contents to mimic an \textit{inter-organizational} context.
@@ -270,21 +277,22 @@ Given two sequences of values $\langle x_1,\ldots, x_k \rangle$ and $\langle y_1
 % Subsequently, we utilized the measurements listed in 
 %Table~\ref{fig:scalabtest}(d) 
 \hyperref[table:TestCoefficentTable]{Table 9(d)} lists the measurements we obtained. We describe them to elucidate the observed patterns. \Cref{fig:event_results} depicts the results of test \ref{test:events}, focusing on the increase of memory utilization when the number of events in the event logs grows. We observe that the memory usage for {\SegSize} \num{100} and \num{1000} (depicted by green and lilac lines, respectively) are quite similar, whereas the setting with {\SegSize} \num{10000} (blue line) exhibits significantly higher memory usage. For the settings with {\SegSize} \num{100} and \num{1000}, {\Rlin} approaches \num{1}, %(\num{0.9847} and \num{0.9544} respectively), 
-signifying an almost perfect approximation of the linear relation, against lower {\Rlog} values. % (\num{0.8291} and \num{0.9043}, respectively). 
+signifying an almost perfect approximation of the linear relation. %, against lower {\Rlog} values. % (\num{0.8291} and \num{0.9043}, respectively). 
 In these test settings, {\Slope} is very low %(\num{0.0980} and \num{0.0821}, respectively) 
-yet higher than \num{0}, thus indicating that memory usage is likely to continue increasing as the number of max events grows. The configuration with {\SegSize} \num{10000} yields a higher {\Rlog} value, % (\num{0.9386}), 
+yet higher than \num{0}, thus indicating that memory usage is likely to continue increasing as the number of maximum events grows. The configuration with {\SegSize} \num{10000} yields a higher {\Rlog} value, % (\num{0.9386}), 
 thus suggesting a logarithmic trend, hence %a better logarithmic approximation and suggesting 
 a greater likelihood of stabilizing memory usage growth rate as the number of maximum events increases. 
 %
-In  \cref{fig:cases_results}, we present the results of test \ref{test:cases}, assessing the impact of the number of cases on the memory consumption. As expected, the configurations with {\SegSize} set to \num{100} and \num{1000} exhibit a trend of lower memory usage than settings with {\SegSize} \num{10000}. The {\Rlin} score of the trends with {\SegSize} \num{100} and \num{1000} %(0.9896 and 0.9629, respectively) 
-indicate a strong linear relationship between the dependent and independent variables compared to the trend with {\SegSize} \num{10000}, which is better described by a logarithmic regression (${\Rlog} = \num{0.9303}$). For the latter, the {\Rlog} value is higher than the corresponding {\Rlin} %(0.7729) 
-thus suggesting that the logarithmic approximation is better suited to describe the trend. %, thus implying a higher likelihood of growth rate stabilization as the number of cases increases. 
-Differently from test \ref{test:events}, the {\Slope} score associated with the linear approximations of the trends with {\SegSize} \num{100} and \num{1000} %(\num{0.0013} and \num{0.0010}, respectively) 
+In  \cref{fig:cases_results}, we present the results of test \ref{test:cases}, assessing the impact of the number of cases on the memory consumption. As expected, the configurations with {\SegSize} set to \num{100} and \num{1000} exhibit a trend of lower memory usage than settings with {\SegSize} \num{10000}. The {\Rlin} score with {\SegSize} \num{100} and \num{1000} %(0.9896 and 0.9629, respectively) 
+indicate a strong linear relationship between the dependent and independent variables compared to the trend with {\SegSize} \num{10000}, which is better described by a logarithmic regression (${\Rlog} = \num{0.9303}$). % For the latter, the {\Rlog} value is higher than the corresponding {\Rlin} %(0.7729) 
+% thus suggesting that the logarithmic approximation is better suited to describe the trend. %, thus implying a higher likelihood of growth rate stabilization as the number of cases increases. 
+Differently from test \ref{test:events}, the {\Slope} score associated with the linear approximations with {\SegSize} \num{100} and \num{1000} %(\num{0.0013} and \num{0.0010}, respectively) 
 approaches \num{0}, indicating that the growth rate of memory usage as the number of cases increases is negligible.
 %
-In \cref{fig:org_results}, we present the results of test~\ref{test:organizations}, on the relation between the number of organizations and the memory usage. The chart shows that memory usage trends increase as provisioning organizations increase for all three segment sizes. The {\Rlin} values for the three {\SegSize}s are very high, %(\num{0.9770}, \num{0.9602}, and \num{0.9066}, from the lower to the higher \SegSize), 
+In \cref{fig:org_results}, we present the results of test~\ref{test:organizations}, on the relation between the number of organizations and memory usage. The chart shows that memory usage trends increase as provisioning organizations increase for all three segment sizes. The {\Rlin} values for the three {\SegSize}s are very high, %(\num{0.9770}, \num{0.9602}, and \num{0.9066}, from the lower to the higher \SegSize), 
 indicating a strong positive linear correlation. % between the number of organizations and memory usage. 
 The test with {\SegSize} \num{100} exhibits the slowest growth rate, as corroborated by the lowest {\Slope} result (\num{0.3184}). 
 For the configuration with {\SegSize} \num{500}, the memory usage increases slightly faster (${\Slope} = {0.5174}$). With {\SegSize} \num{1000}, the overall memory usage increases significantly faster than the previous configurations (${\Slope} = 0.6102$). We derive from these findings that the \Compo{Secure Miner} may encounter scalability issues when handling settings with a large number of provisioning organizations. Further investigation is warranted to determine the precise cause of this behavior and identify potential mitigation strategies. 
 
-In the next section, we conclude our work and outline future research directions based upon our current findings and the limitations of our approach.
+In the next section, we discuss other future endeavors stemming from our work.
+%In the next section, we conclude our work and outline future research directions based upon our current findings and limitations of our approach.
