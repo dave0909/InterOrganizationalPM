@@ -9,6 +9,7 @@
 \caption{A BPMN collaboration diagram of a simplified healthcare scenario}
 \label{fig:BPMN_Healthcare}
 \end{figure}
+%
 \begin{table}[t]%\hskip-2.5cm
   \caption[Event log]{Events from cases 312 (Alice) and 711 (Bob) recorded by the \Actor{Hospital}, the \Actor{Specialized clinic}, and the \Actor{Pharmaceutical company}}
  \centering
@@ -82,7 +83,7 @@
     %\begin{minipage}[t]{0.45\linewidth}
     %\subfloat[Pharmaceutical Company]{\label{tab:testResults:decentralized}% Subtable 2
      \label{tab:trace}
-    \end{table}
+\end{table}
 
 \begin{comment}
 \begin{figure}[t]
@@ -155,10 +156,14 @@
      \label{tab:trace}
     \end{table}
 \end{comment}
-\section{Motivating Scenario}\label{sec:motivating}
-For our motivating scenario, we focus on a simplified hospitalization process for the treatment of rare diseases.
+
+\section{Motivating Scenario}\label{sec:motivating}%
+\begin{newj}
+\vspace{-1\baselineskip}
+To provide a running example and motivating scenario for our investigation, we focus on a simplified hospitalization process for the treatment of rare diseases.
+\end{newj}
 The process model is depicted as a BPMN diagram in \cref{fig:BPMN_Healthcare} and involves the cooperation of three parties: a \Actor{Hospital}, a \Actor{Pharmaceutical company}, and a \Actor{Specialized clinic}.
-For the sake of simplicity, we describe the process through two cases, recorded by the information systems as in \cref{tab:testedlogs}. Alice's journey (\textbf{case 312}) begins when she enters the hospital for the preliminary examinations (patient hospitalized, \Activ{PH}). The \Actor{Hospital} then places an order for the drugs (\Activ{OD}) to the \Actor{Pharmaceutical company} for  treating Alice's specific condition. Afterwards, the \Actor{Pharmaceutical company} acknowledges that the drugs order is received (\Activ{DOR}), proceeds to produce the drugs in the laboratory (\Activ{PDL}), and ships the drugs (\Activ{SD}) back to the \Actor{Hospital}. Upon receiving the medications, the \Actor{Hospital} administers the drug (\Activ{AD}), and conducts an assessment to determine if Alice can be treated internally. If specialized care is required, the \Actor{Hospital} transfers the patient (\Activ{TP}) to the \Actor{Specialized clinic}. When the patient arrives from the hospital (\Activ{PAFH}), the \Actor{Specialized clinic} performs in-depth analyses (\Activ{PIA}) and proceeds with the treatment (\Activ{PT}). Once the \Actor{Specialized clinic} had completed the evaluations and verified the response to the treatment (\Activ{VRT}), it transfers the patient back (\Activ{TPB}). The \Actor{Hospital} receives the patient back \Activ(RPB) and prepares the clinical documentation (\Activ{PCD}). If Alice has successfully recovered, the \Actor{Hospital} declares the patient as healed (\Activ{DPH}). When Alice's treatment is complete, the \Actor{Hospital} discharges the patient (\Activ{DP}). 
+For the sake of simplicity, we describe the process through two cases, recorded by the information systems as in \cref{tab:trace}. Alice's journey (\textbf{case 312}) begins when she enters the hospital for the preliminary examinations (patient hospitalized, \Activ{PH}). The \Actor{Hospital} then places an order for the drugs (\Activ{OD}) to the \Actor{Pharmaceutical company} for  treating Alice's specific condition. Afterwards, the \Actor{Pharmaceutical company} acknowledges that the drugs order is received (\Activ{DOR}), proceeds to produce the drugs in the laboratory (\Activ{PDL}), and ships the drugs (\Activ{SD}) back to the \Actor{Hospital}. Upon receiving the medications, the \Actor{Hospital} administers the drug (\Activ{AD}), and conducts an assessment to determine if Alice can be treated internally. If specialized care is required, the \Actor{Hospital} transfers the patient (\Activ{TP}) to the \Actor{Specialized clinic}. When the patient arrives from the hospital (\Activ{PAFH}), the \Actor{Specialized clinic} performs in-depth analyses (\Activ{PIA}) and proceeds with the treatment (\Activ{PT}). Once the \Actor{Specialized clinic} had completed the evaluations and verified the response to the treatment (\Activ{VRT}), it transfers the patient back (\Activ{TPB}). The \Actor{Hospital} receives the patient back \Activ(RPB) and prepares the clinical documentation (\Activ{PCD}). If Alice has successfully recovered, the \Actor{Hospital} declares the patient as healed (\Activ{DPH}). When Alice's treatment is complete, the \Actor{Hospital} discharges the patient (\Activ{DP}). 
 %
 Bob (\textbf{case 711}) enters the \Actor{Hospital} a few hours later than Alice. His hospitalization process is similar to Alice's. However, he does not need specialized care, and his case is only treated by the \Actor{Hospital}. Therefore, the \Actor{Hospital} performs the response to treatment analyses (\Activ{PRTA}) instead of transferring him to the \Actor{Specialized clinic}. 
 
@@ -168,4 +173,9 @@ The \Actor{Hospital}, the \Actor{Specialized clinic}, and the \Actor{Pharmaceuti
 In \cref{tab:trace}, we show the cases 312 and 711 and the corresponding traces recorded by the \Actor{Hospital} (i.e., $T^H_{312}$ and $T^H_{711}$), the \Actor{Specialized clinic} (i.e., $T^S_{312}$ and $T^S_{711}$), and the \Actor{Pharmaceutical company} (i.e., $T^C_{312}$ and $T^C_{711}$).
 % In order to gain valuable insights concerning the whole hospitalization process, the \Activ{Hospital} retrieves event logs from the \Actor{Specialized clinic} and the \Actor{Pharmaceutical company}. These include $T_{S312}$, $T_{C312}$, $T_{S711}$, $T_{C711}$. The \Activ{Hospital} combines its traces with those sharing the same id from the \Actor{Specialized clinic} and the \Actor{Pharmaceutical company}. The results of this procedure are chronologically sorted traces that encompass the events of the three organizations. Therefore, the \Actor{Hospital} combines $T_{H312}, T_{C312}, T_{S312}$ and $T_{H711}, T_{C711}, T_{S711}$ generating 
 Those traces are projections of the two combined ones for the whole inter-organizational process: $T_{312}=$\textlangle{}{\TaliceUncolored}\textrangle{} and $T_{711}=$\textlangle{}{\TbobUncolored}\textrangle{}. %Merged traces are used by the \Actor{Hospital} as input of the HeuristicsMiner~\cite{heuristicsminer} algorithm that outputs the business model of the whole process. Finally, the \Actor{Hospital} employs the outputs of the algorithm to uncover hidden process insights, revealing patterns, deviations, and opportunities for optimization within the hospitalization routine. 
-Results stemming from the analysis of the local cases would not provide a full picture. Data should be merged. However, to preserve the privacy of the people involved and safeguard the confidentiality of the information, the involved parties cannot give open access to their traces to other organizations. The diverging interests (being able to conduct process mining on data from multiple sources without giving away the local event logs in-clear) motivate our research. In the following, we describe the design of our solution.
+Results stemming from the analysis of the local cases would not provide a full picture. Data should be merged. However, to %preserve the privacy of the people involved and 
+safeguard the confidentiality of the information, the involved parties cannot give other organizations open access to their traces. The diverging interests (being able to conduct process mining on data from multiple sources without giving away the local event logs in-clear) motivate our research. %
+\begin{newj}
+We remark that the problem we aim to solve spans across an array of domains beyond healthcare. It particularly applies to scenarios in which one or more parties are interested in process analytics outcomes based on data they bear but cannot be disclosed to the other process actors or to the miners.
+In the supply chain realm, the extraction of aggregate knowledge about trends and management guidelines is called for, but the acquisition of competitive advantage out of knowledge leakage must be prevented~\cite{DBLP:journals/isf/TanWC16}. In personal informatics, company-wide work routine monitoring and analysis are desirable, though the details of individual participants should be sheltered from inquisitive inspections~\cite{DBLP:conf/rcis/SinikBR23}.
+\end{newj}

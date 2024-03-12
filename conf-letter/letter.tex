@@ -1,0 +1,83 @@
+% Uncomment the following line to have comments hihglighted
+\documentclass[9pt,draft]{article}
+% Uncomment the following line to disable comments and highlights
+% \documentclass[9pt,final]{extarticle}
+
+\input{addon/pkgloading-for-letter-to-reviewers}
+\input{addon/commands-for-letter-to-reviewers}
+%
+% Bibliography management
+\usepackage[square,comma,numbers,sort,sectionbib,nonamebreak]{natbib}
+
+% Defines the path for the main output file (so as to cross-reference sections, figures, table there, by prepending "paper:" to the original label )
+\externaldocument[paper:]{../src-conf/main}
+
+\def\PaperTitle{Trusted Execution Environment for Decentralized Process Mining}
+\def\PaperId{146}
+
+\def\AuthorsInLetter{Valerio Goretti, Davide Basile, Luca Barbaro, Claudio {Di Ciccio}}
+\def\AuthorsInSignature{Valerio Goretti, Davide Basile, Luca Barbaro, and Claudio {Di Ciccio}}
+
+
+%opening
+\title{\textbf{\PaperTitle} \\ {\Large Revision notes}}
+%
+%
+\author[1]{Valerio Goretti}
+%
+\author[1]{Davide Basile}
+%
+\author[1]{Luca Barbaro}
+%
+\author[1,2]{Claudio~{Di~Ciccio}}
+%
+\affil[1]{Sapienza University of Rome, Rome, Italy}
+\affil[2]{Utrecht University, Utrecht, Netherlands}
+
+%
+\date{}
+\begin{document}
+
+\maketitle
+
+\input{intro}
+\vfill
+\input{manuscriptinfo}
+\vfill
+\pagebreak
+
+\input{revision-notes/meta-review}
+
+%\SkipSpaceForReviewerComments
+
+\input{revision-notes/reviewer1}
+
+\SkipSpaceForReviewerComments
+
+\input{revision-notes/reviewer2}
+
+\SkipSpaceForReviewerComments
+
+\input{revision-notes/reviewer3}
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Back matter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Bibliography
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\bibliographystyle{unsrtnat}
+%\bibliography{bibliography/bib}
+%
+%
+% Remove it when you are done
+\ifoptiondraft{
+\pagebreak
+\section*{How to use commands for this response letter}
+\input{revision-notes/revisionnotes-example}
+}{}
+
+\end{document}

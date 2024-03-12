@@ -40,11 +40,30 @@
     listparindent=\parindent,
   ]\item[]\relax}
  {\enditemize}
+
+\newenvironment{newj}[1][]{%
+	% No hyperrefs here
+%	\begin{NoHyper}%
+	% Change the colour to olive green
+        \noindent
+        \color{violet}
+        %uncomment the line below for black text 
+	%\color{black}%
+ 
+}{%
+	% Restores the normal colour
+	\normalcolor%
+	% Restores the normal hyperref behaviour
+%	\end{NoHyper}%
+}
+\newcommand\NewJ[1]{{\textcolor{violet}{#1}}}
+ 
 \begin{document}
 %
-\title{Preserving Data Secrecy in Decentralized \\ Inter-organizational Process Mining}
+%\title{Preserving Data Secrecy in Decentralized \\ Inter-organizational Process Mining}
+\title{Trusted Execution Environment for \\ Decentralized Process Mining}
 %
-\titlerunning{Data Secrecy in Decentralized Inter-organizational Process Mining}
+\titlerunning{TEE for Decentralized Process Mining}
 % If the paper title is too long for the running head, you can set
 % an abbreviated paper title here
 %
@@ -61,7 +80,7 @@ Claudio~Di~Ciccio\inst{1,2}\orcidlink{0000-0001-5570-0475}%\inst{1}\orcidID{0000
 %
 \institute{Sapienza University of Rome, Italy, \email{\href{mailto:davide.basile@uniroma1.it;luca.barbaro@uniroma1.it;valerio.goretti@uniroma1.it;claudio.diciccio@uniroma1.it}{name.surname@uniroma1.it}}
 \and
-Utrecht University, Netherlands}%, \email{\href{mailto:c.diciccio@uu.nl}{c.diciccio@uu.nl}}}
+Utrecht University, Netherlands, \email{\href{mailto:c.diciccio@uu.nl}{c.diciccio@uu.nl}}}
 %
 \maketitle
 
@@ -70,7 +89,7 @@ Utrecht University, Netherlands}%, \email{\href{mailto:c.diciccio@uu.nl}{c.dicic
  \keywords{%
  	Collaborative information systems architectures
  	\and
- 	Trusted execution environments
+ 	Inter-organizational process mining
  	\and
  	Confidential computing%
  }
